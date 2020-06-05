@@ -6,13 +6,17 @@ public class EnemyScript : MonoBehaviour
 {
     public GameObject AttackingObj;
 
-    public GameObject RightArrow;
-    public GameObject LeftArrow;
-    public GameObject UpArrow;
-    public GameObject DownArrow;
+    public Sprite ArrowSprite;
+
+    private Sprite AttackSprite;
+
+    private void Awake()
+    {
+        AttackSprite = AttackingObj.GetComponent<Sprite>();
+    }
 
     private void Update()
     {
-        AttackingObj = RightArrow;
+        AttackSprite = ArrowSprite;
     }
 }

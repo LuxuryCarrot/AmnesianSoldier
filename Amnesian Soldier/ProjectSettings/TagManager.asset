@@ -6,6 +6,7 @@ TagManager:
   tags:
   - N_Ground
   - LastGround
+  - Ground_MG
   layers:
   - Default
   - TransparentFX

@@ -171,13 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackingObj: {fileID: 1664077475619739630}
-  RightArrow: {fileID: 451922449954416321, guid: 49e02fe0d0c8dd04daeb5a33eb99c1ca,
-    type: 3}
-  LeftArrow: {fileID: 6613098734982657750, guid: 6a622ca90165d184aa954905ea94c444,
-    type: 3}
-  UpArrow: {fileID: 548872205002911952, guid: 5f7de68f06adcd349883e41f3d7ab638, type: 3}
-  DownArrow: {fileID: 6366970216300673418, guid: 260e1e57b6d09424ca9da65ad223324d,
-    type: 3}
+  ArrowSprite: {fileID: 21300000, guid: 9e51729461809f8498cfbcac200e2a45, type: 3}
 --- !u!1 &4478021595846067628
 GameObject:
   m_ObjectHideFlags: 0
