@@ -13,9 +13,9 @@ public class PlayerAbandon : PlayerParent
     {
         base.BeginState();
         //상태 시작시 속도를 초기화함
-        zSpeed = Random.Range(0,1)>=0.5? 5: -5;
+        zSpeed = Random.Range(0,1)>=0.5? 10: -10;
         getBack = false;
-        temp = 0.7f;
+        temp = 0.35f;
     }
     private void Update()
     {
@@ -37,11 +37,15 @@ public class PlayerAbandon : PlayerParent
             //다시 원래 z 축으로 돌아감.
             manager.controller.Move(new Vector3(0, 0, -zSpeed * Time.deltaTime) + manager.speed * Time.deltaTime);
             if (Mathf.Abs(transform.position.z) <= 0.1f)
+            {
+                manager.losed = false;
                 manager.SetState(PlayerState.IDLE);
+            }
         }
     }
     public override void EndState()
     {
         base.EndState();
+        
     }
 }

@@ -13,55 +13,36 @@ public class PlayerIdle : PlayerParent
     {
         manager.controller.Move(manager.speed*Time.deltaTime);
         if(manager.iteratingEnemy!=null
-            &&manager.iteratingEnemy.transform.position.x - transform.position.x <=manager.range)
+            &&manager.iteratingEnemy.transform.position.x - transform.position.x <=manager.attackRange)
         {
             manager.SetState(PlayerState.MONSTERBATTLE);
         }
 
         //키보드 입력으로 화살표를 사출하는 코드
-        if(Input.GetKeyDown(KeyCode.W))
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            for(int i=0; i<manager.CardDeckUI.transform.GetChild(0).childCount; i++)
-            {
-                if(manager.CardDeckUI.transform.GetChild(0).GetChild(i).GetComponent<CardParent>().thisType ==AttackType.UP)
-                {
-                    manager.CardDeckUI.transform.GetChild(0).GetChild(i).GetComponent<CardParent>().KeyBordInput();
-                    break;
-                }
-            }
+            if(manager.CardDeckUI.transform.GetChild(0).childCount>0)
+                manager.CardDeckUI.transform.GetChild(0).GetChild(0).GetComponent<CardParent>().KeyBordInput();
         }
-        else if(Input.GetKeyDown(KeyCode.A))
+        else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            for (int i = 0; i < manager.CardDeckUI.transform.GetChild(0).childCount; i++)
-            {
-                if (manager.CardDeckUI.transform.GetChild(0).GetChild(i).GetComponent<CardParent>().thisType == AttackType.LEFT)
-                {
-                    manager.CardDeckUI.transform.GetChild(0).GetChild(i).GetComponent<CardParent>().KeyBordInput();
-                    break;
-                }
-            }
+            if (manager.CardDeckUI.transform.GetChild(0).childCount > 1)
+                manager.CardDeckUI.transform.GetChild(0).GetChild(1).GetComponent<CardParent>().KeyBordInput();
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            for (int i = 0; i < manager.CardDeckUI.transform.GetChild(0).childCount; i++)
-            {
-                if (manager.CardDeckUI.transform.GetChild(0).GetChild(i).GetComponent<CardParent>().thisType == AttackType.RIGHT)
-                {
-                    manager.CardDeckUI.transform.GetChild(0).GetChild(i).GetComponent<CardParent>().KeyBordInput();
-                    break;
-                }
-            }
+            if (manager.CardDeckUI.transform.GetChild(0).childCount > 2)
+                manager.CardDeckUI.transform.GetChild(0).GetChild(2).GetComponent<CardParent>().KeyBordInput();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            for (int i = 0; i < manager.CardDeckUI.transform.GetChild(0).childCount; i++)
-            {
-                if (manager.CardDeckUI.transform.GetChild(0).GetChild(i).GetComponent<CardParent>().thisType == AttackType.DOWN)
-                {
-                    manager.CardDeckUI.transform.GetChild(0).GetChild(i).GetComponent<CardParent>().KeyBordInput();
-                    break;
-                }
-            }
+            if (manager.CardDeckUI.transform.GetChild(0).childCount > 3)
+                manager.CardDeckUI.transform.GetChild(0).GetChild(3).GetComponent<CardParent>().KeyBordInput();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            if (manager.CardDeckUI.transform.GetChild(0).childCount > 4)
+                manager.CardDeckUI.transform.GetChild(0).GetChild(4).GetComponent<CardParent>().KeyBordInput();
         }
     }
     public override void EndState()

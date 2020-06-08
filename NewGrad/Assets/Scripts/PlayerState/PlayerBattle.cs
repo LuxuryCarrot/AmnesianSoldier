@@ -12,33 +12,55 @@ public class PlayerBattle : PlayerParent
     }
     private void Update()
     {
-        if(BattleDetermine.Determine(manager.attackType, manager.iteratingEnemy.attackType) ==BattleResult.WIN)
+        AttackType playerType=AttackType.NONE;
+        if (manager.attackType.Count != 0)
+            playerType = manager.attackType.Dequeue();
+        for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
+            manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
+
+        if(manager.losed)
+        {
+            manager.iteratingEnemy = null;
+            manager.attackType.Clear();
+            manager.SetState(PlayerState.ABANDON);
+            return;
+        }
+
+        if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType) ==BattleResult.WIN)
         {
             MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
+            StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
             Destroy(manager.iteratingEnemy.gameObject);
             manager.iteratingEnemy = null;
-            manager.attackType = AttackType.NONE;
+            manager.attackType.Clear();
             manager.SetState(PlayerState.IDLE);
         }
-        else if(manager.attackType==AttackType.NONE)
+        else if(playerType == AttackType.NONE)
         {
             manager.iteratingEnemy = null;
-            manager.attackType = AttackType.NONE;
+            StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
+            manager.HP--;
+            StageManager.stageSingletom.HPText.text = manager.HP.ToString();
+            manager.attackType.Clear();
             manager.SetState(PlayerState.ABANDON);
         }
-        else if(BattleDetermine.Determine(manager.attackType, manager.iteratingEnemy.attackType) == BattleResult.LOSE)
+        else if(BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType) == BattleResult.LOSE)
         {
             manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
-            manager.iteratingEnemy = null;
+            StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
+            //manager.iteratingEnemy = null;
             manager.HP--;
-            manager.attackType = AttackType.NONE;
+            StageManager.stageSingletom.HPText.text = manager.HP.ToString();
+            manager.losed = true;
+            manager.attackType.Clear();
             manager.SetState(PlayerState.KNOCKBACK);
         }
         else
         {
             manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
-            manager.iteratingEnemy = null;
-            manager.attackType = AttackType.NONE;
+            StageManager.stageSingletom.DrawFlashCanvas.SetActive(true);
+            //manager.iteratingEnemy = null;
+            manager.attackType.Clear();
             manager.SetState(PlayerState.KNOCKBACK);
         }
     }

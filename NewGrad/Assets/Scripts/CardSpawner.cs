@@ -8,15 +8,23 @@ public class CardSpawner : MonoBehaviour
     public GameObject card;
 
     //업데이트 문에서 덱에서 카드를 불러옴. 
+    private void Start()
+    {
+        for (; transform.childCount < 5;)
+            DrawCard();
+    }
     private void Update()
     {
-        for(; transform.childCount<5; )
-        {
-            if (DeckList.Deck.Count == 0)
-                break;
+        
+    }
+    public void DrawCard()
+    {
+        
+            if (DeckList.Deck.Count == 0 || transform.childCount>=5)
+                return;
 
             GameObject newCard = Instantiate(card, transform);
             newCard.GetComponent<CardParent>().DecideCard(DeckList.Deck.Dequeue());
-        }
+        
     }
 }

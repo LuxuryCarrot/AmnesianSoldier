@@ -36,20 +36,23 @@ public class PlayerManager : MonoBehaviour
     //카메라 위치보정 벡터
     public Vector3 camPos;
     //공격타입.
-    public AttackType attackType;
+    public Queue<AttackType> attackType = new Queue<AttackType>();
     //하단 UI
     public GameObject CardDeckUI;
 
     public float ySpeed=0;
     public float gravity;
     public float range;
+    public float attackRange;
+    public bool losed;
 
     //상태를 넣는 dictionary
     Dictionary<PlayerState, PlayerParent> PlayerFlow = new Dictionary<PlayerState, PlayerParent>();
-    
+    //float commandTimeTemp=0.5f;
 
     private void Awake()
     {
+        losed = false;
         //싱글톤 초기화
         if (playerSingleton == null)
             playerSingleton = this;
@@ -64,7 +67,7 @@ public class PlayerManager : MonoBehaviour
         PlayerFlow.Add(PlayerState.KNOCKBACK, GetComponent<PlayerKnockBack>());
         PlayerFlow.Add(PlayerState.DIE, GetComponent<PlayerDie>());
         PlayerFlow.Add(PlayerState.ABANDON, GetComponent<PlayerAbandon>());
-        attackType = AttackType.NONE;
+        attackType.Clear();
         current = PlayerState.DELAY;
         SetState(current);
     }
@@ -108,4 +111,5 @@ public class PlayerManager : MonoBehaviour
             SetState(PlayerState.DIE);
         }
     }
+    
 }

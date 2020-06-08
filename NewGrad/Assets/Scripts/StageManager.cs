@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //스테이지 상태를 나타내는 열거
 public enum StageState
@@ -37,6 +38,11 @@ public class StageManager : MonoBehaviour
     public GameObject mapCanvas;
     //스테이지 매니저 싱글톤
     public static StageManager stageSingletom;
+    public GameObject WinFlashCanvas;
+    public GameObject LoseFlashCanvas;
+    public GameObject DrawFlashCanvas;
+    public GameObject CardDeck;
+    public Text HPText;
 
     //FSM 저장부
     Dictionary<StageState, StageParent> StageFlow = new Dictionary<StageState, StageParent>();
@@ -48,6 +54,7 @@ public class StageManager : MonoBehaviour
 
         //미니맵 캔버스
         mapCanvas = GameObject.FindGameObjectWithTag("Map");
+        CardDeck = GameObject.FindGameObjectWithTag("CardDeck").transform.GetChild(0).gameObject;
 
         StageFlow.Add(StageState.READY, GetComponent<StageStart>());
         StageFlow.Add(StageState.IDLE, GetComponent<StageIDLE>());
@@ -55,6 +62,9 @@ public class StageManager : MonoBehaviour
         StageFlow.Add(StageState.GAMEOVER, GetComponent<StageGameOver>());
         StageFlow.Add(StageState.MAPSELECT, GetComponent<StageSelectMap>());
         StageFlow.Add(StageState.GAMECLEAR, GetComponent<StageClear>());
+        WinFlashCanvas.SetActive(false);
+        LoseFlashCanvas.SetActive(false);
+        DrawFlashCanvas.SetActive(false);
         current = StageState.READY;
         SetState(current);
     }

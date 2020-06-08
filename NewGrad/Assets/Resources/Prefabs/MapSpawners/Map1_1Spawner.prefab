@@ -45,9 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapPrefab: {fileID: 911791879556073328, guid: a05fda2d220c8734ebeb0ef3475083d1,
     type: 3}
-  monsterPrefab: {fileID: 6254361958762429973, guid: 0d2a42dae2f3c0c49a9ccff01179dfba,
-    type: 3}
-  startSpawnPos: 30
-  mapMaxPos: 60
-  monsterMinDistance: 5
-  monsterMaxDistance: 10
+  monsterPrefab:
+  - {fileID: 6254361958762429973, guid: 0d2a42dae2f3c0c49a9ccff01179dfba, type: 3}
+  - {fileID: 1686942569005877315, guid: 1feca822d1eeac448bfe1d7c57e96da8, type: 3}
+  - {fileID: 970495092198981321, guid: 486f23b81621db242b0fcb0305438cff, type: 3}
+  startSpawnPos: 60
+  mapMaxPos: 200
+  monsterMinDistance: 10
+  monsterMaxDistance: 15

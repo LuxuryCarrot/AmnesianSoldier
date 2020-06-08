@@ -6,7 +6,7 @@ using UnityEngine;
 public class MapSpawnInstance : MapSpawnerParent
 {
     public GameObject mapPrefab;
-    public GameObject monsterPrefab;
+    public GameObject[] monsterPrefab;
     public int startSpawnPos;
     public int mapMaxPos;
     public int monsterMinDistance;
@@ -26,7 +26,7 @@ public class MapSpawnInstance : MapSpawnerParent
             mapBox.transform.localPosition = new Vector3(MapPositionManager.mapMax+i, 0, 0);
             if (i>=10 && Random.Range(0, 20) <= 1 && monsterMinDistanceTemp>=monsterMinDistance)
             {
-                GameObject monster = Instantiate(monsterPrefab, this.transform);
+                GameObject monster = Instantiate(monsterPrefab[Random.Range(0, monsterPrefab.Length)], this.transform);
                 monster.transform.localPosition = new Vector3(MapPositionManager.mapMax + i, 1.5f, 0);
                 monsterMinDistanceTemp = 0;
                 MonsterManager.Monsters.Add(monster);
@@ -36,7 +36,7 @@ public class MapSpawnInstance : MapSpawnerParent
             //최대 거리 이상 되면 몬스터 무조건 스폰.
             if (monsterMinDistanceTemp >= monsterMaxDistance)
             {
-                GameObject monster = Instantiate(monsterPrefab, this.transform);
+                GameObject monster = Instantiate(monsterPrefab[Random.Range(0, monsterPrefab.Length)], this.transform);
                 monster.transform.localPosition = new Vector3(MapPositionManager.mapMax + i, 1.5f, 0);
                 monsterMinDistanceTemp = 0;
                 MonsterManager.Monsters.Add(monster);
@@ -52,7 +52,7 @@ public class MapSpawnInstance : MapSpawnerParent
         //최소 거리 이상이 되면 확률에 따라 몹 스폰.
         if ( Random.Range(0, 20) <= 1 && monsterMinDistanceTemp >= monsterMinDistance)
         {
-            GameObject monster = Instantiate(monsterPrefab, this.transform);
+            GameObject monster = Instantiate(monsterPrefab[Random.Range(0, monsterPrefab.Length)], this.transform);
             monster.transform.localPosition = new Vector3(MapPositionManager.mapPos, 1.5f, 0);
             monsterMinDistanceTemp = 0;
             MonsterManager.Monsters.Add(monster);
@@ -62,7 +62,7 @@ public class MapSpawnInstance : MapSpawnerParent
         //최대 거리 이상 되면 몬스터 무조건 스폰.
         if (monsterMinDistanceTemp >= monsterMaxDistance)
         {
-            GameObject monster = Instantiate(monsterPrefab, this.transform);
+            GameObject monster = Instantiate(monsterPrefab[Random.Range(0, monsterPrefab.Length)], this.transform);
             monster.transform.localPosition = new Vector3(MapPositionManager.mapPos, 1.5f, 0);
             monsterMinDistanceTemp = 0;
             MonsterManager.Monsters.Add(monster);

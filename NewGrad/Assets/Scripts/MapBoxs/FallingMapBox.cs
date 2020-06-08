@@ -7,7 +7,7 @@ public class FallingMapBox : MonoBehaviour
 {
 
     float temp = 1.0f;
-    float gravity = 15.0f;
+    public float gravity;
     float ySpeed = 0;
     bool isPlayerUp=false;
 
