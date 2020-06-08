@@ -1,0 +1,84 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
+public class CardParent : MonoBehaviour, IPointerClickHandler
+{
+    public bool isExecuted=false;
+    public bool isParented = false;
+    public AttackType thisType;
+    float temp = 1.0f;
+
+    private void Awake()
+    {
+        
+    }
+
+    private void Update()
+    {
+        if(isParented)
+        {
+            temp -= Time.deltaTime;
+            if (temp <= 0)
+                Destroy(this.gameObject);
+        }
+    }
+
+    public virtual void Execute()
+    {
+
+    }
+
+    //클릭하면 카드를 플레이어에게 옮겨붙이는 기능
+    public virtual void OnPointerClick(PointerEventData eventData)
+    {
+        //카드가 없을때만 붙이도록 비교문 넣어둠
+        if (PlayerManager.playerSingleton.iteratingEnemy == null || isExecuted==true || PlayerManager.playerSingleton.inputSlot.transform.childCount!=0 || PlayerManager.playerSingleton.current!=PlayerState.IDLE)
+            return;
+        isExecuted = true;
+        isParented = true;
+        PlayerManager.playerSingleton.attackType = thisType;
+        transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
+        GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
+        
+        GetComponent<RectTransform>().localPosition = new Vector3(0, 1.5f, 0);
+    }
+    //키보드를 입력받을 시, 스테이지 매니저에서 발동하는 함수
+    public virtual void KeyBordInput()
+    {
+        if (PlayerManager.playerSingleton.iteratingEnemy == null || isExecuted == true || PlayerManager.playerSingleton.inputSlot.transform.childCount != 0 || PlayerManager.playerSingleton.current != PlayerState.IDLE)
+            return;
+        isExecuted = true;
+        isParented = true;
+        PlayerManager.playerSingleton.attackType = thisType;
+        transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
+        GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
+
+        GetComponent<RectTransform>().localPosition = new Vector3(0, 1.5f, 0);
+    }
+    //초기화 시 카드의 타입을 초기화하는 기능.
+    public virtual void DecideCard(string types)
+    {
+        if (types == "Up")
+        {
+            transform.Rotate(0, 0, -90);
+            thisType = AttackType.UP;
+        }
+        else if (types == "Down")
+        {
+            transform.Rotate(0, 0, 90);
+            thisType = AttackType.DOWN;
+        }
+        else if (types == "Left")
+        {
+            thisType = AttackType.LEFT;
+        }
+        else
+        {
+            transform.Rotate(0, 0, 180);
+            thisType = AttackType.RIGHT;
+        }
+    }
+}
