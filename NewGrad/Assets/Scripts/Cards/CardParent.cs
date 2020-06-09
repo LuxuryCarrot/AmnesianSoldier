@@ -31,10 +31,7 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public virtual void Execute()
-    {
-
-    }
+    
 
     //클릭하면 카드를 플레이어에게 옮겨붙이는 기능
     public virtual void OnPointerClick(PointerEventData eventData)
@@ -49,6 +46,7 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
         GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
         
         GetComponent<RectTransform>().localPosition = new Vector3(PlayerManager.playerSingleton.inputSlot.transform.childCount-1, 1.5f, 0);
+        StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
     }
     //키보드를 입력받을 시, 스테이지 매니저에서 발동하는 함수
     public virtual void KeyBordInput()
@@ -65,28 +63,7 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
         StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
     }
     //초기화 시 카드의 타입을 초기화하는 기능.
-    public virtual void DecideCard(string types)
-    {
-        if (types == "Up")
-        {
-            transform.Rotate(0, 0, -90);
-            thisType = AttackType.UP;
-        }
-        else if (types == "Down")
-        {
-            transform.Rotate(0, 0, 90);
-            thisType = AttackType.DOWN;
-        }
-        else if (types == "Left")
-        {
-            thisType = AttackType.LEFT;
-        }
-        else
-        {
-            transform.Rotate(0, 0, 180);
-            thisType = AttackType.RIGHT;
-        }
-    }
+    
     public virtual void DestroyThis()
     {
         Destroy(this.gameObject);

@@ -23,8 +23,8 @@ public class CardSpawner : MonoBehaviour
             if (DeckList.Deck.Count == 0 || transform.childCount>=5)
                 return;
 
-            GameObject newCard = Instantiate(card, transform);
-            newCard.GetComponent<CardParent>().DecideCard(DeckList.Deck.Dequeue());
+            GameObject newCard = Instantiate(Resources.Load("Prefabs/Cards/"+ DeckList.Deck.Dequeue()) as GameObject, transform);
+            
         
     }
 }

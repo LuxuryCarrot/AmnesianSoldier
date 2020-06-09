@@ -12,7 +12,8 @@ public enum StageState
     BOSSBATTLE,
     MAPSELECT,
     GAMEOVER,
-    GAMECLEAR
+    GAMECLEAR,
+    REST
 }
 //공격타입
 public enum AttackType
@@ -62,6 +63,7 @@ public class StageManager : MonoBehaviour
         StageFlow.Add(StageState.GAMEOVER, GetComponent<StageGameOver>());
         StageFlow.Add(StageState.MAPSELECT, GetComponent<StageSelectMap>());
         StageFlow.Add(StageState.GAMECLEAR, GetComponent<StageClear>());
+        StageFlow.Add(StageState.REST, GetComponent<StageRest>());
         WinFlashCanvas.SetActive(false);
         LoseFlashCanvas.SetActive(false);
         DrawFlashCanvas.SetActive(false);

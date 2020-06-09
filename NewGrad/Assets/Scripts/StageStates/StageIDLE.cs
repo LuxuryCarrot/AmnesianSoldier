@@ -23,7 +23,7 @@ public class StageIDLE : StageParent
             }
             else
             {
-                Destroy(MapPositionManager.field.transform.GetChild(0).gameObject);
+                //Destroy(MapPositionManager.field.transform.GetChild(0).gameObject);
                 manager.SetState(StageState.MAPSELECT);
             }
         }

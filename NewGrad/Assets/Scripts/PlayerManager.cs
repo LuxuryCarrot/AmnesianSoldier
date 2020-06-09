@@ -56,7 +56,8 @@ public class PlayerManager : MonoBehaviour
         //싱글톤 초기화
         if (playerSingleton == null)
             playerSingleton = this;
-        HP = 3;
+        if(HP==0)
+          HP = 3;
         //각종 외부 상호작용 오브젝트들 초기화
         controller = GetComponent<CharacterController>();
         CardDeckUI = GameObject.FindGameObjectWithTag("CardDeck");

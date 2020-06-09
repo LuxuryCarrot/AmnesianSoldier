@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3406666292937969501}
-  - component: {fileID: 3804351408157307795}
+  - component: {fileID: 114393376305355404}
   m_Layer: 0
   m_Name: Map1_1Spawner
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3804351408157307795
+--- !u!114 &114393376305355404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,10 +46,9 @@ MonoBehaviour:
   mapPrefab: {fileID: 911791879556073328, guid: a05fda2d220c8734ebeb0ef3475083d1,
     type: 3}
   monsterPrefab:
-  - {fileID: 6254361958762429973, guid: 0d2a42dae2f3c0c49a9ccff01179dfba, type: 3}
-  - {fileID: 1686942569005877315, guid: 1feca822d1eeac448bfe1d7c57e96da8, type: 3}
   - {fileID: 970495092198981321, guid: 486f23b81621db242b0fcb0305438cff, type: 3}
+  - {fileID: 1686942569005877315, guid: 1feca822d1eeac448bfe1d7c57e96da8, type: 3}
   startSpawnPos: 60
-  mapMaxPos: 200
+  mapMaxPos: 150
   monsterMinDistance: 10
   monsterMaxDistance: 15
