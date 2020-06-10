@@ -70,6 +70,10 @@ public class StageManager : MonoBehaviour
         current = StageState.READY;
         SetState(current);
     }
+    private void Start()
+    {
+        Debug.Log(MonsterManager.Monsters.Count);
+    }
     private void Update()
     {
         //임시로 넣어둔 esc 누를 시 게임종료하는 기능

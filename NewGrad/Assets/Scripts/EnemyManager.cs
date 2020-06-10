@@ -7,7 +7,8 @@ public enum EnemyState
 {
     IDLE = 0,
     BATTLE,
-    KNOCKBACK
+    KNOCKBACK,
+    DIE
 }
 public class EnemyManager : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class EnemyManager : MonoBehaviour
            attackType[i] = (AttackType)((int)Random.Range(0, 3));
         anim = GetComponentInChildren<Animator>();
         current = EnemyState.IDLE;
+        EnemyFlow.Add(EnemyState.IDLE, GetComponent<EnemyWait>());
+        EnemyFlow.Add(EnemyState.DIE, GetComponent<EnemyDie>());
         if (PosImage == null)
             PosImage = Resources.Load("Prefabs/Cards/EmptyCard") as GameObject;
 
@@ -64,7 +67,7 @@ public class EnemyManager : MonoBehaviour
         dieBehavior = GetComponent <EnemyDieParent > ();
         
 
-        EnemyFlow.Add(EnemyState.IDLE, GetComponent<EnemyWait>());
+        
         EnemyFlow.Add(EnemyState.KNOCKBACK, GetComponent<EnemyKnockBack>());
         SetState(current);
     }

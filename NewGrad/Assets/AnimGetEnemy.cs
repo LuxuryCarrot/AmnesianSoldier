@@ -6,6 +6,8 @@ public class AnimGetEnemy : MonoBehaviour
 {
     public void Die()
     {
+        MonsterManager.Monsters.Remove(transform.parent.gameObject);
         Destroy(transform.parent.gameObject);
     }
+    
 }

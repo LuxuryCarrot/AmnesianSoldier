@@ -9,6 +9,10 @@ public class EnemyDieParent : MonoBehaviour
     {
         manager = GetComponent<EnemyManager>();
     }
+    public virtual void Begin()
+    {
+
+    }
     public virtual void Execute()
     {
 

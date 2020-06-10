@@ -12,7 +12,9 @@ public class PlayerBattle : PlayerParent
     }
     private void Update()
     {
-        AttackType playerType=AttackType.NONE;
+        Queue<AttackType> playertype=new Queue<AttackType>();
+        for (; manager.attackType.Count != 0;)
+            playertype.Enqueue(manager.attackType.Dequeue());
         
         for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
             manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
@@ -28,7 +30,7 @@ public class PlayerBattle : PlayerParent
             return;
         }
 
-        if (manager.attackType.Count < manager.iteratingEnemy.attackType.Length)
+        if (playertype.Count < manager.iteratingEnemy.attackType.Length)
             win = 3;
         else
         {
@@ -38,7 +40,7 @@ public class PlayerBattle : PlayerParent
                     break;
                 else
                 {
-                    playerType =manager.attackType.Dequeue();
+                    AttackType playerType =playertype.Dequeue();
                     if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.LOSE)
                         win = 1;
                     else if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.WIN)
@@ -56,16 +58,23 @@ public class PlayerBattle : PlayerParent
         {
             MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
-            if(manager.iteratingEnemy.anim!=null)
-               manager.iteratingEnemy.anim.SetBool("Die", true);
+            if (manager.iteratingEnemy.anim != null && manager.iteratingEnemy.dieBehavior == null)
+                manager.iteratingEnemy.anim.SetBool("Die", true);
+            else if (manager.iteratingEnemy.dieBehavior != null)
+            {
+                manager.iteratingEnemy.SetState(EnemyState.DIE);
+                manager.iteratingEnemy.enabled = false;
+            }
             manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
-            manager.iteratingEnemy.enabled = false;
+            
             manager.iteratingEnemy = null;
             manager.attackType.Clear();
             manager.SetState(PlayerState.IDLE);
         }
         else if(win==3)
         {
+            if (manager.iteratingEnemy.anim != null)
+                manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
             manager.iteratingEnemy = null;
             StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
             manager.HP--;

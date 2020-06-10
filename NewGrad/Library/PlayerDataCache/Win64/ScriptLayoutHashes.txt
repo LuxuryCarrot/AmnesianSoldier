@@ -194,3 +194,5 @@ d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerBattle
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyWait
 89c1e97f7398006d3084ac2263d9c984 Assembly-CSharp.dll:.CardParent
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.OnionAwake
+0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyDie
+c181cbb5ec0b09544e90b138a7ec12fe Assembly-CSharp.dll:.SlimeDie

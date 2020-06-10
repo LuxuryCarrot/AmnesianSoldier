@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1686942569005877320}
   - component: {fileID: 1686942569005877327}
   - component: {fileID: 114889818481812668}
+  - component: {fileID: 114062745901769404}
   m_Layer: 0
   m_Name: Monster2
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_LocalPosition: {x: 114.36571, y: 1117.1958, z: -252.54718}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7070499815393813352}
+  - {fileID: 7070499815393950345}
   - {fileID: 1686942570368439520}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +72,7 @@ MonoBehaviour:
   current: 0
   ySpeed: 0
   gravity: 10
-  range: 8
+  range: 10
   anim: {fileID: 0}
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}
@@ -114,6 +115,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93a09ebf920c55146ab8c12e5f4b5a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+--- !u!114 &114062745901769404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686942569005877315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35119aae45691ff449cdf8c5add4987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
@@ -221,7 +235,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7070499815393918792}
+  m_GameObject: {fileID: 7070499815393950107}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfa03df74ba2d6f4e83b14e680fcee7b, type: 3}
@@ -300,13 +314,13 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 4b4e793e6c8ad5145a32e9eadd9838dc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e251190a3691e4cb66b7dc1e6aefcd, type: 3}
---- !u!1 &7070499815393918792 stripped
+--- !u!1 &7070499815393950107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 13e251190a3691e4cb66b7dc1e6aefcd,
     type: 3}
   m_PrefabInstance: {fileID: 7070499815393950184}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7070499815393813352 stripped
+--- !u!4 &7070499815393950345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 13e251190a3691e4cb66b7dc1e6aefcd,
     type: 3}

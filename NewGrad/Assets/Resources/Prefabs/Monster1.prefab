@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6254361958762429978}
   - component: {fileID: 6254361958762429982}
   - component: {fileID: 6254361958762429977}
+  - component: {fileID: 114480956795812640}
   m_Layer: 0
   m_Name: Monster1
   m_TagString: Untagged
@@ -66,11 +67,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4309886e960df4e906c939f979ea5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackType: 0
+  attackType: 
   current: 0
   ySpeed: 0
   gravity: 10
-  range: 8
+  range: 10
+  anim: {fileID: 0}
+  awakeBehavior: {fileID: 0}
+  battleBehavior: {fileID: 0}
+  dieBehavior: {fileID: 0}
 --- !u!114 &6254361958762429982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +101,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5318826f4ce527141a66426722193ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+--- !u!114 &114480956795812640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254361958762429973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35119aae45691ff449cdf8c5add4987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
