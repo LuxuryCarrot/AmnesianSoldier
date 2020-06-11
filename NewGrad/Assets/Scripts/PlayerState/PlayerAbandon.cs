@@ -15,7 +15,7 @@ public class PlayerAbandon : PlayerParent
         //상태 시작시 속도를 초기화함
         zSpeed = Random.Range(0,1)>=0.5? 10: -10;
         getBack = false;
-        temp = 0.35f;
+        temp = 0.25f;
         
         manager.iteratingEnemy = null;
     }

@@ -37,7 +37,8 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
     public virtual void OnPointerClick(PointerEventData eventData)
     {
         //카드가 없을때만 붙이도록 비교문 넣어둠
-        if (PlayerManager.playerSingleton.iteratingEnemy == null || isExecuted==true || PlayerManager.playerSingleton.inputSlot.transform.childCount>=5 || PlayerManager.playerSingleton.current!=PlayerState.IDLE)
+        if ( isExecuted==true || PlayerManager.playerSingleton.inputSlot.transform.childCount>=5 
+            || PlayerManager.playerSingleton.current==PlayerState.ABANDON)
             return;
         isExecuted = true;
         isParented = true;
@@ -51,7 +52,8 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
     //키보드를 입력받을 시, 스테이지 매니저에서 발동하는 함수
     public virtual void KeyBordInput()
     {
-        if ( isExecuted == true || PlayerManager.playerSingleton.inputSlot.transform.childCount >=5 || PlayerManager.playerSingleton.current != PlayerState.IDLE)
+        if ( isExecuted == true || PlayerManager.playerSingleton.inputSlot.transform.childCount >=5 
+            || PlayerManager.playerSingleton.current == PlayerState.ABANDON)
             return;
         isExecuted = true;
         isParented = true;

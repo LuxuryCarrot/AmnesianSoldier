@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 //맵에 표시되는 노드.
-public class MapNode : MonoBehaviour, IPointerClickHandler
+public class MapNode : MonoBehaviour
 {
     //시작 노드를 표시하는 시작노드
     public static MapNode StartNode;
@@ -17,6 +17,7 @@ public class MapNode : MonoBehaviour, IPointerClickHandler
     public int mapNum;
     public StageState stateWhenStart;
     public string mapInfo;
+    public static MapNode[] EnabledNode;
 
     private void Awake()
     {
@@ -30,13 +31,16 @@ public class MapNode : MonoBehaviour, IPointerClickHandler
             {
                 StartNode.afterNodes[i].isEnabled = true;
             }
+            EnabledNode = afterNodes;
+            Debug.Log(EnabledNode.Length);
+            StageManager.stageSingletom.mapSelectCanvas.SetActive(false);
             StageManager.stageSingletom.mapCanvas.SetActive(false);
         }
         
     }
 
     //클릭시 이 노드를 비활성화 하고, 맵을 붙임.
-    public void OnPointerClick(PointerEventData eventData)
+    public void Activate()
     {
 
 
@@ -67,8 +71,18 @@ public class MapNode : MonoBehaviour, IPointerClickHandler
             afterNodes[i].isEnabled = true;
         }
         MapSpawnerAttach();
+        
+        if (afterNodes.Length != 0)
+        {
+            MapNode.EnabledNode = null;
+            MapNode.EnabledNode = afterNodes;
+        }
+        else
+            MapNode.EnabledNode = null;
         StageManager.stageSingletom.SetState(stateWhenStart);
+        StageManager.stageSingletom.mapSelectCanvas.SetActive(false);
         StageManager.stageSingletom.mapCanvas.SetActive(false);
+        
     }
 
     //맵을 불러옴. 

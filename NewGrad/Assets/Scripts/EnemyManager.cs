@@ -38,7 +38,7 @@ public class EnemyManager : MonoBehaviour
         if (gravity == 0)
             gravity = 10.0f;
         for(int i=0; i<attackType.Length; i++)
-           attackType[i] = (AttackType)((int)Random.Range(0, 3));
+           attackType[i] = (AttackType)((int)Random.Range(1, 2));
         anim = GetComponentInChildren<Animator>();
         current = EnemyState.IDLE;
         EnemyFlow.Add(EnemyState.IDLE, GetComponent<EnemyWait>());
@@ -49,12 +49,13 @@ public class EnemyManager : MonoBehaviour
         //카드를 붙인 뒤, 그 카드의 타입에 따라 위치 정규화. 카드 이미지가 생긴 뒤 수정할 파트.
         for (int i = 0; i < attackType.Length; i++)
         {
+            //공격타입에 따른 아이콘. 
             GameObject newPosCard = Instantiate(PosImage, transform.GetChild(1));
-            if (attackType[i] == AttackType.UP)
+            if (attackType[i] == AttackType.VERTICAL)
                 newPosCard.transform.Rotate(0, 0, -90);
-            else if (attackType[i] == AttackType.DOWN)
-                newPosCard.transform.Rotate(0, 0, 90);
-            else if (attackType[i] == AttackType.RIGHT)
+            //else if (attackType[i] == AttackType.DOWN)
+            //    newPosCard.transform.Rotate(0, 0, 90);
+            else if (attackType[i] == AttackType.HORIZON)
                 newPosCard.transform.Rotate(0, 0, 180);
 
             //사이즈를 월드 사이즈로 변경.

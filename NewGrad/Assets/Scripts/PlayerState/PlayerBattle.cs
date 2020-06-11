@@ -19,9 +19,10 @@ public class PlayerBattle : PlayerParent
         for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
             manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
 
-        //0 이김 1 짐 2 비김 3 카드수 부족
+        //0 이김 1 짐 2 비김 
         int win = 0;
 
+        //지고나서 지나가는 판정일 경우.
         if(manager.losed)
         {
             manager.iteratingEnemy = null;
@@ -31,22 +32,21 @@ public class PlayerBattle : PlayerParent
         }
 
         if (playertype.Count < manager.iteratingEnemy.attackType.Length)
-            win = 3;
+            win = 1;
         else
         {
             for(int i=0; i< manager.iteratingEnemy.attackType.Length;i++)
             {
-                if (win == 1)
+                if (win == 2)
                     break;
                 else
                 {
                     AttackType playerType =playertype.Dequeue();
                     if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.LOSE)
                         win = 1;
-                    else if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.WIN)
-                        win = 0;
-                    else
+                    else if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.DRAW)
                         win = 2;
+                  
                 }
             }
                
@@ -58,13 +58,10 @@ public class PlayerBattle : PlayerParent
         {
             MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
-            //if (manager.iteratingEnemy.anim != null && manager.iteratingEnemy.dieBehavior == null)
-            //    manager.iteratingEnemy.anim.SetBool("Die", true);
-            //else if (manager.iteratingEnemy.dieBehavior != null)
-            //{
-                manager.iteratingEnemy.SetState(EnemyState.DIE);
-                manager.iteratingEnemy.enabled = false;
-            //}
+            
+            manager.iteratingEnemy.SetState(EnemyState.DIE);
+            manager.iteratingEnemy.enabled = false;
+            
             manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
             
             manager.iteratingEnemy = null;
@@ -89,17 +86,18 @@ public class PlayerBattle : PlayerParent
             //manager.iteratingEnemy = null;
             manager.HP--;
             StageManager.stageSingletom.HPText.text = manager.HP.ToString();
-            manager.losed = true;
+            //manager.losed = true;
             manager.attackType.Clear();
             manager.SetState(PlayerState.KNOCKBACK);
         }
         else
         {
-            manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
-            StageManager.stageSingletom.DrawFlashCanvas.SetActive(true);
-            //manager.iteratingEnemy = null;
+            if (manager.iteratingEnemy.anim != null)
+                manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
+            manager.iteratingEnemy = null;
+            StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
             manager.attackType.Clear();
-            manager.SetState(PlayerState.KNOCKBACK);
+            manager.SetState(PlayerState.ABANDON);
         }
     }
     public override void EndState()

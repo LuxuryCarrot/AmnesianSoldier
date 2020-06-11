@@ -18,10 +18,9 @@ public enum StageState
 //공격타입
 public enum AttackType
 {
-    UP=0,
-    DOWN,
-    LEFT,
-    RIGHT,
+    GUARD,
+    VERTICAL,
+    HORIZON,
     NONE
 }
 //전투결과
@@ -44,6 +43,7 @@ public class StageManager : MonoBehaviour
     public GameObject DrawFlashCanvas;
     public GameObject CardDeck;
     public Text HPText;
+    public GameObject mapSelectCanvas;
 
     //FSM 저장부
     Dictionary<StageState, StageParent> StageFlow = new Dictionary<StageState, StageParent>();
@@ -56,6 +56,7 @@ public class StageManager : MonoBehaviour
         //미니맵 캔버스
         mapCanvas = GameObject.FindGameObjectWithTag("Map");
         CardDeck = GameObject.FindGameObjectWithTag("CardDeck").transform.GetChild(0).gameObject;
+        mapSelectCanvas = GameObject.FindGameObjectWithTag("MapCards");
 
         StageFlow.Add(StageState.READY, GetComponent<StageStart>());
         StageFlow.Add(StageState.IDLE, GetComponent<StageIDLE>());

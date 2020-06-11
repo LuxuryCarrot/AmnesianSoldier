@@ -9,12 +9,12 @@ public class BattleDetermine
     //방향키 방향을 바탕으로 판정 하는 함수
     public static BattleResult Determine(AttackType player, AttackType enemy)
     {
-        if ((((int)player + (int)enemy) == 1 || ((int)player + (int)enemy) == 5)||player==AttackType.NONE)
+        if (player==enemy || player==AttackType.NONE)
         {
             
             return BattleResult.LOSE;
         }
-        else if (player == enemy)
+        else if (player ==AttackType.GUARD)
             return BattleResult.DRAW;
         else
             return BattleResult.WIN;
