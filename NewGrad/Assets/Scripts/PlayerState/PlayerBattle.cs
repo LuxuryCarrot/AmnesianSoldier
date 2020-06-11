@@ -58,13 +58,13 @@ public class PlayerBattle : PlayerParent
         {
             MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
-            if (manager.iteratingEnemy.anim != null && manager.iteratingEnemy.dieBehavior == null)
-                manager.iteratingEnemy.anim.SetBool("Die", true);
-            else if (manager.iteratingEnemy.dieBehavior != null)
-            {
+            //if (manager.iteratingEnemy.anim != null && manager.iteratingEnemy.dieBehavior == null)
+            //    manager.iteratingEnemy.anim.SetBool("Die", true);
+            //else if (manager.iteratingEnemy.dieBehavior != null)
+            //{
                 manager.iteratingEnemy.SetState(EnemyState.DIE);
                 manager.iteratingEnemy.enabled = false;
-            }
+            //}
             manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
             
             manager.iteratingEnemy = null;

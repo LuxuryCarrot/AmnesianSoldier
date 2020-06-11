@@ -9,6 +9,9 @@ public class EnemyDie : EnemyParent
         base.BeginState();
         if (manager.dieBehavior != null)
             manager.dieBehavior.Begin();
+
+        if (manager.anim != null)
+            manager.anim.SetBool("Die", true);
     }
     private void Update()
     {
