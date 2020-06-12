@@ -33,7 +33,7 @@ Transform:
   m_LocalPosition: {x: 114.36571, y: 1117.1958, z: -252.54718}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7070499815393950345}
+  - {fileID: 7070499815393813352}
   - {fileID: 1686942570368439520}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,6 +77,9 @@ MonoBehaviour:
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
+  RootingCardPool:
+  - Vertical
+  - Horizon
 --- !u!114 &1686942569005877320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +238,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7070499815393950107}
+  m_GameObject: {fileID: 7070499815393918792}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfa03df74ba2d6f4e83b14e680fcee7b, type: 3}
@@ -314,13 +317,13 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 4b4e793e6c8ad5145a32e9eadd9838dc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e251190a3691e4cb66b7dc1e6aefcd, type: 3}
---- !u!1 &7070499815393950107 stripped
+--- !u!1 &7070499815393918792 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 13e251190a3691e4cb66b7dc1e6aefcd,
     type: 3}
   m_PrefabInstance: {fileID: 7070499815393950184}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7070499815393950345 stripped
+--- !u!4 &7070499815393813352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 13e251190a3691e4cb66b7dc1e6aefcd,
     type: 3}

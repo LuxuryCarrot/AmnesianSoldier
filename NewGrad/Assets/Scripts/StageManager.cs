@@ -43,6 +43,7 @@ public class StageManager : MonoBehaviour
     public GameObject DrawFlashCanvas;
     public GameObject CardDeck;
     public Text HPText;
+    public Text DeckCountText;
     public GameObject mapSelectCanvas;
 
     //FSM 저장부

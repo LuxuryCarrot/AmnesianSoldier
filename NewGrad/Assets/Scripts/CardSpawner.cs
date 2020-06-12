@@ -24,7 +24,7 @@ public class CardSpawner : MonoBehaviour
                 return;
 
             GameObject newCard = Instantiate(Resources.Load("Prefabs/Cards/"+ DeckList.Deck.Dequeue()) as GameObject, transform);
-            
+        StageManager.stageSingletom.DeckCountText.text = DeckList.Deck.Count.ToString();
         
     }
 }

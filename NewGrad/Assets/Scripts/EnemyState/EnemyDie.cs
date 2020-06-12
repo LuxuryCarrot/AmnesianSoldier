@@ -12,6 +12,12 @@ public class EnemyDie : EnemyParent
 
         if (manager.anim != null)
             manager.anim.SetBool("Die", true);
+
+        if (manager.RootingCardPool.Length > 0)
+        {
+            DeckList.Deck.Enqueue(manager.RootingCardPool[Random.Range(0, manager.RootingCardPool.Length - 1)]);
+            StageManager.stageSingletom.DeckCountText.text = DeckList.Deck.Count.ToString();
+        }
     }
     private void Update()
     {

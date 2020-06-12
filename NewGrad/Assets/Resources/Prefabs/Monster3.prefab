@@ -175,6 +175,9 @@ MonoBehaviour:
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
+  RootingCardPool:
+  - Vertical
+  - Horizon
 --- !u!114 &970495092198981314
 MonoBehaviour:
   m_ObjectHideFlags: 0

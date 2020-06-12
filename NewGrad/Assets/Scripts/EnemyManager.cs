@@ -29,16 +29,22 @@ public class EnemyManager : MonoBehaviour
     public EnemyAwakeParent awakeBehavior;
     public EnemyBattleParent battleBehavior;
     public EnemyDieParent dieBehavior;
-    
 
+    public string[] RootingCardPool;
 
     private void Awake()
     {
         
         if (gravity == 0)
             gravity = 10.0f;
-        for(int i=0; i<attackType.Length; i++)
-           attackType[i] = (AttackType)((int)Random.Range(1, 2));
+        for (int i = 0; i < attackType.Length; i++)
+        {
+            float randonSeed = Random.Range(0, 0.2f);
+            if (randonSeed >= 0.1f)
+                attackType[i] = AttackType.VERTICAL;
+            else
+                attackType[i] = AttackType.HORIZON;
+        }
         anim = GetComponentInChildren<Animator>();
         current = EnemyState.IDLE;
         EnemyFlow.Add(EnemyState.IDLE, GetComponent<EnemyWait>());
@@ -52,12 +58,17 @@ public class EnemyManager : MonoBehaviour
             //공격타입에 따른 아이콘. 
             GameObject newPosCard = Instantiate(PosImage, transform.GetChild(1));
             if (attackType[i] == AttackType.VERTICAL)
-                newPosCard.transform.Rotate(0, 0, -90);
-            //else if (attackType[i] == AttackType.DOWN)
-            //    newPosCard.transform.Rotate(0, 0, 90);
+            {
+                
+                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UpArrow");
+                newPosCard.GetComponent<Image>().color = Color.red;
+            }
             else if (attackType[i] == AttackType.HORIZON)
-                newPosCard.transform.Rotate(0, 0, 180);
-
+            {
+                
+                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/RightArrow");
+                newPosCard.GetComponent<Image>().color = Color.blue;
+            }
             //사이즈를 월드 사이즈로 변경.
             newPosCard.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
             //위치 표시.
