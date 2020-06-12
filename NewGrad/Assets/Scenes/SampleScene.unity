@@ -289,28 +289,28 @@ MonoBehaviour:
   - VerticalCard
   - HorizonCard
   - Potion1
+  - DownCard
   - GuardCard
   - VerticalCard
   - HorizonCard
   - Potion1
+  - DownCard
   - GuardCard
   - VerticalCard
   - HorizonCard
   - Potion1
+  - DownCard
   - GuardCard
   - VerticalCard
   - HorizonCard
   - Potion1
+  - DownCard
   - GuardCard
   - VerticalCard
   - HorizonCard
   - Potion1
+  - DownCard
   - GuardCard
-  - VerticalCard
-  - HorizonCard
-  - Potion1
-  - GuardCard
-  - VerticalCard
 --- !u!4 &72391218
 Transform:
   m_ObjectHideFlags: 0
@@ -1358,6 +1358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  AimIn: 0
 --- !u!114 &349869822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,6 +1386,8 @@ MonoBehaviour:
   range: 10
   attackRange: 1
   losed: 0
+  AimStartRange: 1.5
+  AimEndRange: 0.5
 --- !u!4 &349869823
 Transform:
   m_ObjectHideFlags: 0
@@ -3382,6 +3385,7 @@ MonoBehaviour:
   HPText: {fileID: 1382054719}
   DeckCountText: {fileID: 165485959}
   mapSelectCanvas: {fileID: 0}
+  aimCanvas: {fileID: 488657164}
 --- !u!4 &1291366863
 Transform:
   m_ObjectHideFlags: 0

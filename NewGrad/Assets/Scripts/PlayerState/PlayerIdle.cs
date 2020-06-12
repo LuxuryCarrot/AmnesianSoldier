@@ -1,21 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //앞으로 전진하는 코드
 public class PlayerIdle : PlayerParent
 {
+    public bool AimIn;
     public override void BeginState()
     {
         base.BeginState();
+        AimIn = false;
     }
     private void Update()
     {
         manager.controller.Move(manager.speed*Time.deltaTime);
         if(manager.iteratingEnemy!=null
-            &&manager.iteratingEnemy.transform.position.x - transform.position.x <=manager.attackRange)
+            &&manager.iteratingEnemy.transform.position.x - transform.position.x <=manager.AimEndRange)
         {
+            
             manager.SetState(PlayerState.MONSTERBATTLE);
+        }
+
+        else if(manager.iteratingEnemy!=null
+            && manager.iteratingEnemy.transform.position.x - transform.position.x <= manager.AimStartRange
+            &&!AimIn)
+        {
+            AimIn = true;
+            manager.attackType.Clear();
+            StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.yellow;
+            for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
+                manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
         }
 
         //키보드 입력으로 화살표를 사출하는 코드
@@ -48,5 +63,6 @@ public class PlayerIdle : PlayerParent
     public override void EndState()
     {
         base.EndState();
+        AimIn = false;
     }
 }

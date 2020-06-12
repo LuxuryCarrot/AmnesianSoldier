@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //전투 결과로 상태를 판정하는 코드
 public class PlayerBattle : PlayerParent
@@ -9,6 +10,7 @@ public class PlayerBattle : PlayerParent
     public override void BeginState()
     {
         base.BeginState();
+        StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.white;
     }
     private void Update()
     {
@@ -19,7 +21,7 @@ public class PlayerBattle : PlayerParent
         for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
             manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
 
-        //0 이김 1 짐 2 비김 
+        //0 이김 1 짐 2 비김 3 가드
         int win = 0;
 
         //지고나서 지나가는 판정일 경우.
@@ -37,16 +39,18 @@ public class PlayerBattle : PlayerParent
         {
             for(int i=0; i< manager.iteratingEnemy.attackType.Length;i++)
             {
-                if (win == 2)
+                if (win == 3)
                     break;
                 else
                 {
                     AttackType playerType =playertype.Dequeue();
-                    if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.LOSE)
-                        win = 1;
+                    if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.GUARD)
+                        win = 3;
+                    else if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.WIN)
+                        win = 0;
                     else if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.DRAW)
                         win = 2;
-                  
+
                 }
             }
                
@@ -68,7 +72,7 @@ public class PlayerBattle : PlayerParent
             manager.attackType.Clear();
             manager.SetState(PlayerState.IDLE);
         }
-        else if(win==3)
+        else if(win==1)
         {
             if (manager.iteratingEnemy.anim != null)
                 manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
@@ -79,13 +83,13 @@ public class PlayerBattle : PlayerParent
             manager.attackType.Clear();
             manager.SetState(PlayerState.ABANDON);
         }
-        else if(win==1)
+        else if(win==2)
         {
             manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
             StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
             //manager.iteratingEnemy = null;
-            manager.HP--;
-            StageManager.stageSingletom.HPText.text = manager.HP.ToString();
+            //manager.HP--;
+            //StageManager.stageSingletom.HPText.text = manager.HP.ToString();
             //manager.losed = true;
             manager.attackType.Clear();
             manager.SetState(PlayerState.KNOCKBACK);

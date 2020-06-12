@@ -39,11 +39,13 @@ public class EnemyManager : MonoBehaviour
             gravity = 10.0f;
         for (int i = 0; i < attackType.Length; i++)
         {
-            float randonSeed = Random.Range(0, 0.2f);
-            if (randonSeed >= 0.1f)
+            float randonSeed = Random.Range(0, 0.3f);
+            if (randonSeed >= 0.2f)
                 attackType[i] = AttackType.VERTICAL;
-            else
+            else if(randonSeed>=0.1f)
                 attackType[i] = AttackType.HORIZON;
+            else
+                attackType[i] = AttackType.DOWN;
         }
         anim = GetComponentInChildren<Animator>();
         current = EnemyState.IDLE;
@@ -59,15 +61,22 @@ public class EnemyManager : MonoBehaviour
             GameObject newPosCard = Instantiate(PosImage, transform.GetChild(1));
             if (attackType[i] == AttackType.VERTICAL)
             {
-                
+
                 newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UpArrow");
                 newPosCard.GetComponent<Image>().color = Color.red;
             }
             else if (attackType[i] == AttackType.HORIZON)
             {
-                
+
                 newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/RightArrow");
                 newPosCard.GetComponent<Image>().color = Color.blue;
+            }
+
+            else if (attackType[i] == AttackType.DOWN)
+            {
+
+                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/DownArrow");
+                newPosCard.GetComponent<Image>().color = Color.yellow;
             }
             //사이즈를 월드 사이즈로 변경.
             newPosCard.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);

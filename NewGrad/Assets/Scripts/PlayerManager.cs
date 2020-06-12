@@ -46,6 +46,9 @@ public class PlayerManager : MonoBehaviour
     public float attackRange;
     public bool losed;
 
+    public float AimStartRange;
+    public float AimEndRange;
+
     //상태를 넣는 dictionary
     Dictionary<PlayerState, PlayerParent> PlayerFlow = new Dictionary<PlayerState, PlayerParent>();
     //float commandTimeTemp=0.5f;
@@ -71,6 +74,7 @@ public class PlayerManager : MonoBehaviour
         attackType.Clear();
         current = PlayerState.DELAY;
         SetState(current);
+        AimSpawn();
     }
 
     //상태 변경 함수
@@ -115,6 +119,12 @@ public class PlayerManager : MonoBehaviour
     
     public void AimSpawn()
     {
+        Vector3 inst= transform.position+new Vector3((AimStartRange+AimEndRange)/2,0,0);
+        Vector3 screenPos;
 
+        screenPos = Camera.main.WorldToScreenPoint(inst);
+        GameObject aim = Instantiate(Resources.Load("Prefabs/UIPrefab/Aim") as GameObject, StageManager.stageSingletom.aimCanvas.transform);
+        aim.GetComponent<RectTransform>().position = screenPos;
+        aim.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100)*(AimStartRange-AimEndRange);
     }
 }

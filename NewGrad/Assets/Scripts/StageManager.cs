@@ -21,6 +21,7 @@ public enum AttackType
     GUARD,
     VERTICAL,
     HORIZON,
+    DOWN,
     NONE
 }
 //전투결과
@@ -28,7 +29,8 @@ public enum BattleResult
 {
     WIN=0,
     LOSE,
-    DRAW
+    DRAW,
+    GUARD
 }
 //현재 스테이지의 상태를 정의하는 FSM. 싱글톤으로 저장함. 스테이지 상태에 따라 오브젝트들의 행동을 정의하기 편하기 위함.
 public class StageManager : MonoBehaviour
@@ -45,6 +47,7 @@ public class StageManager : MonoBehaviour
     public Text HPText;
     public Text DeckCountText;
     public GameObject mapSelectCanvas;
+    public GameObject aimCanvas;
 
     //FSM 저장부
     Dictionary<StageState, StageParent> StageFlow = new Dictionary<StageState, StageParent>();
@@ -71,6 +74,7 @@ public class StageManager : MonoBehaviour
         DrawFlashCanvas.SetActive(false);
         current = StageState.READY;
         SetState(current);
+        
     }
     private void Start()
     {
