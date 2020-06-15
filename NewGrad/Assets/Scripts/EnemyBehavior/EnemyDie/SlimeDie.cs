@@ -45,7 +45,7 @@ public class SlimeDie : EnemyDieParent
         {
             if (SpawnSpot2 != Vector3.zero)
                 break;
-            Debug.Log(MonsterManager.Monsters[i].transform.position);
+            
             if(MonsterManager.Monsters[i].transform.position.x>=this.transform.position.x+10)
             {
                 Vector3 spawn = MonsterManager.Monsters[i].transform.position + new Vector3(5, 0, 0);
@@ -56,7 +56,7 @@ public class SlimeDie : EnemyDieParent
                 else
                     SpawnSpot2 = spawn;
             }
-            Debug.Log(SpawnSpot1);
+            
         }
 
         if(SpawnSpot1!=Vector3.zero)
@@ -64,7 +64,7 @@ public class SlimeDie : EnemyDieParent
             GameObject monster = Instantiate(Resources.Load("Prefabs/Monster3") as GameObject, MapPositionManager.field.transform.GetChild(0));
             monster.GetComponent<SlimeDie>().Level = Level - 1;
             monster.transform.localPosition = SpawnSpot1;
-            Debug.Log("Spawn");
+            
             MonsterManager.Monsters.Add(monster);
         }
 

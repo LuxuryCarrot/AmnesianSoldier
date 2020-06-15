@@ -30,7 +30,7 @@ public class DeckList : MonoBehaviour
             for (int i = 0; i < decklistInst.Length; i++)
             {
                 containerDeck.Add(decklistInst[i]);
-                Debug.Log("Contained");
+                
             }
             //덱 셔플
             for (int j = 0; j < shuffleCount; j++)
