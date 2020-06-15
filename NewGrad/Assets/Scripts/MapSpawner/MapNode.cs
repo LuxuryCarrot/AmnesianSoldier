@@ -18,6 +18,7 @@ public class MapNode : MonoBehaviour
     public StageState stateWhenStart;
     public string mapInfo;
     public static MapNode[] EnabledNode;
+    public int stair;
 
     private void Awake()
     {
@@ -32,7 +33,7 @@ public class MapNode : MonoBehaviour
                 StartNode.afterNodes[i].isEnabled = true;
             }
             EnabledNode = afterNodes;
-            Debug.Log(EnabledNode.Length);
+            
             StageManager.stageSingletom.mapSelectCanvas.SetActive(false);
             StageManager.stageSingletom.mapCanvas.SetActive(false);
         }

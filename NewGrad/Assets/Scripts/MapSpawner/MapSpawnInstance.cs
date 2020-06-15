@@ -16,7 +16,7 @@ public class MapSpawnInstance : MapSpawnerParent
     //1스테이지 스폰 패턴.
     private void Awake()
     {
-        Debug.Log(MapPositionManager.mapMax);
+       
         MapPositionManager.mapPos += startSpawnPos;
         for(int i=0; i< startSpawnPos; i++)
         {

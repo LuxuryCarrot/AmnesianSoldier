@@ -78,7 +78,7 @@ public class StageManager : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log(MonsterManager.Monsters.Count);
+        
     }
     private void Update()
     {

@@ -38,8 +38,9 @@ public class PlayerAbandon : PlayerParent
         {
             //다시 원래 z 축으로 돌아감.
             manager.controller.Move(new Vector3(0, 0, -zSpeed * Time.deltaTime) + manager.speed * Time.deltaTime);
-            if (Mathf.Abs(transform.position.z) <= 0.1f)
+            if (Mathf.Abs(transform.position.z) <= 0.2f)
             {
+                manager.transform.position = new Vector3(manager.transform.position.x, manager.transform.position.y, 0);
                 manager.losed = false;
                 manager.SetState(PlayerState.IDLE);
             }
