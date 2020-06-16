@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7756853815131694250}
   - component: {fileID: 2377099930046284329}
   m_Layer: 5
-  m_Name: LeftArrow
+  m_Name: DownCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5456797, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

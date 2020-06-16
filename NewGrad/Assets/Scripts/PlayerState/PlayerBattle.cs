@@ -11,7 +11,7 @@ public class PlayerBattle : PlayerParent
     {
         base.BeginState();
         StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.white;
-        
+        Time.timeScale = 1.0f;
     }
     private void Update()
     {

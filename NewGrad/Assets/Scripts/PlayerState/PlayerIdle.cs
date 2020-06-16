@@ -28,6 +28,7 @@ public class PlayerIdle : PlayerParent
             && manager.iteratingEnemy.transform.position.x - transform.position.x <= manager.AimStartRange
             &&!AimIn)
         {
+            Time.timeScale = 0.5f;
             AimIn = true;
             manager.attackType.Clear();
             StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.yellow;

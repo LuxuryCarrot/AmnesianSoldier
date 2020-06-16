@@ -8,7 +8,7 @@ public class PlayerKnockBack : PlayerParent
     public override void BeginState()
     {
         base.BeginState();
-        manager.ySpeed = -1.5f;
+        manager.ySpeed = -2.5f;
         if (manager.iteratingEnemy.anim != null)
             manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
         manager.GetComponent<CharacterController>().Move(new Vector3(2 * Time.deltaTime/2, -manager.ySpeed * Time.deltaTime, 0));
