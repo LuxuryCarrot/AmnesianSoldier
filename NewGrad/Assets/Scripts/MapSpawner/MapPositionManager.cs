@@ -9,7 +9,7 @@ public class MapPositionManager : MonoBehaviour
     public static int mapMax;
     public static GameObject field;
     public static int mapNum;
-
+    public static int mapMaxCurrent;
     
     private void Awake()
     {

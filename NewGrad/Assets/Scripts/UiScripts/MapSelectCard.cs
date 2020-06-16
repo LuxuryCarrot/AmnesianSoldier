@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MapSelectCard : MonoBehaviour, IPointerClickHandler
+public class MapSelectCard : MonoBehaviour
 {
     public MapNode linkedNode;
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick()
     {
         linkedNode.Activate();
     }

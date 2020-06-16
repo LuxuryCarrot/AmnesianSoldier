@@ -43,6 +43,7 @@ public class MapSpawnInstance : MapSpawnerParent
             }
         }
         MapPositionManager.mapMax += mapMaxPos;
+        MapPositionManager.mapMaxCurrent = mapMaxPos;
     }
     public override void MapSpawn()
     {

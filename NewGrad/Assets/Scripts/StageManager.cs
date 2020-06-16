@@ -13,7 +13,8 @@ public enum StageState
     MAPSELECT,
     GAMEOVER,
     GAMECLEAR,
-    REST
+    REST,
+    WEAPONSELECT
 }
 //공격타입
 public enum AttackType
@@ -47,6 +48,9 @@ public class StageManager : MonoBehaviour
     public Canvas HPText;
     public Text DeckCountText;
     public GameObject mapSelectCanvas;
+    public GameObject MinimapAnchor;
+    public Text MapselectLimitTime;
+    public Text MapselectLimitTimeShadow;
     //public GameObject aimCanvas;
 
     //FSM 저장부
@@ -61,6 +65,7 @@ public class StageManager : MonoBehaviour
         mapCanvas = GameObject.FindGameObjectWithTag("Map");
         CardDeck = GameObject.FindGameObjectWithTag("CardDeck").transform.GetChild(0).gameObject;
         mapSelectCanvas = GameObject.FindGameObjectWithTag("MapCards");
+        MinimapAnchor = GameObject.FindGameObjectWithTag("Anchor");
 
         StageFlow.Add(StageState.READY, GetComponent<StageStart>());
         StageFlow.Add(StageState.IDLE, GetComponent<StageIDLE>());
@@ -69,10 +74,11 @@ public class StageManager : MonoBehaviour
         StageFlow.Add(StageState.MAPSELECT, GetComponent<StageSelectMap>());
         StageFlow.Add(StageState.GAMECLEAR, GetComponent<StageClear>());
         StageFlow.Add(StageState.REST, GetComponent<StageRest>());
+        StageFlow.Add(StageState.WEAPONSELECT, GetComponent<StageWeaponSelect>());
         WinFlashCanvas.SetActive(false);
         LoseFlashCanvas.SetActive(false);
         DrawFlashCanvas.SetActive(false);
-        current = StageState.READY;
+        current = StageState.WEAPONSELECT;
         SetState(current);
         
     }
@@ -82,6 +88,9 @@ public class StageManager : MonoBehaviour
     }
     private void Update()
     {
+        MinimapAnchor.GetComponent<RectTransform>().localPosition
+            = new Vector3(-467 + (PlayerManager.playerSingleton.transform.position.x
+                           - (MapPositionManager.mapMax - MapPositionManager.mapMaxCurrent)) * 950 / MapPositionManager.mapMaxCurrent, 494, 0);
         //임시로 넣어둔 esc 누를 시 게임종료하는 기능
         if(Input.GetKeyDown(KeyCode.Escape))
         {

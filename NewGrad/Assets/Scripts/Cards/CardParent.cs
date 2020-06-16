@@ -47,6 +47,7 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
         isParented = true;
         PlayerManager.playerSingleton.attackType.Enqueue(thisType);
         transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
+        GetComponent<Image>().color = Color.clear;
         GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
         if (PlayerManager.playerSingleton.current==PlayerState.IDLE
             && !PlayerManager.playerSingleton.GetComponent<PlayerIdle>().AimIn)
@@ -64,6 +65,7 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
         isParented = true;
         PlayerManager.playerSingleton.attackType.Enqueue(thisType);
         transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
+        GetComponent<Image>().color = Color.clear;
         GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
         if (PlayerManager.playerSingleton.current == PlayerState.IDLE
             && !PlayerManager.playerSingleton.GetComponent<PlayerIdle>().AimIn)
