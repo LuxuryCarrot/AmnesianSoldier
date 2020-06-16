@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour
     public static GameObject PosImage;
     public Animator anim;
 
-
+    public EnemyInstantiateParent instantiateBehavior;
     public EnemyAwakeParent awakeBehavior;
     public EnemyBattleParent battleBehavior;
     public EnemyDieParent dieBehavior;
@@ -89,11 +89,16 @@ public class EnemyManager : MonoBehaviour
         awakeBehavior = GetComponent<EnemyAwakeParent>();
         battleBehavior = GetComponent<EnemyBattleParent>();
         dieBehavior = GetComponent <EnemyDieParent > ();
-        
+        instantiateBehavior = GetComponent<EnemyInstantiateParent>();
 
         
         EnemyFlow.Add(EnemyState.KNOCKBACK, GetComponent<EnemyKnockBack>());
         SetState(current);
+    }
+    private void Start()
+    {
+        if (instantiateBehavior != null)
+            instantiateBehavior.Execute();
     }
 
     public void SetState(EnemyState newst)

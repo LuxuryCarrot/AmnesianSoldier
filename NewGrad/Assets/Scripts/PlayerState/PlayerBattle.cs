@@ -72,6 +72,7 @@ public class PlayerBattle : PlayerParent
 
         if (win==0)
         {
+            //Time.timeScale = 0.2f;
             MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
             
@@ -110,6 +111,21 @@ public class PlayerBattle : PlayerParent
             // manager.anim.SetInteger("AttackType", 0);
             manager.anim.SetBool("Success", true);
             manager.SetState(PlayerState.KNOCKBACK);
+            //MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
+            //StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
+
+            //manager.timeScale += 0.1f;
+            //Time.timeScale = manager.timeScale;
+            //manager.iteratingEnemy.SetState(EnemyState.DIE);
+            //manager.iteratingEnemy.enabled = false;
+
+            //manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
+
+            //manager.iteratingEnemy = null;
+            //manager.attackType.Clear();
+
+            //manager.anim.SetBool("Success", true);
+            //manager.SetState(PlayerState.IDLE);
         }
         else
         {
@@ -121,6 +137,8 @@ public class PlayerBattle : PlayerParent
             //manager.anim.SetInteger("AttackType", 0);
             manager.anim.SetBool("Success", true);
             manager.SetState(PlayerState.ABANDON);
+            //manager.timeScale = 1;
+            //Time.timeScale = 1.0f;
         }
     }
     public override void EndState()

@@ -13,6 +13,7 @@ public class MapSelectCard : MonoBehaviour
     }
     public void DestroyThis()
     {
-        Destroy(this.gameObject);
+        transform.parent.SetParent(null);
+        Destroy(transform.parent.gameObject);
     }
 }

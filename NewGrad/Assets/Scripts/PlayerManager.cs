@@ -54,12 +54,15 @@ public class PlayerManager : MonoBehaviour
     public float AimStartRange;
     public float AimEndRange;
 
+    public float timeScale;
+
     //상태를 넣는 dictionary
     Dictionary<PlayerState, PlayerParent> PlayerFlow = new Dictionary<PlayerState, PlayerParent>();
     //float commandTimeTemp=0.5f;
 
     private void Awake()
     {
+        timeScale = 1;
         maxCamScale = Camera.main.fieldOfView;
         losed = false;
         //싱글톤 초기화

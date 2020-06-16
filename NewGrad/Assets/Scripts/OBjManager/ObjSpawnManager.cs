@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjSpawnManager : MonoBehaviour
 {
-    public GameObject nearObj;
+    public GameObject[] nearObj;
     public GameObject farobj;
     public static Queue<GameObject> NearObjsQueue = new Queue<GameObject>();
     public static Queue<GameObject> FarObjsQueue = new Queue<GameObject>();
@@ -24,32 +24,32 @@ public class ObjSpawnManager : MonoBehaviour
         PlayerXPos = PlayerManager.playerSingleton.transform.position.x;
         PlayerFarXPOS = PlayerManager.playerSingleton.transform.position.x;
         for (int i = 0; i <= StartNearSpawnAmount; i++)
-            NearObjSpawn(new Vector3((i - 1)*6, 0.1f, 3));
+            NearObjSpawn(new Vector3((i - 1)*3, 0.35f, 3));
 
         for (int i = 0; i <= StartFarSawnAmount; i++)
-            farObjSpawn(new Vector3(i * 38, 4, 32));
+            farObjSpawn(new Vector3(i * 76, 4, 32));
     }
     private void Update()
     {
-        if(PlayerManager.playerSingleton.transform.position.x-PlayerXPos>=6)
+        if(PlayerManager.playerSingleton.transform.position.x-PlayerXPos>=3)
         {
             Destroy(NearObjsQueue.Dequeue());
             StartNearSpawnAmount++;
-            NearObjSpawn(new Vector3((StartNearSpawnAmount - 1)*6, 0.1f, 3));
+            NearObjSpawn(new Vector3((StartNearSpawnAmount - 1)*3, 0.35f, 3));
             PlayerXPos = PlayerManager.playerSingleton.transform.position.x;
         }
-        if (PlayerManager.playerSingleton.transform.position.x - PlayerFarXPOS >= 38)
+        if (PlayerManager.playerSingleton.transform.position.x - PlayerFarXPOS >= 76)
         {
             Destroy(FarObjsQueue.Dequeue());
             StartFarSawnAmount++;
-            farObjSpawn(new Vector3((StartFarSawnAmount - 1) * 38, 4, 32));
+            farObjSpawn(new Vector3((StartFarSawnAmount - 1) * 76, 4, 32));
             PlayerFarXPOS = PlayerManager.playerSingleton.transform.position.x;
         }
     }
 
     public void NearObjSpawn(Vector3 pos)
     {
-        GameObject near = Instantiate(nearObj, transform.GetChild(0));
+        GameObject near = Instantiate(nearObj[Utilities.NewRandom(0, nearObj.Length-1)], transform.GetChild(0));
         near.transform.localPosition = pos;
         NearObjsQueue.Enqueue(near);
     }

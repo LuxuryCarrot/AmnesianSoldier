@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 970495092198981317}
   - component: {fileID: 114663920449561934}
   - component: {fileID: 114631510388296680}
+  - component: {fileID: 114276962229137146}
   m_Layer: 0
   m_Name: Monster3
   m_TagString: Untagged
@@ -172,6 +173,7 @@ MonoBehaviour:
   gravity: 10
   range: 6
   anim: {fileID: 0}
+  instantiateBehavior: {fileID: 0}
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
@@ -235,6 +237,19 @@ MonoBehaviour:
   Level: 0
   FlySpeed: {x: 0, y: 0, z: 0}
   Gravity: 0
+--- !u!114 &114276962229137146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970495092198981321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03725e35d3be874c9d4a20fe0dd46bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!114 &4137439678558063861
 MonoBehaviour:
   m_ObjectHideFlags: 0

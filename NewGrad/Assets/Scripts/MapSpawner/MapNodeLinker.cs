@@ -47,6 +47,7 @@ public class MapNodeLinker : MonoBehaviour
                     GameObject newNode2 = Instantiate(prefab, MapImage.transform);
                 newNode2.GetComponent<MapNode>().mapInfo = stageNum + "_Rest";
                 newNode2.GetComponent<MapNode>().battleInfo = "_Rest";
+                newNode2.GetComponent<MapNode>().stateWhenStart = StageState.REST;
                 newNode2.GetComponent<MapNode>().stair = 1;
                     newNode2.GetComponent<MapNode>().beforeNode = new MapNode[1];
                     newNode2.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
@@ -161,7 +162,7 @@ public class MapNodeLinker : MonoBehaviour
         {
             node.GetComponent<MapNode>().battleInfo = "_Rest";
             node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_Rest";
-            
+            node.GetComponent<MapNode>().stateWhenStart = StageState.REST;
             RestMap--;
         }
         else
