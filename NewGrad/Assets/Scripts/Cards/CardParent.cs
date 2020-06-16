@@ -24,8 +24,11 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
             if (temp <= 0)
             {
                 PlayerManager.playerSingleton.attackType.Clear();
+                PlayerManager.playerSingleton.anim.SetInteger("AttackType", 5);
+                PlayerManager.playerSingleton.anim.SetBool("Cancel", true);
                 for (int i = 0; i < PlayerManager.playerSingleton.inputSlot.transform.childCount; i++)
                     PlayerManager.playerSingleton.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
+                
                 
             }
         }
@@ -45,7 +48,9 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
         PlayerManager.playerSingleton.attackType.Enqueue(thisType);
         transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
         GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
-        
+        if (PlayerManager.playerSingleton.current==PlayerState.IDLE
+            && !PlayerManager.playerSingleton.GetComponent<PlayerIdle>().AimIn)
+            PlayerManager.playerSingleton.anim.SetInteger("AttackType", (int)thisType);
         GetComponent<RectTransform>().localPosition = new Vector3(PlayerManager.playerSingleton.inputSlot.transform.childCount-1, 1.5f, 0);
         StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
     }
@@ -60,7 +65,9 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
         PlayerManager.playerSingleton.attackType.Enqueue(thisType);
         transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
         GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
-
+        if (PlayerManager.playerSingleton.current == PlayerState.IDLE
+            && !PlayerManager.playerSingleton.GetComponent<PlayerIdle>().AimIn)
+            PlayerManager.playerSingleton.anim.SetInteger("AttackType", (int)thisType);
         GetComponent<RectTransform>().localPosition = new Vector3(PlayerManager.playerSingleton.inputSlot.transform.childCount - 1, 1.5f, 0);
         StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
     }

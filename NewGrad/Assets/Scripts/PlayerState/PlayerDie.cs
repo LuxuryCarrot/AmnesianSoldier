@@ -9,6 +9,8 @@ public class PlayerDie : PlayerParent
     {
         base.BeginState();
         StageManager.stageSingletom.SetState(StageState.GAMEOVER);
+        manager.anim.SetTrigger("Die");
+        
     }
     private void Update()
     {

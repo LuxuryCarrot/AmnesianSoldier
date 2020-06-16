@@ -26,6 +26,7 @@ public class EnemyManager : MonoBehaviour
     public static GameObject PosImage;
     public Animator anim;
 
+
     public EnemyAwakeParent awakeBehavior;
     public EnemyBattleParent battleBehavior;
     public EnemyDieParent dieBehavior;

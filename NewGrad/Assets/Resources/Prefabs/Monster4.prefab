@@ -170,7 +170,7 @@ MonoBehaviour:
   current: 0
   ySpeed: 0
   gravity: 10
-  range: 10
+  range: 6
   anim: {fileID: 0}
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}

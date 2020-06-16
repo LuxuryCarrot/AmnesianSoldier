@@ -8,6 +8,8 @@ public class PlayerDelay : PlayerParent
     public override void BeginState()
     {
         base.BeginState();
+        
+        manager.anim.SetBool("Ready",true);
     }
     private void Update()
     {

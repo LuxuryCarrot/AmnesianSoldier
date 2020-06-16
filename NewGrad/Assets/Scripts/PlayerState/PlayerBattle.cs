@@ -11,6 +11,7 @@ public class PlayerBattle : PlayerParent
     {
         base.BeginState();
         StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.white;
+        
     }
     private void Update()
     {
@@ -33,6 +34,8 @@ public class PlayerBattle : PlayerParent
             return;
         }
 
+        AttackType playerAnimType=AttackType.GUARD;
+
         if (playertype.Count < manager.iteratingEnemy.attackType.Length)
             win = 1;
         else
@@ -40,14 +43,20 @@ public class PlayerBattle : PlayerParent
             for(int i=0; i< manager.iteratingEnemy.attackType.Length;i++)
             {
                 if (win == 3)
+                {
+                    playerAnimType = AttackType.GUARD;
                     break;
+                }
                 else
                 {
-                    AttackType playerType =playertype.Dequeue();
+                    AttackType playerType = playertype.Dequeue();
                     if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.GUARD)
                         win = 3;
                     else if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.WIN)
+                    {
+                        playerAnimType = playerType;
                         win = 0;
+                    }
                     else if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.DRAW)
                         win = 2;
 
@@ -56,8 +65,11 @@ public class PlayerBattle : PlayerParent
                
         }
 
-        if(manager.iteratingEnemy.anim!=null)
+        manager.anim.SetInteger("AttackType", (int)playerAnimType);
+
+        if (manager.iteratingEnemy.anim!=null)
            manager.iteratingEnemy.anim.SetInteger("AttackType", (int)manager.iteratingEnemy.attackType[0]);
+
         if (win==0)
         {
             MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
@@ -70,17 +82,20 @@ public class PlayerBattle : PlayerParent
             
             manager.iteratingEnemy = null;
             manager.attackType.Clear();
+
+            manager.anim.SetBool("Success", true);
             manager.SetState(PlayerState.IDLE);
         }
         else if(win==1)
         {
-            if (manager.iteratingEnemy.anim != null)
-                manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
+            //if (manager.iteratingEnemy.anim != null)
+            //    manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
             manager.iteratingEnemy = null;
             StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
             manager.HP--;
             StageManager.stageSingletom.HPText.text = manager.HP.ToString();
             manager.attackType.Clear();
+            manager.anim.SetBool("Damaged", true);
             manager.SetState(PlayerState.ABANDON);
         }
         else if(win==2)
@@ -92,6 +107,8 @@ public class PlayerBattle : PlayerParent
             //StageManager.stageSingletom.HPText.text = manager.HP.ToString();
             //manager.losed = true;
             manager.attackType.Clear();
+            // manager.anim.SetInteger("AttackType", 0);
+            manager.anim.SetBool("Success", true);
             manager.SetState(PlayerState.KNOCKBACK);
         }
         else
@@ -101,6 +118,8 @@ public class PlayerBattle : PlayerParent
             manager.iteratingEnemy = null;
             StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
             manager.attackType.Clear();
+            //manager.anim.SetInteger("AttackType", 0);
+            manager.anim.SetBool("Success", true);
             manager.SetState(PlayerState.ABANDON);
         }
     }

@@ -11,6 +11,8 @@ public class PlayerIdle : PlayerParent
     {
         base.BeginState();
         AimIn = false;
+        manager.anim.SetBool("Ready", false);
+        
     }
     private void Update()
     {

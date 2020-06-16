@@ -15,6 +15,7 @@ public class MapNodeLinker : MonoBehaviour
     GameObject startNode;
     GameObject prefab;
     GameObject MapImage;
+    public int stageNum;
 
     private void Awake()
     {
@@ -24,23 +25,26 @@ public class MapNodeLinker : MonoBehaviour
 
         MapImage = this.gameObject;
 
-        for(int i=1; i<maxStair; i++)
+        for(int i=0; i<maxStair-1; i++)
         {
-            float seed = Random.Range(0, 0.01f);
+            int seed = Random.Range(-2, 1);
             if(startNode==null)
             {
                 GameObject newNode = Instantiate(prefab, MapImage.transform);
+                newNode.GetComponent<MapNode>().mapInfo = stageNum + "_Default";
                 newNode.GetComponent<MapNode>().stair = 0;
                 startNode = newNode;
                 mapNodeCurrent = startNode;
-                if(seed >=0.005f)
-                {
+                //if(seed >=0.005f)
+                //{
                     GameObject newNode1 = Instantiate(prefab, MapImage.transform);
-                    newNode1.GetComponent<MapNode>().stair = 2;
+                newNode1.GetComponent<MapNode>().mapInfo = stageNum + "_Default";
+                newNode1.GetComponent<MapNode>().stair = 1;
                     newNode1.GetComponent<MapNode>().beforeNode = new MapNode[1];
                     newNode1.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
                     GameObject newNode2 = Instantiate(prefab, MapImage.transform);
-                    newNode2.GetComponent<MapNode>().stair = 2;
+                newNode2.GetComponent<MapNode>().mapInfo = stageNum + "_Default";
+                newNode2.GetComponent<MapNode>().stair = 1;
                     newNode2.GetComponent<MapNode>().beforeNode = new MapNode[1];
                     newNode2.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
                     mapDetermineQueue.Enqueue(newNode1);
@@ -48,30 +52,34 @@ public class MapNodeLinker : MonoBehaviour
                     mapNodeCurrent.GetComponent<MapNode>().afterNodes = new MapNode[2];
                     mapNodeCurrent.GetComponent<MapNode>().afterNodes[0] = newNode1.GetComponent<MapNode>();
                     mapNodeCurrent.GetComponent<MapNode>().afterNodes[1] = newNode2.GetComponent<MapNode>();
-                }
-                else
-                {
-                    GameObject newNode1 = Instantiate(prefab, MapImage.transform);
-                    newNode1.GetComponent<MapNode>().stair = 2;
-                    newNode1.GetComponent<MapNode>().beforeNode = new MapNode[1];
-                    newNode1.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
-                    mapDetermineQueue.Enqueue(newNode1);
-                    mapNodeCurrent.GetComponent<MapNode>().afterNodes = new MapNode[1];
-                    mapNodeCurrent.GetComponent<MapNode>().afterNodes[0] = newNode1.GetComponent<MapNode>();
-                }
+                //}
+                //else
+                //{
+                //    GameObject newNode1 = Instantiate(prefab, MapImage.transform);
+                //    newNode1.GetComponent<MapNode>().stair = 2;
+                //    newNode1.GetComponent<MapNode>().beforeNode = new MapNode[1];
+                //    newNode1.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
+                //    mapDetermineQueue.Enqueue(newNode1);
+                //    mapNodeCurrent.GetComponent<MapNode>().afterNodes = new MapNode[1];
+                //    mapNodeCurrent.GetComponent<MapNode>().afterNodes[0] = newNode1.GetComponent<MapNode>();
+                //}
             }
             else
             {
-                if (mapDetermineQueue.Peek().GetComponent<MapNode>().stair == i)
+                for (; mapDetermineQueue.Peek().GetComponent<MapNode>().stair == i;)
                 {
                     mapNodeCurrent = mapDetermineQueue.Dequeue();
-                    if (seed >= 0.005f && mapDetermineQueue.Count + 1 < MaxMaps)
+                    if (
+                        seed >=0 &&
+                         mapDetermineQueue.Count + 1 < MaxMaps)
                     {
                         GameObject newNode1 = Instantiate(prefab, MapImage.transform);
+                        DetermineNodeType(newNode1);
                         newNode1.GetComponent<MapNode>().stair = i + 1;
                         newNode1.GetComponent<MapNode>().beforeNode = new MapNode[1];
                         newNode1.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
                         GameObject newNode2 = Instantiate(prefab, MapImage.transform);
+                        DetermineNodeType(newNode2);
                         newNode2.GetComponent<MapNode>().stair = i + 1;
                         newNode2.GetComponent<MapNode>().beforeNode = new MapNode[1];
                         newNode2.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
@@ -84,6 +92,7 @@ public class MapNodeLinker : MonoBehaviour
                     else
                     {
                         GameObject newNode1 = Instantiate(prefab, MapImage.transform);
+                        DetermineNodeType(newNode1);
                         newNode1.GetComponent<MapNode>().stair = i+1;
                         newNode1.GetComponent<MapNode>().beforeNode = new MapNode[1];
                         newNode1.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
@@ -94,7 +103,7 @@ public class MapNodeLinker : MonoBehaviour
                 }
             }
         }
-        for(int i=maxStair; i<maxStair+MaxToBoss; i++)
+        for(int i=maxStair-1; i<maxStair+MaxToBoss; i++)
         {
             Queue<GameObject> BackNodes=new Queue<GameObject>();
             for(;mapDetermineQueue.Count!=0 ; )
@@ -105,6 +114,8 @@ public class MapNodeLinker : MonoBehaviour
             for(;BackNodes.Count!=0 ; )
             {
                 GameObject newNode1 = Instantiate(prefab, MapImage.transform);
+                DetermineNodeType(newNode1);
+                newNode1.GetComponent<MapNode>().stair = i + 1;
                 GameObject backNode1 = BackNodes.Dequeue();
                 if(BackNodes.Count!=0)
                 {
@@ -131,6 +142,24 @@ public class MapNodeLinker : MonoBehaviour
                 }
             }
 
+        }
+    }
+    public void DetermineNodeType(GameObject node)
+    {
+        float randomSeed = Random.Range(0, 0.1f);
+        if(randomSeed <=0.015f && EliteMap>0)
+        {
+            node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_Elite";
+            EliteMap--;
+        }
+        else if(randomSeed > 0.015f && randomSeed <=0.03f && RestMap>0)
+        {
+            node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_Rest";
+            RestMap--;
+        }
+        else
+        {
+            node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_Default";
         }
     }
 

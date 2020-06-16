@@ -40,6 +40,8 @@ public class PlayerManager : MonoBehaviour
     //하단 UI
     public GameObject CardDeckUI;
 
+    public Animator anim;
+
     public float ySpeed=0;
     public float gravity;
     public float range;
@@ -61,6 +63,7 @@ public class PlayerManager : MonoBehaviour
             playerSingleton = this;
         if(HP==0)
           HP = 3;
+        anim = GetComponentInChildren<Animator>();
         //각종 외부 상호작용 오브젝트들 초기화
         controller = GetComponent<CharacterController>();
         CardDeckUI = GameObject.FindGameObjectWithTag("CardDeck");
@@ -106,12 +109,12 @@ public class PlayerManager : MonoBehaviour
         {
             ySpeed = 0;
         }
-        if(transform.position.y<=-3.0f)
+        if(transform.position.y<=-3.0f && current!=PlayerState.DIE)
             SetState(PlayerState.DIE);
 
         Camera.main.transform.position = transform.position + camPos;
 
-        if(HP <=0)
+        if(HP <=0 && current != PlayerState.DIE)
         {
             SetState(PlayerState.DIE);
         }

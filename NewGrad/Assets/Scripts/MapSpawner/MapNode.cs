@@ -20,7 +20,7 @@ public class MapNode : MonoBehaviour
     public static MapNode[] EnabledNode;
     public int stair;
 
-    private void Awake()
+    private void Start()
     {
         //직전 노드가 없는 노드는 시작 노드이므로 시작노드를 초기화.
         if(beforeNode.Length==0 && StartNode ==null)
