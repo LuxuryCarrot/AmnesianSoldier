@@ -10,7 +10,7 @@ public class PlayerBattle : PlayerParent
     public override void BeginState()
     {
         base.BeginState();
-        StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.white;
+        //StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.white;
         Time.timeScale = 1.0f;
     }
     private void Update()

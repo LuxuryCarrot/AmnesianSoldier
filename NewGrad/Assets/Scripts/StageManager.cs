@@ -47,7 +47,7 @@ public class StageManager : MonoBehaviour
     public Canvas HPText;
     public Text DeckCountText;
     public GameObject mapSelectCanvas;
-    public GameObject aimCanvas;
+    //public GameObject aimCanvas;
 
     //FSM 저장부
     Dictionary<StageState, StageParent> StageFlow = new Dictionary<StageState, StageParent>();

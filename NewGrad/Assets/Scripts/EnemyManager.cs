@@ -63,24 +63,26 @@ public class EnemyManager : MonoBehaviour
             if (attackType[i] == AttackType.VERTICAL)
             {
 
-                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UpArrow");
-                newPosCard.GetComponent<Image>().color = Color.red;
+                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Up");
+                newPosCard.GetComponent<RectTransform>().sizeDelta =new Vector2(0.6f, 1);
             }
             else if (attackType[i] == AttackType.HORIZON)
             {
 
-                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/RightArrow");
-                newPosCard.GetComponent<Image>().color = Color.blue;
+                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Right");
+              
+                newPosCard.GetComponent<RectTransform>().sizeDelta = new Vector2(1.0f, 0.6f);
             }
 
             else if (attackType[i] == AttackType.DOWN)
             {
 
-                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/DownArrow");
-                newPosCard.GetComponent<Image>().color = Color.yellow;
+                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Down");
+                
+                newPosCard.GetComponent<RectTransform>().sizeDelta = new Vector2(0.6f, 1);
             }
             //사이즈를 월드 사이즈로 변경.
-            newPosCard.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
+            //newPosCard.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
             //위치 표시.
             newPosCard.GetComponent<RectTransform>().localPosition = new Vector3(i, 1.5f, 0);
         }
