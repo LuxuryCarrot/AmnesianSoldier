@@ -16,7 +16,7 @@ public class DeckList : MonoBehaviour
     {
         
         if (shuffleCount == 0)
-            shuffleCount = 2;
+            shuffleCount = 3;
         ResetDeck();
         if (deckList == null)
             deckList = this;

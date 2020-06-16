@@ -14,10 +14,10 @@ public class StageSelectMap : StageParent
         PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
         manager.mapCanvas.SetActive(true);
         manager.mapSelectCanvas.SetActive(true);
-        if(manager.mapSelectCanvas.transform.childCount!=0)
-            for(int i=0; i< manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount; i++)
+        if(manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount != 0)
+            for(int i=0;  manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount!=0; i++)
             {
-                manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).GetChild(i).GetComponent<MapSelectCard>().DestroyThis();
+                manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetComponent<MapSelectCard>().DestroyThis();
             }
 
         if(MapNode.EnabledNode!=null)
