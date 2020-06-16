@@ -19,12 +19,16 @@ public class CardSpawner : MonoBehaviour
     }
     public void DrawCard()
     {
-        
-            if (DeckList.Deck.Count == 0 || transform.childCount>=5)
-                return;
+        Debug.Log(transform.childCount);
+        if (DeckList.Deck.Count == 0 || transform.childCount >= 5)
+            return;
+        else
+        {
 
-            GameObject newCard = Instantiate(Resources.Load("Prefabs/Cards/"+ DeckList.Deck.Dequeue()) as GameObject, transform);
-        StageManager.stageSingletom.DeckCountText.text = DeckList.Deck.Count.ToString();
+            GameObject newCard = Instantiate(Resources.Load("Prefabs/Cards/" + DeckList.Deck.Dequeue()) as GameObject, transform);
+            StageManager.stageSingletom.DeckCountText.text = DeckList.Deck.Count.ToString();
+        }
+        
         
     }
 }

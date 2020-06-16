@@ -32,6 +32,7 @@ public class MapNodeLinker : MonoBehaviour
             {
                 GameObject newNode = Instantiate(prefab, MapImage.transform);
                 newNode.GetComponent<MapNode>().mapInfo = stageNum + "_Default";
+                newNode.GetComponent<MapNode>().battleInfo = "_Default";
                 newNode.GetComponent<MapNode>().stair = 0;
                 startNode = newNode;
                 mapNodeCurrent = startNode;
@@ -39,11 +40,13 @@ public class MapNodeLinker : MonoBehaviour
                 //{
                     GameObject newNode1 = Instantiate(prefab, MapImage.transform);
                 newNode1.GetComponent<MapNode>().mapInfo = stageNum + "_Default";
+                newNode1.GetComponent<MapNode>().battleInfo = "_Default";
                 newNode1.GetComponent<MapNode>().stair = 1;
                     newNode1.GetComponent<MapNode>().beforeNode = new MapNode[1];
                     newNode1.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
                     GameObject newNode2 = Instantiate(prefab, MapImage.transform);
                 newNode2.GetComponent<MapNode>().mapInfo = stageNum + "_Default";
+                newNode2.GetComponent<MapNode>().battleInfo = "_Default";
                 newNode2.GetComponent<MapNode>().stair = 1;
                     newNode2.GetComponent<MapNode>().beforeNode = new MapNode[1];
                     newNode2.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
@@ -149,17 +152,23 @@ public class MapNodeLinker : MonoBehaviour
         float randomSeed = Random.Range(0, 0.1f);
         if(randomSeed <=0.015f && EliteMap>0)
         {
+            node.GetComponent<MapNode>().battleInfo = "_Elite";
             node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_Elite";
+            
             EliteMap--;
         }
         else if(randomSeed > 0.015f && randomSeed <=0.03f && RestMap>0)
         {
+            node.GetComponent<MapNode>().battleInfo = "_Rest";
             node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_Rest";
+            
             RestMap--;
         }
         else
         {
+            node.GetComponent<MapNode>().battleInfo = "_Default";
             node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_Default";
+            
         }
     }
 

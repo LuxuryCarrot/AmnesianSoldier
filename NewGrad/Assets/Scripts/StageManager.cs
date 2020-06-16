@@ -44,7 +44,7 @@ public class StageManager : MonoBehaviour
     public GameObject LoseFlashCanvas;
     public GameObject DrawFlashCanvas;
     public GameObject CardDeck;
-    public Text HPText;
+    public Canvas HPText;
     public Text DeckCountText;
     public GameObject mapSelectCanvas;
     public GameObject aimCanvas;

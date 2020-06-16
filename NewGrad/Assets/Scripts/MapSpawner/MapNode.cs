@@ -19,6 +19,7 @@ public class MapNode : MonoBehaviour
     public string mapInfo;
     public static MapNode[] EnabledNode;
     public int stair;
+    public string battleInfo;
 
     private void Start()
     {
@@ -48,11 +49,12 @@ public class MapNode : MonoBehaviour
         if (!isEnabled)
             return;
 
-        for (int i=0; i<StageManager.stageSingletom.CardDeck.transform.childCount;i++)
-            StageManager.stageSingletom.CardDeck.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
+        for (int i=0; StageManager.stageSingletom.CardDeck.transform.childCount!=0;i++)
+            StageManager.stageSingletom.CardDeck.transform.GetChild(0).GetComponent<CardParent>().DestroyThis();
         DeckList.deckList.ResetDeck();
         for(int i=0; i<5; i++)
         {
+            Debug.Log("Draw");
             StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
         }
         for (int j = 0; j < beforeNode.Length; j++)

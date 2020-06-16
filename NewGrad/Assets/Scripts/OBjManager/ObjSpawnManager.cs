@@ -42,7 +42,7 @@ public class ObjSpawnManager : MonoBehaviour
         {
             Destroy(FarObjsQueue.Dequeue());
             StartFarSawnAmount++;
-            NearObjSpawn(new Vector3((StartFarSawnAmount - 1) * 38, 4, 32));
+            farObjSpawn(new Vector3((StartFarSawnAmount - 1) * 38, 4, 32));
             PlayerFarXPOS = PlayerManager.playerSingleton.transform.position.x;
         }
     }

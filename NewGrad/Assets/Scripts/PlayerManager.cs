@@ -48,6 +48,9 @@ public class PlayerManager : MonoBehaviour
     public float attackRange;
     public bool losed;
 
+    public float minCamScale;
+    public float maxCamScale;
+
     public float AimStartRange;
     public float AimEndRange;
 
@@ -57,12 +60,13 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        maxCamScale = Camera.main.fieldOfView;
         losed = false;
         //싱글톤 초기화
         if (playerSingleton == null)
             playerSingleton = this;
         if(HP==0)
-          HP = 3;
+          HP = 5;
         anim = GetComponentInChildren<Animator>();
         //각종 외부 상호작용 오브젝트들 초기화
         controller = GetComponent<CharacterController>();

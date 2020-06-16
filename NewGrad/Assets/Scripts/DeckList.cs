@@ -10,10 +10,11 @@ public class DeckList : MonoBehaviour
     public float shuffleCount;
     //외부에서 불러오는 카드 목록.
     public string[] decklistInst;
-
+    string[] decklistBackup;
 
     private void Awake()
     {
+        
         if (shuffleCount == 0)
             shuffleCount = 2;
         ResetDeck();
@@ -22,14 +23,23 @@ public class DeckList : MonoBehaviour
     }
     public void ResetDeck()
     {
+        decklistBackup = null;
+        decklistBackup = new string[decklistInst.Length];
+        for(int i=0; i<decklistInst.Length; i++)
+        {
+
+            string newStr = new string(decklistInst[i].ToCharArray());
+            decklistBackup[i]=newStr;
+        }
         Deck.Clear();
-        if (decklistInst.Length != 0 && Deck.Count == 0)
+        
+        if (decklistBackup.Length != 0 && Deck.Count == 0)
         {
             //외부에서 카드 목록을 불러와서 임시 리스트에 넣음
             List<string> containerDeck = new List<string>();
-            for (int i = 0; i < decklistInst.Length; i++)
+            for (int i = 0; i < decklistBackup.Length; i++)
             {
-                containerDeck.Add(decklistInst[i]);
+                containerDeck.Add(decklistBackup[i]);
                 
             }
             //덱 셔플

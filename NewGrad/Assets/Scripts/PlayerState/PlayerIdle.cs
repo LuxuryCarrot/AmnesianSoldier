@@ -62,6 +62,16 @@ public class PlayerIdle : PlayerParent
             if (manager.CardDeckUI.transform.GetChild(0).childCount > 4)
                 manager.CardDeckUI.transform.GetChild(0).GetChild(4).GetComponent<CardParent>().KeyBordInput();
         }
+
+        if(AimIn)
+        {
+            Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.minCamScale, Time.deltaTime);
+        }
+        else
+        {
+            Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.maxCamScale, Time.deltaTime);
+        }
+    
     }
     public override void EndState()
     {

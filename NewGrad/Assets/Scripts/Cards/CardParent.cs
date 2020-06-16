@@ -75,6 +75,7 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
     
     public virtual void DestroyThis()
     {
+        transform.SetParent(null);
         Destroy(this.gameObject);
     }
 }

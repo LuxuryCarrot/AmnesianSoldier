@@ -10,8 +10,8 @@ public class MapRest : MapSpawnerParent
     private void Awake()
     {
         //StageManager.stageSingletom.SetState(StageState.REST);
-        PlayerManager.playerSingleton.HP = 3;
-        StageManager.stageSingletom.HPText.text = "3";
+        PlayerManager.playerSingleton.HP = 5;
+        
         for (int i = 0; i < startSpawnPos; i++)
         {
 

@@ -88,12 +88,12 @@ public class PlayerBattle : PlayerParent
         }
         else if(win==1)
         {
-            //if (manager.iteratingEnemy.anim != null)
-            //    manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
+            if (manager.iteratingEnemy.anim != null)
+                manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
             manager.iteratingEnemy = null;
             StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
             manager.HP--;
-            StageManager.stageSingletom.HPText.text = manager.HP.ToString();
+            StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-1);
             manager.attackType.Clear();
             manager.anim.SetBool("Damaged", true);
             manager.SetState(PlayerState.ABANDON);

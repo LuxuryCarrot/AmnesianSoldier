@@ -22,4 +22,11 @@ public class BattleDetermine
             return BattleResult.DRAW;
 
     }
+    public static float FloatSlerp(float from, float to, float time)
+    {
+        if (Mathf.Abs(from - to) <= 0.01f)
+            return to;
+        else
+            return (from + (to - from) * time);
+    }
 }
