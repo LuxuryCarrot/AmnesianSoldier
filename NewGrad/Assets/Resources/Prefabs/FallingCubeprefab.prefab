@@ -131,6 +131,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileInst
       objectReference: {fileID: 0}
+    - target: {fileID: 6334301143701139219, guid: f8cf67f342b82a94a8bba159103c50cc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6334301143701139219, guid: f8cf67f342b82a94a8bba159103c50cc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8cf67f342b82a94a8bba159103c50cc, type: 3}
 --- !u!4 &1365224850309241502 stripped
