@@ -27,7 +27,7 @@ public class MapNodeLinker : MonoBehaviour
 
         for(int i=0; i<maxStair-1; i++)
         {
-            int seed = Random.Range(-2, 1);
+            int seed = Utilities.NewRandom(-2, 1);
             if(startNode==null)
             {
                 GameObject newNode = Instantiate(prefab, MapImage.transform);
@@ -74,7 +74,7 @@ public class MapNodeLinker : MonoBehaviour
                 {
                     mapNodeCurrent = mapDetermineQueue.Dequeue();
                     if (
-                        seed >=0 &&
+                        //seed >=0 &&
                          mapDetermineQueue.Count + 1 < MaxMaps)
                     {
                         GameObject newNode1 = Instantiate(prefab, MapImage.transform);

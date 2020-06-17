@@ -11,6 +11,7 @@ public class MapRest : MapSpawnerParent
     {
         //StageManager.stageSingletom.SetState(StageState.REST);
         PlayerManager.playerSingleton.HP = 5;
+        StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(4);
         
         for (int i = 0; i < startSpawnPos; i++)
         {
