@@ -24,7 +24,7 @@ public class ObjSpawnManager : MonoBehaviour
         PlayerXPos = PlayerManager.playerSingleton.transform.position.x+3;
         PlayerFarXPOS = PlayerManager.playerSingleton.transform.position.x;
         for (int i = 1; i <= StartNearSpawnAmount; i++)
-            NearObjSpawn(new Vector3((i - 1)*3, 0.3f, 4));
+            NearObjSpawn(new Vector3((i - 1)*3, 0.2f, 4));
 
         for (int i = 0; i <= StartFarSawnAmount; i++)
             farObjSpawn(new Vector3(i * 76, 4, 32));
@@ -35,7 +35,7 @@ public class ObjSpawnManager : MonoBehaviour
         {
             Destroy(NearObjsQueue.Dequeue());
             StartNearSpawnAmount++;
-            NearObjSpawn(new Vector3((StartNearSpawnAmount - 1)*3, 0.3f, 4));
+            NearObjSpawn(new Vector3((StartNearSpawnAmount - 1)*3, 0.2f, 4));
             PlayerXPos = PlayerManager.playerSingleton.transform.position.x;
         }
         if (PlayerManager.playerSingleton.transform.position.x - PlayerFarXPOS >= 76)

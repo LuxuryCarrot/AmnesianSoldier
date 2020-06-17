@@ -172,6 +172,7 @@ MonoBehaviour:
   ySpeed: 0
   gravity: 10
   range: 6
+  attRange: 6
   anim: {fileID: 0}
   instantiateBehavior: {fileID: 0}
   awakeBehavior: {fileID: 0}

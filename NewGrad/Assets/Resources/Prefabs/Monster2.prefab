@@ -72,8 +72,10 @@ MonoBehaviour:
   current: 0
   ySpeed: 0
   gravity: 10
-  range: 6
+  range: 10
+  attRange: 8
   anim: {fileID: 0}
+  instantiateBehavior: {fileID: 0}
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}

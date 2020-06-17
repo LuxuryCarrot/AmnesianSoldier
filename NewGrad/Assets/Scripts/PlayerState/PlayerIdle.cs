@@ -31,6 +31,7 @@ public class PlayerIdle : PlayerParent
             Time.timeScale = 0.25f;
             AimIn = true;
             manager.attackType.Clear();
+            
             //StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.yellow;
             for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
                 manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();

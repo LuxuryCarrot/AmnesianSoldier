@@ -67,8 +67,7 @@ public class PlayerBattle : PlayerParent
 
         manager.anim.SetInteger("AttackType", (int)playerAnimType);
 
-        if (manager.iteratingEnemy.anim!=null)
-           manager.iteratingEnemy.anim.SetInteger("AttackType", (int)manager.iteratingEnemy.attackType[0]);
+        
 
         if (win==0)
         {

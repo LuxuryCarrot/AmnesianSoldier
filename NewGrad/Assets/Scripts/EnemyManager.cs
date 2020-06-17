@@ -20,6 +20,7 @@ public class EnemyManager : MonoBehaviour
     public float ySpeed;
     public float gravity;
     public float range;
+    public float attRange;
     //FSM 저장부
     Dictionary<EnemyState, EnemyParent> EnemyFlow = new Dictionary<EnemyState, EnemyParent>();
     //여기에 붙어있는 화살표 이미지.
@@ -145,6 +146,12 @@ public class EnemyManager : MonoBehaviour
                 PlayerManager.playerSingleton.iteratingEnemy = this;
             if (awakeBehavior != null)
                 awakeBehavior.Execute();
+        }
+        if(transform.position.x - PlayerManager.playerSingleton.transform.position.x <= attRange &&
+            transform.position.x - PlayerManager.playerSingleton.transform.position.x >= 0)
+        {
+            if (anim != null)
+                anim.SetInteger("AttackType", (int)attackType[0]);
         }
     }
 }
