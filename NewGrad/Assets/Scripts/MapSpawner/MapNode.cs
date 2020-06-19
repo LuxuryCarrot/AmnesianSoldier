@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 //맵에 표시되는 노드.
 public class MapNode : MonoBehaviour
@@ -52,7 +53,7 @@ public class MapNode : MonoBehaviour
         for (int i=0; StageManager.stageSingletom.CardDeck.transform.childCount!=0;i++)
             StageManager.stageSingletom.CardDeck.transform.GetChild(0).GetComponent<CardParent>().DestroyThis();
         DeckList.deckList.ResetDeck();
-        for(int i=0; i<5; i++)
+        for(int i=0; i<3; i++)
         {
             Debug.Log("Draw");
             StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
@@ -83,6 +84,7 @@ public class MapNode : MonoBehaviour
         else
             MapNode.EnabledNode = null;
         StageManager.stageSingletom.SetState(stateWhenStart);
+        GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Aim");
         StageManager.stageSingletom.mapSelectCanvas.SetActive(false);
         StageManager.stageSingletom.mapCanvas.SetActive(false);
         

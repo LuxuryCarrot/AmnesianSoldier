@@ -11,11 +11,13 @@ public class PlayerBattle : PlayerParent
     {
         base.BeginState();
         //StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.white;
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
+        
     }
     private void Update()
     {
         Queue<AttackType> playertype=new Queue<AttackType>();
+        Debug.Log(manager.attackType.Count);
         for (; manager.attackType.Count != 0;)
             playertype.Enqueue(manager.attackType.Dequeue());
         
@@ -34,60 +36,65 @@ public class PlayerBattle : PlayerParent
             return;
         }
 
-        AttackType playerAnimType=AttackType.GUARD;
+        //AttackType playerAnimType=AttackType.GUARD;
 
-        if (playertype.Count < manager.iteratingEnemy.attackType.Length)
+        if (playertype.Count == 0)
             win = 1;
         else
         {
-            for(int i=0; i< manager.iteratingEnemy.attackType.Length;i++)
-            {
-                if (win == 3)
-                {
-                    playerAnimType = AttackType.GUARD;
-                    break;
-                }
-                else
-                {
-                    AttackType playerType = playertype.Dequeue();
-                    if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.GUARD)
-                        win = 3;
-                    else if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.WIN)
-                    {
-                        playerAnimType = playerType;
-                        win = 0;
-                    }
-                    else if (BattleDetermine.Determine(playerType, manager.iteratingEnemy.attackType[i]) == BattleResult.DRAW)
-                        win = 2;
+            AttackType temp = playertype.Dequeue();
+            if (BattleDetermine.Determine(temp, manager.iteratingEnemy.attackType[manager.iteratingEnemy.eliteBattleTemp])
+                == BattleResult.WIN)
+                win = 0;
+            else if (BattleDetermine.Determine(temp, manager.iteratingEnemy.attackType[manager.iteratingEnemy.eliteBattleTemp])
+                == BattleResult.LOSE)
+                win = 1;
+            else if (BattleDetermine.Determine(temp, manager.iteratingEnemy.attackType[manager.iteratingEnemy.eliteBattleTemp])
+                == BattleResult.DRAW)
+                win = 2;
+            else
+                win = 3;
 
-                }
-            }
-               
+            manager.iteratingEnemy.eliteBattleTemp++;
         }
 
-        manager.anim.SetInteger("AttackType", (int)playerAnimType);
+        //manager.anim.SetInteger("AttackType", (int)playerAnimType);
 
-        
+        Debug.Log(win);
 
         if (win==0)
         {
-            //Time.timeScale = 0.2f;
+            
+            
             MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
-            
-            manager.iteratingEnemy.SetState(EnemyState.DIE);
-            manager.iteratingEnemy.enabled = false;
-            
-            manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
-            
-            manager.iteratingEnemy = null;
             manager.attackType.Clear();
 
             manager.anim.SetBool("Success", true);
-            manager.SetState(PlayerState.IDLE);
+
+            if (manager.iteratingEnemy.eliteBattleTemp == manager.iteratingEnemy.attackType.Length)
+            {
+                Time.timeScale = 0.3f;
+                Camera.main.fieldOfView = manager.minCamScale;
+                manager.iteratingEnemy.SetState(EnemyState.DIE);
+                manager.iteratingEnemy.enabled = false;
+
+                manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
+
+                manager.iteratingEnemy = null;
+                manager.SetState(PlayerState.IDLE);
+            }
+            else
+            {
+                manager.SetState(PlayerState.NEXTBATTLE);
+            }
+            
+            
         }
         else if(win==1)
         {
+            manager.timeScale *= 1.05f;
+            Time.timeScale = manager.timeScale;
             if (manager.iteratingEnemy.anim != null)
                 manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
             manager.iteratingEnemy = null;
@@ -100,31 +107,39 @@ public class PlayerBattle : PlayerParent
         }
         else if(win==2)
         {
-            manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
-            StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
-            //manager.iteratingEnemy = null;
-            //manager.HP--;
-            //StageManager.stageSingletom.HPText.text = manager.HP.ToString();
-            //manager.losed = true;
-            manager.attackType.Clear();
-            // manager.anim.SetInteger("AttackType", 0);
-            manager.anim.SetBool("Success", true);
-            manager.SetState(PlayerState.KNOCKBACK);
+            //manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
+            //StageManager.stageSingletom.LoseFlashCanvas.SetActive(true);
+            ////manager.iteratingEnemy = null;
+            ////manager.HP--;
+            ////StageManager.stageSingletom.HPText.text = manager.HP.ToString();
+            ////manager.losed = true;
+            //manager.attackType.Clear();
+            //// manager.anim.SetInteger("AttackType", 0);
+            //manager.anim.SetBool("Success", true);
+            //manager.SetState(PlayerState.KNOCKBACK);
             //MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             //StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
 
-            //manager.timeScale += 0.1f;
-            //Time.timeScale = manager.timeScale;
-            //manager.iteratingEnemy.SetState(EnemyState.DIE);
-            //manager.iteratingEnemy.enabled = false;
+            manager.timeScale *= 1.05f;
+            Time.timeScale = manager.timeScale;
+            manager.anim.SetBool("Success", true);
+            manager.SetState(PlayerState.IDLE);
 
-            //manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
+            if (manager.iteratingEnemy.eliteBattleTemp == manager.iteratingEnemy.attackType.Length)
+            {
+                manager.iteratingEnemy.SetState(EnemyState.DIE);
+                manager.iteratingEnemy.enabled = false;
 
-            //manager.iteratingEnemy = null;
-            //manager.attackType.Clear();
+                manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
 
-            //manager.anim.SetBool("Success", true);
-            //manager.SetState(PlayerState.IDLE);
+                manager.iteratingEnemy = null;
+                manager.attackType.Clear();
+            }
+            else
+            {
+                manager.SetState(PlayerState.NEXTBATTLE);
+            }
+            
         }
         else
         {

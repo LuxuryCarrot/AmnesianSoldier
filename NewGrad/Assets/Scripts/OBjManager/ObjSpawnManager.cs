@@ -21,8 +21,8 @@ public class ObjSpawnManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayerXPos = PlayerManager.playerSingleton.transform.position.x+3;
-        PlayerFarXPOS = PlayerManager.playerSingleton.transform.position.x;
+        PlayerXPos = 3;
+        PlayerFarXPOS = 0;
         for (int i = 1; i <= StartNearSpawnAmount; i++)
             NearObjSpawn(new Vector3((i - 1)*3, 0.2f, 4));
 

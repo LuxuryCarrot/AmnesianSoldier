@@ -49,6 +49,7 @@ public class StageManager : MonoBehaviour
     public Text DeckCountText;
     public GameObject mapSelectCanvas;
     public GameObject MinimapAnchor;
+    
     public Text MapselectLimitTime;
     public Text MapselectLimitTimeShadow;
     //public GameObject aimCanvas;

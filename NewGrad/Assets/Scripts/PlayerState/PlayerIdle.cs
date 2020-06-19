@@ -17,6 +17,12 @@ public class PlayerIdle : PlayerParent
     private void Update()
     {
         manager.controller.Move(manager.speed*Time.deltaTime);
+
+        if(AimIn && manager.attackType.Count!=0)
+        {
+            manager.SetState(PlayerState.MONSTERBATTLE);
+        }
+
         if(manager.iteratingEnemy!=null
             &&manager.iteratingEnemy.transform.position.x - transform.position.x <=manager.AimEndRange)
         {
@@ -24,59 +30,59 @@ public class PlayerIdle : PlayerParent
             manager.SetState(PlayerState.MONSTERBATTLE);
         }
 
-        else if(manager.iteratingEnemy!=null
+        if(manager.iteratingEnemy!=null
             && manager.iteratingEnemy.transform.position.x - transform.position.x <= manager.AimStartRange
             &&!AimIn)
         {
-            Time.timeScale = 0.25f;
+            
             AimIn = true;
             manager.attackType.Clear();
-            
+            Debug.Log(AimIn);
             //StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.yellow;
-            for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
-                manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
+            //for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
+            //    manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
         }
 
         //키보드 입력으로 화살표를 사출하는 코드
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             if(manager.CardDeckUI.transform.GetChild(0).childCount>0)
-                manager.CardDeckUI.transform.GetChild(0).GetChild(0).GetComponent<CardParent>().KeyBordInput();
+                manager.CardDeckUI.transform.GetChild(1).GetComponent<CardParent>().KeyBordInput();
         }
         else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
             if (manager.CardDeckUI.transform.GetChild(0).childCount > 1)
-                manager.CardDeckUI.transform.GetChild(0).GetChild(1).GetComponent<CardParent>().KeyBordInput();
+                manager.CardDeckUI.transform.GetChild(2).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             if (manager.CardDeckUI.transform.GetChild(0).childCount > 2)
-                manager.CardDeckUI.transform.GetChild(0).GetChild(2).GetComponent<CardParent>().KeyBordInput();
+                manager.CardDeckUI.transform.GetChild(0).GetChild(0).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             if (manager.CardDeckUI.transform.GetChild(0).childCount > 3)
-                manager.CardDeckUI.transform.GetChild(0).GetChild(3).GetComponent<CardParent>().KeyBordInput();
+                manager.CardDeckUI.transform.GetChild(0).GetChild(1).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             if (manager.CardDeckUI.transform.GetChild(0).childCount > 4)
-                manager.CardDeckUI.transform.GetChild(0).GetChild(4).GetComponent<CardParent>().KeyBordInput();
+                manager.CardDeckUI.transform.GetChild(0).GetChild(2).GetComponent<CardParent>().KeyBordInput();
         }
 
         if(AimIn)
         {
-            Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.minCamScale, Time.deltaTime);
+            Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.minCamScale, 2*Time.deltaTime);
         }
         else
         {
-            Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.maxCamScale, Time.deltaTime);
+            Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.maxCamScale, 2*Time.deltaTime);
         }
     
     }
     public override void EndState()
     {
         base.EndState();
-        AimIn = false;
+        
     }
 }

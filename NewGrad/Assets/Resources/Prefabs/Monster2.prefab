@@ -80,8 +80,8 @@ MonoBehaviour:
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
   RootingCardPool:
-  - Vertical
-  - Horizon
+  - GuardCard
+  eliteBattleTemp: 0
 --- !u!114 &1686942569005877320
 MonoBehaviour:
   m_ObjectHideFlags: 0

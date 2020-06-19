@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 //플레이어의 상태
 public enum PlayerState
 {
@@ -11,6 +12,7 @@ public enum PlayerState
     BOSSBATTLE,
     KNOCKBACK,
     ABANDON,
+    NEXTBATTLE,
     DIE
 }
 
@@ -47,6 +49,7 @@ public class PlayerManager : MonoBehaviour
     public float range;
     public float attackRange;
     public bool losed;
+    public float inputTemp;
 
     public float minCamScale;
     public float maxCamScale;
@@ -55,6 +58,7 @@ public class PlayerManager : MonoBehaviour
     public float AimEndRange;
 
     public float timeScale;
+    public GameObject fillCanvas;
 
     //상태를 넣는 dictionary
     Dictionary<PlayerState, PlayerParent> PlayerFlow = new Dictionary<PlayerState, PlayerParent>();
@@ -71,6 +75,8 @@ public class PlayerManager : MonoBehaviour
         if(HP==0)
           HP = 5;
         anim = GetComponentInChildren<Animator>();
+        fillCanvas = transform.GetChild(3).gameObject;
+        fillCanvas.SetActive(false);
         //각종 외부 상호작용 오브젝트들 초기화
         controller = GetComponent<CharacterController>();
         CardDeckUI = GameObject.FindGameObjectWithTag("CardDeck");
@@ -81,6 +87,7 @@ public class PlayerManager : MonoBehaviour
         PlayerFlow.Add(PlayerState.KNOCKBACK, GetComponent<PlayerKnockBack>());
         PlayerFlow.Add(PlayerState.DIE, GetComponent<PlayerDie>());
         PlayerFlow.Add(PlayerState.ABANDON, GetComponent<PlayerAbandon>());
+        PlayerFlow.Add(PlayerState.NEXTBATTLE, GetComponent<PlayerNextBattle>());
         attackType.Clear();
         current = PlayerState.DELAY;
         SetState(current);
@@ -119,11 +126,23 @@ public class PlayerManager : MonoBehaviour
         if(transform.position.y<=-3.0f && current!=PlayerState.DIE)
             SetState(PlayerState.DIE);
 
-        Camera.main.transform.position = transform.position + camPos;
+        if(StageManager.stageSingletom.current!=StageState.MAPSELECT && transform.position.x>=0)
+           Camera.main.transform.position = transform.position + camPos;
 
         if(HP <=0 && current != PlayerState.DIE)
         {
             SetState(PlayerState.DIE);
+        }
+
+        if(inputTemp>0 && iteratingEnemy==null)
+        {
+            inputTemp -= Time.deltaTime;
+            if (inputTemp <= 0)
+            {
+                inputTemp = 0;
+                attackType.Clear();
+                Debug.Log("!!");
+            }
         }
     }
     

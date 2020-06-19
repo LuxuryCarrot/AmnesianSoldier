@@ -10,7 +10,7 @@ public class CardSpawner : MonoBehaviour
     //업데이트 문에서 덱에서 카드를 불러옴. 
     private void Start()
     {
-        for (; transform.childCount < 5;)
+        for (; transform.childCount < 3;)
             DrawCard();
     }
     private void Update()
@@ -20,7 +20,7 @@ public class CardSpawner : MonoBehaviour
     public void DrawCard()
     {
         Debug.Log(transform.childCount);
-        if (DeckList.Deck.Count == 0 || transform.childCount >= 5)
+        if (DeckList.Deck.Count == 0 || transform.childCount >= 3)
             return;
         else
         {

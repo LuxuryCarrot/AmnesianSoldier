@@ -178,9 +178,9 @@ MonoBehaviour:
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
   RootingCardPool:
-  - Vertical
-  - Horizon
   - Potion1
+  - GuardCard
+  eliteBattleTemp: 0
 --- !u!114 &2148428636493837027
 MonoBehaviour:
   m_ObjectHideFlags: 0

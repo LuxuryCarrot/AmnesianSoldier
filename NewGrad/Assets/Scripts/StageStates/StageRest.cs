@@ -42,6 +42,22 @@ public class StageRest : StageParent
                 manager.mapCanvas.SetActive(true);
             }
         }
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            if (manager.mapCanvas.activeInHierarchy)
+            {
+                manager.mapCanvas.transform.GetChild(0).localPosition = new Vector3(0, 1190, 0);
+                manager.mapCanvas.SetActive(false);
+                
+                //manager.mapSelectCanvas.SetActive(false);
+            }
+            else
+            {
+                manager.mapCanvas.SetActive(true);
+                manager.mapCanvas.transform.GetChild(0).localPosition = Vector3.zero;
+                //manager.mapCanvas.SetActive(true);
+            }
+        }
     }
     public override void EndState()
     {

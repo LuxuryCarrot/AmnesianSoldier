@@ -49,11 +49,11 @@ public class SlimeDie : EnemyDieParent
             if (SpawnSpot2 != Vector3.zero)
                 break;
 
-            float findXPos = MonsterManager.Monsters[i].transform.position.x + 5;
+            float findXPos = MonsterManager.Monsters[i].transform.position.x + 10;
             bool findMonster=false;
             for (int j=0; j<MonsterManager.Monsters.Count; j++)
             {
-                if(Mathf.Abs(MonsterManager.Monsters[j].transform.position.x -findXPos)<=4)
+                if(Mathf.Abs(MonsterManager.Monsters[j].transform.position.x -findXPos)<=5)
                 {
                     findMonster = true;
                     break;
@@ -63,7 +63,7 @@ public class SlimeDie : EnemyDieParent
             if(MonsterManager.Monsters[i].transform.position.x>=this.transform.position.x+10
                 &&!findMonster)
             {
-                Vector3 spawn = MonsterManager.Monsters[i].transform.position + new Vector3(5, 0, 0);
+                Vector3 spawn = MonsterManager.Monsters[i].transform.position + new Vector3(10, 0, 0);
                 if (spawn.x >= MapPositionManager.mapMax)
                     break;
                 else if (SpawnSpot1 == Vector3.zero)

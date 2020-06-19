@@ -11,7 +11,7 @@ public class StageStart : StageParent
     {
         base.BeginState();
         //게임 시작시 카운트 다운을 초기화 한다.
-        temp = 3.0f;
+        temp = 0.5f;
     }
     private void Update()
     {

@@ -34,6 +34,8 @@ public class EnemyManager : MonoBehaviour
 
     public string[] RootingCardPool;
 
+    public int eliteBattleTemp;
+
     private void Awake()
     {
         
@@ -41,13 +43,12 @@ public class EnemyManager : MonoBehaviour
             gravity = 10.0f;
         for (int i = 0; i < attackType.Length; i++)
         {
-            float randonSeed = Random.Range(0, 0.3f);
-            if (randonSeed >= 0.2f)
-                attackType[i] = AttackType.VERTICAL;
-            else if(randonSeed>=0.1f)
+            float randonSeed = Random.Range(0, 0.2f);
+            
+            if(randonSeed>=0.1f)
                 attackType[i] = AttackType.HORIZON;
             else
-                attackType[i] = AttackType.DOWN;
+                attackType[i] = AttackType.VERTICAL;
         }
         anim = GetComponentInChildren<Animator>();
         current = EnemyState.IDLE;
@@ -100,6 +101,9 @@ public class EnemyManager : MonoBehaviour
     {
         if (instantiateBehavior != null)
             instantiateBehavior.Execute();
+
+        if (attackType != null)
+            eliteBattleTemp = 0;
     }
 
     public void SetState(EnemyState newst)

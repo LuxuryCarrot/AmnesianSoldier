@@ -11,7 +11,7 @@ public class StageSelectMap : StageParent
     {
         base.BeginState();
         temp = 5;
-        PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
+        //PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
         manager.mapCanvas.SetActive(true);
         manager.mapSelectCanvas.SetActive(true);
         if(manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount != 0)
@@ -34,6 +34,8 @@ public class StageSelectMap : StageParent
     }
     private void Update()
     {
+        if (MapPositionManager.mapMax - PlayerManager.playerSingleton.transform.position.x <= 1)
+            PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
         temp -= Time.deltaTime;
         manager.MapselectLimitTime.text = ((int)temp).ToString();
         manager.MapselectLimitTimeShadow.text = ((int)temp).ToString();

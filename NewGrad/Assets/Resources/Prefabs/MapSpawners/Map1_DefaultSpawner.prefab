@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3406666292937969501}
   - component: {fileID: 114393376305355404}
   m_Layer: 0
-  m_Name: Map1_1Spawner
+  m_Name: Map1_DefaultSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,6 +49,7 @@ MonoBehaviour:
   - {fileID: 970495092198981321, guid: 486f23b81621db242b0fcb0305438cff, type: 3}
   - {fileID: 1686942569005877315, guid: 1feca822d1eeac448bfe1d7c57e96da8, type: 3}
   startSpawnPos: 60
-  mapMaxPos: 150
-  monsterMinDistance: 10
-  monsterMaxDistance: 15
+  mapMaxPos: 300
+  monsterMinDistance: 20
+  monsterMaxDistance: 30
+  mapDontCamChase: 12

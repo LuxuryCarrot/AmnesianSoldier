@@ -41,37 +41,41 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
     {
         //카드가 없을때만 붙이도록 비교문 넣어둠
         if ( isExecuted==true || PlayerManager.playerSingleton.inputSlot.transform.childCount>=5 
-            || PlayerManager.playerSingleton.current==PlayerState.ABANDON)
+            || PlayerManager.playerSingleton.current==PlayerState.ABANDON
+            || PlayerManager.playerSingleton.current == PlayerState.MONSTERBATTLE)
             return;
-        isExecuted = true;
-        isParented = true;
+        //isExecuted = true;
+        //isParented = true;
         PlayerManager.playerSingleton.attackType.Enqueue(thisType);
-        transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
-        GetComponent<Image>().color = Color.clear;
-        GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
-        if (PlayerManager.playerSingleton.current==PlayerState.IDLE
-            && !PlayerManager.playerSingleton.GetComponent<PlayerIdle>().AimIn)
-            PlayerManager.playerSingleton.anim.SetInteger("AttackType", (int)thisType);
-        GetComponent<RectTransform>().localPosition = new Vector3(PlayerManager.playerSingleton.inputSlot.transform.childCount-1, 1.5f, 0);
-        StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
+        PlayerManager.playerSingleton.anim.SetInteger("AttackType" , (int)thisType);
+        //transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
+        //GetComponent<Image>().color = Color.clear;
+        //GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
+        //if (PlayerManager.playerSingleton.current==PlayerState.IDLE
+        //    && !PlayerManager.playerSingleton.GetComponent<PlayerIdle>().AimIn)
+        //    PlayerManager.playerSingleton.anim.SetInteger("AttackType", (int)thisType);
+        //GetComponent<RectTransform>().localPosition = new Vector3(PlayerManager.playerSingleton.inputSlot.transform.childCount-1, 1.5f, 0);
+        //StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
     }
     //키보드를 입력받을 시, 스테이지 매니저에서 발동하는 함수
     public virtual void KeyBordInput()
     {
         if ( isExecuted == true || PlayerManager.playerSingleton.inputSlot.transform.childCount >=5 
-            || PlayerManager.playerSingleton.current == PlayerState.ABANDON)
+            || PlayerManager.playerSingleton.current == PlayerState.ABANDON
+            || PlayerManager.playerSingleton.current == PlayerState.MONSTERBATTLE)
             return;
-        isExecuted = true;
-        isParented = true;
+        //isExecuted = true;
+        //isParented = true;
         PlayerManager.playerSingleton.attackType.Enqueue(thisType);
-        transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
-        GetComponent<Image>().color = Color.clear;
-        GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
-        if (PlayerManager.playerSingleton.current == PlayerState.IDLE
-            && !PlayerManager.playerSingleton.GetComponent<PlayerIdle>().AimIn)
-            PlayerManager.playerSingleton.anim.SetInteger("AttackType", (int)thisType);
-        GetComponent<RectTransform>().localPosition = new Vector3(PlayerManager.playerSingleton.inputSlot.transform.childCount - 1, 1.5f, 0);
-        StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
+        PlayerManager.playerSingleton.anim.SetInteger("AttackType", (int)thisType);
+        //transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
+        //GetComponent<Image>().color = Color.clear;
+        //GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
+        //if (PlayerManager.playerSingleton.current == PlayerState.IDLE
+        //    && !PlayerManager.playerSingleton.GetComponent<PlayerIdle>().AimIn)
+        //    PlayerManager.playerSingleton.anim.SetInteger("AttackType", (int)thisType);
+        //GetComponent<RectTransform>().localPosition = new Vector3(PlayerManager.playerSingleton.inputSlot.transform.childCount - 1, 1.5f, 0);
+        //StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
     }
     //초기화 시 카드의 타입을 초기화하는 기능.
     
