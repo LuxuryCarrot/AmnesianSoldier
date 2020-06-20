@@ -34,4 +34,8 @@ public class PlayerAnimGet : MonoBehaviour
         GetComponent<Animator>().SetBool("Cancel", false);
         PlayerManager.playerSingleton.anim.SetInteger("AttackType", 5);
     }
+    public void ASDF()
+    {
+        Debug.Log("asdf");
+    }
 }

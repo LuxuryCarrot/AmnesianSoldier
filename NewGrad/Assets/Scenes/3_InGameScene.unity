@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.19665831, g: 0.5841813, b: 0.7977386, a: 1}
+  m_IndirectSpecularColor: {r: 0.19652914, g: 0.5840552, b: 0.7988162, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -144,6 +144,7 @@ Transform:
   m_Children:
   - {fileID: 113886403}
   - {fileID: 843513831}
+  - {fileID: 767468970}
   m_Father: {fileID: 748170846}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -161,15 +162,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearObj:
-  - {fileID: 1180749666524117725, guid: 572327f129e0d604088ba03eaeddcf5f, type: 3}
-  - {fileID: 7015681467040338300, guid: 9eef57ac76495a249ab838d94b3cd3c0, type: 3}
-  - {fileID: 1306874840103590899, guid: 59d2e29f8d9a77145bb816722e7c6903, type: 3}
-  - {fileID: 4521543273998323150, guid: b23576d1fadd4fe4684bc1a7092b1b92, type: 3}
-  - {fileID: 4769845014942046236, guid: 5dda218efc88a684cb41d168697ffbbd, type: 3}
-  - {fileID: 1198398672934047918, guid: 20f7b1597bb9fbd438ce824327d76156, type: 3}
+  - {fileID: 7009070190446853169, guid: b9ec6a99ed1304241b95987ff22e1310, type: 3}
+  - {fileID: 1083053226523566238, guid: 60682551b26a4bd4d9d3a5bef010238a, type: 3}
+  - {fileID: 5447100330828836134, guid: 912793ef8e826c441891961c76a7dd6e, type: 3}
   farobj: {fileID: 5602880902958108236, guid: 1e84e76f528e36142ae73fae35d226aa, type: 3}
   StartNearSpawnAmount: 20
   StartFarSawnAmount: 3
+  startMidSpawnAmount: 4
+  midObj: {fileID: 5534982966256060613, guid: ae70d709044f61745b4364e715c416a4, type: 3}
 --- !u!1001 &17170681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3523,6 +3523,36 @@ Transform:
   - {fileID: 1120213039}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &767468969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 767468970}
+  m_Layer: 0
+  m_Name: MidObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &767468970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767468969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1824119}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &769598019
 PrefabInstance:
@@ -8477,7 +8507,12 @@ PrefabInstance:
     - target: {fileID: 6150350377709345911, guid: 4899bfa606a22994ea855303cf822187,
         type: 3}
       propertyPath: nearObj.Array.size
-      value: 6
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150350377709345911, guid: 4899bfa606a22994ea855303cf822187,
+        type: 3}
+      propertyPath: startMidSpawnAmount
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6150350377709345912, guid: 4899bfa606a22994ea855303cf822187,
         type: 3}
