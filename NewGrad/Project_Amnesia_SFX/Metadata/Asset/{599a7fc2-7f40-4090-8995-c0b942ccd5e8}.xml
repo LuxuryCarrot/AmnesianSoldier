@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EncodableAsset" id="{599a7fc2-7f40-4090-8995-c0b942ccd5e8}">
+		<property name="assetPath">
+			<value>Project_Amnesia_SFX/Enemy/Gem/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3cca5829-0569-4554-914f-05a525d4bd32}</destination>
+		</relationship>
+	</object>
+</objects>

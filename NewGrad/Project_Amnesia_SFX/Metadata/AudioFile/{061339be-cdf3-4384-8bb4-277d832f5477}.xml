@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{061339be-cdf3-4384-8bb4-277d832f5477}">
+		<property name="assetPath">
+			<value>Project_Amnesia_SFX/PC/Attack/Sword/SwordSlice_AP1.1146.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.66666666666666663</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3cca5829-0569-4554-914f-05a525d4bd32}</destination>
+		</relationship>
+	</object>
+</objects>

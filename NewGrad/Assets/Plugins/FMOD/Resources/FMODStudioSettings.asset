@@ -15,8 +15,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: FMOD/FMOD.fspro
-  sourceBankPath: FMOD\Build
+  sourceProjectPath: Project_Amnesia_SFX/Project_Amnesia_SFX.fspro
+  sourceBankPath: Project_Amnesia_SFX\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -78,6 +78,9 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - Enemy
+  - PC
+  - UI
   BanksToLoad: []
   LiveUpdatePort: 9264

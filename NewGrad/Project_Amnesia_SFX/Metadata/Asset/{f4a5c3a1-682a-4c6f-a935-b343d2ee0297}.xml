@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EncodableAsset" id="{f4a5c3a1-682a-4c6f-a935-b343d2ee0297}">
+		<property name="assetPath">
+			<value>Project_Amnesia_SFX/PC/Run_Dirt/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3cca5829-0569-4554-914f-05a525d4bd32}</destination>
+		</relationship>
+	</object>
+</objects>
