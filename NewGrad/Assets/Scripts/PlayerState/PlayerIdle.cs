@@ -12,7 +12,7 @@ public class PlayerIdle : PlayerParent
         base.BeginState();
         AimIn = false;
         manager.anim.SetBool("Ready", false);
-        
+        manager.AimChange(false);
     }
     private void Update()
     {
@@ -37,7 +37,8 @@ public class PlayerIdle : PlayerParent
             
             AimIn = true;
             manager.attackType.Clear();
-            Debug.Log(AimIn);
+           
+            manager.AimChange(true);
             //StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.yellow;
             //for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
             //    manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
@@ -46,27 +47,27 @@ public class PlayerIdle : PlayerParent
         //키보드 입력으로 화살표를 사출하는 코드
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if(manager.CardDeckUI.transform.GetChild(0).childCount>0)
+            
                 manager.CardDeckUI.transform.GetChild(1).GetComponent<CardParent>().KeyBordInput();
         }
         else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount > 1)
+            
                 manager.CardDeckUI.transform.GetChild(2).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount > 2)
+            if (manager.CardDeckUI.transform.GetChild(0).childCount >= 1)
                 manager.CardDeckUI.transform.GetChild(0).GetChild(0).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount > 3)
+            if (manager.CardDeckUI.transform.GetChild(0).childCount >= 2)
                 manager.CardDeckUI.transform.GetChild(0).GetChild(1).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount > 4)
+            if (manager.CardDeckUI.transform.GetChild(0).childCount >= 3)
                 manager.CardDeckUI.transform.GetChild(0).GetChild(2).GetComponent<CardParent>().KeyBordInput();
         }
 

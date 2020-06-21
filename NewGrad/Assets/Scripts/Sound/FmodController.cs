@@ -44,18 +44,5 @@ public class FmodController : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/Slime/Die");
     }
 
-    public void OnionAppear()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/Onion/Appear");
-    }
-
-    public void OnionAttack()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/Onion/Attack");
-    }
-
-    public void OnionDie()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/Onion/Die");
-    }
+    
 }

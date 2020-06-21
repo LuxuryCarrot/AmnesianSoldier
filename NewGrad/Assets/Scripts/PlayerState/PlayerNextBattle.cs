@@ -23,27 +23,27 @@ public class PlayerNextBattle : PlayerParent
         manager.fillCanvas.GetComponentInChildren<Image>().fillAmount = gageTemp / gage;
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount > 0)
-                manager.CardDeckUI.transform.GetChild(1).GetComponent<CardParent>().KeyBordInput();
+
+            manager.CardDeckUI.transform.GetChild(1).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount > 1)
-                manager.CardDeckUI.transform.GetChild(2).GetComponent<CardParent>().KeyBordInput();
+
+            manager.CardDeckUI.transform.GetChild(2).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount > 2)
+            if (manager.CardDeckUI.transform.GetChild(0).childCount >= 1)
                 manager.CardDeckUI.transform.GetChild(0).GetChild(0).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount > 3)
+            if (manager.CardDeckUI.transform.GetChild(0).childCount >= 2)
                 manager.CardDeckUI.transform.GetChild(0).GetChild(1).GetComponent<CardParent>().KeyBordInput();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount > 4)
+            if (manager.CardDeckUI.transform.GetChild(0).childCount >= 3)
                 manager.CardDeckUI.transform.GetChild(0).GetChild(2).GetComponent<CardParent>().KeyBordInput();
         }
         if (manager.attackType.Count != 0

@@ -58,36 +58,15 @@ public class EnemyManager : MonoBehaviour
             PosImage = Resources.Load("Prefabs/Cards/EmptyCard") as GameObject;
 
         //카드를 붙인 뒤, 그 카드의 타입에 따라 위치 정규화. 카드 이미지가 생긴 뒤 수정할 파트.
-        for (int i = 0; i < attackType.Length; i++)
-        {
-            //공격타입에 따른 아이콘. 
-            GameObject newPosCard = Instantiate(PosImage, transform.GetChild(1));
-            if (attackType[i] == AttackType.VERTICAL)
-            {
+        
+        GameObject newPosCard = Instantiate(PosImage, transform.GetChild(1));
 
-                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Up");
-                newPosCard.GetComponent<RectTransform>().sizeDelta =new Vector2(0.6f, 1);
-            }
-            else if (attackType[i] == AttackType.HORIZON)
-            {
-
-                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Right");
-              
-                newPosCard.GetComponent<RectTransform>().sizeDelta = new Vector2(1.0f, 0.6f);
-            }
-
-            else if (attackType[i] == AttackType.DOWN)
-            {
-
-                newPosCard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Down");
-                
-                newPosCard.GetComponent<RectTransform>().sizeDelta = new Vector2(0.6f, 1);
-            }
-            //사이즈를 월드 사이즈로 변경.
-            //newPosCard.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
-            //위치 표시.
-            newPosCard.GetComponent<RectTransform>().localPosition = new Vector3(i, 1.5f, 0);
-        }
+        SetAttackImage();
+        newPosCard.GetComponent<RectTransform>().sizeDelta =new Vector2(0.5f, 0.5f);
+            
+            
+        newPosCard.GetComponent<RectTransform>().localPosition = new Vector3(0, 1.5f, 0);
+        
         awakeBehavior = GetComponent<EnemyAwakeParent>();
         battleBehavior = GetComponent<EnemyBattleParent>();
         dieBehavior = GetComponent <EnemyDieParent > ();
@@ -151,11 +130,52 @@ public class EnemyManager : MonoBehaviour
             if (awakeBehavior != null)
                 awakeBehavior.Execute();
         }
+
         if(transform.position.x - PlayerManager.playerSingleton.transform.position.x <= attRange &&
             transform.position.x - PlayerManager.playerSingleton.transform.position.x >= 0)
         {
             if (anim != null)
                 anim.SetInteger("AttackType", (int)attackType[0]);
         }
+
+        if(transform.position.x - PlayerManager.playerSingleton.transform.position.x < 0
+            || PlayerManager.playerSingleton.current==PlayerState.DIE)
+            if (anim != null)
+                anim.SetInteger("AttackType", 5);
+    }
+
+    public void SetAttackImage()
+    {
+        string AttackTypeName=null;
+
+        if (attackType.Length - eliteBattleTemp == 0)
+            return;
+
+        if (attackType[eliteBattleTemp] == AttackType.VERTICAL)
+        {
+            AttackTypeName = "blue";
+        }
+        else
+        {
+            AttackTypeName = "red";
+        }
+
+        if (attackType.Length - eliteBattleTemp == 0)
+            return;
+        else if (attackType.Length - eliteBattleTemp == 1)
+            AttackTypeName += "_circle";
+        else if (attackType.Length - eliteBattleTemp == 2)
+            AttackTypeName += "_tri";
+        else if (attackType.Length - eliteBattleTemp == 3)
+            AttackTypeName += "_square";
+        else
+            AttackTypeName += "_pentagon";
+
+        Debug.Log("Sprites/Juwels/"+AttackTypeName);
+
+        transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Juwels/" + AttackTypeName) as Sprite;
+
+        if (eliteBattleTemp != 0)
+            transform.GetChild(1).GetChild(0).GetComponent<Animator>().SetTrigger("Blink");
     }
 }

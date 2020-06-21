@@ -52,13 +52,20 @@ public class StageManager : MonoBehaviour
     
     public Text MapselectLimitTime;
     public Text MapselectLimitTimeShadow;
-    //public GameObject aimCanvas;
+
+    public int RedAttackCurrent;
+    public int BlueAttackCurrent;
+    public int RedAttackAmount;
+    public int BlueAttackAmount;
+    public GameObject aimCanvas;
 
     //FSM 저장부
     Dictionary<StageState, StageParent> StageFlow = new Dictionary<StageState, StageParent>();
 
     private void Awake()
     {
+        RedAttackCurrent = RedAttackAmount;
+        BlueAttackCurrent = BlueAttackAmount;
         if (stageSingletom == null)
             stageSingletom = this;
 
@@ -111,5 +118,5 @@ public class StageManager : MonoBehaviour
         StageFlow[current].enabled = true;
         StageFlow[current].BeginState();
     }
-
+    
 }

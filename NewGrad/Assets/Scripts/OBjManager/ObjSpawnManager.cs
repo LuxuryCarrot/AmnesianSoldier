@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjSpawnManager : MonoBehaviour
 {
-    public GameObject[] nearObj;
+    public GameObject nearObj;
     public GameObject farobj;
     public static Queue<GameObject> NearObjsQueue = new Queue<GameObject>();
     public static Queue<GameObject> FarObjsQueue = new Queue<GameObject>();
@@ -28,46 +28,46 @@ public class ObjSpawnManager : MonoBehaviour
         PlayerXPos = 1;
         PlayerFarXPOS = 0;
         playerMidXPOS = 0;
-        for (int i = -20; i <= StartNearSpawnAmount; i++)
-            NearObjSpawn(new Vector3((i - 1)*1, 0.2f, 4));
+        for (int i = -1; i <= StartNearSpawnAmount; i++)
+            NearObjSpawn(new Vector3((i - 1) * 20, 0.5f, 0.5f));
 
         for (int i = 0; i <= StartFarSawnAmount; i++)
-            farObjSpawn(new Vector3(i * 76, 3, 32));
+            farObjSpawn(new Vector3(i * 76, 3, 52));
 
-        for(int i=-1; i<=startMidSpawnAmount; i++)
+        for (int i=-1; i<=startMidSpawnAmount; i++)
         {
-            MidObjSpawn(new Vector3((i * 38), 2, 15));
+            MidObjSpawn(new Vector3((i * 19), 1.8f, 3.5f));
         }
     }
     private void FixedUpdate()
     {
-        if(PlayerManager.playerSingleton.transform.position.x-PlayerXPos>=1)
+        if (PlayerManager.playerSingleton.transform.position.x - PlayerXPos >= 20)
         {
             Destroy(NearObjsQueue.Dequeue());
             StartNearSpawnAmount++;
-           
-            NearObjSpawn(new Vector3((StartNearSpawnAmount - 1)*1, 0.2f, 4));
+
+            NearObjSpawn(new Vector3((StartNearSpawnAmount - 1) * 20, 0.5f, 0.5f));
             PlayerXPos = (int)PlayerManager.playerSingleton.transform.position.x;
         }
         if (PlayerManager.playerSingleton.transform.position.x - PlayerFarXPOS >= 76)
         {
             Destroy(FarObjsQueue.Dequeue());
             StartFarSawnAmount++;
-            farObjSpawn(new Vector3((StartFarSawnAmount - 1) * 76, 3, 32));
+            farObjSpawn(new Vector3((StartFarSawnAmount - 1) * 76, 3, 52));
             PlayerFarXPOS = (int)PlayerManager.playerSingleton.transform.position.x;
         }
-        if (PlayerManager.playerSingleton.transform.position.x - playerMidXPOS >= 38)
+        if (PlayerManager.playerSingleton.transform.position.x - playerMidXPOS >= 19)
         {
             Destroy(MidObjsQueue.Dequeue());
             startMidSpawnAmount++;
-            MidObjSpawn(new Vector3((startMidSpawnAmount - 1) * 38, 2, 15));
+            MidObjSpawn(new Vector3((startMidSpawnAmount - 1) * 19, 1.8f, 3.5f));
             playerMidXPOS = (int)PlayerManager.playerSingleton.transform.position.x;
         }
     }
 
     public void NearObjSpawn(Vector3 pos)
     {
-        GameObject near = Instantiate(nearObj[Utilities.NewRandom(0, nearObj.Length)], transform.GetChild(0));
+        GameObject near = Instantiate(nearObj, transform.GetChild(0));
         near.transform.localPosition = pos;
         NearObjsQueue.Enqueue(near);
     }

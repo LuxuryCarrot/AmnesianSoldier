@@ -33,8 +33,8 @@ public class MapNodeLinker : MonoBehaviour
             {
                 GameObject newNode = Instantiate(prefab, MapImage.transform);
                 newNode.transform.localPosition = new Vector3(0, -420, 0);
-                newNode.GetComponent<MapNode>().mapInfo = stageNum + "_Default";
-                newNode.GetComponent<MapNode>().battleInfo = "_Default";
+                newNode.GetComponent<MapNode>().mapInfo = stageNum + "_Elite";
+                newNode.GetComponent<MapNode>().battleInfo = "_Elite";
                 newNode.GetComponent<MapNode>().stair = 0;
                 startNode = newNode;
                 mapNodeCurrent = startNode;

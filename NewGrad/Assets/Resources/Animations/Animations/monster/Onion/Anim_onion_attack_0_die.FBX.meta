@@ -139,14 +139,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0.07506702
-        functionName: NewEvent
+        functionName: OnionDie
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.9124424
-        functionName: OnionDie
+        functionName: Die
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

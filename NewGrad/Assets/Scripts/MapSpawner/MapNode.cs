@@ -85,9 +85,12 @@ public class MapNode : MonoBehaviour
             MapNode.EnabledNode = null;
         StageManager.stageSingletom.SetState(stateWhenStart);
         GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Aim");
+        if (stateWhenStart == StageState.READY)
+        {
+            
+            StageManager.stageSingletom.mapCanvas.SetActive(false);
+        }
         StageManager.stageSingletom.mapSelectCanvas.SetActive(false);
-        StageManager.stageSingletom.mapCanvas.SetActive(false);
-        
     }
 
     //맵을 불러옴. 

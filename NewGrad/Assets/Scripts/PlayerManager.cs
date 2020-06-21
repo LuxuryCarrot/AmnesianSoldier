@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 //플레이어의 상태
 public enum PlayerState
@@ -91,7 +91,7 @@ public class PlayerManager : MonoBehaviour
         attackType.Clear();
         current = PlayerState.DELAY;
         SetState(current);
-        //AimSpawn();
+        AimSpawn();
     }
 
     //상태 변경 함수
@@ -145,15 +145,26 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-    
-    //public void AimSpawn()
-    //{
-    //    Vector3 inst= transform.position+new Vector3((AimStartRange+AimEndRange)/2,0,0);
-    //    Vector3 screenPos;
 
-    //    screenPos = Camera.main.WorldToScreenPoint(inst);
-    //    GameObject aim = Instantiate(Resources.Load("Prefabs/UIPrefab/Aim") as GameObject, StageManager.stageSingletom.aimCanvas.transform);
-    //    aim.GetComponent<RectTransform>().position = screenPos;
-    //    aim.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100)*(AimStartRange-AimEndRange);
-    //}
+    public void AimSpawn()
+    {
+        Vector3 inst =  new Vector3((AimStartRange + AimEndRange) / 2, 1.5f, 0);
+        Vector3 screenPos;
+
+        screenPos = Camera.main.WorldToScreenPoint(inst);
+        GameObject aim = Instantiate(Resources.Load("Prefabs/UIPrefab/Aim") as GameObject, StageManager.stageSingletom.aimCanvas.transform);
+        aim.GetComponent<RectTransform>().position = screenPos;
+        aim.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100) * (AimStartRange - AimEndRange);
+    }
+    public void AimChange(bool target)
+    {
+        Debug.Log("Change");
+        if (target)
+            StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>()
+                .sprite = Resources.Load<Sprite>("Sprites/NewUis/aim_active");
+        else
+            StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>()
+                .sprite = Resources.Load<Sprite>("Sprites/NewUis/aim_Idle");
+
+    }
 }

@@ -10,7 +10,7 @@ public class EnemyDie : EnemyParent
         if (manager.dieBehavior != null)
             manager.dieBehavior.Begin();
 
-        if (manager.anim != null)
+        if (manager.anim != null && manager.dieBehavior == null)
             manager.anim.SetBool("Die", true);
 
         if (manager.RootingCardPool.Length > 0)

@@ -13,10 +13,10 @@ public class PlayerAbandon : PlayerParent
     {
         base.BeginState();
         //상태 시작시 속도를 초기화함
-        zSpeed = Random.Range(0,1)>=0.5? 20: -20;
+        zSpeed = Random.Range(0,1)>=0.5? 10: -10;
         getBack = false;
-        temp = 0.1f;
-        
+        temp = 0.15f;
+        manager.AimChange(false);
         manager.iteratingEnemy = null;
     }
     private void Update()

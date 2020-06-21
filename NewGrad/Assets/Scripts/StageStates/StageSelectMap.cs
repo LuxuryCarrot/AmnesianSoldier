@@ -30,13 +30,20 @@ public class StageSelectMap : StageParent
                 nextcard.GetComponent<RectTransform>().localPosition += new Vector3(300 + (i - 1) * 600, 0, 0);
                 nextcard.transform.GetChild(0).GetComponent<MapSelectCard>().linkedNode = MapNode.EnabledNode[i];
             }
+            if(MapNode.EnabledNode.Length==1)
+            {
+                GameObject nextcard = Instantiate(Resources.Load("Prefabs/UIPrefab/MapSelect" + "_Blocked") as GameObject, manager.mapSelectCanvas.transform.GetChild(0).GetChild(2));
+                //nextcard.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/stage_select" + MapNode.EnabledNode[i].battleInfo + "_enemy") as Sprite;
+                nextcard.GetComponent<RectTransform>().localPosition += new Vector3(300, 0, 0);
+                //nextcard.transform.GetChild(0).GetComponent<MapSelectCard>().linkedNode = MapNode.EnabledNode[i];
+            }
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (MapPositionManager.mapMax - PlayerManager.playerSingleton.transform.position.x <= 1)
             PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
-        temp -= Time.deltaTime;
+        temp -= Time.fixedDeltaTime;
         manager.MapselectLimitTime.text = ((int)temp).ToString();
         manager.MapselectLimitTimeShadow.text = ((int)temp).ToString();
         if (temp<=0)

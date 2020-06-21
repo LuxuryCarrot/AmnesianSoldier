@@ -10,8 +10,8 @@ public class CardHP : CardParent
     {
         //base.KeyBordInput();
         transform.SetParent(null);
-        if (hpIncrease + PlayerManager.playerSingleton.HP >= 3)
-            PlayerManager.playerSingleton.HP = 3;
+        if (hpIncrease + PlayerManager.playerSingleton.HP >= 5)
+            PlayerManager.playerSingleton.HP = 5;
         else
             PlayerManager.playerSingleton.HP+=hpIncrease;
 
@@ -24,8 +24,8 @@ public class CardHP : CardParent
     {
         //base.OnPointerClick(eventData);
         transform.SetParent(null);
-        if (hpIncrease + PlayerManager.playerSingleton.HP >= 3)
-            PlayerManager.playerSingleton.HP = 3;
+        if (hpIncrease + PlayerManager.playerSingleton.HP >= 5)
+            PlayerManager.playerSingleton.HP = 5;
         else
             PlayerManager.playerSingleton.HP += hpIncrease;
         StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(1);

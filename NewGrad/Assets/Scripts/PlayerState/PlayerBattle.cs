@@ -64,8 +64,8 @@ public class PlayerBattle : PlayerParent
 
         if (win==0)
         {
-            
-            
+
+            manager.iteratingEnemy.SetAttackImage();
             MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
             manager.attackType.Clear();
@@ -119,7 +119,7 @@ public class PlayerBattle : PlayerParent
             //manager.SetState(PlayerState.KNOCKBACK);
             //MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             //StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
-
+            manager.iteratingEnemy.SetAttackImage();
             manager.timeScale *= 1.02f;
             Time.timeScale = manager.timeScale;
             manager.anim.SetBool("Success", true);
