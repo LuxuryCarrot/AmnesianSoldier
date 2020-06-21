@@ -7,6 +7,8 @@ public class SlimeDie : EnemyDieParent
     public int Level;
     public Vector3 FlySpeed;
     public float Gravity;
+    float temp;
+
     private void Awake()
     {
         FlySpeed = new Vector3(10, 20, 0);
@@ -26,10 +28,17 @@ public class SlimeDie : EnemyDieParent
         }
         else
             manager.anim.SetBool("Die", true);
+
+        temp = 0.2f;
     }
     public override void Execute()
     {
         base.Execute();
+        if (temp >= 0)
+        {
+            temp -= Time.deltaTime;
+            return;
+        }
         if(Level>1)
         {
             transform.position += FlySpeed * Time.deltaTime;
@@ -49,7 +58,7 @@ public class SlimeDie : EnemyDieParent
             if (SpawnSpot2 != Vector3.zero)
                 break;
 
-            float findXPos = MonsterManager.Monsters[i].transform.position.x + 10;
+            float findXPos = MonsterManager.Monsters[i].transform.position.x + 12;
             bool findMonster=false;
             for (int j=0; j<MonsterManager.Monsters.Count; j++)
             {
@@ -60,10 +69,10 @@ public class SlimeDie : EnemyDieParent
                 }
             }
 
-            if(MonsterManager.Monsters[i].transform.position.x>=this.transform.position.x+10
+            if(MonsterManager.Monsters[i].transform.position.x>=this.transform.position.x+12
                 &&!findMonster)
             {
-                Vector3 spawn = MonsterManager.Monsters[i].transform.position + new Vector3(10, 0, 0);
+                Vector3 spawn = MonsterManager.Monsters[i].transform.position + new Vector3(12, 0, 0);
                 if (spawn.x >= MapPositionManager.mapMax)
                     break;
                 else if (SpawnSpot1 == Vector3.zero)

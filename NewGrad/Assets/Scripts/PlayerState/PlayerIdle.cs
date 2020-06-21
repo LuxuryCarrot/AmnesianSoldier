@@ -24,14 +24,14 @@ public class PlayerIdle : PlayerParent
         }
 
         if(manager.iteratingEnemy!=null
-            &&manager.iteratingEnemy.transform.position.x - transform.position.x <=manager.AimEndRange)
+            &&manager.iteratingEnemy.transform.position.x - transform.position.x <=manager.AimEndRange-1)
         {
             
             manager.SetState(PlayerState.MONSTERBATTLE);
         }
 
         if(manager.iteratingEnemy!=null
-            && manager.iteratingEnemy.transform.position.x - transform.position.x <= manager.AimStartRange
+            && manager.iteratingEnemy.transform.position.x - transform.position.x <= manager.AimStartRange+1
             &&!AimIn)
         {
             

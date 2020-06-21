@@ -50,6 +50,6 @@ MonoBehaviour:
   - {fileID: 2148428636493837032, guid: 4375d8ea6baabef448360d8b41e975c2, type: 3}
   startSpawnPos: 60
   mapMaxPos: 300
-  monsterMinDistance: 20
-  monsterMaxDistance: 30
+  monsterMinDistance: 24
+  monsterMaxDistance: 36
   mapDontCamChase: 12

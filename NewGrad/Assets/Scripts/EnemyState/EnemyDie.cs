@@ -10,6 +10,8 @@ public class EnemyDie : EnemyParent
         if (manager.dieBehavior != null)
             manager.dieBehavior.Begin();
 
+        for (int i = 0; i < transform.GetChild(1).childCount; i++)
+            Destroy(transform.GetChild(1).GetChild(i).gameObject);
         if (manager.anim != null && manager.dieBehavior == null)
             manager.anim.SetBool("Die", true);
 

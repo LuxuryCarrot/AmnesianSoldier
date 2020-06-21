@@ -25,7 +25,7 @@ public class CardSpawner : MonoBehaviour
     }
     public void DrawCard()
     {
-        Debug.Log(transform.childCount);
+        
         if (DeckList.Deck.Count == 0 || transform.childCount >= 3)
         {
             isAnimWork = true;

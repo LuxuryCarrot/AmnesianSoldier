@@ -32,11 +32,11 @@ public class ObjSpawnManager : MonoBehaviour
             NearObjSpawn(new Vector3((i - 1) * 20, 0.5f, 0.5f));
 
         for (int i = 0; i <= StartFarSawnAmount; i++)
-            farObjSpawn(new Vector3(i * 76, 3, 52));
+            farObjSpawn(new Vector3(i * 114, 0, 52));
 
         for (int i=-1; i<=startMidSpawnAmount; i++)
         {
-            MidObjSpawn(new Vector3((i * 19), 1.8f, 3.5f));
+            MidObjSpawn(new Vector3((i * 28.5f), 1.8f, 5.0f));
         }
     }
     private void FixedUpdate()
@@ -49,18 +49,18 @@ public class ObjSpawnManager : MonoBehaviour
             NearObjSpawn(new Vector3((StartNearSpawnAmount - 1) * 20, 0.5f, 0.5f));
             PlayerXPos = (int)PlayerManager.playerSingleton.transform.position.x;
         }
-        if (PlayerManager.playerSingleton.transform.position.x - PlayerFarXPOS >= 76)
+        if (PlayerManager.playerSingleton.transform.position.x - PlayerFarXPOS >= 114)
         {
             Destroy(FarObjsQueue.Dequeue());
             StartFarSawnAmount++;
-            farObjSpawn(new Vector3((StartFarSawnAmount - 1) * 76, 3, 52));
+            farObjSpawn(new Vector3((StartFarSawnAmount - 1) * 114, 0, 52));
             PlayerFarXPOS = (int)PlayerManager.playerSingleton.transform.position.x;
         }
-        if (PlayerManager.playerSingleton.transform.position.x - playerMidXPOS >= 19)
+        if (PlayerManager.playerSingleton.transform.position.x - playerMidXPOS >= 28.5f)
         {
             Destroy(MidObjsQueue.Dequeue());
             startMidSpawnAmount++;
-            MidObjSpawn(new Vector3((startMidSpawnAmount - 1) * 19, 1.8f, 3.5f));
+            MidObjSpawn(new Vector3((startMidSpawnAmount - 1) * 28.5f, 1.8f, 5.0f));
             playerMidXPOS = (int)PlayerManager.playerSingleton.transform.position.x;
         }
     }

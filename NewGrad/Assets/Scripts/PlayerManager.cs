@@ -126,7 +126,7 @@ public class PlayerManager : MonoBehaviour
         if(transform.position.y<=-3.0f && current!=PlayerState.DIE)
             SetState(PlayerState.DIE);
 
-        if(StageManager.stageSingletom.current!=StageState.MAPSELECT && transform.position.x>=0)
+        if(StageManager.stageSingletom.current!=StageState.MAPSELECT && transform.position.x>=-5)
            Camera.main.transform.position = transform.position + camPos;
 
         if(HP <=0 && current != PlayerState.DIE)
@@ -141,7 +141,7 @@ public class PlayerManager : MonoBehaviour
             {
                 inputTemp = 0;
                 attackType.Clear();
-                Debug.Log("!!");
+                
             }
         }
     }
@@ -149,16 +149,24 @@ public class PlayerManager : MonoBehaviour
     public void AimSpawn()
     {
         Vector3 inst =  new Vector3((AimStartRange + AimEndRange) / 2, 1.5f, 0);
+        inst.x -= camPos.x;
         Vector3 screenPos;
 
+        Vector3 inst2 = new Vector3(AimStartRange, 0, 0);
+        Vector3 inst3 = new Vector3(AimEndRange, 0, 0);
+
+        Vector3 screenPos2 = Camera.main.WorldToScreenPoint(inst2);
+        Vector3 screenPos3 = Camera.main.WorldToScreenPoint(inst3);
+
         screenPos = Camera.main.WorldToScreenPoint(inst);
+        
         GameObject aim = Instantiate(Resources.Load("Prefabs/UIPrefab/Aim") as GameObject, StageManager.stageSingletom.aimCanvas.transform);
         aim.GetComponent<RectTransform>().position = screenPos;
-        aim.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100) * (AimStartRange - AimEndRange);
+        aim.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1) * (screenPos2.x - screenPos3.x);
     }
     public void AimChange(bool target)
     {
-        Debug.Log("Change");
+        
         if (target)
             StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>()
                 .sprite = Resources.Load<Sprite>("Sprites/NewUis/aim_active");

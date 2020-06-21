@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 2148428636493837028}
   - component: {fileID: 802153707444870679}
   - component: {fileID: 114588260038906944}
+  - component: {fileID: 114703658220519106}
   m_Layer: 0
   m_Name: Monster4
   m_TagString: Untagged
@@ -181,6 +182,7 @@ MonoBehaviour:
   - Potion1
   - GuardCard
   eliteBattleTemp: 0
+  hardSwinged: 0
 --- !u!114 &2148428636493837027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +237,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+--- !u!114 &114703658220519106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148428636493837032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8363acaf5d31f44a19c480f80cbef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  xSpeed: 0
+  xAccel: 0
 --- !u!114 &6901014599296977072
 MonoBehaviour:
   m_ObjectHideFlags: 0

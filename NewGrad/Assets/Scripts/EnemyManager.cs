@@ -35,6 +35,7 @@ public class EnemyManager : MonoBehaviour
     public string[] RootingCardPool;
 
     public int eliteBattleTemp;
+    public bool hardSwinged = false;
 
     private void Awake()
     {
@@ -62,7 +63,7 @@ public class EnemyManager : MonoBehaviour
         GameObject newPosCard = Instantiate(PosImage, transform.GetChild(1));
 
         SetAttackImage();
-        newPosCard.GetComponent<RectTransform>().sizeDelta =new Vector2(0.5f, 0.5f);
+        //newPosCard.GetComponent<RectTransform>().sizeDelta =new Vector2(0.5f, 0.5f);
             
             
         newPosCard.GetComponent<RectTransform>().localPosition = new Vector3(0, 1.5f, 0);
@@ -147,7 +148,7 @@ public class EnemyManager : MonoBehaviour
     public void SetAttackImage()
     {
         string AttackTypeName=null;
-
+        
         if (attackType.Length - eliteBattleTemp == 0)
             return;
 
@@ -163,15 +164,23 @@ public class EnemyManager : MonoBehaviour
         if (attackType.Length - eliteBattleTemp == 0)
             return;
         else if (attackType.Length - eliteBattleTemp == 1)
+        {
             AttackTypeName += "_circle";
+            transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(0.3f, 0.3f);
+        }
         else if (attackType.Length - eliteBattleTemp == 2)
-            AttackTypeName += "_tri";
+        {
+            AttackTypeName += "_double";
+            transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(0.8f, 0.3f);
+        }
         else if (attackType.Length - eliteBattleTemp == 3)
+            AttackTypeName += "_tri";
+        else if (attackType.Length - eliteBattleTemp == 4)
             AttackTypeName += "_square";
         else
             AttackTypeName += "_pentagon";
 
-        Debug.Log("Sprites/Juwels/"+AttackTypeName);
+        
 
         transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Juwels/" + AttackTypeName) as Sprite;
 

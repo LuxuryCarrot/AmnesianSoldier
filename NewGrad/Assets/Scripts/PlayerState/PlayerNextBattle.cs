@@ -11,7 +11,7 @@ public class PlayerNextBattle : PlayerParent
     {
         base.BeginState();
         manager.fillCanvas.SetActive(true);
-        gage = 0.5f;
+        gage = 1.0f;
         gageTemp = 0;
     }
     private void Update()
