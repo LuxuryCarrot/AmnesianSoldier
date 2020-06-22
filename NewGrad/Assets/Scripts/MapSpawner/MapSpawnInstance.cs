@@ -7,16 +7,23 @@ public class MapSpawnInstance : MapSpawnerParent
 {
     public GameObject mapPrefab;
     public GameObject[] monsterPrefab;
+    public GameObject[] eliteMosterPrefab;
     public int startSpawnPos;
     public int mapMaxPos;
     public int monsterMinDistance;
     public int monsterMaxDistance;
     int monsterMinDistanceTemp=0;
     public int mapDontCamChase;
+    public bool isEliteStage;
+    int maxElite;
 
     //1스테이지 스폰 패턴.
     private void Awake()
     {
+        if (isEliteStage)
+            maxElite = 4;
+        else
+            maxElite = 2;
         MonsterManager.Monsters.Clear();
         MapPositionManager.mapPos += startSpawnPos;
         for(int i=0; i< startSpawnPos; i++)
@@ -29,7 +36,15 @@ public class MapSpawnInstance : MapSpawnerParent
             {
                 if (i >= 10 && Random.Range(0, 20) <= 1 && monsterMinDistanceTemp >= monsterMinDistance)
                 {
-                    GameObject monster = Instantiate(monsterPrefab[Random.Range(0, monsterPrefab.Length)], new Vector3(MapPositionManager.mapMax + i, 1.5f, 0), Quaternion.identity, this.transform);
+                    GameObject monster;
+
+                    if (Random.Range(0, 0.1f) >= 0.05f && maxElite > 0)
+                    {
+                        maxElite--;
+                        monster = Instantiate(eliteMosterPrefab[Random.Range(0, eliteMosterPrefab.Length-1)], new Vector3(MapPositionManager.mapMax + i, 1.5f, 0), Quaternion.identity, this.transform);
+                    }
+                    else
+                        monster = Instantiate(monsterPrefab[Random.Range(0, monsterPrefab.Length)], new Vector3(MapPositionManager.mapMax + i, 1.5f, 0), Quaternion.identity, this.transform);
                     //monster.transform.localPosition = new Vector3(MapPositionManager.mapMax + i, 1.5f, 0);
                     monsterMinDistanceTemp = 0;
                     MonsterManager.Monsters.Add(monster);
@@ -39,7 +54,15 @@ public class MapSpawnInstance : MapSpawnerParent
                 //최대 거리 이상 되면 몬스터 무조건 스폰.
                 if (monsterMinDistanceTemp >= monsterMaxDistance)
                 {
-                    GameObject monster = Instantiate(monsterPrefab[Random.Range(0, monsterPrefab.Length)], new Vector3(MapPositionManager.mapMax + i, 1.5f, 0), Quaternion.identity, this.transform);
+                    GameObject monster;
+
+                    if (Random.Range(0, 0.1f) >= 0.05f && maxElite > 0)
+                    {
+                        maxElite--;
+                        monster = Instantiate(eliteMosterPrefab[Random.Range(0, eliteMosterPrefab.Length-1)], new Vector3(MapPositionManager.mapMax + i, 1.5f, 0), Quaternion.identity, this.transform);
+                    }
+                    else
+                        monster = Instantiate(monsterPrefab[Random.Range(0, monsterPrefab.Length)], new Vector3(MapPositionManager.mapMax + i, 1.5f, 0), Quaternion.identity, this.transform);
                     //monster.transform.localPosition = new Vector3(MapPositionManager.mapMax + i, 1.5f, 0);
                     monsterMinDistanceTemp = 0;
                     MonsterManager.Monsters.Add(monster);

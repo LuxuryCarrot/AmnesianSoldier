@@ -16,6 +16,7 @@ public class StageGameOver : StageParent
     {
         base.BeginState();
         GameoverCanvas.SetActive(true);
+        StageManager.stageSingletom = null;
     }
     private void Update()
     {

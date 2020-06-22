@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.19652914, g: 0.5840552, b: 0.7988162, a: 1}
+  m_IndirectSpecularColor: {r: 0.19660442, g: 0.58443123, b: 0.79795307, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1881,6 +1881,7 @@ MonoBehaviour:
   AimEndRange: 1
   timeScale: 0
   fillCanvas: {fileID: 0}
+  grounded: 0
 --- !u!4 &349869823
 Transform:
   m_ObjectHideFlags: 0
@@ -6276,7 +6277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EliteMap: 3
-  RestMap: 4
+  RestMap: 2
   MaxStage: 7
   MaxToBoss: 3
   mapNodeCurrent: {fileID: 0}

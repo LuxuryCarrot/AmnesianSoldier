@@ -17,7 +17,7 @@ public class PlayerBattle : PlayerParent
     private void Update()
     {
         Queue<AttackType> playertype=new Queue<AttackType>();
-        Debug.Log(manager.attackType.Count);
+        
         for (; manager.attackType.Count != 0;)
             playertype.Enqueue(manager.attackType.Dequeue());
         
@@ -60,7 +60,7 @@ public class PlayerBattle : PlayerParent
 
         //manager.anim.SetInteger("AttackType", (int)playerAnimType);
 
-        Debug.Log(win);
+        
 
         if (win==0)
         {
@@ -69,13 +69,16 @@ public class PlayerBattle : PlayerParent
             MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
             manager.attackType.Clear();
-
+            if(manager.timeScale >1)
+            {
+                manager.timeScale *= 0.995f;
+            }
             manager.anim.SetBool("Success", true);
 
             if (manager.iteratingEnemy.eliteBattleTemp == manager.iteratingEnemy.attackType.Length)
             {
                 Time.timeScale = 0.3f;
-                Camera.main.fieldOfView = manager.minCamScale;
+                //Camera.main.fieldOfView = manager.minCamScale;
                 manager.iteratingEnemy.SetState(EnemyState.DIE);
                 manager.iteratingEnemy.enabled = false;
 
@@ -93,7 +96,7 @@ public class PlayerBattle : PlayerParent
         }
         else if(win==1)
         {
-            manager.timeScale *= 1.02f;
+            manager.timeScale *= 1.01f;
             Time.timeScale = manager.timeScale;
             if (manager.iteratingEnemy.anim != null)
                 manager.iteratingEnemy.anim.SetInteger("AttackType", 5);
@@ -120,7 +123,7 @@ public class PlayerBattle : PlayerParent
             //MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
             //StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
             manager.iteratingEnemy.SetAttackImage();
-            manager.timeScale *= 1.02f;
+            manager.timeScale *= 1.01f;
             Time.timeScale = manager.timeScale;
             manager.anim.SetBool("Success", true);
             manager.SetState(PlayerState.IDLE);
@@ -151,8 +154,8 @@ public class PlayerBattle : PlayerParent
             //manager.anim.SetInteger("AttackType", 0);
             manager.anim.SetBool("Success", true);
             manager.SetState(PlayerState.ABANDON);
-            //manager.timeScale = 1;
-            //Time.timeScale = 1.0f;
+            manager.timeScale = 1;
+            Time.timeScale = 1.0f;
         }
     }
     public override void EndState()

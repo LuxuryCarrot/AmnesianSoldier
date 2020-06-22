@@ -71,6 +71,11 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
         if (thisType == AttackType.GUARD)
         {
             transform.SetParent(null);
+            for(int i=0; i<2 && DeckList.Deck.Count>0; i++)
+            {
+                DeckList.Deck.Dequeue();
+                StageManager.stageSingletom.DeckCountText.text = DeckList.Deck.Count.ToString();
+            }
             StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
             DestroyThis();
         }

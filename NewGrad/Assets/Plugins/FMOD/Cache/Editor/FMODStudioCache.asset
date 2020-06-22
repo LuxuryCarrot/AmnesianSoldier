@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114369371705532234}
-  - {fileID: 114561795857438994}
-  - {fileID: 114005983282881774}
-  - {fileID: 114907515474712092}
-  - {fileID: 114378954695605134}
+  - {fileID: 114084175518531190}
+  - {fileID: 114631679381263000}
+  - {fileID: 114573163466898828}
+  - {fileID: 114749865145028284}
   EditorEvents:
   - {fileID: 114590695758061652}
   - {fileID: 114761221142593434}
@@ -37,10 +37,10 @@ MonoBehaviour:
   - {fileID: 114072588028033248}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 114005983282881774}
+  - {fileID: 114631679381263000}
   StringsBanks:
   - {fileID: 114369371705532234}
-  stringsBankWriteTime: 637282988437302161
+  stringsBankWriteTime: 637284308019502813
   cacheVersion: 3
 --- !u!114 &114005983282881774
 MonoBehaviour:
@@ -59,7 +59,7 @@ MonoBehaviour:
   lastModified: 637282988437302161
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114042648820669986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   Path: event:/PC/Use/HPPotion
   guid: 40dae39bbb49384c9115acfeb4abe282
   Banks:
-  - {fileID: 114907515474712092}
+  - {fileID: 114573163466898828}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -98,7 +98,7 @@ MonoBehaviour:
   Path: event:/UI/HP_Plus
   guid: 79fa92e90b644044ac5f83a8d4371fb1
   Banks:
-  - {fileID: 114378954695605134}
+  - {fileID: 114749865145028284}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -106,6 +106,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 600
+--- !u!114 &114084175518531190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Enemy.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/Enemy.bank
+  SubDir: 
+  lastModified: 637284308019492842
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114166061417326734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +159,7 @@ MonoBehaviour:
   Path: event:/PC/Attack/Sword/Success
   guid: 4f6d8a93b7e27847bc50391c10c19d49
   Banks:
-  - {fileID: 114907515474712092}
+  - {fileID: 114573163466898828}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -164,7 +182,7 @@ MonoBehaviour:
   Path: event:/PC/Run/Dirt
   guid: ba992ffb69d9f9448a0f8716939d0b4d
   Banks:
-  - {fileID: 114907515474712092}
+  - {fileID: 114573163466898828}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -222,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Project_Amnesia_SFX/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637282988437302161
+  lastModified: 637284308019502813
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -245,7 +263,7 @@ MonoBehaviour:
   lastModified: 637282988437312133
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114382072294645040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +279,7 @@ MonoBehaviour:
   Path: event:/Enemy/Slime/Attack
   guid: 9731e0ea1d169a4c8b1856f75b8f808a
   Banks:
-  - {fileID: 114561795857438994}
+  - {fileID: 114084175518531190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -302,7 +320,7 @@ MonoBehaviour:
   Path: event:/Enemy/Onion/Die
   guid: a23eaa52820c1a4cab536e7c363cd805
   Banks:
-  - {fileID: 114561795857438994}
+  - {fileID: 114084175518531190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -325,7 +343,7 @@ MonoBehaviour:
   Path: event:/PC/Attack/Sword/DSword
   guid: 60d79ece1d3f9e4ba559ce68efbde66b
   Banks:
-  - {fileID: 114907515474712092}
+  - {fileID: 114573163466898828}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -348,7 +366,7 @@ MonoBehaviour:
   Path: event:/PC/Damaged/Damaged
   guid: 7fab8babb6a36e45a0af20c8b1e72ed2
   Banks:
-  - {fileID: 114907515474712092}
+  - {fileID: 114573163466898828}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -373,7 +391,7 @@ MonoBehaviour:
   lastModified: 637282988437292616
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114565490592696926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +407,7 @@ MonoBehaviour:
   Path: event:/UI/Timer
   guid: 31853dbc0f18c64da51b96a141abdff8
   Banks:
-  - {fileID: 114378954695605134}
+  - {fileID: 114749865145028284}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -397,6 +415,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1004
+--- !u!114 &114573163466898828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/PC.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/PC.bank
+  SubDir: 
+  lastModified: 637284308019522764
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114590695758061652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +448,7 @@ MonoBehaviour:
   Path: event:/Enemy/Onion/Appear
   guid: 09189d2c063a8743b125e85d7f52e634
   Banks:
-  - {fileID: 114561795857438994}
+  - {fileID: 114084175518531190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -435,7 +471,7 @@ MonoBehaviour:
   Path: event:/PC/Attack/Sword/RAttack
   guid: b2e744f7d263224a8786ce3e889e82e7
   Banks:
-  - {fileID: 114907515474712092}
+  - {fileID: 114573163466898828}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -443,6 +479,42 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 240
+--- !u!114 &114631679381263000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637284308019502813
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &114749865145028284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/UI.bank
+  SubDir: 
+  lastModified: 637284308019532738
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114761221142593434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +530,7 @@ MonoBehaviour:
   Path: event:/Enemy/Gem_Broke
   guid: 2777abf5c807414da10b6c98d2507af9
   Banks:
-  - {fileID: 114561795857438994}
+  - {fileID: 114084175518531190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -499,7 +571,7 @@ MonoBehaviour:
   Path: event:/Enemy/Gem_Broke_End
   guid: c19cd1ad6c746e439ec890a590f59a14
   Banks:
-  - {fileID: 114561795857438994}
+  - {fileID: 114084175518531190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -542,7 +614,7 @@ MonoBehaviour:
   lastModified: 637282988437312133
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114927998835004540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +630,7 @@ MonoBehaviour:
   Path: event:/Enemy/Onion/Attack
   guid: 99417015b1044b48815342363f8307e4
   Banks:
-  - {fileID: 114561795857438994}
+  - {fileID: 114084175518531190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -581,7 +653,7 @@ MonoBehaviour:
   Path: event:/PC/Attack/Sword/BAttack
   guid: 139afaeec0808349a63d6b6a13d979ed
   Banks:
-  - {fileID: 114907515474712092}
+  - {fileID: 114573163466898828}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -622,7 +694,7 @@ MonoBehaviour:
   Path: event:/Enemy/Slime/Die
   guid: 460243176dafea41980da064ae43a747
   Banks:
-  - {fileID: 114561795857438994}
+  - {fileID: 114084175518531190}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1

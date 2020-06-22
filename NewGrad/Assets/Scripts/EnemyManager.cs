@@ -33,6 +33,7 @@ public class EnemyManager : MonoBehaviour
     public EnemyDieParent dieBehavior;
 
     public string[] RootingCardPool;
+    public string[] RootingAttPool;
 
     public int eliteBattleTemp;
     public bool hardSwinged = false;
@@ -166,12 +167,12 @@ public class EnemyManager : MonoBehaviour
         else if (attackType.Length - eliteBattleTemp == 1)
         {
             AttackTypeName += "_circle";
-            transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(0.3f, 0.3f);
+            transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(0.5f, 0.5f);
         }
         else if (attackType.Length - eliteBattleTemp == 2)
         {
             AttackTypeName += "_double";
-            transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(0.8f, 0.3f);
+            transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(1.2f, 0.45f);
         }
         else if (attackType.Length - eliteBattleTemp == 3)
             AttackTypeName += "_tri";

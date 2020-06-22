@@ -29,7 +29,7 @@ public class StageRest : StageParent
         //        nextcard.transform.GetChild(0).GetComponent<MapSelectCard>().linkedNode = MapNode.EnabledNode[i];
         //    }
         //}
-        manager.mapCanvas.SetActive(true);
+        //manager.mapCanvas.SetActive(true);
         manager.mapCanvas.transform.GetChild(0).localPosition = Vector3.zero;
         manager.mapCanvas.transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, -90);
     }

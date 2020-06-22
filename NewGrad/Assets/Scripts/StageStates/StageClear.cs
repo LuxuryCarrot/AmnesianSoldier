@@ -16,6 +16,7 @@ public class StageClear : StageParent
     {
         base.BeginState();
         ClearCanvas.SetActive(true);
+        StageManager.stageSingletom = null;
         PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
     }
     private void Update()

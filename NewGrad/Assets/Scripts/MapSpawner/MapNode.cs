@@ -50,9 +50,9 @@ public class MapNode : MonoBehaviour
         if (!isEnabled)
             return;
 
-        for (int i=0; StageManager.stageSingletom.CardDeck.transform.childCount!=0;i++)
-            StageManager.stageSingletom.CardDeck.transform.GetChild(0).GetComponent<CardParent>().DestroyThis();
-        DeckList.deckList.ResetDeck();
+        //for (int i=0; StageManager.stageSingletom.CardDeck.transform.childCount!=0;i++)
+        //    StageManager.stageSingletom.CardDeck.transform.GetChild(0).GetComponent<CardParent>().DestroyThis();
+        //DeckList.deckList.ResetDeck();
         for(int i=0; i<3; i++)
         {
             Debug.Log("Draw");

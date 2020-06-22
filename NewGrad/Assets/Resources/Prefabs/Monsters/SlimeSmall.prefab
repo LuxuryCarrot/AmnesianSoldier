@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 114631510388296680}
   - component: {fileID: 114276962229137146}
   m_Layer: 0
-  m_Name: Monster3
+  m_Name: SlimeSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,9 +178,12 @@ MonoBehaviour:
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
-  RootingCardPool:
-  - Potion1
+  RootingCardPool: []
+  RootingAttPool:
+  - red
+  - blue
   eliteBattleTemp: 0
+  hardSwinged: 0
 --- !u!114 &970495092198981314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  Level: 2
+  Level: 1
   FlySpeed: {x: 0, y: 0, z: 0}
   Gravity: 0
 --- !u!114 &114276962229137146

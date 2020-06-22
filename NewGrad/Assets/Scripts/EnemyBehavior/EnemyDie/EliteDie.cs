@@ -15,8 +15,7 @@ public class EliteDie : EnemyDieParent
     }
     public override void Execute()
     {
-        base.Execute();
-        Debug.Log("executing");
+        
         if (xSpeed <= 0)
             return;
         transform.position += new Vector3(xSpeed, 0, 0) * Time.deltaTime;

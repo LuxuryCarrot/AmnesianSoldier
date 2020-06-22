@@ -59,6 +59,7 @@ public class PlayerManager : MonoBehaviour
 
     public float timeScale;
     public GameObject fillCanvas;
+    public bool grounded;
 
     //상태를 넣는 dictionary
     Dictionary<PlayerState, PlayerParent> PlayerFlow = new Dictionary<PlayerState, PlayerParent>();
@@ -66,6 +67,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        grounded = false;
         timeScale = 1;
         maxCamScale = Camera.main.fieldOfView;
         losed = false;
@@ -113,11 +115,14 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        
         //아래의 발판이 없을때 빠지는 부분
-        if(!GetComponent<CharacterController>().isGrounded && transform.position.y > -3.0f)
+        if(!GetComponent<CharacterController>().isGrounded && transform.position.y > -3.0f && !grounded)
         {
+            
             ySpeed += gravity * Time.deltaTime;
             controller.Move(new Vector3(0, -ySpeed * Time.deltaTime, 0));
+            grounded = true;
         }
         else
         {
@@ -126,8 +131,15 @@ public class PlayerManager : MonoBehaviour
         if(transform.position.y<=-3.0f && current!=PlayerState.DIE)
             SetState(PlayerState.DIE);
 
-        if(StageManager.stageSingletom.current!=StageState.MAPSELECT && transform.position.x>=-5)
-           Camera.main.transform.position = transform.position + camPos;
+        if(Camera.main.transform.parent==null 
+            && (StageManager.stageSingletom.current==StageState.IDLE || StageManager.stageSingletom.current == StageState.REST) && transform.position.x>=-5)
+        {
+            Camera.main.transform.position = transform.position + camPos;
+            Camera.main.transform.SetParent(transform);
+        }
+
+        if (StageManager.stageSingletom.current == StageState.MAPSELECT && Camera.main.transform.parent != null)
+            Camera.main.transform.SetParent(null);
 
         if(HP <=0 && current != PlayerState.DIE)
         {

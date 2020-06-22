@@ -71,14 +71,14 @@ public class PlayerIdle : PlayerParent
                 manager.CardDeckUI.transform.GetChild(0).GetChild(2).GetComponent<CardParent>().KeyBordInput();
         }
 
-        if(AimIn)
-        {
-            Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.minCamScale, 2*Time.deltaTime);
-        }
-        else
-        {
-            Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.maxCamScale, 2*Time.deltaTime);
-        }
+        //if(AimIn)
+        //{
+        //    Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.minCamScale, 2*Time.deltaTime);
+        //}
+        //else
+        //{
+        //    Camera.main.fieldOfView = BattleDetermine.FloatSlerp(Camera.main.fieldOfView, manager.maxCamScale, 2*Time.deltaTime);
+        //}
     
     }
     public override void EndState()
