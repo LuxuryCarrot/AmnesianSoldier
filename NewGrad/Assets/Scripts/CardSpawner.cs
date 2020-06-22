@@ -6,9 +6,9 @@ using UnityEngine;
 public class CardSpawner : MonoBehaviour
 {
     public GameObject card;
-    Vector3 Card1Pos=new Vector3(-85, -27,0);
-    Vector3 Card2Pos=new Vector3(58, -27,0);
-    Vector3 Card3Pos=new Vector3(201, -27,0);
+    Vector3 Card1Pos=new Vector3(-70.7f, -27,0);
+    Vector3 Card2Pos=new Vector3(57.8f, -27,0);
+    Vector3 Card3Pos=new Vector3(187.7f, -27,0);
 
     bool isAnimWork;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjSpawnManager : MonoBehaviour
 {
-    public GameObject nearObj;
+    public GameObject[] nearObj;
     public GameObject farobj;
     public static Queue<GameObject> NearObjsQueue = new Queue<GameObject>();
     public static Queue<GameObject> FarObjsQueue = new Queue<GameObject>();
@@ -29,7 +29,7 @@ public class ObjSpawnManager : MonoBehaviour
         PlayerFarXPOS = 0;
         playerMidXPOS = 0;
         for (int i = -1; i <= StartNearSpawnAmount; i++)
-            NearObjSpawn(new Vector3((i - 1) * 20, 0.5f, 0.5f));
+            NearObjSpawn(new Vector3((i - 1) * 2, 0.2f, 3.0f));
 
         for (int i = 0; i <= StartFarSawnAmount; i++)
             farObjSpawn(new Vector3(i * 114, 0, 52));
@@ -41,12 +41,12 @@ public class ObjSpawnManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (PlayerManager.playerSingleton.transform.position.x - PlayerXPos >= 20)
+        if (PlayerManager.playerSingleton.transform.position.x - PlayerXPos >= 2)
         {
             Destroy(NearObjsQueue.Dequeue());
             StartNearSpawnAmount++;
 
-            NearObjSpawn(new Vector3((StartNearSpawnAmount - 1) * 20, 0.5f, 0.5f));
+            NearObjSpawn(new Vector3((StartNearSpawnAmount - 1) * 2, 0.2f,3.0f));
             PlayerXPos = (int)PlayerManager.playerSingleton.transform.position.x;
         }
         if (PlayerManager.playerSingleton.transform.position.x - PlayerFarXPOS >= 114)
@@ -67,7 +67,7 @@ public class ObjSpawnManager : MonoBehaviour
 
     public void NearObjSpawn(Vector3 pos)
     {
-        GameObject near = Instantiate(nearObj, transform.GetChild(0));
+        GameObject near = Instantiate(nearObj[Utilities.NewRandom(0, nearObj.Length-1)], transform.GetChild(0));
         near.transform.localPosition = pos;
         NearObjsQueue.Enqueue(near);
     }
