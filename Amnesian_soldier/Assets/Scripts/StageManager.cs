@@ -44,34 +44,40 @@ public class StageManager : MonoBehaviour
     public GameObject WinFlashCanvas;
     public GameObject LoseFlashCanvas;
     public GameObject DrawFlashCanvas;
-    public GameObject CardDeck;
+    //public GameObject CardDeck;
     public Canvas HPText;
-    public Text DeckCountText;
+    //public Text DeckCountText;
     public GameObject mapSelectCanvas;
     public GameObject MinimapAnchor;
     
     public Text MapselectLimitTime;
     public Text MapselectLimitTimeShadow;
 
-    public int RedAttackCurrent;
-    public int BlueAttackCurrent;
-    public int RedAttackAmount;
-    public int BlueAttackAmount;
+    public Image StaminarSlot;
+
+    //public int RedAttackCurrent;
+    //public int BlueAttackCurrent;
+    //public int RedAttackAmount;
+    //public int BlueAttackAmount;
     public GameObject aimCanvas;
+
+    Transform[] skillSlots = new Transform[2];
 
     //FSM 저장부
     Dictionary<StageState, StageParent> StageFlow = new Dictionary<StageState, StageParent>();
 
     private void Awake()
     {
-        RedAttackCurrent = RedAttackAmount;
-        BlueAttackCurrent = BlueAttackAmount;
+        //RedAttackCurrent = RedAttackAmount;
+        //BlueAttackCurrent = BlueAttackAmount;
         if (stageSingletom == null)
             stageSingletom = this;
 
         //미니맵 캔버스
+        skillSlots[0] = GameObject.FindGameObjectWithTag("SkillSlot").transform.GetChild(0);
+        skillSlots[1] = GameObject.FindGameObjectWithTag("SkillSlot").transform.GetChild(1);
         mapCanvas = GameObject.FindGameObjectWithTag("Map");
-        CardDeck = GameObject.FindGameObjectWithTag("CardDeck").transform.GetChild(0).gameObject;
+        //CardDeck = GameObject.FindGameObjectWithTag("CardDeck").transform.GetChild(0).gameObject;
         mapSelectCanvas = GameObject.FindGameObjectWithTag("MapCards");
         MinimapAnchor = GameObject.FindGameObjectWithTag("Anchor");
 
@@ -104,6 +110,14 @@ public class StageManager : MonoBehaviour
         {
             Application.Quit();
         }
+
+        if(current==StageState.IDLE && Input.GetKeyDown(KeyCode.E))
+        {
+            skillSlots[0].GetChild(0).GetComponent<CardParent>().KeyBordInput();
+            SkillUsed();
+        }
+
+        StaminarSlot.fillAmount = PlayerManager.playerSingleton.stam / 100;
     }
 
     public void SetState(StageState newst)
@@ -119,4 +133,34 @@ public class StageManager : MonoBehaviour
         StageFlow[current].BeginState();
     }
     
+    public void SkillAdd(GameObject newSkill)
+    {
+        if (skillSlots[1].childCount != 0)
+        {
+            GameObject destroySkill = skillSlots[1].GetChild(0).gameObject;
+            destroySkill.transform.SetParent(null);
+            Destroy(destroySkill);
+        }
+        if(skillSlots[0].childCount != 0)
+        {
+            skillSlots[0].GetChild(0).SetParent(skillSlots[1]);
+            skillSlots[1].GetChild(0).localPosition = Vector3.zero;
+
+            skillSlots[1].GetChild(0).localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        }
+
+        newSkill.transform.SetParent(skillSlots[0]);
+        newSkill.transform.localPosition = Vector3.zero;
+        newSkill.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+    }
+    public void SkillUsed()
+    {
+        if (skillSlots[1].childCount != 0)
+        {
+            skillSlots[1].GetChild(0).SetParent(skillSlots[0]);
+            skillSlots[0].GetChild(0).localPosition = Vector3.zero;
+
+            skillSlots[0].GetChild(0).localScale = new Vector3(1, 1, 1);
+        }
+    }
 }

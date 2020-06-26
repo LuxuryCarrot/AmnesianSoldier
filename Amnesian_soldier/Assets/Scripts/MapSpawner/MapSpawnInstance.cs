@@ -26,7 +26,7 @@ public class MapSpawnInstance : MapSpawnerParent
             maxElite = 2;
         MonsterManager.Monsters.Clear();
         MapPositionManager.mapPos += startSpawnPos;
-        for(int i=0; i< startSpawnPos; i++)
+        for(int i=-10; i< startSpawnPos; i++)
         {
            
             GameObject mapBox = Instantiate(mapPrefab, this.transform);

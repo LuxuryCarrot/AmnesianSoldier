@@ -12,7 +12,7 @@ public class BlueRedText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        blueText.text = StageManager.stageSingletom.BlueAttackCurrent.ToString();
-        redText.text = StageManager.stageSingletom.RedAttackCurrent.ToString();
+        //blueText.text = StageManager.stageSingletom.BlueAttackCurrent.ToString();
+        //redText.text = StageManager.stageSingletom.RedAttackCurrent.ToString();
     }
 }

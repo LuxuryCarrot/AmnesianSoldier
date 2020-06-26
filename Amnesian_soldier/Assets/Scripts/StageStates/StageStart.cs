@@ -12,8 +12,8 @@ public class StageStart : StageParent
         base.BeginState();
         //게임 시작시 카운트 다운을 초기화 한다.
         temp = 0.0f;
-        manager.BlueAttackCurrent = manager.BlueAttackAmount;
-        manager.RedAttackCurrent = manager.RedAttackAmount;
+        //manager.BlueAttackCurrent = manager.BlueAttackAmount;
+        //manager.RedAttackCurrent = manager.RedAttackAmount;
     }
     private void Update()
     {

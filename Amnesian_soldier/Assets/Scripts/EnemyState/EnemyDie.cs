@@ -15,23 +15,25 @@ public class EnemyDie : EnemyParent
         if (manager.anim != null && manager.dieBehavior == null)
             manager.anim.SetBool("Die", true);
 
-        if (manager.RootingCardPool.Length > 0)
-        {
-            DeckList.Deck.Enqueue(manager.RootingCardPool[Random.Range(0, manager.RootingCardPool.Length)]);
-            StageManager.stageSingletom.DeckCountText.text = DeckList.Deck.Count.ToString();
-            if (StageManager.stageSingletom.CardDeck.transform.childCount < 3)
-                StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
-        }
-        else if(manager.RootingAttPool.Length>0)
-        {
-            string root = manager.RootingAttPool[Random.Range(0, manager.RootingAttPool.Length)];
-            if (root == "blue" && StageManager.stageSingletom.BlueAttackCurrent < StageManager.stageSingletom.BlueAttackAmount)
-            
-                StageManager.stageSingletom.BlueAttackCurrent++;
+        SkillRoot();
 
-            else if(root == "red" && StageManager.stageSingletom.RedAttackCurrent < StageManager.stageSingletom.RedAttackAmount)
-                StageManager.stageSingletom.RedAttackCurrent++;
-        }
+        //if (manager.RootingCardPool.Length > 0)
+        //{
+        //    DeckList.Deck.Enqueue(manager.RootingCardPool[Random.Range(0, manager.RootingCardPool.Length)]);
+        //    StageManager.stageSingletom.DeckCountText.text = DeckList.Deck.Count.ToString();
+        //    if (StageManager.stageSingletom.CardDeck.transform.childCount < 3)
+        //        StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
+        //}
+        //else if(manager.RootingAttPool.Length>0)
+        //{
+        //    string root = manager.RootingAttPool[Random.Range(0, manager.RootingAttPool.Length)];
+        //    if (root == "blue" && StageManager.stageSingletom.BlueAttackCurrent < StageManager.stageSingletom.BlueAttackAmount)
+            
+        //        StageManager.stageSingletom.BlueAttackCurrent++;
+
+        //    else if(root == "red" && StageManager.stageSingletom.RedAttackCurrent < StageManager.stageSingletom.RedAttackAmount)
+        //        StageManager.stageSingletom.RedAttackCurrent++;
+        //}
     }
     private void Update()
     {
@@ -41,5 +43,24 @@ public class EnemyDie : EnemyParent
     public override void EndState()
     {
         base.EndState();
+    }
+
+    public void SkillRoot()
+    {
+        
+        float randSeed = Random.Range(0, 0.1f);
+
+        if(randSeed>=0.05f)
+        {
+            Debug.Log("root");
+            if (manager.RootingCardPool.Length>0)
+            {
+                GameObject newSkill = Instantiate(
+                    Resources.Load("Prefabs/Cards/" +
+                    manager.RootingCardPool[Random.Range(0, manager.RootingCardPool.Length)]) as GameObject);
+
+                StageManager.stageSingletom.SkillAdd(newSkill);
+            }
+        }
     }
 }

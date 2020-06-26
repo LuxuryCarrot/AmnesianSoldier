@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
     //카메라 위치보정 벡터
     public Vector3 camPos;
     //공격타입.
-    public Queue<AttackType> attackType = new Queue<AttackType>();
+    public AttackType attackType = AttackType.NONE;
     //하단 UI
     public GameObject CardDeckUI;
 
@@ -56,10 +56,14 @@ public class PlayerManager : MonoBehaviour
 
     public float AimStartRange;
     public float AimEndRange;
+    public float stam;
 
     public float timeScale;
     public GameObject fillCanvas;
     public bool grounded;
+
+    public float speedIncrease=1;
+    public float burftemp=0;
 
     //상태를 넣는 dictionary
     Dictionary<PlayerState, PlayerParent> PlayerFlow = new Dictionary<PlayerState, PlayerParent>();
@@ -67,6 +71,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        stam = 100;
         grounded = false;
         timeScale = 1;
         maxCamScale = Camera.main.fieldOfView;
@@ -89,8 +94,8 @@ public class PlayerManager : MonoBehaviour
         PlayerFlow.Add(PlayerState.KNOCKBACK, GetComponent<PlayerKnockBack>());
         PlayerFlow.Add(PlayerState.DIE, GetComponent<PlayerDie>());
         PlayerFlow.Add(PlayerState.ABANDON, GetComponent<PlayerAbandon>());
-        PlayerFlow.Add(PlayerState.NEXTBATTLE, GetComponent<PlayerNextBattle>());
-        attackType.Clear();
+        //PlayerFlow.Add(PlayerState.NEXTBATTLE, GetComponent<PlayerNextBattle>());
+        attackType = AttackType.NONE;
         current = PlayerState.DELAY;
         SetState(current);
         AimSpawn();
@@ -117,12 +122,12 @@ public class PlayerManager : MonoBehaviour
     {
         
         //아래의 발판이 없을때 빠지는 부분
-        if(!GetComponent<CharacterController>().isGrounded && transform.position.y > -3.0f && !grounded)
+        if(!GetComponent<CharacterController>().isGrounded && transform.position.y > -3.0f)
         {
             
             ySpeed += gravity * Time.deltaTime;
             controller.Move(new Vector3(0, -ySpeed * Time.deltaTime, 0));
-            grounded = true;
+            
         }
         else
         {
@@ -152,8 +157,17 @@ public class PlayerManager : MonoBehaviour
             if (inputTemp <= 0)
             {
                 inputTemp = 0;
-                attackType.Clear();
                 
+            }
+        }
+
+        if(burftemp!=0)
+        {
+            burftemp -= Time.deltaTime;
+            if(burftemp<=0)
+            {
+                burftemp = 0;
+                speedIncrease = 1;
             }
         }
     }

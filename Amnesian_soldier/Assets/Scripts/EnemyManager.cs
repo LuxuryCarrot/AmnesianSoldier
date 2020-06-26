@@ -13,7 +13,7 @@ public enum EnemyState
 public class EnemyManager : MonoBehaviour
 {
     //공격타입
-    public AttackType[] attackType;
+    public AttackType attackType;
     //현재 상태
     public EnemyState current;
     //속도
@@ -40,18 +40,21 @@ public class EnemyManager : MonoBehaviour
 
     private void Awake()
     {
-        
+
+        RootingCardPool = new string[2];
+        RootingCardPool[0] = "Potion1";
+        RootingCardPool[1] = "Haist1";
+
         if (gravity == 0)
             gravity = 10.0f;
-        for (int i = 0; i < attackType.Length; i++)
-        {
+        
             float randonSeed = Random.Range(0, 0.2f);
             
             if(randonSeed>=0.1f)
-                attackType[i] = AttackType.HORIZON;
+                attackType = AttackType.HORIZON;
             else
-                attackType[i] = AttackType.VERTICAL;
-        }
+                attackType = AttackType.GUARD;
+        
         anim = GetComponentInChildren<Animator>();
         current = EnemyState.IDLE;
         EnemyFlow.Add(EnemyState.IDLE, GetComponent<EnemyWait>());
@@ -63,7 +66,7 @@ public class EnemyManager : MonoBehaviour
         
         GameObject newPosCard = Instantiate(PosImage, transform.GetChild(1));
 
-        SetAttackImage();
+        //SetAttackImage();
         //newPosCard.GetComponent<RectTransform>().sizeDelta =new Vector2(0.5f, 0.5f);
             
             
@@ -83,8 +86,7 @@ public class EnemyManager : MonoBehaviour
         if (instantiateBehavior != null)
             instantiateBehavior.Execute();
 
-        if (attackType != null)
-            eliteBattleTemp = 0;
+        SetAttackImage();
     }
 
     public void SetState(EnemyState newst)
@@ -122,22 +124,13 @@ public class EnemyManager : MonoBehaviour
         }
 
         //플레이어가 범위 내이며, 플레이어가 기본 상태면 플레이어에 타겟이 자신이라고 넣어주는 부분.
-        if (transform.position.x - PlayerManager.playerSingleton.transform.position.x <=range &&
-            transform.position.x - PlayerManager.playerSingleton.transform.position.x >=0
-            && PlayerManager.playerSingleton.current==PlayerState.IDLE
-            )
-        {
-            if (PlayerManager.playerSingleton.iteratingEnemy == null)
-                PlayerManager.playerSingleton.iteratingEnemy = this;
-            if (awakeBehavior != null)
-                awakeBehavior.Execute();
-        }
+        
 
         if(transform.position.x - PlayerManager.playerSingleton.transform.position.x <= attRange &&
             transform.position.x - PlayerManager.playerSingleton.transform.position.x >= 0)
         {
             if (anim != null)
-                anim.SetInteger("AttackType", (int)attackType[0]);
+                anim.SetInteger("AttackType", (int)attackType);
         }
 
         if(transform.position.x - PlayerManager.playerSingleton.transform.position.x < 0
@@ -145,47 +138,57 @@ public class EnemyManager : MonoBehaviour
             if (anim != null)
                 anim.SetInteger("AttackType", 5);
     }
-
     public void SetAttackImage()
     {
-        string AttackTypeName=null;
-        
-        if (attackType.Length - eliteBattleTemp == 0)
-            return;
 
-        if (attackType[eliteBattleTemp] == AttackType.VERTICAL)
-        {
-            AttackTypeName = "blue";
-        }
+        if (attackType != AttackType.NONE)
+            transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite
+                = attackType == AttackType.GUARD ?
+                Resources.Load<Sprite>("Sprites/Guard") as Sprite : Resources.Load<Sprite>("Sprites/sword") as Sprite;
         else
-        {
-            AttackTypeName = "red";
-        }
-
-        if (attackType.Length - eliteBattleTemp == 0)
-            return;
-        else if (attackType.Length - eliteBattleTemp == 1)
-        {
-            AttackTypeName += "_circle";
-            transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(0.5f, 0.5f);
-        }
-        else if (attackType.Length - eliteBattleTemp == 2)
-        {
-            AttackTypeName += "_double";
-            transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(1.2f, 0.45f);
-        }
-        else if (attackType.Length - eliteBattleTemp == 3)
-            AttackTypeName += "_tri";
-        else if (attackType.Length - eliteBattleTemp == 4)
-            AttackTypeName += "_square";
-        else
-            AttackTypeName += "_pentagon";
-
-        
-
-        transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Juwels/" + AttackTypeName) as Sprite;
-
-        if (eliteBattleTemp != 0)
-            transform.GetChild(1).GetChild(0).GetComponent<Animator>().SetTrigger("Blink");
+            transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = null;
     }
+
+    //public void SetAttackImage()
+    //{
+    //    string AttackTypeName=null;
+        
+    //    if (attackType.Length - eliteBattleTemp == 0)
+    //        return;
+
+    //    if (attackType[eliteBattleTemp] == AttackType.VERTICAL)
+    //    {
+    //        AttackTypeName = "blue";
+    //    }
+    //    else
+    //    {
+    //        AttackTypeName = "red";
+    //    }
+
+    //    if (attackType.Length - eliteBattleTemp == 0)
+    //        return;
+    //    else if (attackType.Length - eliteBattleTemp == 1)
+    //    {
+    //        AttackTypeName += "_circle";
+    //        transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(0.5f, 0.5f);
+    //    }
+    //    else if (attackType.Length - eliteBattleTemp == 2)
+    //    {
+    //        AttackTypeName += "_double";
+    //        transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(1.2f, 0.45f);
+    //    }
+    //    else if (attackType.Length - eliteBattleTemp == 3)
+    //        AttackTypeName += "_tri";
+    //    else if (attackType.Length - eliteBattleTemp == 4)
+    //        AttackTypeName += "_square";
+    //    else
+    //        AttackTypeName += "_pentagon";
+
+        
+
+    //    transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Juwels/" + AttackTypeName) as Sprite;
+
+    //    if (eliteBattleTemp != 0)
+    //        transform.GetChild(1).GetChild(0).GetComponent<Animator>().SetTrigger("Blink");
+    //}
 }

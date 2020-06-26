@@ -16,42 +16,42 @@ public class PlayerNextBattle : PlayerParent
     }
     private void Update()
     {
-        manager.controller.Move(manager.speed * Time.deltaTime);
-        manager.iteratingEnemy.GetComponent<CharacterController>().Move(manager.speed * Time.deltaTime);
+        //manager.controller.Move(manager.speed * Time.deltaTime);
+        //manager.iteratingEnemy.GetComponent<CharacterController>().Move(manager.speed * Time.deltaTime);
 
-        gageTemp += Time.deltaTime;
-        manager.fillCanvas.GetComponentInChildren<Image>().fillAmount = gageTemp / gage;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
+        //gageTemp += Time.deltaTime;
+        //manager.fillCanvas.GetComponentInChildren<Image>().fillAmount = gageTemp / gage;
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
 
-            manager.CardDeckUI.transform.GetChild(1).GetComponent<CardParent>().KeyBordInput();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
+        //    manager.CardDeckUI.transform.GetChild(1).GetComponent<CardParent>().KeyBordInput();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
 
-            manager.CardDeckUI.transform.GetChild(2).GetComponent<CardParent>().KeyBordInput();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount >= 1)
-                manager.CardDeckUI.transform.GetChild(0).GetChild(0).GetComponent<CardParent>().KeyBordInput();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount >= 2)
-                manager.CardDeckUI.transform.GetChild(0).GetChild(1).GetComponent<CardParent>().KeyBordInput();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            if (manager.CardDeckUI.transform.GetChild(0).childCount >= 3)
-                manager.CardDeckUI.transform.GetChild(0).GetChild(2).GetComponent<CardParent>().KeyBordInput();
-        }
-        if (manager.attackType.Count != 0
-            || gageTemp>=gage)
-        {
-            manager.fillCanvas.SetActive(false);
-            manager.SetState(PlayerState.MONSTERBATTLE);
-        }
+        //    manager.CardDeckUI.transform.GetChild(2).GetComponent<CardParent>().KeyBordInput();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    if (manager.CardDeckUI.transform.GetChild(0).childCount >= 1)
+        //        manager.CardDeckUI.transform.GetChild(0).GetChild(0).GetComponent<CardParent>().KeyBordInput();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    if (manager.CardDeckUI.transform.GetChild(0).childCount >= 2)
+        //        manager.CardDeckUI.transform.GetChild(0).GetChild(1).GetComponent<CardParent>().KeyBordInput();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha5))
+        //{
+        //    if (manager.CardDeckUI.transform.GetChild(0).childCount >= 3)
+        //        manager.CardDeckUI.transform.GetChild(0).GetChild(2).GetComponent<CardParent>().KeyBordInput();
+        //}
+        //if (manager.attackType.Count != 0
+        //    || gageTemp>=gage)
+        //{
+        //    manager.fillCanvas.SetActive(false);
+        //    manager.SetState(PlayerState.MONSTERBATTLE);
+        //}
     }
     public override void EndState()
     {

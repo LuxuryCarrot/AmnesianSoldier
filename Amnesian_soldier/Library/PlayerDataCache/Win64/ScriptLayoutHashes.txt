@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-D:/OneDrive/바탕 화면/ㅇㅇㅇ/AmnesianSoldier.exe
+D:/Builds/새 폴더/AmnesianSoldier.exe
 SceneListBegin?
 Assets/Scenes/0_StartSplashScene.unity
 Assets/Scenes/1_MainScene.unity
@@ -130,17 +130,18 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.SlimeInstantiate
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 a9491814b41958f22c48937f4e2c2690 Assembly-CSharp.dll:.ObjSpawnManager
-9e0f1a0fc46d77344d0a398fb1a12b02 Assembly-CSharp.dll:.EnemyKnockBack
+d8f3834cd348bcb3bface5ef30cc3ce1 Assembly-CSharp.dll:.EnemyKnockBack
 e89e2a8747b2a59d5f0ea5d1802868a2 Assembly-CSharp-firstpass.dll:FMODUnity.Settings
 2ec6667e5c574bcffe26a1c9289b1b0e Assembly-CSharp-firstpass.dll:.FMODEventPlayable
 923e97f1da56803cf6d9c57b408077c2 Assembly-CSharp.dll:.StageSelectMap
-c08b0066270352dc7022b5af51e73e61 Assembly-CSharp.dll:.StageManager
+96c7312d044740a9efd8accc129363a8 Assembly-CSharp.dll:.StageManager
 b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 099a2a21663cb50a4658f8fa6d9dd64a Assembly-CSharp.dll:.ArrowInputSlot
 a37bc31251878929b3e8850f628c081e Assembly-CSharp.dll:.CardHP
 e1bbf0ab858085e38fae6b12ebbdcd35 Assembly-CSharp-firstpass.dll:.FMODEventTrack
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.InputCardParent
 3d8892e960e0ed644404ef22b09dce70 Assembly-CSharp.dll:.MapRest
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PlayerNewIdle
 591148bc854c5b79f2c56cc34338720a Assembly-CSharp.dll:.StageBattle
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerDelay
@@ -152,13 +153,13 @@ c181cbb5ec0b09544e90b138a7ec12fe Assembly-CSharp.dll:.SlimeDie
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AnimGetEnemy
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyInstantiateParent
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
-fac50d890e65c87f33a95c32f253df22 Assembly-CSharp.dll:.EnemyManager
+d0d69313a9416ea7af7f0a0c68002ae4 Assembly-CSharp.dll:.EnemyManager
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyParent
 285f6a08b03f2a19cc836e4ef0fb6422 Assembly-CSharp.dll:.FlashCanvasEffect
 fce1538941d4ab1b9a6eb33795b2de41 Assembly-CSharp.dll:.PlayerAbandon
 591148bc854c5b79f2c56cc34338720a Assembly-CSharp.dll:.StageParent
 923e97f1da56803cf6d9c57b408077c2 Assembly-CSharp.dll:.StageRest
-4379b6a57e88c57bd3c8db7b713341ed Assembly-CSharp.dll:.PlayerManager
+29a14fe582856958bf9d9ff9ce094d48 Assembly-CSharp.dll:.PlayerManager
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 1dcb82730d983b77cec736c6ef19f814 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -200,7 +201,7 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 923e97f1da56803cf6d9c57b408077c2 Assembly-CSharp.dll:.StageStart
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MainSceneUIManager
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyBattle
-37f89d6bb2e62e3712a170de0b8e6c97 Assembly-CSharp.dll:.PlayerIdle
+9df3faf6eeb116078523fc71c4dfc503 Assembly-CSharp.dll:.PlayerIdle
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 196a1055d49256b509deb2a7583827cd Assembly-CSharp.dll:.StageClear
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyDieParent
@@ -228,4 +229,5 @@ e0d0b0fdd78b15bfa91d5990208c6a1d Assembly-CSharp.dll:.TutorialManager
 7d11e17b0323c2d01abce64d39203eb6 Assembly-CSharp-firstpass.dll:FMODUnity.StudioBankLoader
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyWait
 89c1e97f7398006d3084ac2263d9c984 Assembly-CSharp.dll:.CardParent
+89c1e97f7398006d3084ac2263d9c984 Assembly-CSharp.dll:.CardHaist
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.OnionAwake

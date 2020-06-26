@@ -18,20 +18,20 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
 
     private void Update()
     {
-        if(isParented && PlayerManager.playerSingleton.iteratingEnemy==null)
-        {
-            temp -= Time.deltaTime;
-            if (temp <= 0)
-            {
-                PlayerManager.playerSingleton.attackType.Clear();
-                PlayerManager.playerSingleton.anim.SetInteger("AttackType", 5);
-                PlayerManager.playerSingleton.anim.SetBool("Cancel", true);
-                for (int i = 0; i < PlayerManager.playerSingleton.inputSlot.transform.childCount; i++)
-                    PlayerManager.playerSingleton.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
+        //if(isParented && PlayerManager.playerSingleton.iteratingEnemy==null)
+        //{
+        //    temp -= Time.deltaTime;
+        //    if (temp <= 0)
+        //    {
+        //        PlayerManager.playerSingleton.attackType.Clear();
+        //        PlayerManager.playerSingleton.anim.SetInteger("AttackType", 5);
+        //        PlayerManager.playerSingleton.anim.SetBool("Cancel", true);
+        //        for (int i = 0; i < PlayerManager.playerSingleton.inputSlot.transform.childCount; i++)
+        //            PlayerManager.playerSingleton.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();
                 
                 
-            }
-        }
+        //    }
+        //}
     }
 
     
@@ -53,36 +53,38 @@ public class CardParent : MonoBehaviour, IPointerClickHandler
     //키보드를 입력받을 시, 스테이지 매니저에서 발동하는 함수
     public virtual void KeyBordInput()
     {
-        if (thisType == AttackType.VERTICAL
-            && StageManager.stageSingletom.BlueAttackCurrent <= 0)
-            return;
-        else if (thisType == AttackType.HORIZON
-            && StageManager.stageSingletom.RedAttackCurrent <= 0)
-            return;
+        //if (thisType == AttackType.VERTICAL
+        //    && StageManager.stageSingletom.BlueAttackCurrent <= 0)
+        //    return;
+        //else if (thisType == AttackType.HORIZON
+        //    && StageManager.stageSingletom.RedAttackCurrent <= 0)
+        //    return;
 
-        if ( isExecuted == true || PlayerManager.playerSingleton.inputSlot.transform.childCount >=5 
-            || PlayerManager.playerSingleton.current == PlayerState.ABANDON
-            || PlayerManager.playerSingleton.current == PlayerState.MONSTERBATTLE)
-            return;
-        //isExecuted = true;
-        //isParented = true;
-        PlayerManager.playerSingleton.attackType.Enqueue(thisType);
-        PlayerManager.playerSingleton.anim.SetInteger("AttackType", (int)thisType);
-        if (thisType == AttackType.GUARD)
-        {
-            transform.SetParent(null);
-            for(int i=0; i<2 && DeckList.Deck.Count>0; i++)
-            {
-                DeckList.Deck.Dequeue();
-                StageManager.stageSingletom.DeckCountText.text = DeckList.Deck.Count.ToString();
-            }
-            StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
-            DestroyThis();
-        }
-        else if (thisType == AttackType.VERTICAL)
-            StageManager.stageSingletom.BlueAttackCurrent--;
-        else if (thisType == AttackType.HORIZON)
-            StageManager.stageSingletom.RedAttackCurrent--;
+        //if ( isExecuted == true || PlayerManager.playerSingleton.inputSlot.transform.childCount >=5 
+        //    || PlayerManager.playerSingleton.current == PlayerState.ABANDON
+        //    || PlayerManager.playerSingleton.current == PlayerState.MONSTERBATTLE)
+        //    return;
+        ////isExecuted = true;
+        ////isParented = true;
+        //PlayerManager.playerSingleton.attackType.Enqueue(thisType);
+        //PlayerManager.playerSingleton.anim.SetInteger("AttackType", (int)thisType);
+        //if (thisType == AttackType.GUARD)
+        //{
+        //    transform.SetParent(null);
+        //    for(int i=0; i<2 && DeckList.Deck.Count>0; i++)
+        //    {
+        //        DeckList.Deck.Dequeue();
+        //        StageManager.stageSingletom.DeckCountText.text = DeckList.Deck.Count.ToString();
+        //    }
+        //    StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
+        //    DestroyThis();
+        //}
+        //else if (thisType == AttackType.VERTICAL)
+        //    StageManager.stageSingletom.BlueAttackCurrent--;
+        //else if (thisType == AttackType.HORIZON)
+        //    StageManager.stageSingletom.RedAttackCurrent--;
+
+
         //transform.SetParent(PlayerManager.playerSingleton.inputSlot.transform);
         //GetComponent<Image>().color = Color.clear;
         //GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);

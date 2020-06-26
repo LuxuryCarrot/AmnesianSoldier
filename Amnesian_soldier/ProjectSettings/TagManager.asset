@@ -8,6 +8,7 @@ TagManager:
   - CardDeck
   - MapCards
   - Anchor
+  - SkillSlot
   layers:
   - Default
   - TransparentFX

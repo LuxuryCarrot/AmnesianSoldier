@@ -6,15 +6,15 @@ public class PlayerAnimGet : MonoBehaviour
 {
     public void Success()
     {
-        Time.timeScale = PlayerManager.playerSingleton.timeScale;
+        
 
         GetComponent<Animator>().SetBool("Success", false);
-        PlayerManager.playerSingleton.anim.SetInteger("AttackType", 5);
+        
     }
     public void Damaged()
     {
         GetComponent<Animator>().SetBool("Damaged", false);
-        PlayerManager.playerSingleton.anim.SetInteger("AttackType", 5);
+        
     }
     public void PotionUse()
     {

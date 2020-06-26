@@ -15,11 +15,11 @@ public class DeckList : MonoBehaviour
     private void Awake()
     {
         
-        if (shuffleCount == 0)
-            shuffleCount = 3;
-        ResetDeck();
-        if (deckList == null)
-            deckList = this;
+        //if (shuffleCount == 0)
+        //    shuffleCount = 3;
+        //ResetDeck();
+        //if (deckList == null)
+        //    deckList = this;
     }
     public void ResetDeck()
     {
