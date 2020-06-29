@@ -12,6 +12,8 @@ public class PlayerJump : PlayerParent
         base.BeginState();
         ySpeed = 20;
         grav = 80;
+        Debug.Log("Jump");
+        manager.anim.SetTrigger("Jump");
     }
     private void Update()
     {

@@ -26,5 +26,11 @@ public class EnemyWait : EnemyParent
             manager.hp = 0;
             manager.SetState(EnemyState.KNOCKBACK);
         }
+
+        if(transform.position.x - PlayerManager.playerSingleton.transform.position.x <= manager.attRange
+            && manager.attackType == AttackType.HORIZON)
+        {
+            manager.anim.SetTrigger("Attack");
+        }
     }
 }

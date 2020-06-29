@@ -8,6 +8,7 @@ public class MapSpawnInstance : MapSpawnerParent
     public GameObject mapPrefab;
     public GameObject[] monsterPrefab;
     public GameObject[] eliteMosterPrefab;
+    public GameObject[] traps;
     public int startSpawnPos;
     public int mapMaxPos;
     public int monsterMinDistance;
@@ -16,6 +17,7 @@ public class MapSpawnInstance : MapSpawnerParent
     public int mapDontCamChase;
     public bool isEliteStage;
     int maxElite;
+    public float trapRate;
 
     //1스테이지 스폰 패턴.
     private void Awake()
@@ -28,7 +30,19 @@ public class MapSpawnInstance : MapSpawnerParent
         MapPositionManager.mapPos += startSpawnPos;
         for(int i=-10; i< startSpawnPos; i++)
         {
-           
+
+            float randSeedTrap = Random.Range(0, 1.0f);
+            if(randSeedTrap<= trapRate && monsterMinDistanceTemp != 0)
+            {
+                GameObject trap = Instantiate(traps[Random.Range(0, traps.Length)], this.transform);
+                trap.transform.localPosition = new Vector3(MapPositionManager.mapMax + i, 0, 0);
+                monsterMinDistanceTemp = 0;
+                i+=2;
+                Debug.Log("Trap");
+                continue;
+                
+            }
+
             GameObject mapBox = Instantiate(mapPrefab, this.transform);
             //최소 거리 이상이 되면 확률에 따라 몹 스폰.
             mapBox.transform.localPosition = new Vector3(MapPositionManager.mapMax+i, 0, 0);
@@ -77,6 +91,18 @@ public class MapSpawnInstance : MapSpawnerParent
     {
         if (MapPositionManager.mapPos == MapPositionManager.mapMax)
             return;
+
+        float randSeedTrap = Random.Range(0, 1.0f);
+        if (randSeedTrap <= trapRate && monsterMinDistanceTemp !=0)
+        {
+            GameObject trap = Instantiate(traps[Random.Range(0, traps.Length)], this.transform);
+            trap.transform.localPosition = new Vector3(MapPositionManager.mapPos, 0, 0);
+            MapPositionManager.mapPos+=3;
+            monsterMinDistanceTemp = 0;
+            Debug.Log("Trap");
+            return;
+        }
+
         GameObject mapBox = Instantiate(mapPrefab, this.transform);
         //최소 거리 이상이 되면 확률에 따라 몹 스폰.
         if (MapPositionManager.mapPos <= MapPositionManager.mapMax - mapDontCamChase)

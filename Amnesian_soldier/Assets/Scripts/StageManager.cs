@@ -56,6 +56,9 @@ public class StageManager : MonoBehaviour
 
     public Image StaminarSlot;
 
+    public float SlowMotionTemp;
+    public bool SlowMotionOn;
+
     //public int RedAttackCurrent;
     //public int BlueAttackCurrent;
     //public int RedAttackAmount;
@@ -73,6 +76,9 @@ public class StageManager : MonoBehaviour
         //BlueAttackCurrent = BlueAttackAmount;
         if (stageSingletom == null)
             stageSingletom = this;
+
+        SlowMotionOn = false;
+        SlowMotionTemp = 0.5f;
 
         //미니맵 캔버스
         skillSlots[0] = GameObject.FindGameObjectWithTag("SkillSlot").transform.GetChild(0);
@@ -122,6 +128,21 @@ public class StageManager : MonoBehaviour
         StaminarSlot.fillAmount = PlayerManager.playerSingleton.stam / 100;
     }
 
+    private void FixedUpdate()
+    {
+        
+        if (SlowMotionOn)
+        {
+            SlowMotionTemp -= Time.deltaTime;
+            if(SlowMotionTemp<=0)
+            {
+                SlowMotionOn = false;
+                Time.timeScale = 1.0f;
+                
+            }
+        }
+    }
+
     public void SetState(StageState newst)
     {
         foreach(StageParent currentstage in StageFlow.Values)
@@ -164,5 +185,14 @@ public class StageManager : MonoBehaviour
 
             skillSlots[0].GetChild(0).localScale = new Vector3(1, 1, 1);
         }
+    }
+
+    public void SlowMotionStart()
+    {
+        SlowMotionOn = true;
+        SlowMotionTemp = 0.025f;
+        Time.timeScale = 0.1f;
+        
+        
     }
 }

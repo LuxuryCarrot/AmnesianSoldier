@@ -58,16 +58,16 @@ public class EnemyManager : MonoBehaviour
         if (gravity == 0)
             gravity = 40.0f;
         
-            float randonSeed = Random.Range(0, 0.2f);
+            float randonSeed = Random.Range(0, 0.01f);
             
-            if(randonSeed>=0.1f)
+            if(randonSeed>=0.005f)
                 attackType = AttackType.HORIZON;
             else
                 attackType = AttackType.GUARD;
 
-        float randseed2 = Random.Range(0, 0.2f);
+        float randseed2 = Random.Range(0, 0.01f);
 
-        if (randonSeed >= 0.1f)
+        if (randonSeed >= 0.005f)
             hpMax = 1;
         else
             hpMax = 2;

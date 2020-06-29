@@ -41,8 +41,8 @@ public class PlayerBattle : PlayerParent
                     manager.HP--;
                     manager.speed *= 0.95f;
                     manager.anim.SetBool("Damaged", true);
-                    if (manager.iteratingEnemy.anim != null)
-                        manager.iteratingEnemy.anim.SetTrigger("Attack");
+                    //if (manager.iteratingEnemy.anim != null)
+                    //    manager.iteratingEnemy.anim.SetTrigger("Attack");
                     manager.iteratingEnemy.attackType = AttackType.NONE;
                     manager.iteratingEnemy.SetAttackImage();
                     StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-1);
@@ -51,6 +51,7 @@ public class PlayerBattle : PlayerParent
                 else
                 {
                     manager.iteratingEnemy = null;
+                    
                     manager.SetState(PlayerState.IDLE);
                 }
                 //체력 2이상 몬스터 수정요망
@@ -63,7 +64,7 @@ public class PlayerBattle : PlayerParent
                 manager.anim.SetBool("Success", true);
                 manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
                 manager.iteratingEnemy.hp--;
-
+                
                 manager.iteratingEnemy = null;
                 manager.SetState(PlayerState.IDLE);
             }
@@ -98,9 +99,9 @@ public class PlayerBattle : PlayerParent
             }
             else
             {
-                if(manager.iteratingEnemy.attackType == AttackType.HORIZON)
-                    if (manager.iteratingEnemy.anim != null)
-                        manager.iteratingEnemy.anim.SetTrigger("Attack");
+                //if(manager.iteratingEnemy.attackType == AttackType.HORIZON)
+                //    if (manager.iteratingEnemy.anim != null)
+                //        manager.iteratingEnemy.anim.SetTrigger("Attack");
                 manager.HP--;
                 manager.speed *= 0.95f;
                 manager.anim.SetBool("Damaged", true);

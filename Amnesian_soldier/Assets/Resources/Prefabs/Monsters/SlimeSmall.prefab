@@ -173,7 +173,7 @@ MonoBehaviour:
   ySpeed: 0
   gravity: 10
   range: 6
-  attRange: 6
+  attRange: 7
   hp: 0
   hpMax: 0
   anim: {fileID: 0}
@@ -182,9 +182,7 @@ MonoBehaviour:
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
   RootingCardPool: []
-  RootingAttPool:
-  - red
-  - blue
+  RootingAttPool: []
   eliteBattleTemp: 0
   hardSwinged: 0
   isStuned: 0

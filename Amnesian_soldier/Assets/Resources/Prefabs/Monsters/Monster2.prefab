@@ -145,8 +145,8 @@ MonoBehaviour:
   current: 0
   ySpeed: 0
   gravity: 10
-  range: 10
-  attRange: 8
+  range: 12
+  attRange: 7
   hp: 0
   hpMax: 0
   anim: {fileID: 0}

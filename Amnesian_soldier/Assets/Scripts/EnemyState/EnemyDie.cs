@@ -7,8 +7,8 @@ public class EnemyDie : EnemyParent
     public override void BeginState()
     {
         base.BeginState();
-
-        if(PlayerManager.playerSingleton.iteratingEnemy==manager)
+        StageManager.stageSingletom.SlowMotionStart();
+        if (PlayerManager.playerSingleton.iteratingEnemy==manager)
             PlayerManager.playerSingleton.iteratingEnemy = null;
         GetComponent<CharacterController>().enabled = false;
         if (manager.dieBehavior != null)

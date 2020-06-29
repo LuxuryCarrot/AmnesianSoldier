@@ -67,6 +67,8 @@ public class PlayerManager : MonoBehaviour
     public float speedIncrease=1;
     public float burftemp=0;
 
+    public float stamRestore;
+
     //상태를 넣는 dictionary
     Dictionary<PlayerState, PlayerParent> PlayerFlow = new Dictionary<PlayerState, PlayerParent>();
     //float commandTimeTemp=0.5f;
@@ -103,6 +105,7 @@ public class PlayerManager : MonoBehaviour
         current = PlayerState.DELAY;
         SetState(current);
         AimSpawn();
+        stamRestore = 0.5f;
     }
 
     //상태 변경 함수
@@ -137,9 +140,25 @@ public class PlayerManager : MonoBehaviour
         {
             ySpeed = 0;
         }
-        
 
-        if(transform.position.y<=-3.0f && current!=PlayerState.DIE)
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (stam >= 40)
+            {
+                stam -= 40;
+                stamRestore = 0.5f;
+                if (trap != null &&
+                    trap.transform.position.x - transform.position.x <= trap.maxRange
+                    && trap.transform.position.x - transform.position.x >= trap.minRange)
+                {
+                    trap.SpaceIterat();
+                }
+            }
+        }
+
+
+        if (transform.position.y<=-3.0f && current!=PlayerState.DIE)
             SetState(PlayerState.DIE);
 
         if (transform.position.y <= 1)
@@ -168,6 +187,12 @@ public class PlayerManager : MonoBehaviour
                 
             }
         }
+
+        if(trap !=null && trap.transform.position.x < transform.position.x)
+        {
+            trap = null;
+        }
+
 
         if(burftemp!=0)
         {

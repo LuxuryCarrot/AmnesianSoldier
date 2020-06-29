@@ -106,7 +106,12 @@ ModelImporter:
     7400000: Take 001
     9500000: //RootNode
     13700000: Cone001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 16e5ba2dab4d95d4780a53feffea523f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
