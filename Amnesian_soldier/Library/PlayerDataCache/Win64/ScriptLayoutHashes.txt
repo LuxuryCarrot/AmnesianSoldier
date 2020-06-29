@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-D:/Builds/새 폴더/AmnesianSoldier.exe
+D:/Builds/새 폴더 (2)/AmnesianSoldier.exe
 SceneListBegin?
 Assets/Scenes/0_StartSplashScene.unity
 Assets/Scenes/1_MainScene.unity
@@ -153,13 +153,14 @@ c181cbb5ec0b09544e90b138a7ec12fe Assembly-CSharp.dll:.SlimeDie
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AnimGetEnemy
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyInstantiateParent
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
-d0d69313a9416ea7af7f0a0c68002ae4 Assembly-CSharp.dll:.EnemyManager
+c0dd9773f2b283a28c577aeb76374ebd Assembly-CSharp.dll:.EnemyManager
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyParent
 285f6a08b03f2a19cc836e4ef0fb6422 Assembly-CSharp.dll:.FlashCanvasEffect
+d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerPinning
 fce1538941d4ab1b9a6eb33795b2de41 Assembly-CSharp.dll:.PlayerAbandon
 591148bc854c5b79f2c56cc34338720a Assembly-CSharp.dll:.StageParent
 923e97f1da56803cf6d9c57b408077c2 Assembly-CSharp.dll:.StageRest
-29a14fe582856958bf9d9ff9ce094d48 Assembly-CSharp.dll:.PlayerManager
+9754a928baa9c9640e4c9bf3efd1caac Assembly-CSharp.dll:.PlayerManager
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 1dcb82730d983b77cec736c6ef19f814 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -209,6 +210,7 @@ af18424ab4310bab8befde4fcb8b8ca8 Assembly-CSharp-firstpass.dll:FMODUnity.StudioP
 d643744df95f53adc9920da9377577ac Assembly-CSharp.dll:.EliteDie
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.HPIncrease
 4680db657a09772d677eb34657f979a8 Assembly-CSharp-firstpass.dll:FMODUnity.FMODRuntimeManagerOnGUIHelper
+0783ec51881faa55672628bc7f45ee51 Assembly-CSharp.dll:.TrapParent
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyAwakeParent
 591148bc854c5b79f2c56cc34338720a Assembly-CSharp.dll:.StageWeaponSelect
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.FadeIn
@@ -231,3 +233,5 @@ e0d0b0fdd78b15bfa91d5990208c6a1d Assembly-CSharp.dll:.TutorialManager
 89c1e97f7398006d3084ac2263d9c984 Assembly-CSharp.dll:.CardParent
 89c1e97f7398006d3084ac2263d9c984 Assembly-CSharp.dll:.CardHaist
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.OnionAwake
+0783ec51881faa55672628bc7f45ee51 Assembly-CSharp.dll:.FallingTrap
+d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerJump

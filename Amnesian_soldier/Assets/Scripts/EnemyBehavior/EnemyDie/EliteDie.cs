@@ -11,7 +11,7 @@ public class EliteDie : EnemyDieParent
         base.Begin();
         xSpeed = 20.0f;
         xAccel = 25.0f;
-        manager.anim.SetBool("Die", true);
+        manager.anim.SetTrigger("Die");
     }
     public override void Execute()
     {

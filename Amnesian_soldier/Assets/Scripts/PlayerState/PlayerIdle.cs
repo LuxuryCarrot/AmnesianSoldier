@@ -9,6 +9,7 @@ public class PlayerIdle : PlayerParent
     public bool AimIn;
     public bool attackIn;
     public float attackTemp;
+    public float stamRestore;
     public override void BeginState()
     {
         base.BeginState();
@@ -17,10 +18,21 @@ public class PlayerIdle : PlayerParent
         manager.AimChange(false);
         attackTemp = 0.5f;
         attackIn = false;
+        stamRestore = 0.5f;
     }
     private void Update()
     {
         manager.controller.Move(manager.speedIncrease * manager.speed*Time.deltaTime);
+
+        if(stamRestore>0)
+        {
+            stamRestore -= Time.deltaTime;
+        }
+        else
+        {
+            if(manager.stam<100)
+               manager.stam += Time.deltaTime*33;
+        }
 
         if(AimIn && (manager.attackType!=AttackType.NONE || (Input.GetKey(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space))))
         {
@@ -58,8 +70,9 @@ public class PlayerIdle : PlayerParent
         {
             manager.anim.SetBool("Charging", true);
             manager.attackType = AttackType.GUARD;
-            if(manager.stam >0)
-               manager.stam -= Time.deltaTime * 10;
+            stamRestore = 0.5f;
+            if (manager.stam >0)
+               manager.stam -= Time.deltaTime * 33;
             attackIn = false;
             
         }
@@ -86,8 +99,17 @@ public class PlayerIdle : PlayerParent
 
         if(Input.GetKey(KeyCode.Space))
         {
-            if (manager.stam > 0)
-                manager.stam -= Time.deltaTime * 10;
+            if (manager.stam >= 0)
+            {
+                manager.stam -= Time.deltaTime * 33;
+                stamRestore = 0.5f;
+                if(manager.trap!=null &&
+                    manager.trap.transform.position.x- manager.transform.position.x <= manager.trap.maxRange
+                    && manager.trap.transform.position.x - manager.transform.position.x >= manager.trap.minRange)
+                {
+                    manager.trap.SpaceIterat();
+                }
+            }
         }
 
         if(attackIn)

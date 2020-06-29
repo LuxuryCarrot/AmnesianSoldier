@@ -7,13 +7,17 @@ public class EnemyDie : EnemyParent
     public override void BeginState()
     {
         base.BeginState();
+
+        if(PlayerManager.playerSingleton.iteratingEnemy==manager)
+            PlayerManager.playerSingleton.iteratingEnemy = null;
+        GetComponent<CharacterController>().enabled = false;
         if (manager.dieBehavior != null)
             manager.dieBehavior.Begin();
 
         for (int i = 0; i < transform.GetChild(1).childCount; i++)
             Destroy(transform.GetChild(1).GetChild(i).gameObject);
         if (manager.anim != null && manager.dieBehavior == null)
-            manager.anim.SetBool("Die", true);
+            manager.anim.SetTrigger("Die");
 
         SkillRoot();
 

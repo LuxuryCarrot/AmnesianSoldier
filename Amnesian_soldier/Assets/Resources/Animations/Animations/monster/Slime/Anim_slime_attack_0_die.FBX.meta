@@ -77,7 +77,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.16129035
+      - time: 0.82488483
         functionName: Die
         data: 
         objectReferenceParameter: {instanceID: 0}

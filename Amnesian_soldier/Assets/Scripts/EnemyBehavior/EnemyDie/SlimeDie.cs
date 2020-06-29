@@ -27,7 +27,7 @@ public class SlimeDie : EnemyDieParent
             manager.enabled = false;
         }
         else
-            manager.anim.SetBool("Die", true);
+            manager.anim.SetTrigger("Die");
 
         temp = 0.2f;
     }

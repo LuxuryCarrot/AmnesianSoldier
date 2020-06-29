@@ -35,14 +35,24 @@ public class PlayerBattle : PlayerParent
                 StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
                 manager.attackType = AttackType.NONE;
                 manager.anim.SetBool("Success", true);
-                manager.iteratingEnemy.SetState(EnemyState.DIE);
-                manager.iteratingEnemy.enabled = false;
-
-                manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
-
-                manager.iteratingEnemy = null;
-                manager.SetState(PlayerState.IDLE);
-
+                manager.iteratingEnemy.hp--;
+                if (manager.iteratingEnemy.hp > 0)
+                {
+                    manager.HP--;
+                    manager.speed *= 0.95f;
+                    manager.anim.SetBool("Damaged", true);
+                    if (manager.iteratingEnemy.anim != null)
+                        manager.iteratingEnemy.anim.SetTrigger("Attack");
+                    manager.iteratingEnemy.attackType = AttackType.NONE;
+                    manager.iteratingEnemy.SetAttackImage();
+                    StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-1);
+                    manager.SetState(PlayerState.KNOCKBACK);
+                }
+                else
+                {
+                    manager.iteratingEnemy = null;
+                    manager.SetState(PlayerState.IDLE);
+                }
                 //체력 2이상 몬스터 수정요망
             }
             else
@@ -51,10 +61,8 @@ public class PlayerBattle : PlayerParent
                 StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
                 manager.attackType = AttackType.NONE;
                 manager.anim.SetBool("Success", true);
-                manager.iteratingEnemy.SetState(EnemyState.DIE);
-                manager.iteratingEnemy.enabled = false;
-
-                manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
+                manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
+                manager.iteratingEnemy.hp--;
 
                 manager.iteratingEnemy = null;
                 manager.SetState(PlayerState.IDLE);
@@ -63,38 +71,43 @@ public class PlayerBattle : PlayerParent
         }
         else if(manager.attackType == AttackType.GUARD)
         {
-           if(manager.iteratingEnemy.attackType == AttackType.GUARD)
+            if (manager.iteratingEnemy.attackType == AttackType.GUARD)
             {
-                manager.anim.SetTrigger("GuardAttack");
-                manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
+                //manager.anim.SetTrigger("GuardAttack");
+
                 manager.iteratingEnemy.attackType = AttackType.NONE;
                 manager.iteratingEnemy.SetAttackImage();
-                manager.iteratingEnemy = null;
-                manager.SetState(PlayerState.IDLE);
+
+                manager.SetState(PlayerState.PINN);
             }
-           else
+            else
             {
-                MonsterManager.Monsters.Remove(manager.iteratingEnemy.gameObject);
-                StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
-                manager.attackType = AttackType.NONE;
-                manager.iteratingEnemy.SetState(EnemyState.DIE);
-                manager.iteratingEnemy.enabled = false;
-
-                manager.iteratingEnemy.GetComponent<CharacterController>().enabled = false;
-
+                manager.iteratingEnemy.attackType = AttackType.NONE;
+                manager.iteratingEnemy.SetAttackImage();
+                manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
                 manager.iteratingEnemy = null;
                 manager.SetState(PlayerState.IDLE);
             }
         }
         else
         {
-            manager.HP--;
-            manager.speed *= 0.95f;
-            manager.anim.SetBool("Damaged", true);
-            StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-1);
-            manager.SetState(PlayerState.KNOCKBACK);
-            //적 공격 애니메이션 추가부분
-
+            if (manager.iteratingEnemy.attackType == AttackType.NONE)
+            {
+                manager.iteratingEnemy = null;
+                manager.SetState(PlayerState.ABANDON);
+            }
+            else
+            {
+                if(manager.iteratingEnemy.attackType == AttackType.HORIZON)
+                    if (manager.iteratingEnemy.anim != null)
+                        manager.iteratingEnemy.anim.SetTrigger("Attack");
+                manager.HP--;
+                manager.speed *= 0.95f;
+                manager.anim.SetBool("Damaged", true);
+                StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-1);
+                manager.SetState(PlayerState.KNOCKBACK);
+                //적 공격 애니메이션 추가부분
+            }
         }
 
     }

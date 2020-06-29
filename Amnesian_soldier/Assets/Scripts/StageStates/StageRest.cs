@@ -10,7 +10,9 @@ public class StageRest : StageParent
     {
         base.BeginState();
         temp = 5;
-        //PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
+        PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
+        manager.RestCanvas.SetActive(true);
+        manager.RestCanvas.transform.GetChild(2).gameObject.SetActive(false);
         //manager.mapSelectCanvas.SetActive(true);
         //if (manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount != 0)
         //    for (int i = 0; manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount != 0; i++)
@@ -69,22 +71,28 @@ public class StageRest : StageParent
 
         if(temp <=0)
         {
-            if (MapNode.EndNode != null)
-            {
-                manager.mapCanvas.transform.GetChild(0).localPosition = new Vector3(0, 1190, 0);
-                manager.SetState(StageState.GAMECLEAR);
-
-            }
-            else
-            {
-                manager.mapCanvas.transform.GetChild(0).localPosition = new Vector3(0, 1190, 0);
-                //Destroy(MapPositionManager.field.transform.GetChild(0).gameObject);
-                manager.SetState(StageState.MAPSELECT);
-            }
+            manager.RestCanvas.transform.GetChild(2).gameObject.SetActive(true);
         }
     }
     public override void EndState()
     {
         base.EndState();
+    }
+
+    public void RestTypeSelected()
+    {
+        manager.RestCanvas.transform.GetChild(2).gameObject.SetActive(false);
+        if (MapNode.EndNode != null)
+        {
+            manager.mapCanvas.transform.GetChild(0).localPosition = new Vector3(0, 1190, 0);
+            manager.SetState(StageState.GAMECLEAR);
+
+        }
+        else
+        {
+            manager.mapCanvas.transform.GetChild(0).localPosition = new Vector3(0, 1190, 0);
+            //Destroy(MapPositionManager.field.transform.GetChild(0).gameObject);
+            manager.SetState(StageState.MAPSELECT);
+        }
     }
 }

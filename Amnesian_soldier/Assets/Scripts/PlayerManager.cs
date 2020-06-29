@@ -12,8 +12,9 @@ public enum PlayerState
     BOSSBATTLE,
     KNOCKBACK,
     ABANDON,
-    NEXTBATTLE,
-    DIE
+    PINN,
+    DIE,
+    JUMP
 }
 
 //플레이어 매니저.
@@ -21,6 +22,7 @@ public class PlayerManager : MonoBehaviour
 {
     //현재 타게팅 된 적
     public EnemyManager iteratingEnemy;
+    public TrapParent trap;
     public InputCardParent inputcard;
     //플레이어 싱글톤
     public static PlayerManager playerSingleton;
@@ -94,6 +96,8 @@ public class PlayerManager : MonoBehaviour
         PlayerFlow.Add(PlayerState.KNOCKBACK, GetComponent<PlayerKnockBack>());
         PlayerFlow.Add(PlayerState.DIE, GetComponent<PlayerDie>());
         PlayerFlow.Add(PlayerState.ABANDON, GetComponent<PlayerAbandon>());
+        PlayerFlow.Add(PlayerState.PINN, GetComponent<PlayerPinning>());
+        PlayerFlow.Add(PlayerState.JUMP, GetComponent<PlayerJump>());
         //PlayerFlow.Add(PlayerState.NEXTBATTLE, GetComponent<PlayerNextBattle>());
         attackType = AttackType.NONE;
         current = PlayerState.DELAY;
@@ -133,10 +137,14 @@ public class PlayerManager : MonoBehaviour
         {
             ySpeed = 0;
         }
+        
+
         if(transform.position.y<=-3.0f && current!=PlayerState.DIE)
             SetState(PlayerState.DIE);
 
-        if(Camera.main.transform.parent==null 
+        if (transform.position.y <= 1)
+            Camera.main.transform.SetParent(null);
+        else if (Camera.main.transform.parent==null 
             && (StageManager.stageSingletom.current==StageState.IDLE || StageManager.stageSingletom.current == StageState.REST) && transform.position.x>=-5)
         {
             Camera.main.transform.position = transform.position + camPos;

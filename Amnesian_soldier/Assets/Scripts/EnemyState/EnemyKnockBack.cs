@@ -6,22 +6,23 @@ using UnityEngine;
 public class EnemyKnockBack : EnemyParent
 {
     public float yspeed;
-    public float gravity=10.0f;
+    public float gravity=5.0f;
     public float temp;
     public override void BeginState()
     {
         base.BeginState();
         temp = 0;
-        //manager.ySpeed = -3.0f;
-        //manager.GetComponent<CharacterController>().Move(new Vector3(2 * Time.deltaTime, -manager.ySpeed * Time.deltaTime, 0));
+        manager.ySpeed = -2.5f;
+        manager.anim.SetTrigger("Bounce");
+        manager.GetComponent<CharacterController>().Move(new Vector3(2 * Time.deltaTime, -manager.ySpeed * Time.deltaTime, 0));
     }
     private void Update()
     {
-        temp += Time.deltaTime;
-        //yspeed += gravity * Time.deltaTime;
-        manager.GetComponent<CharacterController>().Move(new Vector3(30 * Time.deltaTime, 0, 0));
+        manager.ySpeed += gravity * Time.deltaTime;
         
-        if(temp>=0.4f)
+        manager.GetComponent<CharacterController>().Move(new Vector3(24 * Time.deltaTime, -manager.ySpeed*Time.deltaTime, 0));
+        
+        if(manager.ySpeed >=0 && transform.position.y <= 1.7f)
         {
             manager.SetState(EnemyState.IDLE);
         }

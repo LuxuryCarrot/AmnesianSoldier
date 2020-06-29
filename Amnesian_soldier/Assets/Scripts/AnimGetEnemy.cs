@@ -6,6 +6,7 @@ public class AnimGetEnemy : MonoBehaviour
 {
     public void Die()
     {
+        
         MonsterManager.Monsters.Remove(transform.parent.gameObject);
         Destroy(transform.parent.gameObject);
     }
@@ -22,5 +23,9 @@ public class AnimGetEnemy : MonoBehaviour
     public void OnionDie()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/Onion/Die");
+    }
+    public void Bounce()
+    {
+        GetComponent<Animator>().SetBool("Defence", false);
     }
 }

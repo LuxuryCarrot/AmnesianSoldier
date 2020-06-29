@@ -21,6 +21,9 @@ public class EnemyManager : MonoBehaviour
     public float gravity;
     public float range;
     public float attRange;
+
+    public int hp;
+    public int hpMax;
     //FSM 저장부
     Dictionary<EnemyState, EnemyParent> EnemyFlow = new Dictionary<EnemyState, EnemyParent>();
     //여기에 붙어있는 화살표 이미지.
@@ -38,15 +41,22 @@ public class EnemyManager : MonoBehaviour
     public int eliteBattleTemp;
     public bool hardSwinged = false;
 
+    public bool isStuned;
+    float stunTemp;
+
+    public Image hpBar;
+
     private void Awake()
     {
-
+        isStuned = false;
         RootingCardPool = new string[2];
         RootingCardPool[0] = "Potion1";
         RootingCardPool[1] = "Haist1";
 
+        hpBar = transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<Image>();
+
         if (gravity == 0)
-            gravity = 10.0f;
+            gravity = 40.0f;
         
             float randonSeed = Random.Range(0, 0.2f);
             
@@ -54,7 +64,16 @@ public class EnemyManager : MonoBehaviour
                 attackType = AttackType.HORIZON;
             else
                 attackType = AttackType.GUARD;
-        
+
+        float randseed2 = Random.Range(0, 0.2f);
+
+        if (randonSeed >= 0.1f)
+            hpMax = 1;
+        else
+            hpMax = 2;
+
+        hp = hpMax;
+
         anim = GetComponentInChildren<Animator>();
         current = EnemyState.IDLE;
         EnemyFlow.Add(EnemyState.IDLE, GetComponent<EnemyWait>());
@@ -104,17 +123,20 @@ public class EnemyManager : MonoBehaviour
     private void Update()
     {
         //땅에 떨어지는 부분.
-        if (!GetComponent<CharacterController>().isGrounded)
+        if (GetComponent<CharacterController>().enabled)
         {
-            ySpeed += gravity * Time.deltaTime;
-            GetComponent<CharacterController>().Move(new Vector3(0, -ySpeed * Time.deltaTime, 0));
+            if (!GetComponent<CharacterController>().isGrounded)
+            {
+                ySpeed += gravity * Time.deltaTime;
+                if (GetComponent<CharacterController>().enabled)
+                    GetComponent<CharacterController>().Move(new Vector3(0, -ySpeed * Time.deltaTime, 0));
+            }
+            else
+            {
+                ySpeed = 0.1f;
+                GetComponent<CharacterController>().Move(new Vector3(0, -ySpeed * Time.deltaTime, 0));
+            }
         }
-        else
-        {
-            ySpeed = 0.1f;
-            GetComponent<CharacterController>().Move(new Vector3(0, -ySpeed * Time.deltaTime, 0));
-        }
-
         //일정 높이이상 떨어지면 사라짐.
         if (transform.position.y <= -3.0f)
         {
@@ -123,20 +145,42 @@ public class EnemyManager : MonoBehaviour
            
         }
 
-        //플레이어가 범위 내이며, 플레이어가 기본 상태면 플레이어에 타겟이 자신이라고 넣어주는 부분.
-        
+        if(hpBar.gameObject.activeInHierarchy)
+           hpBar.fillAmount = (float)hp / (float)hpMax;
 
-        if(transform.position.x - PlayerManager.playerSingleton.transform.position.x <= attRange &&
-            transform.position.x - PlayerManager.playerSingleton.transform.position.x >= 0)
+        if(isStuned)
         {
-            if (anim != null)
-                anim.SetInteger("AttackType", (int)attackType);
+            stunTemp += Time.deltaTime;
+            if(stunTemp>=2.0f)
+            {
+                stunTemp = 0;
+                float randonSeed = Random.Range(0, 0.2f);
+
+                if (randonSeed >= 0.1f)
+                    attackType = AttackType.HORIZON;
+                else
+                    attackType = AttackType.GUARD;
+            }
         }
 
-        if(transform.position.x - PlayerManager.playerSingleton.transform.position.x < 0
-            || PlayerManager.playerSingleton.current==PlayerState.DIE)
-            if (anim != null)
-                anim.SetInteger("AttackType", 5);
+        //플레이어가 범위 내이며, 플레이어가 기본 상태면 플레이어에 타겟이 자신이라고 넣어주는 부분.
+        
+        if(hp<=0 && current!=EnemyState.DIE)
+        {
+            
+            SetState(EnemyState.DIE);
+        }
+
+
+        //if(transform.position.x - PlayerManager.playerSingleton.transform.position.x <= attRange &&
+        //    transform.position.x - PlayerManager.playerSingleton.transform.position.x >= 0)
+        //{
+        //    if (anim != null)
+        //        anim.SetInteger("AttackType", (int)attackType);
+        //}
+
+        
+            
     }
     public void SetAttackImage()
     {

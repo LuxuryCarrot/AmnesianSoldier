@@ -44,6 +44,7 @@ public class StageManager : MonoBehaviour
     public GameObject WinFlashCanvas;
     public GameObject LoseFlashCanvas;
     public GameObject DrawFlashCanvas;
+    public GameObject RestCanvas;
     //public GameObject CardDeck;
     public Canvas HPText;
     //public Text DeckCountText;
@@ -92,6 +93,7 @@ public class StageManager : MonoBehaviour
         WinFlashCanvas.SetActive(false);
         LoseFlashCanvas.SetActive(false);
         DrawFlashCanvas.SetActive(false);
+        RestCanvas.SetActive(false);
         current = StageState.WEAPONSELECT;
         SetState(current);
         
