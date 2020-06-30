@@ -16,6 +16,7 @@ public class ObjSpawnManager : MonoBehaviour
     public int StartFarSawnAmount;
     public int startMidSpawnAmount;
     public int startBG;
+    public Color32 nearObjColor;
     public GameObject midObj;
     int PlayerXPos;
     int PlayerFarXPOS;
@@ -52,6 +53,7 @@ public class ObjSpawnManager : MonoBehaviour
         playerMidXPOS = 0;
         playerNearBgXPos = 0;
         playerBGXPos = 0;
+        nearObjColor = new Color(157, 195, 226);
         for (int i = -5; i <= StartNearSpawnAmount; i++)
             NearObjSpawn(new Vector3((i - 1) * 2, 0.4f, 1.5f));
 
@@ -123,15 +125,18 @@ public class ObjSpawnManager : MonoBehaviour
             GameObject nearBg = Instantiate(nearBgTrees[Utilities.NewRandom(0, nearBgTrees.Length)], transform.GetChild(1));
             nearBg.transform.localPosition = pos + new Vector3(0,4,0);
             nearBg.GetComponent<SpriteRenderer>().sortingOrder = NearbgbackAmount;
+            //nearBg.GetComponent<SpriteRenderer>().color = nearObjColor;
             NearBgQueue.Enqueue(nearBg);
         }
         else
         {
             GameObject nearBg = Instantiate(nearBgGrass[Utilities.NewRandom(0, nearBgGrass.Length)], transform.GetChild(1));
             nearBg.transform.localPosition = pos + new Vector3(0, 0, 0);
+            //nearBg.GetComponent<SpriteRenderer>().color = nearObjColor;
             nearBg.GetComponent<SpriteRenderer>().sortingOrder = NearbgbackAmount;
             NearBgQueue.Enqueue(nearBg);
         }
+
     }
 
     public void farObjSpawn(Vector3 pos)

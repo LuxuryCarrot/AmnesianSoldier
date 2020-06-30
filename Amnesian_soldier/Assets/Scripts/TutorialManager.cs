@@ -10,8 +10,11 @@ public class TutorialManager : MonoBehaviour
     public GameObject tutorialCanvas3;
     public GameObject tutorialCanvas4;
     public GameObject tutorialCanvas5;
+    public GameObject tutorialCanvas6;
     public float temp;
     public int num=0;
+    bool att = false;
+    bool def = false;
 
     private void Awake()
     {
@@ -20,12 +23,13 @@ public class TutorialManager : MonoBehaviour
         tutorialCanvas3.SetActive(false);
         tutorialCanvas4.SetActive(false);
         tutorialCanvas5.SetActive(false);
+        tutorialCanvas6.SetActive(false);
     }
     
     private void Update()
     {
         
-        if(!tutorialEnded)
+        if(!tutorialEnded && MonsterManager.Monsters.Count!=0)
         {
             if(num ==0 && MonsterManager.Monsters[0].transform.position.x - PlayerManager.playerSingleton.transform.position.x <= 7)
             {
@@ -33,7 +37,7 @@ public class TutorialManager : MonoBehaviour
                 tutorialCanvas1.SetActive(true);
                 temp += Time.fixedDeltaTime;
                 Debug.Log(0);
-                if(temp >=3)
+                if(temp >=1.5f)
                 {
                     temp = 0;
                     num++;
@@ -44,7 +48,7 @@ public class TutorialManager : MonoBehaviour
             {
                 tutorialCanvas2.SetActive(true);
                 temp += Time.fixedDeltaTime;
-                if (temp >= 3)
+                if (temp >= 1.5f)
                 {
                     temp = 0;
                     num++;
@@ -56,7 +60,7 @@ public class TutorialManager : MonoBehaviour
             {
                 tutorialCanvas5.SetActive(true);
                 temp += Time.fixedDeltaTime;
-                if (temp >= 3)
+                if (temp >= 1.5f)
                 {
                     temp = 0;
                     num++;
@@ -64,19 +68,38 @@ public class TutorialManager : MonoBehaviour
                     Time.timeScale = 1;
                 }
             }
-            else if(num==3 && MonsterManager.Monsters[0].transform.position.x- PlayerManager.playerSingleton.transform.position.x <= PlayerManager.playerSingleton.AimStartRange+0.5f)
+            else if(!att && num==3
+                && MonsterManager.Monsters[0].transform.position.x- PlayerManager.playerSingleton.transform.position.x <= 7
+                && MonsterManager.Monsters[0].GetComponent<EnemyManager>().attackType==AttackType.HORIZON)
             {
                 tutorialCanvas3.SetActive(true);
                 Time.timeScale = 0.01f;
-                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2))
+                if (Input.GetMouseButtonDown(1) || MonsterManager.Monsters[0].GetComponent<EnemyManager>().attackType==AttackType.NONE )
                 {
-                    
-                    num++;
+                    Debug.Log("Att");
+                    att = true;
+                    if (att && def)
+                        num++;
                     tutorialCanvas3.SetActive(false);
                     Time.timeScale = 1;
                 }
             }
-            else if(num ==4)
+            else if (!def && num == 3 && MonsterManager.Monsters[0].transform.position.x - PlayerManager.playerSingleton.transform.position.x <= 7
+                && MonsterManager.Monsters[0].GetComponent<EnemyManager>().attackType == AttackType.GUARD)
+            {
+                tutorialCanvas6.SetActive(true);
+                Time.timeScale = 0.01f;
+                if (Input.GetMouseButtonDown(1))
+                {
+                    Debug.Log("Att");
+                    def = true;
+                    if(att && def)
+                      num++;
+                    tutorialCanvas6.SetActive(false);
+                    Time.timeScale = 1;
+                }
+            }
+            else if(num ==5 && StageManager.stageSingletom.SkillGained())
             {
                 tutorialCanvas4.SetActive(true);
                 temp += Time.fixedDeltaTime;

@@ -11,6 +11,7 @@ public class StageRest : StageParent
         base.BeginState();
         temp = 5;
         PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
+        PlayerManager.playerSingleton.anim.SetBool("Rest", true);
         manager.RestCanvas.SetActive(true);
         manager.RestCanvas.transform.GetChild(2).gameObject.SetActive(false);
         //manager.mapSelectCanvas.SetActive(true);

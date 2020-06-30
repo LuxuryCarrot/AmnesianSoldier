@@ -31,7 +31,7 @@ public class BattleDetermine
     }
     public static Vector3 Vector3Slerp(Vector3 from, Vector3 to, float time)
     {
-        if (Vector3.SqrMagnitude(from - to) <= 1.0f)
+        if (Vector3.SqrMagnitude(from - to) <= 0.01f)
             return to;
         else
             return (from + (to - from) * time);

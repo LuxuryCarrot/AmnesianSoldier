@@ -12,6 +12,7 @@ public class StageSelectMap : StageParent
         base.BeginState();
         temp = 5;
         //PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
+        PlayerManager.playerSingleton.anim.SetBool("Rest", false);
         manager.mapCanvas.SetActive(true);
         manager.mapSelectCanvas.SetActive(true);
         if(manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount != 0)

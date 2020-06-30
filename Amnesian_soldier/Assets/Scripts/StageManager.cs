@@ -138,7 +138,7 @@ public class StageManager : MonoBehaviour
             {
                 SlowMotionOn = false;
                 Time.timeScale = 1.0f;
-                
+                CameraManager.camSingleTon.SetState(CamState.SHAKE);
             }
         }
     }
@@ -176,6 +176,15 @@ public class StageManager : MonoBehaviour
         newSkill.transform.localPosition = Vector3.zero;
         newSkill.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
     }
+
+    public bool SkillGained()
+    {
+        if (skillSlots[0].childCount != 0)
+            return true;
+        else
+            return false;
+    }
+
     public void SkillUsed()
     {
         if (skillSlots[1].childCount != 0)
@@ -195,4 +204,5 @@ public class StageManager : MonoBehaviour
         
         
     }
+    
 }
