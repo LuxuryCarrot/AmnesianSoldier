@@ -104,7 +104,7 @@ public class PlayerManager : MonoBehaviour
         attackType = AttackType.NONE;
         current = PlayerState.DELAY;
         SetState(current);
-        AimSpawn();
+        //AimSpawn();
         stamRestore = 0.5f;
     }
 

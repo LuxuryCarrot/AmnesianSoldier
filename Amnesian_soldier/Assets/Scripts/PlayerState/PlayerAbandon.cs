@@ -16,7 +16,7 @@ public class PlayerAbandon : PlayerParent
         zSpeed = Random.Range(0,1)>=0.5? 10: -10;
         getBack = false;
         temp = 0.15f;
-        manager.AimChange(false);
+        //manager.AimChange(false);
         manager.iteratingEnemy = null;
     }
     private void Update()

@@ -188,7 +188,7 @@ public class EnemyManager : MonoBehaviour
         if (attackType != AttackType.NONE)
             transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite
                 = attackType == AttackType.GUARD ?
-                Resources.Load<Sprite>("Sprites/Guard") as Sprite : Resources.Load<Sprite>("Sprites/sword") as Sprite;
+                Resources.Load<Sprite>("Sprites/protect") as Sprite : Resources.Load<Sprite>("Sprites/attack") as Sprite;
         else
             transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = null;
     }

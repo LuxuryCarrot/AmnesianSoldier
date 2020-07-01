@@ -15,7 +15,7 @@ public class PlayerIdle : PlayerParent
         base.BeginState();
         AimIn = false;
         manager.anim.SetBool("Ready", false);
-        manager.AimChange(false);
+        //manager.AimChange(false);
         attackTemp = 0.5f;
         attackIn = false;
         manager.stamRestore = 0.5f;
@@ -60,7 +60,7 @@ public class PlayerIdle : PlayerParent
             AimIn = true;
             
            
-            manager.AimChange(true);
+            //manager.AimChange(true);
             //StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>().color = Color.yellow;
             //for (int i = 0; i < manager.inputSlot.transform.childCount; i++)
             //    manager.inputSlot.transform.GetChild(i).GetComponent<CardParent>().DestroyThis();

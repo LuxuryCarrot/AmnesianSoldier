@@ -21,6 +21,9 @@ public class TrapParent : MonoBehaviour
         {
             PlayerManager.playerSingleton.trap = this;
         }
+
+        if (PlayerManager.playerSingleton.transform.position.x - transform.position.x > 20)
+            Destroy(this.gameObject);
     }
     public virtual void Execute()
     {

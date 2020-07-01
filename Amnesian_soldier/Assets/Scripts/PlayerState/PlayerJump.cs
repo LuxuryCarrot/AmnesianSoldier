@@ -24,6 +24,7 @@ public class PlayerJump : PlayerParent
         if (ySpeed <= -20)
         {
             manager.SetState(PlayerState.IDLE);
+            manager.trap = null;
         }
     }
     public override void EndState()

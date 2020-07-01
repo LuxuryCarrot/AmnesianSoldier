@@ -76,5 +76,5 @@ Shader "Toon/Basic Outline" {
 		}
 	}
 	
-	Fallback "Toon/Basic"
+	//Fallback "Toon/Basic"
 }
