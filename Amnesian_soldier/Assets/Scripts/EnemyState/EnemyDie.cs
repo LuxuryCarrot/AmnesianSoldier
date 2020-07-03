@@ -21,6 +21,7 @@ public class EnemyDie : EnemyParent
             manager.anim.SetTrigger("Die");
 
         SkillRoot();
+        StageManager.stageSingletom.KillCount++;
 
         //if (manager.RootingCardPool.Length > 0)
         //{

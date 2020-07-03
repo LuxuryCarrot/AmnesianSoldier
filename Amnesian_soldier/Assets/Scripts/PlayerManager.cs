@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 //플레이어의 상태
 public enum PlayerState
 {
@@ -31,6 +32,7 @@ public class PlayerManager : MonoBehaviour
     //입력받은 카드
     public CardParent cardInput;
     public int HP;
+    public int HPMAX=5;
     //이 캐릭터 상단의 사용중인 카드 표시창
     public GameObject inputSlot;
     //현재 상태
@@ -45,7 +47,8 @@ public class PlayerManager : MonoBehaviour
     public GameObject CardDeckUI;
 
     public Animator anim;
-
+    public int damage;
+    
     public float ySpeed=0;
     public float gravity;
     public float range;
@@ -75,6 +78,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        if (damage == 0)
+            damage = 1;
         stam = 100;
         grounded = false;
         timeScale = 1;
@@ -84,7 +89,7 @@ public class PlayerManager : MonoBehaviour
         if (playerSingleton == null)
             playerSingleton = this;
         if(HP==0)
-          HP = 5;
+          HP = HPMAX;
         anim = GetComponentInChildren<Animator>();
         fillCanvas = transform.GetChild(3).gameObject;
         fillCanvas.SetActive(false);
@@ -164,7 +169,7 @@ public class PlayerManager : MonoBehaviour
         if (transform.position.y <= 1)
             Camera.main.transform.SetParent(null);
         else if (Camera.main.transform.parent==null 
-            && (StageManager.stageSingletom.current==StageState.IDLE || StageManager.stageSingletom.current == StageState.REST) && transform.position.x>=-5)
+            && (StageManager.stageSingletom.current==StageState.IDLE || StageManager.stageSingletom.current == StageState.REST || StageManager.stageSingletom.current ==StageState.STORE) && transform.position.x>=-5)
         {
             Camera.main.transform.position = transform.position + camPos;
             Camera.main.transform.SetParent(transform);

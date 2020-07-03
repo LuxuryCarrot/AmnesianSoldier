@@ -14,7 +14,8 @@ public enum StageState
     GAMEOVER,
     GAMECLEAR,
     REST,
-    WEAPONSELECT
+    WEAPONSELECT,
+    STORE
 }
 //공격타입
 public enum AttackType
@@ -45,6 +46,7 @@ public class StageManager : MonoBehaviour
     public GameObject LoseFlashCanvas;
     public GameObject DrawFlashCanvas;
     public GameObject RestCanvas;
+    public GameObject StoreCanvas;
     //public GameObject CardDeck;
     public Canvas HPText;
     //public Text DeckCountText;
@@ -58,6 +60,8 @@ public class StageManager : MonoBehaviour
 
     public float SlowMotionTemp;
     public bool SlowMotionOn;
+
+    public int KillCount;
 
     //public int RedAttackCurrent;
     //public int BlueAttackCurrent;
@@ -87,6 +91,7 @@ public class StageManager : MonoBehaviour
         //CardDeck = GameObject.FindGameObjectWithTag("CardDeck").transform.GetChild(0).gameObject;
         mapSelectCanvas = GameObject.FindGameObjectWithTag("MapCards");
         MinimapAnchor = GameObject.FindGameObjectWithTag("Anchor");
+        StoreCanvas = GameObject.FindGameObjectWithTag("Store");
 
         StageFlow.Add(StageState.READY, GetComponent<StageStart>());
         StageFlow.Add(StageState.IDLE, GetComponent<StageIDLE>());
@@ -96,10 +101,12 @@ public class StageManager : MonoBehaviour
         StageFlow.Add(StageState.GAMECLEAR, GetComponent<StageClear>());
         StageFlow.Add(StageState.REST, GetComponent<StageRest>());
         StageFlow.Add(StageState.WEAPONSELECT, GetComponent<StageWeaponSelect>());
+        StageFlow.Add(StageState.STORE, GetComponent<StageStore>());
         WinFlashCanvas.SetActive(false);
         LoseFlashCanvas.SetActive(false);
         DrawFlashCanvas.SetActive(false);
         RestCanvas.SetActive(false);
+        StoreCanvas.SetActive(false);
         current = StageState.WEAPONSELECT;
         SetState(current);
         

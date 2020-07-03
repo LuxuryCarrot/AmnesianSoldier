@@ -6,10 +6,11 @@ using UnityEngine;
 public class FallingMapBox : MonoBehaviour
 {
 
-    float temp = 1.5f;
+    float temp = 1.0f;
     public float gravity;
     float ySpeed = 0;
     bool isPlayerUp=false;
+    bool startFall = false;
 
     private void Update()
     {
@@ -19,10 +20,10 @@ public class FallingMapBox : MonoBehaviour
 
         //플레이어가 기본 상태고, 일정 거리 이상 멀어지면 떨어지게 하는 코드
         if ((PlayerManager.playerSingleton.transform.position.x - transform.position.x) > 2
-            && isPlayerUp && (StageManager.stageSingletom.current==StageState.IDLE))
-            temp -= Time.deltaTime;
+            && isPlayerUp && (StageManager.stageSingletom.current == StageState.IDLE) && !startFall)
+            startFall = true;
 
-        if(temp <1 && temp >=0)
+        if(startFall)
         {
             temp -= Time.deltaTime;
         }
@@ -38,7 +39,10 @@ public class FallingMapBox : MonoBehaviour
             }
         }
     }
-    
+    public void CrashBlock()
+    {
+        startFall = true;
+    }
 
     
 }

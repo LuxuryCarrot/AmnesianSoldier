@@ -32,7 +32,7 @@ public class MapSpawnInstance : MapSpawnerParent
         {
 
             float randSeedTrap = Random.Range(0, 1.0f);
-            if(randSeedTrap<= trapRate && monsterMinDistanceTemp != 0 && monsterMinDistanceTemp>=6)
+            if(randSeedTrap<= trapRate &&  monsterMinDistanceTemp>=6)
             {
                 
                 GameObject trap = Instantiate(traps[Random.Range(0, traps.Length)], this.transform);

@@ -49,9 +49,9 @@ public class MapNodeLinker : MonoBehaviour
                 newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(-200, 110, 0);
                     GameObject newNode2 = Instantiate(prefab, MapImage.transform);
 
-                newNode2.GetComponent<MapNode>().mapInfo = stageNum + "_2Rest";
-                newNode2.GetComponent<MapNode>().battleInfo = "_Rest";
-                newNode2.GetComponent<MapNode>().stateWhenStart = StageState.REST;
+                newNode2.GetComponent<MapNode>().mapInfo = stageNum + "_2Store";
+                newNode2.GetComponent<MapNode>().battleInfo = "_Store";
+                newNode2.GetComponent<MapNode>().stateWhenStart = StageState.STORE;
                 newNode2.GetComponent<MapNode>().stair = 1;
                 
                 newNode2.GetComponent<MapNode>().beforeNode = new MapNode[1];
@@ -168,7 +168,7 @@ public class MapNodeLinker : MonoBehaviour
     }
     public void DetermineNodeType(GameObject node, int stairNum)
     {
-        float randomSeed = Random.Range(0, 0.1f);
+        float randomSeed = Random.Range(0, 0.12f);
         if(randomSeed <=0.015f && EliteMap>0&&deftype!="Elite")
         {
             deftype =  "Elite";
@@ -183,6 +183,14 @@ public class MapNodeLinker : MonoBehaviour
             node.GetComponent<MapNode>().battleInfo = "_Rest";
             node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_" + stairNum.ToString() + "Rest";
             node.GetComponent<MapNode>().stateWhenStart = StageState.REST;
+            RestMap--;
+        }
+        else if (randomSeed > 0.03f && randomSeed <= 0.045f && RestMap > 0 && deftype != "Store")
+        {
+            deftype = "Store";
+            node.GetComponent<MapNode>().battleInfo = "_Store";
+            node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_" + stairNum.ToString() + "Store";
+            node.GetComponent<MapNode>().stateWhenStart = StageState.STORE;
             RestMap--;
         }
         else

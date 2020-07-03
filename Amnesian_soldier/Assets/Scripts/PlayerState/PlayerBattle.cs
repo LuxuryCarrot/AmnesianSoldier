@@ -35,7 +35,7 @@ public class PlayerBattle : PlayerParent
                 StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
                 manager.attackType = AttackType.NONE;
                 manager.anim.SetBool("Success", true);
-                manager.iteratingEnemy.hp--;
+                manager.iteratingEnemy.hp -= manager.damage;
                 if (manager.iteratingEnemy.hp > 0)
                 {
                     manager.HP--;
@@ -63,8 +63,8 @@ public class PlayerBattle : PlayerParent
                 manager.attackType = AttackType.NONE;
                 manager.anim.SetBool("Success", true);
                 manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
-                manager.iteratingEnemy.hp--;
-                
+                manager.iteratingEnemy.hp -= manager.damage;
+
                 manager.iteratingEnemy = null;
                 manager.SetState(PlayerState.IDLE);
             }
