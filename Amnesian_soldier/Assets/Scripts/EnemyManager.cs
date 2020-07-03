@@ -22,8 +22,8 @@ public class EnemyManager : MonoBehaviour
     public float range;
     public float attRange;
 
-    public int hp;
-    public int hpMax;
+    public float hp;
+    public float hpMax;
     //FSM 저장부
     Dictionary<EnemyState, EnemyParent> EnemyFlow = new Dictionary<EnemyState, EnemyParent>();
     //여기에 붙어있는 화살표 이미지.

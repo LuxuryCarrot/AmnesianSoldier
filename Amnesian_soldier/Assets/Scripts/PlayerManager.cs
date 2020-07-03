@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
 {
     //현재 타게팅 된 적
     public EnemyManager iteratingEnemy;
+    public BossManager boss;
     public TrapParent trap;
     public InputCardParent inputcard;
     //플레이어 싱글톤
@@ -31,8 +32,8 @@ public class PlayerManager : MonoBehaviour
     public Vector3 speed;
     //입력받은 카드
     public CardParent cardInput;
-    public int HP;
-    public int HPMAX=5;
+    public float HP;
+    public float HPMAX=5;
     //이 캐릭터 상단의 사용중인 카드 표시창
     public GameObject inputSlot;
     //현재 상태
@@ -47,7 +48,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject CardDeckUI;
 
     public Animator anim;
-    public int damage;
+    public float damage;
     
     public float ySpeed=0;
     public float gravity;

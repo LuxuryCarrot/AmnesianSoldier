@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StoreDamageIncrease : StoreParent
 {
-    public int increase;
+    public float increase;
     public override void Execute()
     {
         

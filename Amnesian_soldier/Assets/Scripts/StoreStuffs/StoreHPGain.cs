@@ -8,8 +8,9 @@ public class StoreHPGain : StoreParent
 
     public override void Execute()
     {
-        
-        PlayerManager.playerSingleton.HPMAX+=gainAmount;
+        StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPMAXIncrease(gainAmount);
+
+
         PlayerManager.playerSingleton.HP += gainAmount;
         base.Execute();
     }

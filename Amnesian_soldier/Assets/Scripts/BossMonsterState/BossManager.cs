@@ -25,6 +25,13 @@ public class BossManager : MonoBehaviour
     private void Awake()
     {
         AttackCanvas = transform.GetChild(1).gameObject;
+
+        PlayerManager.playerSingleton.boss = this;
+        BossFlow.Add(BossState.IDLE, GetComponent<BossIdle>());
+        BossFlow.Add(BossState.TRAPATTACK, GetComponent<BossTrapAttack>());
+        BossFlow.Add(BossState.CHAINATTACK, GetComponent<BossAttack>());
+        BossFlow.Add(BossState.MONSTERSPAWN, GetComponent<BossSpawnMob>());
+        BossFlow.Add(BossState.STUN, GetComponent<BossSTUN>());
     }
     private void Update()
     {

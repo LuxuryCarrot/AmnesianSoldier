@@ -27,7 +27,8 @@ public class FallingMapBox : MonoBehaviour
         {
             temp -= Time.deltaTime;
         }
-        else if(temp <0)
+
+        if (temp <0)
         {
             ySpeed += gravity * Time.deltaTime;
             transform.position -= new Vector3(0, ySpeed * Time.deltaTime, 0);

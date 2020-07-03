@@ -8,7 +8,7 @@ public class HPIncrease : MonoBehaviour
     {
         if(i>0)
         {
-            for(int j=0; j<5 && i!=0; j++)
+            for(int j=0; j<transform.childCount && i!=0; j++)
             {
                 if (!transform.GetChild(j).gameObject.activeInHierarchy)
                 {
@@ -19,7 +19,7 @@ public class HPIncrease : MonoBehaviour
         }
         else
         {
-            for (int j = 0; j < 5 && i != 0; j++)
+            for (int j = 0; j < transform.childCount && i != 0; j++)
             {
                 if (transform.GetChild(4-j).gameObject.activeInHierarchy)
                 {
@@ -28,5 +28,15 @@ public class HPIncrease : MonoBehaviour
                 }
             }
         }
+    }
+    public void HPMAXIncrease(int i)
+    {
+        for(int j=0; j<i; j++)
+        {
+            GameObject hpnew = Instantiate(
+                Resources.Load("Prefabs/UIPrefab/HPImage") as GameObject, transform);
+            hpnew.transform.position = new Vector3(-579.4f+i*60, 473.7f, 0);
+        }
+        PlayerManager.playerSingleton.HPMAX += i;
     }
 }
