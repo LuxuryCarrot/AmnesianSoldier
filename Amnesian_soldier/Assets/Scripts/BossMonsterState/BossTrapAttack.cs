@@ -15,15 +15,20 @@ public class BossTrapAttack : BossParent
     private void Update()
     {
         trapTemp -= Time.deltaTime;
+        if (traCount == 0)
+            manager.SetState(BossState.IDLE);
+
         if(trapTemp<=0)
         {
+            
             for(int i=0; i<3; i++)
             {
-                Ray ray = new Ray(transform.position + new Vector3(i,0,0)
-                    , transform.position - new Vector3(-i, 10, 0));
+                Ray ray = new Ray(transform.position + new Vector3(i, 0,0)
+                    , new Vector3(0, -10, 0));
                 RaycastHit hitObj;
                 if(Physics.Raycast(ray, out hitObj, 1024))
                 {
+                    
                     hitObj.transform.gameObject.GetComponent<FallingMapBox>().CrashBlock();
                 }
             }
@@ -31,7 +36,7 @@ public class BossTrapAttack : BossParent
                 Resources.Load("Prefabs/KaizoTrap/FallingTrap") as GameObject);
             newTrap.transform.position = new Vector3(transform.position.x, 0, 0);
 
-            trapTemp = 3.0f;
+            trapTemp = 2.0f;
             traCount--;
         }
         if (traCount < 0)

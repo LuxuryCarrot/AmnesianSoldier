@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 911791879556073335}
   - component: {fileID: 911791879556073334}
   - component: {fileID: 911791879556073291}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FallingCubeprefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,6 +69,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 71b8690caaf60644eb870c4e8153329f, type: 3}
       propertyPath: m_Name
       value: mapbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 71b8690caaf60644eb870c4e8153329f, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 71b8690caaf60644eb870c4e8153329f, type: 3}
       propertyPath: m_LocalPosition.x

@@ -20,7 +20,9 @@ public class BossSpawnMob : BossParent
         {
             GameObject newMob = Instantiate(manager.MonsterSpawnPool[Random.Range(0, manager.MonsterSpawnPool.Length)]);
             newMob.transform.position = transform.position - new Vector3(0.5f, 0, 0);
+            MonsterManager.Monsters.Add(newMob);
             spawn--;
+            temp = 2;
             if (spawn <= 0)
                 manager.SetState(BossState.IDLE);
         }

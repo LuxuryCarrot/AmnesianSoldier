@@ -106,6 +106,7 @@ public class PlayerManager : MonoBehaviour
         PlayerFlow.Add(PlayerState.ABANDON, GetComponent<PlayerAbandon>());
         PlayerFlow.Add(PlayerState.PINN, GetComponent<PlayerPinning>());
         PlayerFlow.Add(PlayerState.JUMP, GetComponent<PlayerJump>());
+        PlayerFlow.Add(PlayerState.BOSSBATTLE, GetComponent<PlayerBossBattle>());
         //PlayerFlow.Add(PlayerState.NEXTBATTLE, GetComponent<PlayerNextBattle>());
         attackType = AttackType.NONE;
         current = PlayerState.DELAY;
@@ -170,7 +171,8 @@ public class PlayerManager : MonoBehaviour
         if (transform.position.y <= 1)
             Camera.main.transform.SetParent(null);
         else if (Camera.main.transform.parent==null 
-            && (StageManager.stageSingletom.current==StageState.IDLE || StageManager.stageSingletom.current == StageState.REST || StageManager.stageSingletom.current ==StageState.STORE) && transform.position.x>=-5)
+            && (StageManager.stageSingletom.current==StageState.IDLE || StageManager.stageSingletom.current == StageState.REST || StageManager.stageSingletom.current ==StageState.STORE || StageManager.stageSingletom.current == StageState.BOSSBATTLE)
+            && transform.position.x>=-5)
         {
             Camera.main.transform.position = transform.position + camPos;
             Camera.main.transform.SetParent(transform);

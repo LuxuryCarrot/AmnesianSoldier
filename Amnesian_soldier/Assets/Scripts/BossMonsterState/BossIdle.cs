@@ -12,7 +12,8 @@ public class BossIdle : BossParent
     }
     private void Update()
     {
-        temp -= Time.deltaTime;
+        if(MonsterManager.Monsters.Count==0)
+           temp -= Time.deltaTime;
         if(temp<=0)
         {
             float randSeed = Random.Range(0, 0.015f);

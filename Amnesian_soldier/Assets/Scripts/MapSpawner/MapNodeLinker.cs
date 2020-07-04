@@ -49,9 +49,9 @@ public class MapNodeLinker : MonoBehaviour
                 newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(-200, 110, 0);
                     GameObject newNode2 = Instantiate(prefab, MapImage.transform);
 
-                newNode2.GetComponent<MapNode>().mapInfo = stageNum + "_2Store";
-                newNode2.GetComponent<MapNode>().battleInfo = "_Store";
-                newNode2.GetComponent<MapNode>().stateWhenStart = StageState.STORE;
+                newNode2.GetComponent<MapNode>().mapInfo = stageNum + "_2Rest";
+                newNode2.GetComponent<MapNode>().battleInfo = "_Rest";
+                newNode2.GetComponent<MapNode>().stateWhenStart = StageState.REST;
                 newNode2.GetComponent<MapNode>().stair = 1;
                 
                 newNode2.GetComponent<MapNode>().beforeNode = new MapNode[1];
@@ -169,7 +169,13 @@ public class MapNodeLinker : MonoBehaviour
     public void DetermineNodeType(GameObject node, int stairNum)
     {
         float randomSeed = Random.Range(0, 0.12f);
-        if(randomSeed <=0.015f && EliteMap>0&&deftype!="Elite")
+        if(stairNum == MaxStage)
+        {
+            deftype = "Boss";
+            node.GetComponent<MapNode>().battleInfo = "_Boss";
+            node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_" +  "Boss";
+        }
+        else if(randomSeed <=0.015f && EliteMap>0&&deftype!="Elite")
         {
             deftype =  "Elite";
             node.GetComponent<MapNode>().battleInfo = "_Elite";

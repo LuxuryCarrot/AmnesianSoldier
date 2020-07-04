@@ -58,7 +58,7 @@ public class EnemyDie : EnemyParent
 
         if(randSeed>=0.05f)
         {
-            Debug.Log("root");
+           
             if (manager.RootingCardPool.Length>0)
             {
                 GameObject newSkill = Instantiate(

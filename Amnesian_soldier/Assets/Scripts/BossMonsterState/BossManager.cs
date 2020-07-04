@@ -32,12 +32,19 @@ public class BossManager : MonoBehaviour
         BossFlow.Add(BossState.CHAINATTACK, GetComponent<BossAttack>());
         BossFlow.Add(BossState.MONSTERSPAWN, GetComponent<BossSpawnMob>());
         BossFlow.Add(BossState.STUN, GetComponent<BossSTUN>());
+        current = BossState.IDLE;
+        SetState(current);
     }
     private void Update()
     {
-        transform.position 
-            += PlayerManager.playerSingleton.speed 
-            * PlayerManager.playerSingleton.speedIncrease * Time.deltaTime;
+        transform.position
+            = new Vector3(PlayerManager.playerSingleton.transform.position.x+7, 3.5f, 0);
+
+        if(hp<=0)
+        {
+            StageManager.stageSingletom.SetState(StageState.GAMECLEAR);
+            Destroy(gameObject);
+        }
     }
     public void SetState(BossState news)
     {

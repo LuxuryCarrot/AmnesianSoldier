@@ -20,7 +20,8 @@ public class FallingMapBox : MonoBehaviour
 
         //플레이어가 기본 상태고, 일정 거리 이상 멀어지면 떨어지게 하는 코드
         if ((PlayerManager.playerSingleton.transform.position.x - transform.position.x) > 2
-            && isPlayerUp && (StageManager.stageSingletom.current == StageState.IDLE) && !startFall)
+            && isPlayerUp && (StageManager.stageSingletom.current == StageState.IDLE
+            || StageManager.stageSingletom.current == StageState.BOSSBATTLE) && !startFall)
             startFall = true;
 
         if(startFall)
@@ -43,7 +44,8 @@ public class FallingMapBox : MonoBehaviour
     public void CrashBlock()
     {
         startFall = true;
+        temp = -1;
     }
-
+    
     
 }

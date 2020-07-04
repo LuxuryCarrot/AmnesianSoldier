@@ -9,6 +9,7 @@ public class MapSelectCard : MonoBehaviour
 
     public void OnPointerClick()
     {
+        MonsterManager.Monsters.Clear();
         linkedNode.Activate();
     }
     public void DestroyThis()

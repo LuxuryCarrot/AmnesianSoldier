@@ -102,6 +102,7 @@ public class StageManager : MonoBehaviour
         StageFlow.Add(StageState.REST, GetComponent<StageRest>());
         StageFlow.Add(StageState.WEAPONSELECT, GetComponent<StageWeaponSelect>());
         StageFlow.Add(StageState.STORE, GetComponent<StageStore>());
+        StageFlow.Add(StageState.BOSSBATTLE, GetComponent<StageBoss>());
         WinFlashCanvas.SetActive(false);
         LoseFlashCanvas.SetActive(false);
         DrawFlashCanvas.SetActive(false);
@@ -126,7 +127,7 @@ public class StageManager : MonoBehaviour
             Application.Quit();
         }
 
-        if(current==StageState.IDLE && Input.GetKeyDown(KeyCode.E))
+        if((current==StageState.IDLE || current==StageState.BOSSBATTLE)&& Input.GetKeyDown(KeyCode.E))
         {
             skillSlots[0].GetChild(0).GetComponent<CardParent>().KeyBordInput();
             SkillUsed();
