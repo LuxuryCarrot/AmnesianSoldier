@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
     public BossManager boss;
     public TrapParent trap;
     public InputCardParent inputcard;
+    public WeaponParent weapon;
     //플레이어 싱글톤
     public static PlayerManager playerSingleton;
     //속도 벡터. 인스펙터에서 수정가능.

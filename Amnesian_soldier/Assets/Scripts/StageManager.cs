@@ -47,6 +47,7 @@ public class StageManager : MonoBehaviour
     public GameObject DrawFlashCanvas;
     public GameObject RestCanvas;
     public GameObject StoreCanvas;
+    public GameObject BulletCanvas;
     //public GameObject CardDeck;
     public Canvas HPText;
     //public Text DeckCountText;
@@ -87,6 +88,8 @@ public class StageManager : MonoBehaviour
         //미니맵 캔버스
         skillSlots[0] = GameObject.FindGameObjectWithTag("SkillSlot").transform.GetChild(0);
         skillSlots[1] = GameObject.FindGameObjectWithTag("SkillSlot").transform.GetChild(1);
+        BulletCanvas = GameObject.FindGameObjectWithTag("Bullet");
+        BulletCanvas.SetActive(false);
         mapCanvas = GameObject.FindGameObjectWithTag("Map");
         //CardDeck = GameObject.FindGameObjectWithTag("CardDeck").transform.GetChild(0).gameObject;
         mapSelectCanvas = GameObject.FindGameObjectWithTag("MapCards");

@@ -9,7 +9,8 @@ public class PlayerDelay : PlayerParent
     {
         base.BeginState();
         
-        manager.anim.SetBool("Ready",true);
+        if(manager.anim!=null)
+           manager.anim.SetBool("Ready",true);
     }
     private void Update()
     {
