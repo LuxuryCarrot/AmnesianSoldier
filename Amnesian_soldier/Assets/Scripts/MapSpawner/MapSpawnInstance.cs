@@ -39,7 +39,7 @@ public class MapSpawnInstance : MapSpawnerParent
                 trap.transform.localPosition = new Vector3(MapPositionManager.mapMax + i, 0, 0);
                 monsterMinDistanceTemp = 0;
                 i+=2;
-                Debug.Log("Trap");
+                
                 continue;
                 
             }
@@ -100,7 +100,7 @@ public class MapSpawnInstance : MapSpawnerParent
             trap.transform.localPosition = new Vector3(MapPositionManager.mapPos, 0, 0);
             MapPositionManager.mapPos+=3;
             monsterMinDistanceTemp = 0;
-            Debug.Log("Trap");
+            
             return;
         }
 

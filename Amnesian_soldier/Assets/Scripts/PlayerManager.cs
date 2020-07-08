@@ -93,7 +93,7 @@ public class PlayerManager : MonoBehaviour
         if(HP==0)
           HP = HPMAX;
         anim = GetComponentInChildren<Animator>();
-        fillCanvas = transform.GetChild(3).gameObject;
+        fillCanvas = transform.GetChild(2).gameObject;
         fillCanvas.SetActive(false);
         //각종 외부 상호작용 오브젝트들 초기화
         controller = GetComponent<CharacterController>();
@@ -242,5 +242,10 @@ public class PlayerManager : MonoBehaviour
             StageManager.stageSingletom.aimCanvas.transform.GetChild(0).GetComponent<Image>()
                 .sprite = Resources.Load<Sprite>("Sprites/NewUis/aim_Idle");
 
+    }
+
+    public void AnimSettle()
+    {
+        anim = GetComponentInChildren<Animator>();
     }
 }

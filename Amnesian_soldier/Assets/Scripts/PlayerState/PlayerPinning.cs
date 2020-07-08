@@ -16,6 +16,9 @@ public class PlayerPinning : PlayerParent
         manager.stam -= Time.deltaTime * 33;
         manager.controller.Move(manager.speedIncrease * manager.speed * Time.deltaTime);
 
+        if (manager.iteratingEnemy == null)
+            manager.SetState(PlayerState.IDLE);
+
         if (manager.iteratingEnemy.transform.position.x - transform.position.x <= 0.8f && !pinning)
             pinning = true;
         if(pinning)
@@ -24,16 +27,19 @@ public class PlayerPinning : PlayerParent
         if (Input.GetMouseButtonDown(0))
         {
             manager.anim.SetTrigger("GuardAttack");
-            
-            if(manager.iteratingEnemy.hp>1)
+
+            if (GetComponent<WeaponGun>() == null || GetComponent<WeaponGun>().bulletCanUse <= 0)
             {
-                manager.iteratingEnemy.hp--;
-            }
-            else
-            {
-                manager.iteratingEnemy.hp--;
-                manager.iteratingEnemy = null;
-                manager.SetState(PlayerState.IDLE);
+                if (manager.iteratingEnemy.hp > 1)
+                {
+                    manager.iteratingEnemy.hp--;
+                }
+                else
+                {
+                    manager.iteratingEnemy.hp--;
+                    manager.iteratingEnemy = null;
+                    manager.SetState(PlayerState.IDLE);
+                }
             }
         }
 

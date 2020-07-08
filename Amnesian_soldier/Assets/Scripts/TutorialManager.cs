@@ -24,6 +24,7 @@ public class TutorialManager : MonoBehaviour
         tutorialCanvas4.SetActive(false);
         tutorialCanvas5.SetActive(false);
         tutorialCanvas6.SetActive(false);
+        gameObject.SetActive(false);
     }
     
     private void Update()
@@ -36,7 +37,7 @@ public class TutorialManager : MonoBehaviour
                 Time.timeScale = 0.01f;
                 tutorialCanvas1.SetActive(true);
                 temp += Time.fixedDeltaTime;
-                Debug.Log(0);
+                
                 if(temp >=1.5f)
                 {
                     temp = 0;
@@ -76,7 +77,7 @@ public class TutorialManager : MonoBehaviour
                 Time.timeScale = 0.01f;
                 if (Input.GetMouseButtonDown(1) || MonsterManager.Monsters[0].GetComponent<EnemyManager>().attackType==AttackType.NONE )
                 {
-                    Debug.Log("Att");
+                    
                     att = true;
                     if (att && def)
                         num++;
@@ -91,7 +92,7 @@ public class TutorialManager : MonoBehaviour
                 Time.timeScale = 0.01f;
                 if (Input.GetMouseButtonDown(1))
                 {
-                    Debug.Log("Att");
+                    
                     def = true;
                     if(att && def)
                       num++;

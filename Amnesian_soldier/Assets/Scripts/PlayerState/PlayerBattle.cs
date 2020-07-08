@@ -75,7 +75,7 @@ public class PlayerBattle : PlayerParent
             if (manager.iteratingEnemy.attackType == AttackType.GUARD)
             {
                 //manager.anim.SetTrigger("GuardAttack");
-
+                manager.anim.SetBool("Charging", true);
                 manager.iteratingEnemy.attackType = AttackType.NONE;
                 manager.iteratingEnemy.SetAttackImage();
 
@@ -83,6 +83,7 @@ public class PlayerBattle : PlayerParent
             }
             else
             {
+                manager.anim.SetTrigger("GuardAttack");
                 manager.iteratingEnemy.attackType = AttackType.NONE;
                 manager.iteratingEnemy.SetAttackImage();
                 manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);

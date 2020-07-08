@@ -9,8 +9,11 @@ public class EnemyDie : EnemyParent
         base.BeginState();
         //StageManager.stageSingletom.SlowMotionStart();
         CameraManager.camSingleTon.SetState(CamState.SHAKE);
-        if (PlayerManager.playerSingleton.iteratingEnemy==manager)
+        if (PlayerManager.playerSingleton.iteratingEnemy == manager)
+        {
             PlayerManager.playerSingleton.iteratingEnemy = null;
+            PlayerManager.playerSingleton.SetState(PlayerState.IDLE);
+        }
         GetComponent<CharacterController>().enabled = false;
         if (manager.dieBehavior != null)
             manager.dieBehavior.Begin();

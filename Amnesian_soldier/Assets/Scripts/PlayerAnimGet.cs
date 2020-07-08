@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimGet : MonoBehaviour
 {
+    public GameObject bulletPrefab;
     public void Success()
     {
         
@@ -22,11 +23,11 @@ public class PlayerAnimGet : MonoBehaviour
     }
     public void Die()
     {
-        PlayerManager.playerSingleton.anim.SetInteger("AttackType", 5);
+        
         GetComponent<Animator>().SetBool("Damaged", false);
         GetComponent<Animator>().SetBool("PotionUse", false);
         GetComponent<Animator>().SetBool("Success", false);
-        GetComponent<Animator>().SetBool("Cancel", false);
+        
         GetComponent<Animator>().SetBool("Die", false);
     }
     public void Cancel()
@@ -37,5 +38,20 @@ public class PlayerAnimGet : MonoBehaviour
     public void ASDF()
     {
         Debug.Log("asdf");
+    }
+    public void BulletShoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab);
+        Debug.Log("asdf");
+        bullet.transform.position = transform.parent.transform.position;
+        bullet.GetComponent<BulletManager>().SetInfomation(25, 0, 0, BulletType.PLAYER, 30);
+        bullet.GetComponent<BulletManager>().damage = GetComponentInParent<WeaponGun>().bulletDamage;
+        
+        GetComponentInParent<WeaponGun>().bulletCanUse--;
+    }
+    public void SuccessShoot()
+    {
+        Success();
+        BulletShoot();
     }
 }

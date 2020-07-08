@@ -123,8 +123,8 @@ public class ObjSpawnManager : MonoBehaviour
     private void Start()
     {
         player = PlayerManager.playerSingleton.transform;
-        for (int i = -2; i <= StartNearSpawnAmount; i++)
-            NearObjSpawn(new Vector3((i - 1) * 2, 0.4f, 1.5f));
+        //for (int i = -2; i <= StartNearSpawnAmount; i++)
+        //    NearObjSpawn(new Vector3((i - 1) * 2, 0.4f, 1.8f));
 
         for (int i = -2; i <= StartNearBgGrassSpawnAmount; i++)
             NearGrassSpawn((i) * nearGrassDistance);
@@ -162,14 +162,14 @@ public class ObjSpawnManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (PlayerManager.playerSingleton.transform.position.x - PlayerXPosNearObj >= 2)
-        {
-            Destroy(NearObjsQueue.Dequeue());
-            StartNearSpawnAmount++;
+        //if (PlayerManager.playerSingleton.transform.position.x - PlayerXPosNearObj >= 2)
+        //{
+        //    Destroy(NearObjsQueue.Dequeue());
+        //    StartNearSpawnAmount++;
 
-            NearObjSpawn(new Vector3((StartNearSpawnAmount - 1) * 2, 0.4f, 1.5f));
-            PlayerXPosNearObj = (int)PlayerManager.playerSingleton.transform.position.x;
-        }
+        //    NearObjSpawn(new Vector3((StartNearSpawnAmount - 1) * 2, 0.4f, 1.8f));
+        //    PlayerXPosNearObj = (int)PlayerManager.playerSingleton.transform.position.x;
+        //}
 
         if (player.position.x - PlayerXPosNearBGGrass >= nearGrassDistance)
         {
