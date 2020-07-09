@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AnimGetEnemy : MonoBehaviour
 {
+
+    public GameObject handArrow;
+    public GameObject ShootArrow;
     public void Die()
     {
         
@@ -27,5 +30,14 @@ public class AnimGetEnemy : MonoBehaviour
     public void Bounce()
     {
         GetComponent<Animator>().SetBool("Defence", false);
+    }
+
+    public void GoblinArrowStart()
+    {
+        float shootTime = (transform.parent.transform.position.x - PlayerManager.playerSingleton.transform.position.x)/(PlayerManager.playerSingleton.speed.x + 12) ;
+        float gravity = 10;
+        GameObject arrow = Instantiate(ShootArrow);
+        ShootArrow.transform.position = transform.parent.transform.position;
+        arrow.GetComponent<BulletManager>().SetInfomation(-12, shootTime * 5, gravity, BulletType.ENEMY, shootTime * 12 + 10);
     }
 }

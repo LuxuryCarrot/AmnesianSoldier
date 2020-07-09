@@ -28,6 +28,8 @@ public class BulletManager : MonoBehaviour
     }
     private void Update()
     {
+        if (xSpeed == 0)
+            return;
 
         transform.position +=
             new Vector3(xSpeed, ySpeed, 0) * Time.deltaTime;

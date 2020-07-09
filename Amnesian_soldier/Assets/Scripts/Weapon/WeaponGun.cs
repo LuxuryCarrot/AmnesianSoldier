@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponGun : WeaponParent
 {
     public int bulletCanUse;
-    public int bulletMax;
+    
     public int bulletCanReload;
 
     public float bulletDamage;
@@ -14,22 +14,22 @@ public class WeaponGun : WeaponParent
     private void Start()
     {
         bulletCanReload = 5;
-        bulletMax = 15;
+       
 
         bulletCanUse = bulletCanReload;
-        bulletMax -= bulletCanReload;
+        
         weaponDamage = 1;
         bulletDamage = 2;
         StageManager.stageSingletom.BulletCanvas.SetActive(true);
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && bulletMax>0)
+        if(Input.GetKeyDown(KeyCode.R) && StageManager.stageSingletom.KillCount>0)
         {
             manager.anim.SetTrigger("Reload");
             for(;bulletCanUse<bulletCanReload ; )
             {
-                bulletMax--;
+                StageManager.stageSingletom.KillCount--;
                 bulletCanUse++;
             }
             manager.anim.SetBool("BulletEmpty", false);

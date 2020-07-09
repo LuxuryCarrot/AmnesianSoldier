@@ -28,7 +28,7 @@ public class EnemyWait : EnemyParent
         }
 
         if(transform.position.x - PlayerManager.playerSingleton.transform.position.x <= manager.attRange
-            && manager.attackType == AttackType.HORIZON)
+            && (manager.attackType == AttackType.HORIZON || manager.isRangeUnit))
         {
             manager.anim.SetTrigger("Attack");
         }

@@ -24,6 +24,7 @@ public class EnemyManager : MonoBehaviour
 
     public float hp;
     public float hpMax;
+    public bool isRangeUnit;
     //FSM 저장부
     Dictionary<EnemyState, EnemyParent> EnemyFlow = new Dictionary<EnemyState, EnemyParent>();
     //여기에 붙어있는 화살표 이미지.
@@ -148,7 +149,7 @@ public class EnemyManager : MonoBehaviour
         if(hpBar.gameObject.activeInHierarchy)
            hpBar.fillAmount = (float)hp / (float)hpMax;
 
-        if(isStuned)
+        if(isStuned && !isRangeUnit)
         {
             stunTemp += Time.deltaTime;
             if(stunTemp>=2.0f)
