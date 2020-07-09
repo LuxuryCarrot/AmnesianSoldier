@@ -48,6 +48,7 @@ public class StageManager : MonoBehaviour
     public GameObject RestCanvas;
     public GameObject StoreCanvas;
     public GameObject BulletCanvas;
+    public GameObject OutGameToolsCanvas;
     //public GameObject CardDeck;
     public Canvas HPText;
     //public Text DeckCountText;
@@ -111,6 +112,7 @@ public class StageManager : MonoBehaviour
         DrawFlashCanvas.SetActive(false);
         RestCanvas.SetActive(false);
         StoreCanvas.SetActive(false);
+        OutGameToolsCanvas.SetActive(false);
         current = StageState.WEAPONSELECT;
         SetState(current);
         
@@ -137,6 +139,8 @@ public class StageManager : MonoBehaviour
         }
 
         StaminarSlot.fillAmount = PlayerManager.playerSingleton.stam / 100;
+
+        
     }
 
     private void FixedUpdate()
@@ -214,6 +218,12 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 0.1f;
         
         
+    }
+
+    public void OutGameOn()
+    {
+        Time.timeScale = 0;
+        OutGameToolsCanvas.SetActive(true);
     }
     
 }

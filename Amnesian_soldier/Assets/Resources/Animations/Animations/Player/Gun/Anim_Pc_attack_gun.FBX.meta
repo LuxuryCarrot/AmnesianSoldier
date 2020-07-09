@@ -126,7 +126,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Take 001
       takeName: Take 001
-      firstFrame: 16
+      firstFrame: 8
       lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
@@ -147,7 +147,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.21014664
+      - time: 0.5557687
         functionName: SuccessShoot
         data: 
         objectReferenceParameter: {instanceID: 0}

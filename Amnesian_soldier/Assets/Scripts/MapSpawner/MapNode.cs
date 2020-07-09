@@ -21,6 +21,7 @@ public class MapNode : MonoBehaviour
     public static MapNode[] EnabledNode;
     public int stair;
     public string battleInfo;
+    public NodeType linkType;
 
     private void Start()
     {
@@ -85,12 +86,11 @@ public class MapNode : MonoBehaviour
         else
             MapNode.EnabledNode = null;
         StageManager.stageSingletom.SetState(stateWhenStart);
-        GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Aim");
-        if (stateWhenStart == StageState.READY)
-        {
+        GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/MapResources/"+battleInfo+"_Active");
+        
             
             StageManager.stageSingletom.mapCanvas.SetActive(false);
-        }
+        
         StageManager.stageSingletom.mapSelectCanvas.SetActive(false);
     }
 

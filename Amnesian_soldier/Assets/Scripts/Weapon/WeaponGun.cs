@@ -16,7 +16,7 @@ public class WeaponGun : WeaponParent
         bulletCanReload = 5;
        
 
-        bulletCanUse = bulletCanReload;
+        bulletCanUse = 15;
         
         weaponDamage = 1;
         bulletDamage = 2;
@@ -27,9 +27,10 @@ public class WeaponGun : WeaponParent
         if(Input.GetKeyDown(KeyCode.R) && StageManager.stageSingletom.KillCount>0)
         {
             manager.anim.SetTrigger("Reload");
-            for(;bulletCanUse<bulletCanReload ; )
+            for(;bulletCanUse<bulletCanReload*2 ; )
             {
                 StageManager.stageSingletom.KillCount--;
+                bulletCanUse++;
                 bulletCanUse++;
             }
             manager.anim.SetBool("BulletEmpty", false);

@@ -445,7 +445,7 @@ MonoBehaviour:
   ySpeed: 0
   gravity: 10
   range: 12
-  attRange: 50
+  attRange: 60
   hp: 0
   hpMax: 0
   isRangeUnit: 1

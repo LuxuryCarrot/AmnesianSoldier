@@ -28,7 +28,7 @@ public class MapSpawnInstance : MapSpawnerParent
             maxElite = 2;
         MonsterManager.Monsters.Clear();
         MapPositionManager.mapPos += startSpawnPos;
-        for(int i=-10; i< startSpawnPos; i++)
+        for(int i=-15; i< startSpawnPos; i++)
         {
 
             float randSeedTrap = Random.Range(0, 1.0f);
@@ -94,7 +94,7 @@ public class MapSpawnInstance : MapSpawnerParent
             return;
 
         float randSeedTrap = Random.Range(0, 1.0f);
-        if (randSeedTrap <= trapRate && monsterMinDistanceTemp !=0)
+        if (randSeedTrap <= trapRate && monsterMinDistanceTemp >=6)
         {
             GameObject trap = Instantiate(traps[Random.Range(0, traps.Length)], this.transform);
             trap.transform.localPosition = new Vector3(MapPositionManager.mapPos, 0, 0);

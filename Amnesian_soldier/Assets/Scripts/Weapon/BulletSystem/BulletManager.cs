@@ -37,6 +37,9 @@ public class BulletManager : MonoBehaviour
         ySpeed -= gravity * Time.deltaTime;
         temp -= Time.deltaTime;
 
+        float degree = Mathf.Atan2(ySpeed, Mathf.Abs(xSpeed))*Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(degree, 90, 0);
+
         if(shotBy == BulletType.PLAYER)
         {
             if(MonsterManager.Monsters.Count!=0)

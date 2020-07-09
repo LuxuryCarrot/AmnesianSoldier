@@ -10,7 +10,10 @@ public class CamShake : CamParent
     {
         base.BeginState();
         shakeTemp = 12;
-        Camera.main.transform.localPosition = PlayerManager.playerSingleton.camPos + new Vector3(0.5f, 0.5f,0);
+        if (Camera.main.transform.parent != null)
+            Camera.main.transform.localPosition = PlayerManager.playerSingleton.camPos + new Vector3(0.5f, 0.5f, 0);
+        else
+            manager.SetState(CamState.IDLE);
     }
     private void Update()
     {

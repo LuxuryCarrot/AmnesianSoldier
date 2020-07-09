@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAnimGet : MonoBehaviour
 {
@@ -47,7 +48,10 @@ public class PlayerAnimGet : MonoBehaviour
         bullet.GetComponent<BulletManager>().SetInfomation(25, 0, 0, BulletType.PLAYER, 30);
         bullet.GetComponent<BulletManager>().damage = GetComponentInParent<WeaponGun>().bulletDamage;
         
+
+
         GetComponentInParent<WeaponGun>().bulletCanUse--;
+        StageManager.stageSingletom.BulletCanvas.transform.GetChild(0).GetComponent<Text>().text = GetComponentInParent<WeaponGun>().bulletCanUse.ToString();
     }
     public void SuccessShoot()
     {

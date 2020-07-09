@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-D:/새 폴더 (10)/AmnesianSoldier.exe
+C:/Users/NOW2_400_233/Desktop/새 폴더 (6)/AmnesianSoldier.exe
 SceneListBegin?
 Assets/Scenes/0_StartSplashScene.unity
 Assets/Scenes/1_MainScene.unity
@@ -31,7 +31,7 @@ a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossParent
 71f7f12b8d0f4fd73590db8bcb6d453c Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.Bloom
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 af93f9c42e90877a9ba31e37adfd900c Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.MotionBlur
-3fe11ebe0cfc2171fca1f18afa07d1d6 Assembly-CSharp.dll:.MapNode
+f0b536b15014b515bf1b04957fccf603 Assembly-CSharp.dll:.MapNode
 d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerNextBattle
 f64fccdaed3829be05d12b7c8f004fb0 Assembly-CSharp.dll:.FallingMapBox
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -68,8 +68,6 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 f542c1afca5bb4022f91fdda19b8d622 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.DepthOfField
 d3c76b14a25eebd3a3323dd43297919c Unity.TextMeshPro.dll:TMPro.TMP_InputField
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 130b9cd93c79860f94f2eb490cbea677 Assembly-CSharp.dll:.MapSpawnInstance
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.RestStageCanvasManager
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -152,7 +150,7 @@ a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossTrapAttack
 6674ce457cf82e9db5f174537fe458ff Assembly-CSharp.dll:.CamShake
 7e6ed836cbaa230e56d6a2bbae1b9bb5 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessEffectSettings
 923e97f1da56803cf6d9c57b408077c2 Assembly-CSharp.dll:.StageSelectMap
-fbec529d90c0976a1c4f348a622989a2 Assembly-CSharp.dll:.StageManager
+e56b4c7e6e2f34f8a450940972a96c90 Assembly-CSharp.dll:.StageManager
 ae629a36894279f8e5d53741f870d116 Assembly-CSharp.dll:.StoreDamageIncrease
 b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 099a2a21663cb50a4658f8fa6d9dd64a Assembly-CSharp.dll:.ArrowInputSlot
@@ -171,6 +169,7 @@ a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossIdle
 d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerDelay
 23a8326e7ed13707edd91871f839a791 Assembly-CSharp.dll:.CameraManager
 c181cbb5ec0b09544e90b138a7ec12fe Assembly-CSharp.dll:.SlimeDie
+0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.GoblinArchorAwake
 6ea7715ccd58ad4d6ccce6199c334a7b Assembly-CSharp-firstpass.dll:FMODUnity.StudioListener
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.RetryButton
 3d8892e960e0ed644404ef22b09dce70 Assembly-CSharp.dll:.MapStore
@@ -179,7 +178,7 @@ d6fc8d3165070298511ec776ea575626 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 8afcd3c44c4791ddcf0e7c0a96a24bfd Assembly-CSharp.dll:.StageGameOver
 afc5b93a7b192de2dcb3832fe35a5c7e Assembly-CSharp.dll:.StoreSpeed
 a53651ee3996fbba20dfe0fce02f0b23 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.AutoExposure
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AnimGetEnemy
+09463589d0e030e33696605434c173d7 Assembly-CSharp.dll:.AnimGetEnemy
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyInstantiateParent
 6674ce457cf82e9db5f174537fe458ff Assembly-CSharp.dll:.CamIdel
 cac239b1ea12f796f4f4a98ee099ab73 Assembly-CSharp.dll:.WeaponSword
@@ -187,7 +186,7 @@ b3ab3c0c55aead41863124624a49c3ac Assembly-CSharp.dll:.BossSpawnMob
 74e8920ec66d316f9c3a32a77ba533bd Assembly-CSharp.dll:.BossSTUN
 50c443b12ccc0b475183318b5088bcc5 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessDebug
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
-8dacf62dc23b53b9a91ef1d17e6632be Assembly-CSharp.dll:.EnemyManager
+21395c3e58b7b509df5d43d1a8cd109c Assembly-CSharp.dll:.EnemyManager
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyParent
 285f6a08b03f2a19cc836e4ef0fb6422 Assembly-CSharp.dll:.FlashCanvasEffect
 d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerPinning
@@ -264,7 +263,7 @@ afb7045a7c690f0030871bbb88919244 Assembly-CSharp.dll:.BossManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.FadeIn
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MapPositionManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.WeaponSelect
-ee05ddee7894b8ff1a375b3eebbfe5cf Assembly-CSharp.dll:.MapNodeLinker
+f1dd962d5d66502e6fd8fb063c1d3899 Assembly-CSharp.dll:.MapNodeLinker
 4a9da3703cb96c7a1ca1f46504551f85 Assembly-CSharp.dll:.StoreHPGain
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 c50dd4ad53301c36e8298b9d7b692cd3 Assembly-CSharp.dll:.EmptyCardDestroyer
@@ -287,3 +286,6 @@ bc7862220ae746d8b5f1fd9b83735f51 Assembly-CSharp.dll:.TutorialManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MerchantOnClick
 89c1e97f7398006d3084ac2263d9c984 Assembly-CSharp.dll:.CardHaist
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.OnionAwake
+67dba9f91bd603ca1e6c4d3364f927cb Assembly-CSharp.dll:.OutGameManager
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ButtonParent
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ButtonExit
