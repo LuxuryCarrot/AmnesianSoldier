@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 6254361958762429977}
   - component: {fileID: 114480956795812640}
   - component: {fileID: 114680716436488508}
+  - component: {fileID: 114057864941888148}
   m_Layer: 0
   m_Name: Monster1
   m_TagString: Untagged
@@ -319,18 +320,23 @@ MonoBehaviour:
   gravity: 10
   range: 10
   attRange: 7
+  knockBackRate: 24
   hp: 0
-  hpMax: 0
+  hpMax: 3
+  stateReturnRate: 0.5
+  isRangeUnit: 0
   anim: {fileID: 0}
   instantiateBehavior: {fileID: 0}
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
+  damageBehavior: {fileID: 0}
   RootingCardPool: []
   RootingAttPool: []
   eliteBattleTemp: 0
   hardSwinged: 0
   isStuned: 0
+  CantRecover: 0
   hpBar: {fileID: 0}
 --- !u!114 &6254361958762429982
 MonoBehaviour:
@@ -348,6 +354,7 @@ MonoBehaviour:
   yspeed: 0
   gravity: 10
   temp: 0
+  knockBackRate: 0
 --- !u!114 &6254361958762429977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +394,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+--- !u!114 &114057864941888148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254361958762429973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4215906a70944674a8fbc5a1abe7f514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  temp: 0.5
+  Amount: 2
+  damage: 0.5
 --- !u!1 &6254361960119214769
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class MapNodeLinker : MonoBehaviour
     public int EliteMap;
     public int RestMap;
     public int MaxStage;
+    public int StoreMap;
     public int MaxToBoss;
     int MaxMaps;
     int maxStair;
@@ -274,13 +275,13 @@ public class MapNodeLinker : MonoBehaviour
             node.GetComponent<MapNode>().stateWhenStart = StageState.REST;
             RestMap--;
         }
-        else if (randomSeed > 0.03f && randomSeed <= 0.045f && RestMap > 0 && deftype != "_Store" && beforeType != "_Store")
+        else if (randomSeed > 0.03f && randomSeed <= 0.045f && StoreMap > 0 && deftype != "_Store" && beforeType != "_Store")
         {
             deftype = "_Store";
             node.GetComponent<MapNode>().battleInfo = "_Store";
             node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_" + stairNum.ToString() + "Store";
             node.GetComponent<MapNode>().stateWhenStart = StageState.STORE;
-            RestMap--;
+            StoreMap--;
         }
         else
         {

@@ -9618,6 +9618,7 @@ MonoBehaviour:
   EliteMap: 3
   RestMap: 3
   MaxStage: 7
+  StoreMap: 0
   MaxToBoss: 3
   mapNodeCurrent: {fileID: 0}
   stageNum: 1

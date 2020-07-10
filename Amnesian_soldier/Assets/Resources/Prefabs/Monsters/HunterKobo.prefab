@@ -446,14 +446,18 @@ MonoBehaviour:
   gravity: 10
   range: 12
   attRange: 60
+  knockBackRate: 24
   hp: 0
-  hpMax: 0
+  hpMax: 5
+  stateReturnRate: 100
   isRangeUnit: 1
+  damage: 1
   anim: {fileID: 0}
   instantiateBehavior: {fileID: 0}
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
+  damageBehavior: {fileID: 0}
   RootingCardPool:
   - Potion1
   - GuardCard
@@ -461,6 +465,7 @@ MonoBehaviour:
   eliteBattleTemp: 0
   hardSwinged: 0
   isStuned: 0
+  CantRecover: 0
   hpBar: {fileID: 0}
 --- !u!114 &8387887831763649373
 MonoBehaviour:
@@ -478,6 +483,7 @@ MonoBehaviour:
   yspeed: 0
   gravity: 10
   temp: 0
+  knockBackRate: 0
 --- !u!114 &8387887831763649370
 MonoBehaviour:
   m_ObjectHideFlags: 0

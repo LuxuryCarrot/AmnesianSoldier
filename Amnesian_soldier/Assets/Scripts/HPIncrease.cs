@@ -4,29 +4,15 @@ using UnityEngine;
 
 public class HPIncrease : MonoBehaviour
 {
-    public void HPChange(int i)
+    public void HPChange()
     {
-        if(i>0)
+        int playerhp = (int)PlayerManager.playerSingleton.HP;
+        for(int j=0; j<PlayerManager.playerSingleton.HPMAX; j++)
         {
-            for(int j=0; j<transform.childCount && i!=0; j++)
-            {
-                if (!transform.GetChild(j).gameObject.activeInHierarchy)
-                {
-                    transform.GetChild(j).gameObject.SetActive(true);
-                    i--;
-                }
-            }
-        }
-        else
-        {
-            for (int j = 0; j < transform.childCount && i != 0; j++)
-            {
-                if (transform.GetChild(4-j).gameObject.activeInHierarchy)
-                {
-                    transform.GetChild(4-j).gameObject.SetActive(false);
-                    i++;
-                }
-            }
+            if (j < playerhp)
+                transform.GetChild(j).gameObject.SetActive(true);
+            else
+                transform.GetChild(j).gameObject.SetActive(false);
         }
     }
     public void HPMAXIncrease(int i)

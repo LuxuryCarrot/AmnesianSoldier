@@ -7,7 +7,7 @@ public class RestStageSelect : MonoBehaviour
     public void HPReset()
     {
         PlayerManager.playerSingleton.HP = 5;
-        StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(5);
+        StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
         StageManager.stageSingletom.GetComponent<StageRest>().RestTypeSelected();
     }
     public void SpeedReset()

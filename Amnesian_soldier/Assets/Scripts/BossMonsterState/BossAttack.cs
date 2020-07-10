@@ -33,7 +33,7 @@ public class BossAttack : BossParent
         if(temp<=0)
         {
             PlayerManager.playerSingleton.HP -= 3;
-            StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-3);
+            StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
             manager.SetState(BossState.IDLE);
         }
     }

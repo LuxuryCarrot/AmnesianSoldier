@@ -15,7 +15,7 @@ public class CardHP : CardParent
         else
             PlayerManager.playerSingleton.HP+=hpIncrease;
 
-        StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(1);
+        StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
         PlayerManager.playerSingleton.anim.SetTrigger("PotionUse");
         //StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
         StageManager.stageSingletom.SkillUsed();
@@ -29,7 +29,7 @@ public class CardHP : CardParent
             PlayerManager.playerSingleton.HP = 5;
         else
             PlayerManager.playerSingleton.HP += hpIncrease;
-        StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(1);
+        StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
         PlayerManager.playerSingleton.anim.SetTrigger("PotionUse");
         //StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
         Destroy(this.gameObject);

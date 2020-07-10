@@ -9,6 +9,7 @@ public class PlayerPinning : PlayerParent
     {
         base.BeginState();
         pinning = false;
+        manager.iteratingEnemy.CantRecover = true;
         //manager.iteratingEnemy.transform.position = transform.position + new Vector3(0.7f, 0, 0);
     }
     private void Update()
@@ -30,14 +31,16 @@ public class PlayerPinning : PlayerParent
 
             if (GetComponent<WeaponGun>() == null || GetComponent<WeaponGun>().bulletCanUse <= 0)
             {
-                if (manager.iteratingEnemy.hp > 1)
+                if (manager.iteratingEnemy.hp > manager.weapon.weaponDamage)
                 {
-                    manager.iteratingEnemy.hp--;
+                    manager.iteratingEnemy.hp-=manager.weapon.weaponDamage;
                 }
                 else
                 {
-                    manager.iteratingEnemy.hp--;
+                    manager.iteratingEnemy.hp=0;
+                    manager.iteratingEnemy.CantRecover = false;
                     manager.iteratingEnemy = null;
+                    
                     manager.SetState(PlayerState.IDLE);
                 }
             }
@@ -47,6 +50,7 @@ public class PlayerPinning : PlayerParent
         {
             manager.anim.SetBool("Charging", false);
             manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
+            manager.iteratingEnemy.CantRecover = false;
             manager.SetState(PlayerState.IDLE);
         }
     }

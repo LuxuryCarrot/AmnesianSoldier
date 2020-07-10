@@ -27,7 +27,7 @@ public class PlayerBossBattle : PlayerParent
                 manager.boss.SetState(BossState.IDLE);
                 manager.SetState(PlayerState.KNOCKBACK);
                 manager.HP -= 3;
-                StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-3);
+                StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
             }
         }
         else if(Input.GetMouseButtonDown(0))

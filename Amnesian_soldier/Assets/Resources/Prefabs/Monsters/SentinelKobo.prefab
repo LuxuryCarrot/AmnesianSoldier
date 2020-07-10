@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 3677890969408877596}
   - component: {fileID: 3678004304022396574}
   m_Layer: 0
-  m_Name: OnionElite 1
+  m_Name: SentinelKobo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,13 +248,18 @@ MonoBehaviour:
   gravity: 10
   range: 12
   attRange: 7
+  knockBackRate: 24
   hp: 0
-  hpMax: 0
+  hpMax: 5
+  stateReturnRate: 0.7
+  isRangeUnit: 0
+  damage: 1
   anim: {fileID: 0}
   instantiateBehavior: {fileID: 0}
   awakeBehavior: {fileID: 0}
   battleBehavior: {fileID: 0}
   dieBehavior: {fileID: 0}
+  damageBehavior: {fileID: 0}
   RootingCardPool:
   - Potion1
   - GuardCard
@@ -262,6 +267,7 @@ MonoBehaviour:
   eliteBattleTemp: 0
   hardSwinged: 0
   isStuned: 0
+  CantRecover: 0
   hpBar: {fileID: 0}
 --- !u!114 &3408564410506728127
 MonoBehaviour:
@@ -279,6 +285,7 @@ MonoBehaviour:
   yspeed: 0
   gravity: 10
   temp: 0
+  knockBackRate: 0
 --- !u!114 &3408564410506728120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa03df74ba2d6f4e83b14e680fcee7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handArrow: {fileID: 0}
+  ShootArrow: {fileID: 0}
 --- !u!1001 &4581614562733120113
 PrefabInstance:
   m_ObjectHideFlags: 0

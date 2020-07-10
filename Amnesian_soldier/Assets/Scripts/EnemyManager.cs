@@ -21,10 +21,13 @@ public class EnemyManager : MonoBehaviour
     public float gravity;
     public float range;
     public float attRange;
+    public float knockBackRate;
 
     public float hp;
     public float hpMax;
+    public float stateReturnRate;
     public bool isRangeUnit;
+    public float damage;
     //FSM 저장부
     Dictionary<EnemyState, EnemyParent> EnemyFlow = new Dictionary<EnemyState, EnemyParent>();
     //여기에 붙어있는 화살표 이미지.
@@ -35,6 +38,7 @@ public class EnemyManager : MonoBehaviour
     public EnemyAwakeParent awakeBehavior;
     public EnemyBattleParent battleBehavior;
     public EnemyDieParent dieBehavior;
+    public EnemyDamagedParent damageBehavior;
 
     public string[] RootingCardPool;
     public string[] RootingAttPool;
@@ -43,6 +47,7 @@ public class EnemyManager : MonoBehaviour
     public bool hardSwinged = false;
 
     public bool isStuned;
+    public bool CantRecover;
     float stunTemp;
 
     public Image hpBar;
@@ -50,6 +55,7 @@ public class EnemyManager : MonoBehaviour
     private void Awake()
     {
         isStuned = false;
+        CantRecover = false;
         RootingCardPool = new string[2];
         RootingCardPool[0] = "Potion1";
         RootingCardPool[1] = "Haist1";
@@ -68,10 +74,7 @@ public class EnemyManager : MonoBehaviour
 
         float randseed2 = Random.Range(0.01f, 0.02f);
 
-        if (randonSeed >= 0.015f)
-            hpMax = 1;
-        else
-            hpMax = 2;
+        
 
         hp = hpMax;
 
@@ -96,7 +99,7 @@ public class EnemyManager : MonoBehaviour
         battleBehavior = GetComponent<EnemyBattleParent>();
         dieBehavior = GetComponent <EnemyDieParent > ();
         instantiateBehavior = GetComponent<EnemyInstantiateParent>();
-
+        damageBehavior = GetComponent<EnemyDamagedParent>();
         
         EnemyFlow.Add(EnemyState.KNOCKBACK, GetComponent<EnemyKnockBack>());
         SetState(current);
@@ -149,10 +152,10 @@ public class EnemyManager : MonoBehaviour
         if(hpBar.gameObject.activeInHierarchy)
            hpBar.fillAmount = (float)hp / (float)hpMax;
 
-        if(isStuned && !isRangeUnit)
+        if(isStuned && !isRangeUnit && !CantRecover)
         {
             stunTemp += Time.deltaTime;
-            if(stunTemp>=2.0f)
+            if(stunTemp>=stateReturnRate)
             {
                 stunTemp = 0;
                 float randonSeed = Random.Range(0, 0.2f);

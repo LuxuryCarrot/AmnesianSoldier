@@ -72,7 +72,7 @@ public class BulletManager : MonoBehaviour
                     PlayerManager.playerSingleton.anim.SetBool("Damaged", true);
                     
                  
-                    StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-1);
+                    StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
                     PlayerManager.playerSingleton.SetState(PlayerState.KNOCKBACK);
                 }
 

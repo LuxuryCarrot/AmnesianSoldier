@@ -22,10 +22,12 @@ public class PlayerBattle : PlayerParent
         {
             if(manager.iteratingEnemy.attackType == AttackType.GUARD)
             {
-                manager.HP--;
+                manager.HP-=manager.iteratingEnemy.damage;
                 manager.speed *= 0.95f;
                 manager.anim.SetBool("Damaged", true);
-                StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-1);
+                if (manager.iteratingEnemy.battleBehavior != null)
+                    manager.iteratingEnemy.battleBehavior.Execute();
+                StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
                 manager.SetState(PlayerState.KNOCKBACK);
                 //적 공격 애니메이션 추가부분
             }
@@ -35,17 +37,21 @@ public class PlayerBattle : PlayerParent
                 StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
                 manager.attackType = AttackType.NONE;
                 manager.anim.SetBool("Success", true);
-                manager.iteratingEnemy.hp -= manager.damage;
+                manager.iteratingEnemy.hp -= manager.weapon.weaponDamage;
+                if (manager.iteratingEnemy.damageBehavior != null)
+                    manager.iteratingEnemy.damageBehavior.Execute();
                 if (manager.iteratingEnemy.hp > 0)
                 {
-                    manager.HP--;
+                    manager.HP -= manager.iteratingEnemy.damage;
                     manager.speed *= 0.95f;
                     manager.anim.SetBool("Damaged", true);
+                    if (manager.iteratingEnemy.battleBehavior != null)
+                        manager.iteratingEnemy.battleBehavior.Execute();
                     //if (manager.iteratingEnemy.anim != null)
                     //    manager.iteratingEnemy.anim.SetTrigger("Attack");
                     manager.iteratingEnemy.attackType = AttackType.NONE;
                     manager.iteratingEnemy.SetAttackImage();
-                    StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-1);
+                    StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
                     manager.SetState(PlayerState.KNOCKBACK);
                 }
                 else
@@ -63,7 +69,7 @@ public class PlayerBattle : PlayerParent
                 manager.attackType = AttackType.NONE;
                 manager.anim.SetBool("Success", true);
                 manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
-                manager.iteratingEnemy.hp -= manager.damage;
+                manager.iteratingEnemy.hp -= manager.weapon.weaponDamage;
 
                 manager.iteratingEnemy = null;
                 manager.SetState(PlayerState.IDLE);
@@ -103,15 +109,16 @@ public class PlayerBattle : PlayerParent
                 //if(manager.iteratingEnemy.attackType == AttackType.HORIZON)
                 //    if (manager.iteratingEnemy.anim != null)
                 //        manager.iteratingEnemy.anim.SetTrigger("Attack");
-                manager.HP--;
+                manager.HP -= manager.iteratingEnemy.damage;
                 manager.speed *= 0.95f;
                 manager.anim.SetBool("Damaged", true);
-                StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange(-1);
+                StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
                 manager.SetState(PlayerState.KNOCKBACK);
                 //적 공격 애니메이션 추가부분
             }
         }
-
+        if(manager.iteratingEnemy!=null)
+           manager.iteratingEnemy.isStuned = true;
     }
     public override void EndState()
     {

@@ -8,10 +8,12 @@ public class EnemyKnockBack : EnemyParent
     public float yspeed;
     public float gravity=5.0f;
     public float temp;
+    public float knockBackRate;
     public override void BeginState()
     {
         base.BeginState();
         temp = 0;
+        knockBackRate = manager.knockBackRate;
         manager.ySpeed = -2.5f;
         manager.anim.SetTrigger("Bounce");
         manager.GetComponent<CharacterController>().Move(new Vector3(2 * Time.deltaTime, -manager.ySpeed * Time.deltaTime, 0));
@@ -30,5 +32,7 @@ public class EnemyKnockBack : EnemyParent
     public override void EndState()
     {
         base.EndState();
+        if(manager!=null)
+        manager.knockBackRate = knockBackRate;
     }
 }

@@ -8,6 +8,10 @@ public class StoreHPGain : StoreParent
 
     public override void Execute()
     {
+        if (StageManager.stageSingletom.KillCount < 15)
+            return;
+
+        StageManager.stageSingletom.KillCount -= 15;
         StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPMAXIncrease(gainAmount);
 
 

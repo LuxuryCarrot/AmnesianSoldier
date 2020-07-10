@@ -79,7 +79,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   current: 0
   AttackCanvas: {fileID: 0}
-  hp: 20
+  hp: 50
   attackAmount: 5
   MonsterSpawnPool:
   - {fileID: 970495092198981321, guid: 486f23b81621db242b0fcb0305438cff, type: 3}
