@@ -42,7 +42,19 @@ public class BulletManager : MonoBehaviour
 
         if(shotBy == BulletType.PLAYER)
         {
-            if(MonsterManager.Monsters.Count!=0)
+            if(PlayerManager.playerSingleton.boss!=null 
+                && PlayerManager.playerSingleton.boss.current==BossState.STUN)
+            {
+                if (Vector3.SqrMagnitude(PlayerManager.playerSingleton.boss.transform.position -
+                       transform.position) <= 1.0f)
+                {
+
+                    PlayerManager.playerSingleton.boss.hp -= damage;
+                    Destroy(this.gameObject);
+                    
+                }
+            }
+            else if(MonsterManager.Monsters.Count!=0)
             {
                 foreach(GameObject mob in MonsterManager.Monsters)
                 {
@@ -59,6 +71,8 @@ public class BulletManager : MonoBehaviour
                 }
                 
             }
+            
+            
         }
         else
         {

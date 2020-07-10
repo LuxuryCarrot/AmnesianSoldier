@@ -19,6 +19,9 @@ public class FallingMapBox : MonoBehaviour
     }
     private void Update()
     {
+        if (player == null)
+            return;
+
         //플레이어가 한번이라도 밟았는지를 검색
         if (-player.transform.position.x + transform.position.x <= 0.5f)
             isPlayerUp = true;

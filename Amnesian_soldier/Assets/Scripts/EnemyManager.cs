@@ -152,7 +152,7 @@ public class EnemyManager : MonoBehaviour
         if(hpBar.gameObject.activeInHierarchy)
            hpBar.fillAmount = (float)hp / (float)hpMax;
 
-        if(isStuned && !isRangeUnit && !CantRecover)
+        if(isStuned && !isRangeUnit && !CantRecover && current==EnemyState.IDLE)
         {
             stunTemp += Time.deltaTime;
             if(stunTemp>=stateReturnRate)
@@ -164,6 +164,9 @@ public class EnemyManager : MonoBehaviour
                     attackType = AttackType.HORIZON;
                 else
                     attackType = AttackType.GUARD;
+
+                SetAttackImage();
+                isStuned = false;
             }
         }
 

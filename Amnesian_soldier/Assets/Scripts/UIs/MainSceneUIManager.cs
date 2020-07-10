@@ -7,6 +7,6 @@ public class MainSceneUIManager : MonoBehaviour
 {
     public void NewGamePressed()
     {
-        SceneManager.LoadScene("3_InGameScene");
+        SceneManager.LoadScene(3);
     }
 }

@@ -6,7 +6,7 @@ public class WeaponSword : WeaponParent
 {
     private void Start()
     {
-        weaponDamage = 1;
+        weaponDamage = 2;
     }
     public override void Execute()
     {

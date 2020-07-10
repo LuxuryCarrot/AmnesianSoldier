@@ -16,7 +16,7 @@ public class BossManager : MonoBehaviour
     public Animator anim;
     public BossState current;
     public GameObject AttackCanvas;
-    public int hp;
+    public float hp;
     public int attackAmount;
     public Queue<AttackType> attacktQueue = new Queue<AttackType>();
 

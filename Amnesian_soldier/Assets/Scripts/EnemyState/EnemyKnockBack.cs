@@ -22,7 +22,7 @@ public class EnemyKnockBack : EnemyParent
     {
         manager.ySpeed += gravity * Time.deltaTime;
         
-        manager.GetComponent<CharacterController>().Move(new Vector3(24 * Time.deltaTime, -manager.ySpeed*Time.deltaTime, 0));
+        manager.GetComponent<CharacterController>().Move(new Vector3(knockBackRate * Time.deltaTime, -manager.ySpeed*Time.deltaTime, 0));
         
         if(manager.ySpeed >=0 && transform.position.y <= 1.7f)
         {
