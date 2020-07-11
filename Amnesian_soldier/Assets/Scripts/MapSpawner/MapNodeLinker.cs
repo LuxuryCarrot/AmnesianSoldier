@@ -33,6 +33,8 @@ public class MapNodeLinker : MonoBehaviour
     public GameObject DownDownLinkImage;
     public GameObject StraightLinkImage;
 
+
+
     private void Awake()
     {
         prefab = Resources.Load("Prefabs/MapSpawners/MapNodePrefab") as GameObject;
@@ -64,25 +66,25 @@ public class MapNodeLinker : MonoBehaviour
                 newNode1.GetComponent<MapNode>().stair = 1;
                     newNode1.GetComponent<MapNode>().beforeNode = new MapNode[1];
                     newNode1.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
-                newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(102, 63, 0);
+                newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(102, 67, 0);
 
                 GameObject linker1 = Instantiate(UpLinkImage, MapImage.transform);
-                linker1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, 40, 0);
+                linker1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, 44, 0);
 
                     GameObject newNode2 = Instantiate(prefab, MapImage.transform);
                 newNode1.GetComponent<MapNode>().linkType = NodeType.UP;
 
-                newNode2.GetComponent<MapNode>().mapInfo = stageNum + "_2Rest";
-                newNode2.GetComponent<MapNode>().battleInfo = "_Rest";
-                newNode2.GetComponent<MapNode>().stateWhenStart = StageState.REST;
+                newNode2.GetComponent<MapNode>().mapInfo = stageNum + "_BOSS";
+                newNode2.GetComponent<MapNode>().battleInfo = "_BOSS";
+                newNode2.GetComponent<MapNode>().stateWhenStart = StageState.BOSSBATTLE;
                 newNode2.GetComponent<MapNode>().stair = 1;
                 
                 newNode2.GetComponent<MapNode>().beforeNode = new MapNode[1];
                     newNode2.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
-                newNode2.transform.localPosition = newNode2.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(102, -63, 0);
+                newNode2.transform.localPosition = newNode2.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(102, -67, 0);
 
                 GameObject linker2 = Instantiate(DownLinkImage, MapImage.transform);
-                linker2.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, -40, 0);
+                linker2.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, -44, 0);
 
                 newNode2.GetComponent<MapNode>().linkType = NodeType.DOWN;
                 mapDetermineQueue.Enqueue(newNode1);
@@ -140,13 +142,13 @@ public class MapNodeLinker : MonoBehaviour
                         if(mapNodeCurrent.GetComponent<MapNode>().linkType==NodeType.UP)
                         {
                             newNode1.GetComponent<MapNode>().linkType = NodeType.UP;
-                            newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(102, 63, 0);
+                            newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(100, 67, 0);
 
                             GameObject linker1 = Instantiate(UpLinkImage, MapImage.transform);
-                            linker1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, 40, 0);
+                            linker1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, 44, 0);
 
                             newNode2.GetComponent<MapNode>().linkType = NodeType.NONE;
-                            newNode2.transform.localPosition = newNode2.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(102, 0, 0);
+                            newNode2.transform.localPosition = newNode2.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(100, 0, 0);
 
                             GameObject linker2 = Instantiate(StraightLinkImage, MapImage.transform);
                             linker2.transform.localPosition = newNode2.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, 0, 0);
@@ -154,16 +156,16 @@ public class MapNodeLinker : MonoBehaviour
                         else if(mapNodeCurrent.GetComponent<MapNode>().linkType == NodeType.DOWN)
                         {
                             newNode1.GetComponent<MapNode>().linkType = NodeType.NONE;
-                            newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(102, 0, 0);
+                            newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(100, 0, 0);
 
                             GameObject linker1 = Instantiate(StraightLinkImage, MapImage.transform);
                             linker1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, 0, 0);
 
                             newNode2.GetComponent<MapNode>().linkType = NodeType.DOWN;
-                            newNode2.transform.localPosition = newNode2.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(102, -63, 0);
+                            newNode2.transform.localPosition = newNode2.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(100, -67, 0);
 
                             GameObject linker2 = Instantiate(DownLinkImage, MapImage.transform);
-                            linker2.transform.localPosition = newNode2.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, -40, 0);
+                            linker2.transform.localPosition = newNode2.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, -44, 0);
                         }
                     }
                     else
@@ -174,7 +176,7 @@ public class MapNodeLinker : MonoBehaviour
                         newNode1.GetComponent<MapNode>().beforeNode = new MapNode[1];
                         newNode1.GetComponent<MapNode>().linkType = mapNodeCurrent.GetComponent<MapNode>().linkType;
                         newNode1.GetComponent<MapNode>().beforeNode[0] = mapNodeCurrent.GetComponent<MapNode>();
-                        newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(102, 0, 0);
+                        newNode1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(100, 0, 0);
 
                         GameObject linker1 = Instantiate(StraightLinkImage, MapImage.transform);
                         linker1.transform.localPosition = newNode1.GetComponent<MapNode>().beforeNode[0].transform.localPosition + new Vector3(42, 0, 0);
@@ -233,7 +235,7 @@ public class MapNodeLinker : MonoBehaviour
                     backNode1.GetComponent<MapNode>().afterNodes[0] = newNode1.GetComponent<MapNode>();
 
                     GameObject linker1 = Instantiate(StraightLinkImage, MapImage.transform);
-                    linker1.transform.localPosition = backNode1.transform.localPosition + new Vector3(60, 0, 0);
+                    linker1.transform.localPosition = backNode1.transform.localPosition + new Vector3(45, 0, 0);
 
                     newNode1.transform.SetParent(MapImage.transform);
 
@@ -275,14 +277,14 @@ public class MapNodeLinker : MonoBehaviour
             node.GetComponent<MapNode>().stateWhenStart = StageState.REST;
             RestMap--;
         }
-        else if (randomSeed > 0.03f && randomSeed <= 0.045f && StoreMap > 0 && deftype != "_Store" && beforeType != "_Store")
-        {
-            deftype = "_Store";
-            node.GetComponent<MapNode>().battleInfo = "_Store";
-            node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_" + stairNum.ToString() + "Store";
-            node.GetComponent<MapNode>().stateWhenStart = StageState.STORE;
-            StoreMap--;
-        }
+        //else if (randomSeed > 0.03f && randomSeed <= 0.045f && StoreMap > 0 && deftype != "_Store" && beforeType != "_Store")
+        //{
+        //    deftype = "_Store";
+        //    node.GetComponent<MapNode>().battleInfo = "_Store";
+        //    node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_" + stairNum.ToString() + "Store";
+        //    node.GetComponent<MapNode>().stateWhenStart = StageState.STORE;
+        //    StoreMap--;
+        //}
         else
         {
             deftype =  "_Default";

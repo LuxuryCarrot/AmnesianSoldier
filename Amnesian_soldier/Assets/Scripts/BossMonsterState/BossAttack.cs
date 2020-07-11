@@ -32,8 +32,9 @@ public class BossAttack : BossParent
         temp -= Time.deltaTime;
         if(temp<=0)
         {
-            PlayerManager.playerSingleton.HP -= 3;
-            StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
+            temp = 100;
+            manager.anim.SetTrigger("heavyAttack");
+            PlayerManager.playerSingleton.SetState(PlayerState.IDLE);
             manager.SetState(BossState.IDLE);
         }
     }

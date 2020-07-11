@@ -11,7 +11,7 @@ public class LoadScene : MonoBehaviour
     {
         StartCoroutine(LoadingScene());
     }
-    IEnumerator LoadingScene()
+    public IEnumerator LoadingScene()
     {
         
         AsyncOperation oper = SceneManager.LoadSceneAsync(2);

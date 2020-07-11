@@ -8,7 +8,9 @@ public enum BossState
     TRAPATTACK,
     CHAINATTACK,
     MONSTERSPAWN,
-    STUN
+    STUN,
+    ATTACK,
+    DIE
 }
 public class BossManager : MonoBehaviour
 {
@@ -25,25 +27,27 @@ public class BossManager : MonoBehaviour
     private void Awake()
     {
         AttackCanvas = transform.GetChild(1).gameObject;
-
+        anim = GetComponentInChildren<Animator>();
         PlayerManager.playerSingleton.boss = this;
         BossFlow.Add(BossState.IDLE, GetComponent<BossIdle>());
         BossFlow.Add(BossState.TRAPATTACK, GetComponent<BossTrapAttack>());
         BossFlow.Add(BossState.CHAINATTACK, GetComponent<BossAttack>());
         BossFlow.Add(BossState.MONSTERSPAWN, GetComponent<BossSpawnMob>());
         BossFlow.Add(BossState.STUN, GetComponent<BossSTUN>());
+        BossFlow.Add(BossState.ATTACK, GetComponent<BossIdleAttack>());
+        BossFlow.Add(BossState.DIE, GetComponent<BossDie>());
         current = BossState.IDLE;
         SetState(current);
     }
     private void Update()
     {
         transform.position
-            = new Vector3(PlayerManager.playerSingleton.transform.position.x+7, 3.5f, 0);
+            = new Vector3(PlayerManager.playerSingleton.transform.position.x+10, 3.5f, 0);
 
         if(hp<=0)
         {
             StageManager.stageSingletom.SetState(StageState.GAMECLEAR);
-            Destroy(gameObject);
+            SetState(BossState.DIE);
         }
     }
     public void SetState(BossState news)

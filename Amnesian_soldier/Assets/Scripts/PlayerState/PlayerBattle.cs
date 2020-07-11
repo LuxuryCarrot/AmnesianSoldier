@@ -70,7 +70,8 @@ public class PlayerBattle : PlayerParent
                 manager.anim.SetBool("Success", true);
                 manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
                 manager.iteratingEnemy.hp -= manager.weapon.weaponDamage;
-
+                if (manager.iteratingEnemy.damageBehavior != null)
+                    manager.iteratingEnemy.damageBehavior.Execute();
                 manager.iteratingEnemy = null;
                 manager.SetState(PlayerState.IDLE);
             }

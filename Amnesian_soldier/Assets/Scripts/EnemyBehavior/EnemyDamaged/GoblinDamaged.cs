@@ -8,6 +8,7 @@ public class GoblinDamaged : EnemyDamagedParent
     {
         base.Execute();
         manager.SetState(EnemyState.KNOCKBACK);
-        manager.GetComponent<EnemyKnockBack>().knockBackRate *= 5;
+        manager.GetComponent<EnemyKnockBack>().knockBackRate *= 2;
+        Debug.Log("!!");
     }
 }

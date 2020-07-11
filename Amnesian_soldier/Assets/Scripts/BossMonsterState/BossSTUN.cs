@@ -8,6 +8,7 @@ public class BossSTUN : BossParent
     public override void BeginState()
     {
         temp = 5.0f;
+        manager.anim.SetBool("Stun", true);
     }
     private void Update()
     {
@@ -20,7 +21,10 @@ public class BossSTUN : BossParent
         }
 
         if (temp <= 0)
+        {
             manager.SetState(BossState.IDLE);
+            manager.anim.SetBool("Stun", false);
+        }
     }
     public override void EndState()
     {

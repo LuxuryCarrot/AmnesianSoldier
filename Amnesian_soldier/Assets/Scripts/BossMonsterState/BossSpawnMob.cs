@@ -10,8 +10,9 @@ public class BossSpawnMob : BossParent
     public override void BeginState()
     {
         base.BeginState();
-        temp = 2;
+        temp = 1;
         spawn = spawnAmount;
+        manager.anim.SetTrigger("Summon");
     }
     private void Update()
     {

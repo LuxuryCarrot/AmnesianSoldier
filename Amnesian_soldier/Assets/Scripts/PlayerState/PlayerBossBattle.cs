@@ -25,9 +25,8 @@ public class PlayerBossBattle : PlayerParent
             else
             {
                 manager.boss.SetState(BossState.IDLE);
-                manager.SetState(PlayerState.KNOCKBACK);
-                manager.HP -= 3;
-                StageManager.stageSingletom.HPText.GetComponent<HPIncrease>().HPChange();
+                manager.boss.anim.SetTrigger("heavyAttack");
+                manager.SetState(PlayerState.IDLE);
             }
         }
         else if(Input.GetMouseButtonDown(0))
