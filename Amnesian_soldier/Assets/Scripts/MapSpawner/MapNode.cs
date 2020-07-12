@@ -80,9 +80,12 @@ public class MapNode : MonoBehaviour
         StageManager.stageSingletom.SetState(stateWhenStart);
         GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/MapResources/"+battleInfo+"_Active");
         
-            
-        StageManager.stageSingletom.mapCanvas.SetActive(false);
-        
+        if(battleInfo!="_Rest")    
+          StageManager.stageSingletom.mapCanvas.SetActive(false);
+        else
+            StageManager.stageSingletom.mapCanvas.transform.GetChild(0).localPosition = Vector3.zero;
+
+
         StageManager.stageSingletom.mapSelectCanvas.SetActive(false);
     }
 

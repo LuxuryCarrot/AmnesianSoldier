@@ -104,6 +104,7 @@ public class ObjSpawnManager : MonoBehaviour
     public int VeryFarBgSpawnAmount = 0;
    
     Transform player;
+    int BGSpawned;
 
     private void Awake()
     {
@@ -274,7 +275,16 @@ public class ObjSpawnManager : MonoBehaviour
 
     public void NearObjSpawn(Vector3 pos)
     {
-        GameObject near = Instantiate(nearObj[Random.Range(0, nearObj.Length)], transform.GetChild(0));
+        BGSpawned= BGSpawned == 0 ? 1 : 0;
+        int seed = Random.Range(0, 100);
+        int realBG;
+        if (seed < 5)
+            realBG = 2;
+        else
+            realBG = BGSpawned;
+
+        GameObject near = Instantiate(nearObj[realBG], transform.GetChild(0));
+        
         near.transform.localPosition = pos;
         NearObjsQueue.Enqueue(near);
     }

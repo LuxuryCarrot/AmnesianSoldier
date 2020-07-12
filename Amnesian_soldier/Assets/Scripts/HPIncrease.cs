@@ -23,6 +23,12 @@ public class HPIncrease : MonoBehaviour
                 Resources.Load("Prefabs/UIPrefab/HPImage") as GameObject, transform);
             hpnew.transform.position = new Vector3(-579.4f+i*60, 473.7f, 0);
         }
+        for (int j = 0; j < i; j++)
+        {
+            GameObject hpnew = Instantiate(
+                Resources.Load("Prefabs/UIPrefab/HPEmptyImage") as GameObject, transform.parent.GetChild(0));
+            hpnew.transform.position = new Vector3(-579.4f + i * 60, 473.7f, 0);
+        }
         PlayerManager.playerSingleton.HPMAX += i;
     }
 }

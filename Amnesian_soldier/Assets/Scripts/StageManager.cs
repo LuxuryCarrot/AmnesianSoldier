@@ -191,7 +191,7 @@ public class StageManager : MonoBehaviour
 
         newSkill.transform.SetParent(skillSlots[0]);
         newSkill.transform.localPosition = Vector3.zero;
-        newSkill.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+        //newSkill.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
     }
 
     public bool SkillGained()

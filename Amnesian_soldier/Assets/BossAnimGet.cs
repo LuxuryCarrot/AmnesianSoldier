@@ -6,7 +6,8 @@ public class BossAnimGet : MonoBehaviour
 {
     public void Attack()
     {
-        if(PlayerManager.playerSingleton.attackType!=AttackType.GUARD)
+        CameraManager.camSingleTon.SetState(CamState.SHAKE);
+        if (PlayerManager.playerSingleton.attackType!=AttackType.GUARD)
         {
             PlayerManager.playerSingleton.SetState(PlayerState.KNOCKBACK);
             PlayerManager.playerSingleton.anim.SetBool("Damaged", true);
@@ -17,6 +18,7 @@ public class BossAnimGet : MonoBehaviour
 
     public void HeavyAttack()
     {
+        CameraManager.camSingleTon.SetState(CamState.SHAKE);
         PlayerManager.playerSingleton.SetState(PlayerState.KNOCKBACK);
         PlayerManager.playerSingleton.anim.SetBool("Damaged", true);
         PlayerManager.playerSingleton.HP -= 3;

@@ -37,6 +37,8 @@ public class PlayerIdle : PlayerParent
         if( AimIn && (manager.attackType!=AttackType.NONE || (Input.GetKey(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space)))
             && manager.iteratingEnemy.current!=EnemyState.DIE)
         {
+
+
             if (manager.stam >=0 && (Input.GetKey(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space)))
                 manager.SetState(PlayerState.ABANDON);
             else
@@ -62,8 +64,14 @@ public class PlayerIdle : PlayerParent
            
         }
 
+        if((Input.GetKey(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space)))
+        {
+            manager.stamRestore = 0.5f;
+            manager.stam -= Time.deltaTime*33;
+        }
 
-        if (Input.GetMouseButton(1) && manager.stam >=0)
+
+        if (Input.GetMouseButton(1) && manager.stam >= 0 && Time.timeScale != 0)
         {
             manager.anim.SetBool("Guarding", true);
             manager.attackType = AttackType.GUARD;
@@ -73,7 +81,7 @@ public class PlayerIdle : PlayerParent
             attackIn = false;
             
         }
-        else if (Input.GetMouseButtonDown(0) && attackIn == false)
+        else if (Input.GetMouseButtonDown(0) && attackIn == false && Time.timeScale != 0)
         {
             attackIn = true;
             manager.weapon.Execute();

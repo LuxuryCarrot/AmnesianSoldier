@@ -18,6 +18,7 @@ public class BossSTUN : BossParent
         {
             PlayerManager.playerSingleton.attackType = AttackType.NONE;
             manager.hp -= PlayerManager.playerSingleton.weapon.weaponDamage;
+            CameraManager.camSingleTon.SetState(CamState.SHAKE);
         }
 
         if (temp <= 0)

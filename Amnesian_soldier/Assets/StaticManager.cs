@@ -7,6 +7,8 @@ public class StaticManager : MonoBehaviour
     public bool isTutoEnd;
     public int tutoflow;
     public static StaticManager staticInfosSingleTon;
+    public bool isAttTutoEnd;
+    public bool isDefTutoEnd;
 
     private void Awake()
     {

@@ -32,7 +32,7 @@ public class MapSpawnInstance : MapSpawnerParent
         {
 
             float randSeedTrap = Random.Range(0, 1.0f);
-            if(randSeedTrap<= trapRate &&  monsterMinDistanceTemp>=6 && i>25)
+            if(randSeedTrap<= trapRate &&  monsterMinDistanceTemp>=12 && i>25)
             {
                 
                 GameObject trap = Instantiate(traps[Random.Range(0, traps.Length)], this.transform);
@@ -47,7 +47,7 @@ public class MapSpawnInstance : MapSpawnerParent
             GameObject mapBox = Instantiate(mapPrefab, this.transform);
             //최소 거리 이상이 되면 확률에 따라 몹 스폰.
             mapBox.transform.localPosition = new Vector3(MapPositionManager.mapMax+i, 0, 0);
-            if (i <= startSpawnPos - mapDontCamChase)
+            if (i <= startSpawnPos - mapDontCamChase && i>25)
             {
                 if (i >= 10 && Random.Range(0, 20) <= 1 && monsterMinDistanceTemp >= monsterMinDistance)
                 {
@@ -94,7 +94,7 @@ public class MapSpawnInstance : MapSpawnerParent
             return;
 
         float randSeedTrap = Random.Range(0, 1.0f);
-        if (randSeedTrap <= trapRate && monsterMinDistanceTemp >=6 && MapPositionManager.mapMax- MapPositionManager.mapPos >=20)
+        if (randSeedTrap <= trapRate && monsterMinDistanceTemp >=12 && MapPositionManager.mapMax- MapPositionManager.mapPos >=20)
         {
             GameObject trap = Instantiate(traps[Random.Range(0, traps.Length)], this.transform);
             trap.transform.localPosition = new Vector3(MapPositionManager.mapPos, 0, 0);

@@ -45,6 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapPrefab: {fileID: 911791879556073328, guid: a05fda2d220c8734ebeb0ef3475083d1,
     type: 3}
-  startSpawnPos: 30
+  startSpawnPos: 60
   bossSpawnTime: 0
   bossMob: {fileID: 1158817038820691614, guid: 05b5cf73f7ee05044bffacf21b85b895, type: 3}

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c11fca2ebd7db408d7a71bd6d5a87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRange: 5
+  maxRange: 6
   minRange: 0.2
   iterating: 0
 --- !u!1001 &518941421365090408

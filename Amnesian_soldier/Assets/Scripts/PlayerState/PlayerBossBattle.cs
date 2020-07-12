@@ -19,6 +19,7 @@ public class PlayerBossBattle : PlayerParent
             if (answer >= 3)
             {
                 manager.boss.SetState(BossState.STUN);
+                CameraManager.camSingleTon.SetState(CamState.SHAKE);
                 manager.boss.hp -= 5;
                 manager.SetState(PlayerState.IDLE);
             }

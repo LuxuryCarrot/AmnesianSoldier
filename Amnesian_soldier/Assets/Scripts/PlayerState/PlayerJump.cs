@@ -10,7 +10,7 @@ public class PlayerJump : PlayerParent
     public override void BeginState()
     {
         base.BeginState();
-        ySpeed = 20;
+        ySpeed = 25;
         grav = 80;
         yPos = Camera.main.transform.position.y;
         manager.anim.SetTrigger("Jump");
@@ -22,7 +22,7 @@ public class PlayerJump : PlayerParent
                                 + new Vector3(0, ySpeed,0)*Time.deltaTime);
         ySpeed -= grav * Time.deltaTime;
 
-        if (ySpeed <= -20)
+        if (ySpeed <= -25)
         {
             manager.SetState(PlayerState.IDLE);
             manager.trap = null;

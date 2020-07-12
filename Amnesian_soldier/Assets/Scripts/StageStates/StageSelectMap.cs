@@ -15,7 +15,8 @@ public class StageSelectMap : StageParent
         PlayerManager.playerSingleton.anim.SetBool("Rest", false);
         manager.mapCanvas.SetActive(true);
         manager.mapSelectCanvas.SetActive(true);
-        if(manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount != 0)
+        StageManager.stageSingletom.mapCanvas.transform.GetChild(0).localPosition = new Vector3(0,1200,0);
+        if (manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount != 0)
             for(int i=0;  manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).childCount!=0; i++)
             {
                 manager.mapSelectCanvas.transform.GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetComponent<MapSelectCard>().DestroyThis();

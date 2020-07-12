@@ -152,7 +152,7 @@ public class EnemyManager : MonoBehaviour
         if(hpBar.gameObject.activeInHierarchy)
            hpBar.fillAmount = (float)hp / (float)hpMax;
 
-        if(isStuned && !isRangeUnit && !CantRecover && current==EnemyState.IDLE)
+        if(isStuned && !isRangeUnit && !CantRecover && current==EnemyState.IDLE && attackType==AttackType.NONE)
         {
             stunTemp += Time.deltaTime;
             if(stunTemp>=stateReturnRate)
