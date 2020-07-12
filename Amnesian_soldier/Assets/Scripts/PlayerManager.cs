@@ -135,9 +135,14 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if(stam>=100 && StageManager.stageSingletom.StaminarSlot.gameObject.activeInHierarchy)
+        {
+            StageManager.stageSingletom.StaminarSlot.transform.parent.gameObject.SetActive(false);
+        }
+        else if(stam<100)
+            StageManager.stageSingletom.StaminarSlot.transform.parent.gameObject.SetActive(true);
         //아래의 발판이 없을때 빠지는 부분
-        if(!GetComponent<CharacterController>().isGrounded && transform.position.y > -3.0f)
+        if (!GetComponent<CharacterController>().isGrounded && transform.position.y > -3.0f)
         {
             
             ySpeed += gravity * Time.deltaTime;

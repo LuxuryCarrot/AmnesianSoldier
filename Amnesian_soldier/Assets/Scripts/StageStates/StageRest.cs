@@ -14,13 +14,15 @@ public class StageRest : StageParent
         PlayerManager.playerSingleton.anim.SetBool("Rest", true);
         manager.RestCanvas.SetActive(true);
         manager.RestCanvas.transform.GetChild(2).gameObject.SetActive(false);
-        
+        StageManager.stageSingletom.mapCanvas.SetActive(true);
+        StageManager.stageSingletom.mapCanvas.transform.GetChild(0).localPosition = Vector3.zero;
+
     }
     private void Update()
     {
         
-
-        temp -= Time.deltaTime;
+        if(!StageManager.stageSingletom.mapCanvas.activeInHierarchy)
+           temp -= Time.deltaTime;
 
         if(temp <=0)
         {

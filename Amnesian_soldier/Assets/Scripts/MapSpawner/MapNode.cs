@@ -50,15 +50,7 @@ public class MapNode : MonoBehaviour
 
         if (!isEnabled)
             return;
-
-        //for (int i=0; StageManager.stageSingletom.CardDeck.transform.childCount!=0;i++)
-        //    StageManager.stageSingletom.CardDeck.transform.GetChild(0).GetComponent<CardParent>().DestroyThis();
-        //DeckList.deckList.ResetDeck();
-        //for(int i=0; i<3; i++)
-        //{
-        //    Debug.Log("Draw");
-        //    StageManager.stageSingletom.CardDeck.GetComponent<CardSpawner>().DrawCard();
-        //}
+        
         for (int j = 0; j < beforeNode.Length; j++)
         {
             for (int i = 0; i < beforeNode[j].afterNodes.Length; i++)
@@ -89,7 +81,7 @@ public class MapNode : MonoBehaviour
         GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/MapResources/"+battleInfo+"_Active");
         
             
-            StageManager.stageSingletom.mapCanvas.SetActive(false);
+        StageManager.stageSingletom.mapCanvas.SetActive(false);
         
         StageManager.stageSingletom.mapSelectCanvas.SetActive(false);
     }

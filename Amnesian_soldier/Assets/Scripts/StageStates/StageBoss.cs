@@ -7,7 +7,7 @@ public class StageBoss : StageParent
     public override void BeginState()
     {
         base.BeginState();
-        PlayerManager.playerSingleton.SetState(PlayerState.IDLE);
+        PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
     }
     private void Update()
     {

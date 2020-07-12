@@ -10,6 +10,7 @@ public class MapSelectCard : MonoBehaviour
     public void OnPointerClick()
     {
         MonsterManager.Monsters.Clear();
+        StageManager.stageSingletom.LoadCanvas.SetActive(true);
         linkedNode.Activate();
     }
     public void DestroyThis()

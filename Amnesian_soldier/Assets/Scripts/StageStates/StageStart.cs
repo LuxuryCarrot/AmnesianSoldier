@@ -21,8 +21,7 @@ public class StageStart : StageParent
         if(temp <=0)
         {
             //카운트 다운이 끝날 시 스테이지의 상태를 idle 로 바꾼다.
-            PlayerManager.playerSingleton.SetState(PlayerState.IDLE);
-            manager.SetState(StageState.IDLE);
+            
             temp = 3.0f;
         }
     }

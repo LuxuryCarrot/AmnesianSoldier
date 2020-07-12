@@ -56,8 +56,17 @@ public class TutorialManager : MonoBehaviour
         attTuto = 0;
         defTuto = 0;
     }
+    private void Start()
+    {
+        tutoFlow = StaticManager.staticInfosSingleTon.tutoflow;
+    }
     private void Update()
     {
+        if (StaticManager.staticInfosSingleTon.isTutoEnd)
+            return;
+
+        StaticManager.staticInfosSingleTon.tutoflow = tutoFlow;
+
         if (PlayerManager.playerSingleton == null)
             return;
         if (Camera.main.transform.parent == PlayerManager.playerSingleton.transform && tutoFlow==0)
@@ -220,6 +229,7 @@ public class TutorialManager : MonoBehaviour
             {
                 temp = 2;
                 tutoFlow++;
+                StaticManager.staticInfosSingleTon.isTutoEnd = true;
                 Tuto24.SetActive(false);
             }
         }
@@ -248,7 +258,7 @@ public class TutorialManager : MonoBehaviour
 
         if(!isAttTutoEnd && ((tutoFlow >=5 && PlayerManager.playerSingleton.iteratingEnemy != null
             && PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <= PlayerManager.playerSingleton.AimStartRange
-            && (PlayerManager.playerSingleton.iteratingEnemy.attackType == AttackType.HORIZON)) || attTuto > 0))
+            && (PlayerManager.playerSingleton.iteratingEnemy.attackType == AttackType.HORIZON)) || Tuto5.activeInHierarchy))
         {
             if(attTuto==0)
             {
@@ -276,9 +286,9 @@ public class TutorialManager : MonoBehaviour
                     
         }
 
-        if(!isDefTutoEnd && tutoFlow >= 5 && PlayerManager.playerSingleton.iteratingEnemy!=null
+        if(!isDefTutoEnd && tutoFlow >= 5 && ((PlayerManager.playerSingleton.iteratingEnemy!=null
             && PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <= PlayerManager.playerSingleton.AimStartRange
-            && (PlayerManager.playerSingleton.iteratingEnemy.attackType == AttackType.GUARD||defTuto>0))
+            && PlayerManager.playerSingleton.iteratingEnemy.attackType == AttackType.GUARD)||(defTuto>0 || Tuto13.activeInHierarchy)))
         {
             if (defTuto == 0)
             {

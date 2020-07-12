@@ -197,7 +197,7 @@ public class EnemyManager : MonoBehaviour
                 = attackType == AttackType.GUARD ?
                 Resources.Load<Sprite>("Sprites/protect") as Sprite : Resources.Load<Sprite>("Sprites/attack") as Sprite;
         else
-            transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = null;
+            transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/NullImage") as Sprite;
     }
 
     //public void SetAttackImage()

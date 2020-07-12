@@ -11,7 +11,8 @@ public class WeaponSelect : MonoBehaviour
         PlayerManager.playerSingleton.anim = sword.GetComponent<Animator>();
         PlayerManager.playerSingleton.gameObject.AddComponent<WeaponSword>();
         PlayerManager.playerSingleton.weapon = PlayerManager.playerSingleton.GetComponent<WeaponParent>();
-        StageManager.stageSingletom.SetState(StageState.READY);
+        StageManager.stageSingletom.SetState(StageState.IDLE);
+        PlayerManager.playerSingleton.SetState(PlayerState.IDLE);
         this.gameObject.SetActive(false);
     }
     public void GunSelect()
@@ -21,7 +22,8 @@ public class WeaponSelect : MonoBehaviour
         PlayerManager.playerSingleton.anim = gun.GetComponent<Animator>();
         PlayerManager.playerSingleton.gameObject.AddComponent<WeaponGun>();
         PlayerManager.playerSingleton.weapon = PlayerManager.playerSingleton.GetComponent<WeaponParent>();
-        StageManager.stageSingletom.SetState(StageState.READY);
+        StageManager.stageSingletom.SetState(StageState.IDLE);
+        PlayerManager.playerSingleton.SetState(PlayerState.IDLE);
         this.gameObject.SetActive(false);
     }
 }

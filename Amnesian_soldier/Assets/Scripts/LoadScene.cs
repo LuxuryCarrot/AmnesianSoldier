@@ -15,14 +15,18 @@ public class LoadScene : MonoBehaviour
     {
         
         AsyncOperation oper = SceneManager.LoadSceneAsync(2);
+        oper.allowSceneActivation = false;
         while(!oper.isDone)
         {
             float progress = oper.progress/0.9f;
             Slider.fillAmount = progress;
             
-            yield return null;
+            yield return new WaitForSeconds(2);
+            
+                oper.allowSceneActivation = true;
+            
+
         }
-        
 
     }
 }

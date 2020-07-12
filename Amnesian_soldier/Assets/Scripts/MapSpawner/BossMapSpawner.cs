@@ -23,6 +23,9 @@ public class BossMapSpawner : MapSpawnerParent
     }
     private void Update()
     {
+        if (PlayerManager.playerSingleton.current == PlayerState.DELAY)
+            return;
+
         if(!bossSpawned)
            bossSpawnTime -= Time.deltaTime;
         if(bossSpawnTime<=0)

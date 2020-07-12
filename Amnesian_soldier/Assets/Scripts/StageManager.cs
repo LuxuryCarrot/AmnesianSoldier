@@ -49,6 +49,7 @@ public class StageManager : MonoBehaviour
     public GameObject StoreCanvas;
     public GameObject BulletCanvas;
     public GameObject OutGameToolsCanvas;
+    public GameObject LoadCanvas;
     //public GameObject CardDeck;
     public Canvas HPText;
     //public Text DeckCountText;
@@ -113,6 +114,7 @@ public class StageManager : MonoBehaviour
         RestCanvas.SetActive(false);
         StoreCanvas.SetActive(false);
         OutGameToolsCanvas.SetActive(false);
+        LoadCanvas.SetActive(false);
         current = StageState.WEAPONSELECT;
         SetState(current);
         
@@ -226,4 +228,12 @@ public class StageManager : MonoBehaviour
         OutGameToolsCanvas.SetActive(true);
     }
     
+    public void StageLoad()
+    {
+        if(PlayerManager.playerSingleton.current==PlayerState.DELAY&&(current == StageState.READY || current==StageState.BOSSBATTLE))
+           PlayerManager.playerSingleton.SetState(PlayerState.IDLE);
+        if(current==StageState.READY)
+           SetState(StageState.IDLE);
+        LoadCanvas.SetActive(false);
+    }
 }
