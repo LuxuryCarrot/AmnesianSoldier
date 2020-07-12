@@ -32,7 +32,7 @@ public class BossMapSpawner : MapSpawnerParent
         {
             bossSpawned = true;
             GameObject bossSpawn = Instantiate(bossMob);
-            bossSpawn.transform.position = PlayerManager.playerSingleton.transform.position + new Vector3(7, 3.5f, 0);
+            bossSpawn.transform.position = PlayerManager.playerSingleton.transform.position + new Vector3(10, 10.0f, 0);
             bossSpawnTime = 3;
         }
     }

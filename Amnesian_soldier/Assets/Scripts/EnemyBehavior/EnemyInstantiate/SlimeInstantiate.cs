@@ -8,5 +8,7 @@ public class SlimeInstantiate : EnemyInstantiateParent
     {
         base.Execute();
         manager.transform.GetChild(1).GetChild(0).position -= new Vector3(0, 0.5f, 0);
+        manager.transform.GetChild(0).localScale = new Vector3(GetComponent<SlimeDie>().Level, GetComponent<SlimeDie>().Level, GetComponent<SlimeDie>().Level);
+
     }
 }

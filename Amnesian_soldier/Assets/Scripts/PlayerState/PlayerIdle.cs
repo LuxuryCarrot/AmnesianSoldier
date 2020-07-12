@@ -56,7 +56,7 @@ public class PlayerIdle : PlayerParent
         }
 
         if(manager.iteratingEnemy!=null
-            && manager.iteratingEnemy.transform.position.x - transform.position.x <= manager.AimStartRange+1
+            && manager.iteratingEnemy.transform.position.x - transform.position.x <= manager.AimStartRange
             &&!AimIn)
         {
             

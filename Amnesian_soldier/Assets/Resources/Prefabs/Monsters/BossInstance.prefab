@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 8585319391991292528}
   - component: {fileID: 114613240208061690}
   - component: {fileID: 1772952340200858958}
+  - component: {fileID: 114086231826830422}
+  - component: {fileID: 114182167016984738}
   m_Layer: 0
   m_Name: BossInstance
   m_TagString: Untagged
@@ -32,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158817038820691614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.5, z: 0}
+  m_LocalPosition: {x: 0, y: 3.92, z: -0.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7804187134682545331}
@@ -82,6 +84,7 @@ MonoBehaviour:
   current: 0
   AttackCanvas: {fileID: 0}
   hp: 50
+  hpMax: 50
   attackAmount: 5
   MonsterSpawnPool:
   - {fileID: 970495092198981321, guid: 486f23b81621db242b0fcb0305438cff, type: 3}
@@ -150,6 +153,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0ba9bc781409f54aba27d5f8e3a18e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+--- !u!114 &114086231826830422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158817038820691614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c191f04ce886572428fb63ab7e7b4f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+--- !u!114 &114182167016984738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158817038820691614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d98d6e6d9d57c4789eb62d66a48113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
@@ -280,11 +309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: beaf9946ea3b237409c8e6aa846209ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -2.99
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: beaf9946ea3b237409c8e6aa846209ad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.02
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: beaf9946ea3b237409c8e6aa846209ad, type: 3}
       propertyPath: m_LocalRotation.x
@@ -320,15 +349,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: beaf9946ea3b237409c8e6aa846209ad, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: beaf9946ea3b237409c8e6aa846209ad, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: beaf9946ea3b237409c8e6aa846209ad, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: beaf9946ea3b237409c8e6aa846209ad, type: 3}
       propertyPath: m_Controller

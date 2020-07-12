@@ -5,7 +5,8 @@ using UnityEngine;
 public enum CamState
 {
     IDLE,
-    SHAKE
+    SHAKE,
+    HARDSHAKE
 }
 
 public class CameraManager : MonoBehaviour
@@ -22,6 +23,7 @@ public class CameraManager : MonoBehaviour
         current = CamState.IDLE;
         CamEffects.Add(CamState.IDLE, GetComponent<CamIdel>());
         CamEffects.Add(CamState.SHAKE, GetComponent<CamShake>());
+        CamEffects.Add(CamState.HARDSHAKE, GetComponent<CamShakeHard>());
         SetState(current);
     }
 

@@ -43,6 +43,7 @@ public class PlayerBattle : PlayerParent
                 if (manager.iteratingEnemy.hp > 0)
                 {
                     manager.HP -= manager.iteratingEnemy.damage;
+                    StageManager.stageSingletom.HitKillSpawn(manager.iteratingEnemy.transform.position, true);
                     manager.speed *= 0.95f;
                     manager.anim.SetBool("Damaged", true);
                     if (manager.iteratingEnemy.battleBehavior != null)
@@ -88,7 +89,7 @@ public class PlayerBattle : PlayerParent
 
                 manager.SetState(PlayerState.PINN);
             }
-            else
+            else if(manager.iteratingEnemy.attackType == AttackType.HORIZON)
             {
                 manager.anim.SetTrigger("GuardAttack");
                 manager.iteratingEnemy.attackType = AttackType.NONE;
@@ -96,6 +97,11 @@ public class PlayerBattle : PlayerParent
                 manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
                 manager.iteratingEnemy = null;
                 manager.SetState(PlayerState.IDLE);
+            }
+            else
+            {
+                manager.iteratingEnemy = null;
+                manager.SetState(PlayerState.ABANDON);
             }
         }
         else

@@ -259,6 +259,7 @@ public class MapNodeLinker : MonoBehaviour
             deftype = "_Boss";
             node.GetComponent<MapNode>().battleInfo = "_Boss";
             node.GetComponent<MapNode>().mapInfo = stageNum.ToString() + "_" +  "Boss";
+            node.GetComponent<MapNode>().stateWhenStart = StageState.BOSSBATTLE;
         }
         else if(randomSeed <=0.015f && EliteMap>0&&deftype!="_Elite" && beforeType != "_Elite")
         {

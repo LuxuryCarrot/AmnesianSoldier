@@ -40,12 +40,14 @@ public class StageRest : StageParent
         manager.mapCanvas.SetActive(false);
         if (MapNode.EndNode != null)
         {
+            manager.RestCanvas.SetActive(false);
             //manager.mapCanvas.transform.GetChild(0).localPosition = new Vector3(0, 1190, 0);
             manager.SetState(StageState.GAMECLEAR);
 
         }
         else
         {
+            manager.RestCanvas.SetActive(false);
             //manager.mapCanvas.transform.GetChild(0).localPosition = new Vector3(0, 1190, 0);
             //Destroy(MapPositionManager.field.transform.GetChild(0).gameObject);
             manager.SetState(StageState.MAPSELECT);

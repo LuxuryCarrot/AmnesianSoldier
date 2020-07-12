@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum BossState
 {
@@ -10,7 +11,9 @@ public enum BossState
     MONSTERSPAWN,
     STUN,
     ATTACK,
-    DIE
+    DIE,
+    WAKE,
+    AWAKE
 }
 public class BossManager : MonoBehaviour
 {
@@ -19,6 +22,7 @@ public class BossManager : MonoBehaviour
     public BossState current;
     public GameObject AttackCanvas;
     public float hp;
+    public float hpMax;
     public int attackAmount;
     public Queue<AttackType> attacktQueue = new Queue<AttackType>();
 
@@ -36,11 +40,14 @@ public class BossManager : MonoBehaviour
         BossFlow.Add(BossState.STUN, GetComponent<BossSTUN>());
         BossFlow.Add(BossState.ATTACK, GetComponent<BossIdleAttack>());
         BossFlow.Add(BossState.DIE, GetComponent<BossDie>());
-        current = BossState.IDLE;
+        BossFlow.Add(BossState.WAKE, GetComponent<BossWake>());
+        BossFlow.Add(BossState.AWAKE, GetComponent<BossAwake>());
+        current = BossState.AWAKE;
         SetState(current);
     }
     private void Update()
     {
+        if(current!=BossState.STUN)
         transform.position
             = new Vector3(PlayerManager.playerSingleton.transform.position.x+10, 3.5f, 0);
 
@@ -49,6 +56,8 @@ public class BossManager : MonoBehaviour
             StageManager.stageSingletom.SetState(StageState.GAMECLEAR);
             SetState(BossState.DIE);
         }
+        if(StageManager.stageSingletom.BossCanvas.activeInHierarchy)
+        StageManager.stageSingletom.BossCanvas.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = hp / hpMax;
     }
     public void SetState(BossState news)
     {

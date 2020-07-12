@@ -46,7 +46,7 @@ MonoBehaviour:
   mapPrefab: {fileID: 911791879556073328, guid: a05fda2d220c8734ebeb0ef3475083d1,
     type: 3}
   monsterPrefab:
-  - {fileID: 1686942569005877315, guid: 1feca822d1eeac448bfe1d7c57e96da8, type: 3}
+  - {fileID: 970495092198981321, guid: 486f23b81621db242b0fcb0305438cff, type: 3}
   eliteMosterPrefab:
   - {fileID: 1686942569005877315, guid: 1feca822d1eeac448bfe1d7c57e96da8, type: 3}
   traps:
@@ -57,4 +57,4 @@ MonoBehaviour:
   monsterMaxDistance: 42
   mapDontCamChase: 15
   isEliteStage: 0
-  trapRate: 0.01
+  trapRate: 0

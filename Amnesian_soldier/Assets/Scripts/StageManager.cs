@@ -50,11 +50,14 @@ public class StageManager : MonoBehaviour
     public GameObject BulletCanvas;
     public GameObject OutGameToolsCanvas;
     public GameObject LoadCanvas;
+    public GameObject HitKillCanvas;
     //public GameObject CardDeck;
     public Canvas HPText;
     //public Text DeckCountText;
     public GameObject mapSelectCanvas;
     public GameObject MinimapAnchor;
+    public GameObject miniMap;
+    public GameObject BossCanvas;
     
     public Text MapselectLimitTime;
     public Text MapselectLimitTimeShadow;
@@ -115,6 +118,7 @@ public class StageManager : MonoBehaviour
         StoreCanvas.SetActive(false);
         OutGameToolsCanvas.SetActive(false);
         LoadCanvas.SetActive(false);
+        BossCanvas.SetActive(false);
         current = StageState.WEAPONSELECT;
         SetState(current);
         
@@ -125,10 +129,13 @@ public class StageManager : MonoBehaviour
     }
     private void Update()
     {
+        if(current!=StageState.BOSSBATTLE)
         MinimapAnchor.GetComponent<RectTransform>().localPosition
             = new Vector3(-467 + (PlayerManager.playerSingleton.transform.position.x
                            - (MapPositionManager.mapMax - MapPositionManager.mapMaxCurrent)) * 950 / MapPositionManager.mapMaxCurrent, 494, 0);
         //임시로 넣어둔 esc 누를 시 게임종료하는 기능
+
+        
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -234,6 +241,24 @@ public class StageManager : MonoBehaviour
            PlayerManager.playerSingleton.SetState(PlayerState.IDLE);
         if(current==StageState.READY)
            SetState(StageState.IDLE);
+
+        if (current == StageState.BOSSBATTLE)
+        {
+            miniMap.SetActive(false);
+            BossCanvas.SetActive(true);
+        }
         LoadCanvas.SetActive(false);
+    }
+
+    public void HitKillSpawn(Vector3 pos, bool isHit)
+    {
+        Vector3 position = Camera.main.WorldToScreenPoint(pos);
+        GameObject newFont;
+        if (isHit)
+            newFont= Instantiate(Resources.Load("Prefabs/UIPrefab/HitPrefab") as GameObject, HitKillCanvas.transform);
+        else
+            newFont= Instantiate(Resources.Load("Prefabs/UIPrefab/KillPrefab") as GameObject, HitKillCanvas.transform);
+
+        newFont.GetComponent<RectTransform>().localPosition = new Vector3(810,0,0);
     }
 }

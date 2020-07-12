@@ -471,9 +471,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.08400819
-  m_TransitionOffset: 0
-  m_ExitTime: 0.8199825
+  m_TransitionDuration: 0.004757352
+  m_TransitionOffset: 0.048739836
+  m_ExitTime: 0.14981437
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -565,9 +565,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.46428573
+  m_TransitionDuration: 0.034453694
+  m_TransitionOffset: 0.008507965
+  m_ExitTime: 0.14140263
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -943,9 +943,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.08333328
   m_TransitionOffset: 0
-  m_ExitTime: 0.625
+  m_ExitTime: 9.529811e-10
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1037,9 +1037,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.4642859
+  m_TransitionDuration: 0.109999955
+  m_TransitionOffset: 0.2999997
+  m_ExitTime: 0.7642859
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1392,7 +1392,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GuardDeflect
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101278559524683748}
@@ -1646,7 +1646,7 @@ AnimatorStateMachine:
     m_Position: {x: 264, y: 288, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102714525920812858}
-    m_Position: {x: 540, y: 480, z: 0}
+    m_Position: {x: 564, y: 504, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102086057138593744}
     m_Position: {x: 816, y: 348, z: 0}

@@ -142,12 +142,17 @@ public class PlayerManager : MonoBehaviour
         else if(stam<100)
             StageManager.stageSingletom.StaminarSlot.transform.parent.gameObject.SetActive(true);
         //아래의 발판이 없을때 빠지는 부분
-        if (!GetComponent<CharacterController>().isGrounded && transform.position.y > -3.0f)
+        if (!GetComponent<CharacterController>().isGrounded && transform.position.y > 1.0f)
         {
             
             ySpeed += gravity * Time.deltaTime;
             controller.Move(new Vector3(0, -ySpeed * Time.deltaTime, 0));
             
+        }
+        else if(!GetComponent<CharacterController>().isGrounded && transform.position.y > -3.0f)
+        {
+            ySpeed += gravity * Time.deltaTime*3;
+            controller.Move(new Vector3(0, -ySpeed * Time.deltaTime, 0));
         }
         else
         {
@@ -157,9 +162,9 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (stam >= 40)
+            if (stam >= 25)
             {
-                stam -= 40;
+                stam -= 25;
                 stamRestore = 0.5f;
                 if (trap != null &&
                     trap.transform.position.x - transform.position.x <= trap.maxRange

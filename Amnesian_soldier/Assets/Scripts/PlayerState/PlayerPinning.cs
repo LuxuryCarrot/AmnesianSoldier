@@ -25,7 +25,7 @@ public class PlayerPinning : PlayerParent
         if(pinning)
         manager.iteratingEnemy.transform.position = transform.position + new Vector3(0.7f, 0, 0);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.timeScale!=0)
         {
             manager.anim.SetTrigger("GuardAttack");
 

@@ -49,7 +49,7 @@ public class MapSpawnInstance : MapSpawnerParent
             mapBox.transform.localPosition = new Vector3(MapPositionManager.mapMax+i, 0, 0);
             if (i <= startSpawnPos - mapDontCamChase && i>25)
             {
-                if (i >= 10 && Random.Range(0, 20) <= 1 && monsterMinDistanceTemp >= monsterMinDistance)
+                if (i >= 0 && Random.Range(0, 20) <= 1 && monsterMinDistanceTemp >= monsterMinDistance)
                 {
                     GameObject monster;
 

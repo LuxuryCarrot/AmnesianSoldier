@@ -19,7 +19,7 @@ public class PlayerBossBattle : PlayerParent
             if (answer >= 3)
             {
                 manager.boss.SetState(BossState.STUN);
-                CameraManager.camSingleTon.SetState(CamState.SHAKE);
+                CameraManager.camSingleTon.SetState(CamState.HARDSHAKE);
                 manager.boss.hp -= 5;
                 manager.SetState(PlayerState.IDLE);
             }
@@ -32,6 +32,7 @@ public class PlayerBossBattle : PlayerParent
         }
         else if(Input.GetMouseButtonDown(0))
         {
+            //보석 깨지는 소리 넣으면 되는 곳
             GameObject thisButton = manager.boss.transform.GetChild(1).GetChild(0).gameObject;
             thisButton.transform.SetParent(null);
             Destroy(thisButton);

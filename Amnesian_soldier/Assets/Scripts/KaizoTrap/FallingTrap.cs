@@ -21,4 +21,8 @@ public class FallingTrap : TrapParent
     {
         PlayerManager.playerSingleton.SetState(PlayerState.JUMP);
     }
+    public override void Penalty()
+    {
+        PlayerManager.playerSingleton.gravity *= 2;
+    }
 }

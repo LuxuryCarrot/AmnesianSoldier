@@ -546,13 +546,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anim_slime_idle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 361cb3999200b3543962de61328782f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 361cb3999200b3543962de61328782f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 361cb3999200b3543962de61328782f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 361cb3999200b3543962de61328782f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 361cb3999200b3543962de61328782f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.112
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -560,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalRotation.y
@@ -568,7 +588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -592,15 +612,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_Controller
@@ -609,9 +629,13 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 9000000, guid: 181b9a404e7efd54da28eb5add09d3db, type: 3}
+      objectReference: {fileID: 9000000, guid: 361cb3999200b3543962de61328782f6, type: 3}
     - target: {fileID: 9500000, guid: 361cb3999200b3543962de61328782f6, type: 3}
       propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 361cb3999200b3543962de61328782f6, type: 3}
+      propertyPath: m_CullingMode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

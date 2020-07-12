@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/NOW2_400_233/Desktop/새 폴더 (11)/AmnesianSoldier.exe
+C:/Users/NOW2_400_233/Desktop/새 폴더 (12)/AmnesianSoldier.exe
 SceneListBegin?
 Assets/Scenes/0_StartSplashScene.unity
 Assets/Scenes/1_MainScene.unity
@@ -154,7 +154,7 @@ a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossTrapAttack
 6674ce457cf82e9db5f174537fe458ff Assembly-CSharp.dll:.CamShake
 7e6ed836cbaa230e56d6a2bbae1b9bb5 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessEffectSettings
 923e97f1da56803cf6d9c57b408077c2 Assembly-CSharp.dll:.StageSelectMap
-a213e8952df3429f87aef7f2ec54aa7d Assembly-CSharp.dll:.StageManager
+12a8056f3dde0b8525817b7b7f3e6ce9 Assembly-CSharp.dll:.StageManager
 ae629a36894279f8e5d53741f870d116 Assembly-CSharp.dll:.StoreDamageIncrease
 b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 099a2a21663cb50a4658f8fa6d9dd64a Assembly-CSharp.dll:.ArrowInputSlot
@@ -269,7 +269,7 @@ d643744df95f53adc9920da9377577ac Assembly-CSharp.dll:.EliteDie
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.BeeAwake
 0783ec51881faa55672628bc7f45ee51 Assembly-CSharp.dll:.TrapParent
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.StoreParent
-6530f21aae54d1c16eccf06b0275408e Assembly-CSharp.dll:.BossManager
+ae601806917193af4efcb6270c2c350a Assembly-CSharp.dll:.BossManager
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyAwakeParent
 591148bc854c5b79f2c56cc34338720a Assembly-CSharp.dll:.StageWeaponSelect
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.FadeIn
@@ -301,3 +301,7 @@ d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerBattle
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MerchantOnClick
 89c1e97f7398006d3084ac2263d9c984 Assembly-CSharp.dll:.CardHaist
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.OnionAwake
+6b0b970195e9dad119064db69ac5b3e5 Assembly-CSharp.dll:.DestroyTime
+6674ce457cf82e9db5f174537fe458ff Assembly-CSharp.dll:.CamShakeHard
+a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossWake
+a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossAwake

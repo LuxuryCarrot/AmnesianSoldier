@@ -72,12 +72,12 @@ public class TutorialManager : MonoBehaviour
 
         if (PlayerManager.playerSingleton == null)
             return;
-        if (Camera.main.transform.parent == PlayerManager.playerSingleton.transform && tutoFlow==0)
+        if (Camera.main.transform.parent == PlayerManager.playerSingleton.transform && tutoFlow == 0)
             tutoFlow++;
         if (tutoFlow == 1)
         {
             Tuto1.SetActive(true);
-            Time.timeScale =0f;
+            Time.timeScale = 0f;
             temp -= Time.fixedDeltaTime;
             if (temp <= 0)
             {
@@ -115,7 +115,7 @@ public class TutorialManager : MonoBehaviour
             }
         }
         else if (tutoFlow == 4 && PlayerManager.playerSingleton.iteratingEnemy != null &&
-             PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <=6)
+             PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <= 6)
         {
             Tuto4.SetActive(true);
             Time.timeScale = 0f;
@@ -128,16 +128,16 @@ public class TutorialManager : MonoBehaviour
                 Tuto4.SetActive(false);
             }
         }
-        else if (tutoFlow == 5 && (isAttTutoEnd || isDefTutoEnd ))
+        else if (tutoFlow == 5 && (isAttTutoEnd && isDefTutoEnd))
         {
             tutoFlow += 2;
         }
-        else if (tutoFlow == 7 && ((PlayerManager.playerSingleton.iteratingEnemy!=null &&
-            PlayerManager.playerSingleton.iteratingEnemy.attackType==AttackType.NONE) || Tuto7.activeInHierarchy))
+        else if (tutoFlow == 7 && ((PlayerManager.playerSingleton.iteratingEnemy != null &&
+            PlayerManager.playerSingleton.iteratingEnemy.attackType == AttackType.NONE) || Tuto7.activeInHierarchy))
         {
             Tuto7.SetActive(true);
             Time.timeScale = 0f;
-            
+
             if (Input.GetMouseButtonDown(0))
             {
                 Time.timeScale = 1;
@@ -149,7 +149,7 @@ public class TutorialManager : MonoBehaviour
         else if (tutoFlow == 8)
         {
             Tuto8.SetActive(true);
-            
+
             temp -= Time.fixedDeltaTime;
             if (temp <= 0)
             {
@@ -165,30 +165,30 @@ public class TutorialManager : MonoBehaviour
             if (temp <= 0)
             {
                 temp = 3;
-                tutoFlow+=9;
+                tutoFlow += 1;
                 Tuto9.SetActive(false);
             }
         }
-        
-        else if (tutoFlow == 18 && ((PlayerManager.playerSingleton.iteratingEnemy!=null
-            && PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <= PlayerManager.playerSingleton.AimStartRange)||Tuto18.activeInHierarchy))
+
+        else if (tutoFlow == 18 && ((PlayerManager.playerSingleton.iteratingEnemy != null
+            && PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <= PlayerManager.playerSingleton.AimStartRange) || Tuto18.activeInHierarchy))
         {
             Tuto18.SetActive(true);
-            
+
             temp -= Time.fixedDeltaTime;
             if (temp <= 0)
             {
                 temp = 3;
-                tutoFlow+=3;
+                tutoFlow += 3;
                 Tuto18.SetActive(false);
             }
         }
-        else if (tutoFlow == 21 && PlayerManager.playerSingleton.trap!=null && PlayerManager.playerSingleton.trap.transform.position.x - PlayerManager.playerSingleton.transform.position.x
-            <= PlayerManager.playerSingleton.trap.maxRange-0.5f)
+        else if (tutoFlow == 21 && PlayerManager.playerSingleton.trap != null && PlayerManager.playerSingleton.trap.transform.position.x - PlayerManager.playerSingleton.transform.position.x
+            <= PlayerManager.playerSingleton.trap.maxRange - 3.0f)
         {
             Tuto21.SetActive(true);
             Time.timeScale = 0f;
-            
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Time.timeScale = 1;
@@ -200,7 +200,7 @@ public class TutorialManager : MonoBehaviour
         else if (tutoFlow == 22)
         {
             Tuto22.SetActive(true);
-            
+
             temp -= Time.fixedDeltaTime;
             if (temp <= 0)
             {
@@ -224,12 +224,12 @@ public class TutorialManager : MonoBehaviour
             }
 
         }
-        else if(tutoFlow==24)
+        else if (tutoFlow == 24)
         {
             Tuto24.SetActive(true);
             temp -= Time.fixedDeltaTime;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (temp<=0)
             {
                 temp = 3;
                 tutoFlow++;
@@ -239,47 +239,48 @@ public class TutorialManager : MonoBehaviour
         }
 
 
-        if(skillFlow==0 && StageManager.stageSingletom.SkillGained() && tutoFlow>9)
+        if (skillFlow == 0 && StageManager.stageSingletom.SkillGained() && tutoFlow>9 && tutoFlow<18)
         {
             Tuto10.SetActive(true);
-            
-            if(Input.GetKeyDown(KeyCode.E))
+
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 skillFlow++;
                 Tuto10.SetActive(false);
             }
         }
-        else if(skillFlow==1)
+        else if (skillFlow == 1)
         {
             Tuto17.SetActive(true);
             skillTemp -= Time.fixedDeltaTime;
-            if (skillTemp<=0)
+            if (skillTemp <= 0)
             {
                 skillFlow++;
+                tutoFlow += 8;
                 Tuto17.SetActive(false);
             }
         }
 
-        if(!isAttTutoEnd && ((tutoFlow >=5 && PlayerManager.playerSingleton.iteratingEnemy != null
+        if (!isAttTutoEnd && ((tutoFlow >= 5 && PlayerManager.playerSingleton.iteratingEnemy != null
             && PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <= PlayerManager.playerSingleton.AimStartRange + 1
             && (PlayerManager.playerSingleton.iteratingEnemy.attackType == AttackType.HORIZON)) || Tuto5.activeInHierarchy || Tuto6.activeInHierarchy))
         {
-            if(attTuto==0)
+            if (attTuto == 0)
             {
                 Tuto5.SetActive(true);
                 Time.timeScale = 0;
-                if(Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonDown(1))
                 {
                     Tuto5.SetActive(false);
                     attTuto++;
                     Time.timeScale = 1;
                 }
             }
-            else if(attTuto==1)
+            else if (attTuto == 1)
             {
                 Tuto6.SetActive(true);
                 attTemp -= Time.fixedDeltaTime;
-                if(attTemp<=0)
+                if (attTemp <= 0)
                 {
                     Tuto6.SetActive(false);
                     isAttTutoEnd = true;
@@ -288,12 +289,12 @@ public class TutorialManager : MonoBehaviour
                     attTemp = 2;
                 }
             }
-                    
+
         }
 
-        if(!isDefTutoEnd && tutoFlow >= 5 && ((PlayerManager.playerSingleton.iteratingEnemy!=null
+        if (!isDefTutoEnd && tutoFlow >= 5 && ((PlayerManager.playerSingleton.iteratingEnemy != null
             && PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <= PlayerManager.playerSingleton.AimStartRange + 1
-            && PlayerManager.playerSingleton.iteratingEnemy.attackType == AttackType.GUARD)||(defTuto>0 || Tuto13.activeInHierarchy)))
+            && PlayerManager.playerSingleton.iteratingEnemy.attackType == AttackType.GUARD) || (defTuto > 0 || Tuto13.activeInHierarchy)))
         {
             if (defTuto == 0)
             {
@@ -309,6 +310,8 @@ public class TutorialManager : MonoBehaviour
             }
             else if (defTuto == 1)
             {
+                if (PlayerManager.playerSingleton.iteratingEnemy == null)
+                    defTuto = 0;
                 tutoTerm -= Time.fixedDeltaTime;
                 if (tutoTerm <= 0)
                 {
@@ -323,11 +326,11 @@ public class TutorialManager : MonoBehaviour
                     }
                 }
             }
-            
+
             else if (defTuto == 2)
             {
                 Tuto16.SetActive(true);
-                
+
                 if (Input.GetMouseButtonDown(0))
                 {
                     Tuto16.SetActive(false);
@@ -341,4 +344,5 @@ public class TutorialManager : MonoBehaviour
 
         }
     }
+    
 }

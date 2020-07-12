@@ -275,17 +275,14 @@ public class ObjSpawnManager : MonoBehaviour
 
     public void NearObjSpawn(Vector3 pos)
     {
-        BGSpawned= BGSpawned == 0 ? 1 : 0;
-        int seed = Random.Range(0, 100);
-        int realBG;
-        if (seed < 5)
-            realBG = 2;
-        else
-            realBG = BGSpawned;
+        
+        
 
-        GameObject near = Instantiate(nearObj[realBG], transform.GetChild(0));
+        GameObject near = Instantiate(nearObj[Random.Range(0, nearObj.Length)], transform.GetChild(0));
+
         
         near.transform.localPosition = pos;
+        
         NearObjsQueue.Enqueue(near);
     }
     public void NearGrassSpawn(float xDistance)
@@ -344,8 +341,16 @@ public class ObjSpawnManager : MonoBehaviour
     }
     public void FarBGSpawn(float xDistance)
     {
-        GameObject farBG = Instantiate(farBGs[Random.Range(0, farBGs.Length)], transform.GetChild(10));
+        BGSpawned = BGSpawned == 0 ? 1 : 0;
+        int realBg;
+        if (Random.Range(0, 100) > 5)
+            realBg = BGSpawned;
+        else
+            realBg = 2;
+        GameObject farBG = Instantiate(farBGs[realBg], transform.GetChild(10));
         farBG.transform.localPosition = new Vector3(xDistance, 0, 0) + farBGDepth;
+        if (realBg == 2)
+            farBG.transform.localPosition += new Vector3(0, 2.1f, 0);
         FarBGsQueue.Enqueue(farBG);
     }
     public void VeryFarBGSpawn(float xDistance)

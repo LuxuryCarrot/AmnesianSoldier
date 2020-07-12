@@ -11,7 +11,7 @@ public class TrapParent : MonoBehaviour
     public virtual void DetactThis()
     {
         if(transform.position.x- PlayerManager.playerSingleton.transform.position.x<=maxRange &&
-            transform.position.x - PlayerManager.playerSingleton.transform.position.x>=0
+            transform.position.x - PlayerManager.playerSingleton.transform.position.x>=minRange
             && PlayerManager.playerSingleton.trap==null)
         {
             PlayerManager.playerSingleton.trap = this;
@@ -19,8 +19,9 @@ public class TrapParent : MonoBehaviour
         else if(transform.position.x - PlayerManager.playerSingleton.transform.position.x < 0
             && PlayerManager.playerSingleton.trap == this)
         {
-            PlayerManager.playerSingleton.trap = this;
+            PlayerManager.playerSingleton.trap = null;
         }
+        
 
         if (PlayerManager.playerSingleton.transform.position.x - transform.position.x > 20)
             Destroy(this.gameObject);
@@ -33,4 +34,5 @@ public class TrapParent : MonoBehaviour
     {
 
     }
+    public virtual void Penalty() { }
 }

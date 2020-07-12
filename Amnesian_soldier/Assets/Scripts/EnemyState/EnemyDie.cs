@@ -25,7 +25,7 @@ public class EnemyDie : EnemyParent
 
         SkillRoot();
         StageManager.stageSingletom.KillCount++;
-
+        StageManager.stageSingletom.HitKillSpawn(transform.position+new Vector3(0,1,0), false);
         //if (manager.RootingCardPool.Length > 0)
         //{
         //    DeckList.Deck.Enqueue(manager.RootingCardPool[Random.Range(0, manager.RootingCardPool.Length)]);
@@ -37,7 +37,7 @@ public class EnemyDie : EnemyParent
         //{
         //    string root = manager.RootingAttPool[Random.Range(0, manager.RootingAttPool.Length)];
         //    if (root == "blue" && StageManager.stageSingletom.BlueAttackCurrent < StageManager.stageSingletom.BlueAttackAmount)
-            
+
         //        StageManager.stageSingletom.BlueAttackCurrent++;
 
         //    else if(root == "red" && StageManager.stageSingletom.RedAttackCurrent < StageManager.stageSingletom.RedAttackAmount)
