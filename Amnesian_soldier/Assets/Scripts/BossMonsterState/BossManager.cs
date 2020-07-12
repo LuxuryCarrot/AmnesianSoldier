@@ -47,13 +47,13 @@ public class BossManager : MonoBehaviour
     }
     private void Update()
     {
-        if(current!=BossState.STUN)
+        if(current!=BossState.STUN && current!=BossState.DIE)
         transform.position
             = new Vector3(PlayerManager.playerSingleton.transform.position.x+10, 3.5f, 0);
 
         if(hp<=0)
         {
-            StageManager.stageSingletom.SetState(StageState.GAMECLEAR);
+            
             SetState(BossState.DIE);
         }
         if(StageManager.stageSingletom.BossCanvas.activeInHierarchy)
