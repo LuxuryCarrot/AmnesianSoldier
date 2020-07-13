@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerAnimGet : MonoBehaviour
 {
     public GameObject bulletPrefab;
+
     public void Success()
     {
         

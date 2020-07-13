@@ -617,7 +617,8 @@ GameObject:
   - component: {fileID: 3992378448727211023}
   - component: {fileID: 3992378448736261055}
   - component: {fileID: 114877421596791908}
-  - component: {fileID: 5700113800187912837}
+  - component: {fileID: 8299346535226826723}
+  - component: {fileID: 7207377587852662415}
   m_Layer: 0
   m_Name: PlayerSword
   m_TagString: Untagged
@@ -674,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
---- !u!114 &5700113800187912837
+--- !u!114 &8299346535226826723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -683,9 +684,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 3992378448726777903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99303e2f60ac78947aab95aaaf7564ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 57354634a6448894793af43cbca157b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerAttEvent: event:/PC/Attack/Sword/RAttack
+  PlayerDmgEvent: event:/PC/Damaged/Damaged
+  PlayerPotEvent: event:/PC/Use/HPPotion
+  PlayerRunEvent: event:/PC/Run/Dirt
+--- !u!114 &7207377587852662415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992378448726777903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377056e0a9b3c984496f3164818cfa00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RunBGMIntroEvent: event:/BGM/Intro_Run
+  RunBGMLoopEvent: event:/BGM/Loop_Run
 --- !u!1 &3992378448726777905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,32 +1602,32 @@ PrefabInstance:
     - target: {fileID: 5496054397184622240, guid: b3087379d4ba3954690e650bd9bf63b6,
         type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: 4.0709186
+      value: -0.0000019073486
       objectReference: {fileID: 0}
     - target: {fileID: 5496054397184622240, guid: b3087379d4ba3954690e650bd9bf63b6,
         type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: -0.6810663
+      value: 0.0000001937151
       objectReference: {fileID: 0}
     - target: {fileID: 5496054397184622240, guid: b3087379d4ba3954690e650bd9bf63b6,
         type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: 2.995833
+      value: -0.000000019841536
       objectReference: {fileID: 0}
     - target: {fileID: 5496054397184622240, guid: b3087379d4ba3954690e650bd9bf63b6,
         type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.93633056
+      value: 5.0000052
       objectReference: {fileID: 0}
     - target: {fileID: 5496054397184622240, guid: b3087379d4ba3954690e650bd9bf63b6,
         type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.681293
+      value: 0.0011968159
       objectReference: {fileID: 0}
     - target: {fileID: 5496054397184622240, guid: b3087379d4ba3954690e650bd9bf63b6,
         type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 8.0616255
+      value: 5.000075
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3087379d4ba3954690e650bd9bf63b6, type: 3}

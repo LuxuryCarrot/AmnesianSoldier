@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-D:/Builds/새 폴더 (3)/AmnesianSoldier.exe
+D:/OneDrive/바탕 화면/기말시연 테스트 빌드/AmnesianSoldier.exe
 SceneListBegin?
 Assets/Scenes/0_StartSplashScene.unity
 Assets/Scenes/1_MainScene.unity
@@ -29,6 +29,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 5aa618a4fc67c36772d641d1a9261626 Assembly-CSharp.dll:.Shake
 a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossParent
+64a20175390b8c9f705cff55b6f48d2c Assembly-CSharp.dll:.BGMSound
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MonsterManager
 71f7f12b8d0f4fd73590db8bcb6d453c Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.Bloom
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
@@ -73,6 +74,7 @@ f542c1afca5bb4022f91fdda19b8d622 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 d3c76b14a25eebd3a3323dd43297919c Unity.TextMeshPro.dll:TMPro.TMP_InputField
 130b9cd93c79860f94f2eb490cbea677 Assembly-CSharp.dll:.MapSpawnInstance
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.RestStageCanvasManager
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GoblinSound
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 507174d46dacbc5fe45e28485db5dd1e UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -129,6 +131,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 444398bc4fb783b0b448ac3c979214e1 Assembly-CSharp-firstpass.dll:.FmodResonanceAudioRoom
 6308acbc20fd382acd06cf642ace5d91 Assembly-CSharp.dll:.DeckList
 4e9333594897a1fb8b136ad2eae996c7 Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
+cc7bb30a3bb00989dab4b3b60154ed10 Assembly-CSharp.dll:.SlimeSound
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 1dcb82730d983b77cec736c6ef19f814 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -151,13 +154,15 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 3a2888d29aa818c5de6f4a926455fc4d Assembly-CSharp.dll:.ObjSpawnManager
 174a1822d1430f669300d748a36002fb Assembly-CSharp.dll:.EnemyKnockBack
 e89e2a8747b2a59d5f0ea5d1802868a2 Assembly-CSharp-firstpass.dll:FMODUnity.Settings
+547dd990c6bd132f6bb51fff3f86998c Assembly-CSharp.dll:.PlayerSound
 a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossTrapAttack
 2ec6667e5c574bcffe26a1c9289b1b0e Assembly-CSharp-firstpass.dll:.FMODEventPlayable
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ForcedSlider
 6674ce457cf82e9db5f174537fe458ff Assembly-CSharp.dll:.CamShake
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DeveloperOnly
 7e6ed836cbaa230e56d6a2bbae1b9bb5 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessEffectSettings
 923e97f1da56803cf6d9c57b408077c2 Assembly-CSharp.dll:.StageSelectMap
-12a8056f3dde0b8525817b7b7f3e6ce9 Assembly-CSharp.dll:.StageManager
+9044a80108787d131e057d9c28b464e8 Assembly-CSharp.dll:.StageManager
 ae629a36894279f8e5d53741f870d116 Assembly-CSharp.dll:.StoreDamageIncrease
 b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 099a2a21663cb50a4658f8fa6d9dd64a Assembly-CSharp.dll:.ArrowInputSlot
@@ -178,10 +183,11 @@ d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerDelay
 23a8326e7ed13707edd91871f839a791 Assembly-CSharp.dll:.CameraManager
 c181cbb5ec0b09544e90b138a7ec12fe Assembly-CSharp.dll:.SlimeDie
 67dba9f91bd603ca1e6c4d3364f927cb Assembly-CSharp.dll:.OutGameManager
-a1f36f37dcf0f467b58836c5faa4553c Assembly-CSharp.dll:.LoadScene
+965f9d0f8ab026752176f3cf22726992 Assembly-CSharp.dll:.LoadScene
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.GoblinArchorAwake
 6ea7715ccd58ad4d6ccce6199c334a7b Assembly-CSharp-firstpass.dll:FMODUnity.StudioListener
 044a2a64eca59674f46502f6017e3101 Assembly-CSharp.dll:.RetryButton
+02c9d09264b4eee0ed196f6969aff5eb Assembly-CSharp.dll:.OnionSound
 3d8892e960e0ed644404ef22b09dce70 Assembly-CSharp.dll:.MapStore
 d6fc8d3165070298511ec776ea575626 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessResources
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
@@ -256,7 +262,7 @@ eced9a745839ccf7c2e76262f039e2ef Assembly-CSharp.dll:.PlayerAnimGet
 3b760e6526e13f7504f59e210145899a Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 507174d46dacbc5fe45e28485db5dd1e Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 923e97f1da56803cf6d9c57b408077c2 Assembly-CSharp.dll:.StageStart
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MainSceneUIManager
+d0002c22d90613789679088818d3b17c Assembly-CSharp.dll:.MainSceneUIManager
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.EnemyBattle
 130b9cd93c79860f94f2eb490cbea677 Assembly-CSharp.dll:.MapSpawnTutorial
 9df3faf6eeb116078523fc71c4dfc503 Assembly-CSharp.dll:.PlayerIdle
@@ -298,7 +304,6 @@ d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerBattle
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ButtonExit
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.KillCount
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.FmodController
 9e5f55103f6f645640d0eddfdb4d0a5f Assembly-CSharp.dll:.TutorialManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.BossAnimGet
 7d11e17b0323c2d01abce64d39203eb6 Assembly-CSharp-firstpass.dll:FMODUnity.StudioBankLoader

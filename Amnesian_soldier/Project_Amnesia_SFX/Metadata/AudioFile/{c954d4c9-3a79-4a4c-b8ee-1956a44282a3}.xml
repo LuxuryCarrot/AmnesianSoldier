@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{c954d4c9-3a79-4a4c-b8ee-1956a44282a3}">
+		<property name="assetPath">
+			<value>Troll01_Death1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.81804988662131517</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3cca5829-0569-4554-914f-05a525d4bd32}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114369371705532234}
-  - {fileID: 114894483162821882}
-  - {fileID: 114448684579237894}
-  - {fileID: 114754490349672554}
-  - {fileID: 114209049400555072}
+  - {fileID: 114092712554571320}
+  - {fileID: 114643448331203250}
+  - {fileID: 114009378665379520}
+  - {fileID: 114995412673769658}
+  - {fileID: 114320632001880404}
   EditorEvents:
   - {fileID: 114590695758061652}
   - {fileID: 114761221142593434}
@@ -35,12 +36,33 @@ MonoBehaviour:
   - {fileID: 114245428819755494}
   - {fileID: 114565490592696926}
   - {fileID: 114072588028033248}
+  - {fileID: 114743858413495462}
+  - {fileID: 114763343480263560}
+  - {fileID: 114693118009362492}
+  - {fileID: 114689582451987358}
+  - {fileID: 114471865712720770}
+  - {fileID: 114017354831866758}
+  - {fileID: 114015188641732218}
+  - {fileID: 114684462549282292}
+  - {fileID: 114948267184389846}
+  - {fileID: 114148342669238146}
+  - {fileID: 114990749711216716}
+  - {fileID: 114370727202574444}
+  - {fileID: 114642127489704726}
+  - {fileID: 114798170618162074}
+  - {fileID: 114180489701333490}
+  - {fileID: 114942792588422840}
+  - {fileID: 114462431355176700}
+  - {fileID: 114982114943427454}
+  - {fileID: 114932780167150986}
+  - {fileID: 114212041266020194}
+  - {fileID: 114235690489213344}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 114448684579237894}
+  - {fileID: 114009378665379520}
   StringsBanks:
   - {fileID: 114369371705532234}
-  stringsBankWriteTime: 637287086293962694
+  stringsBankWriteTime: 637302835321118915
   cacheVersion: 3
 --- !u!114 &114005983282881774
 MonoBehaviour:
@@ -60,6 +82,70 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114009378665379520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637302835321058865
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &114015188641732218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Boss/Die
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Boss/Die
+  guid: 323d45b405aede49ba067bc98848821a
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3111
+--- !u!114 &114017354831866758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Boss/Pat_Trap
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Boss/Pat_Trap
+  guid: 1ac7026b7bde934b8ce8722d97660086
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1949
 --- !u!114 &114018784286708008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +179,7 @@ MonoBehaviour:
   Path: event:/PC/Use/HPPotion
   guid: 40dae39bbb49384c9115acfeb4abe282
   Banks:
-  - {fileID: 114754490349672554}
+  - {fileID: 114995412673769658}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -116,7 +202,7 @@ MonoBehaviour:
   Path: event:/UI/HP_Plus
   guid: 79fa92e90b644044ac5f83a8d4371fb1
   Banks:
-  - {fileID: 114209049400555072}
+  - {fileID: 114320632001880404}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -139,6 +225,24 @@ MonoBehaviour:
   Path: Project_Amnesia_SFX/Build/Desktop/Enemy.bank
   SubDir: 
   lastModified: 637284308019492842
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &114092712554571320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/BGM.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/BGM.bank
+  SubDir: 
+  lastModified: 637302835322715433
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -214,6 +318,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114148342669238146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Boss/Appear
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Boss/Appear
+  guid: 4794717249ec9945b2948fdad20ced88
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1903
 --- !u!114 &114161949670222862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +394,7 @@ MonoBehaviour:
   Path: event:/PC/Attack/Sword/Success
   guid: 4f6d8a93b7e27847bc50391c10c19d49
   Banks:
-  - {fileID: 114754490349672554}
+  - {fileID: 114995412673769658}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -275,6 +402,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 516
+--- !u!114 &114180489701333490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Wasp/Appear
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Wasp/Appear
+  guid: ee771039eca16f4db429ea3bf9650aa4
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2470
 --- !u!114 &114184257296308248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +460,30 @@ MonoBehaviour:
   lastModified: 637287086293972666
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
+--- !u!114 &114212041266020194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_Click
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UI_Click
+  guid: 78cf70abd5dfff4db840a8bb4b1ab570
+  Banks:
+  - {fileID: 114320632001880404}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 183
 --- !u!114 &114219933969927032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +520,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114235690489213344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_Hover
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UI_Hover
+  guid: fc763d1c5770824fb2d760cb42d17edd
+  Banks:
+  - {fileID: 114320632001880404}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 232
 --- !u!114 &114245428819755494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +558,7 @@ MonoBehaviour:
   Path: event:/PC/Run/Dirt
   guid: ba992ffb69d9f9448a0f8716939d0b4d
   Banks:
-  - {fileID: 114754490349672554}
+  - {fileID: 114995412673769658}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -421,6 +617,24 @@ MonoBehaviour:
   Path: Project_Amnesia_SFX/Build/Desktop/PC.bank
   SubDir: 
   lastModified: 637287086293972666
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &114320632001880404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/UI.bank
+  SubDir: 
+  lastModified: 637302835322214979
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -492,12 +706,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Project_Amnesia_SFX/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637287086293962694
+  lastModified: 637302835321118915
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1558
+    Value: 2556
   Exists: 1
+--- !u!114 &114370727202574444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Goblin_bow/Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Goblin_bow/Attack
+  guid: ace958f3e48ca849ba0f3fdb9b3dc088
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 795
 --- !u!114 &114374783775663030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,7 +786,7 @@ MonoBehaviour:
   Path: event:/Enemy/Slime/Attack
   guid: 9731e0ea1d169a4c8b1856f75b8f808a
   Banks:
-  - {fileID: 114894483162821882}
+  - {fileID: 114643448331203250}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -572,6 +809,24 @@ MonoBehaviour:
   Path: Project_Amnesia_SFX/Build/Desktop/PC.bank
   SubDir: 
   lastModified: 637290359160009790
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &114387672294959728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Enemy.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/Enemy.bank
+  SubDir: 
+  lastModified: 637302654142913424
   LoadResult: 0
   FileSizes: []
   Exists: 0
@@ -626,7 +881,7 @@ MonoBehaviour:
   Path: event:/Enemy/Onion/Die
   guid: a23eaa52820c1a4cab536e7c363cd805
   Banks:
-  - {fileID: 114894483162821882}
+  - {fileID: 114643448331203250}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -687,7 +942,53 @@ MonoBehaviour:
   lastModified: 637287086293962694
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
+--- !u!114 &114462431355176700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Boss/Pat_Punch
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Boss/Pat_Punch
+  guid: fad712d1c55e0747acb89ba1b5f9ebcd
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2712
+--- !u!114 &114471865712720770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Goblin_Melee/Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Goblin_Melee/Attack
+  guid: 110744ffe421c345af090aec2921b4cc
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 117
 --- !u!114 &114473623655535068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,7 +1076,7 @@ MonoBehaviour:
   Path: event:/PC/Attack/Sword/DSword
   guid: 60d79ece1d3f9e4ba559ce68efbde66b
   Banks:
-  - {fileID: 114754490349672554}
+  - {fileID: 114995412673769658}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -783,6 +1084,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 839
+--- !u!114 &114505567389663592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/UI.bank
+  SubDir: 
+  lastModified: 637302655962724940
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &114530572294542104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,7 +1117,7 @@ MonoBehaviour:
   Path: event:/PC/Damaged/Damaged
   guid: 7fab8babb6a36e45a0af20c8b1e72ed2
   Banks:
-  - {fileID: 114754490349672554}
+  - {fileID: 114995412673769658}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -824,6 +1143,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114565399911820294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/PC.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/PC.bank
+  SubDir: 
+  lastModified: 637302654142943189
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &114565490592696926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,7 +1176,7 @@ MonoBehaviour:
   Path: event:/UI/Timer
   guid: 31853dbc0f18c64da51b96a141abdff8
   Banks:
-  - {fileID: 114209049400555072}
+  - {fileID: 114320632001880404}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -883,6 +1220,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114585463370416968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637302654142923347
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &114590695758061652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,7 +1253,7 @@ MonoBehaviour:
   Path: event:/Enemy/Onion/Appear
   guid: 09189d2c063a8743b125e85d7f52e634
   Banks:
-  - {fileID: 114894483162821882}
+  - {fileID: 114643448331203250}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -939,7 +1294,7 @@ MonoBehaviour:
   Path: event:/PC/Attack/Sword/RAttack
   guid: b2e744f7d263224a8786ce3e889e82e7
   Banks:
-  - {fileID: 114754490349672554}
+  - {fileID: 114995412673769658}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -980,6 +1335,47 @@ MonoBehaviour:
   Path: Project_Amnesia_SFX/Build/Desktop/Enemy.bank
   SubDir: 
   lastModified: 637287086293962694
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &114642127489704726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Wasp/Die
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Wasp/Die
+  guid: c8581e19a44afe4d9b1bc16629707e06
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 413
+--- !u!114 &114643448331203250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Enemy.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/Enemy.bank
+  SubDir: 
+  lastModified: 637302835320968780
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1037,6 +1433,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &114669283122403910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637302655961113447
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &114677028480331588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,6 +1469,75 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &114684462549282292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Boss/Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Boss/Attack
+  guid: 351c7365f590e8408f7831b99498d481
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &114689582451987358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Loop_Boss
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Loop_Boss
+  guid: cb74bf0be02e884b9215ec2cf3cfd91a
+  Banks:
+  - {fileID: 114092712554571320}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 51550
+--- !u!114 &114693118009362492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Intro_Boss
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Intro_Boss
+  guid: 0c26d7efc5e7124f999c988bfedf8e49
+  Banks:
+  - {fileID: 114092712554571320}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 11674
 --- !u!114 &114728846860118524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,6 +1556,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114743858413495462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Intro_Run
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Intro_Run
+  guid: 9c6701d75512cf408623d237a35f424a
+  Banks:
+  - {fileID: 114092712554571320}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 16498
 --- !u!114 &114746972999628886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,6 +1633,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &114750026766985184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/BGM.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/BGM.bank
+  SubDir: 
+  lastModified: 637302655962975174
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &114753664408168042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,7 +1686,7 @@ MonoBehaviour:
   lastModified: 637287086293972666
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114761221142593434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,7 +1702,7 @@ MonoBehaviour:
   Path: event:/Enemy/Gem_Broke
   guid: 2777abf5c807414da10b6c98d2507af9
   Banks:
-  - {fileID: 114894483162821882}
+  - {fileID: 114643448331203250}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1186,6 +1710,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 600
+--- !u!114 &114763343480263560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Loop_Run
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Loop_Run
+  guid: ed5b9b0fa4dd8747abc3e7e40bf51184
+  Banks:
+  - {fileID: 114092712554571320}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 40019
 --- !u!114 &114763960411085872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,6 +1787,47 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114798170618162074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Boss/Pat_Summon
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Boss/Pat_Summon
+  guid: df2f621b7f42754194c9151c8ad486a2
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1967
+--- !u!114 &114807779112013342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Enemy.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/Enemy.bank
+  SubDir: 
+  lastModified: 637302655961023363
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &114808760624397164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1255,7 +1843,7 @@ MonoBehaviour:
   Path: event:/Enemy/Gem_Broke_End
   guid: c19cd1ad6c746e439ec890a590f59a14
   Banks:
-  - {fileID: 114894483162821882}
+  - {fileID: 114643448331203250}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1370,7 +1958,7 @@ MonoBehaviour:
   lastModified: 637287086293962694
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114896994527913736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,6 +2013,42 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114918428616169858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/UI.bank
+  SubDir: 
+  lastModified: 637302654142948145
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &114927627724824964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/PC.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/PC.bank
+  SubDir: 
+  lastModified: 637302655962084369
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &114927998835004540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,7 +2064,7 @@ MonoBehaviour:
   Path: event:/Enemy/Onion/Attack
   guid: 99417015b1044b48815342363f8307e4
   Banks:
-  - {fileID: 114894483162821882}
+  - {fileID: 114643448331203250}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1448,6 +2072,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 749
+--- !u!114 &114932780167150986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PC/Use/SpeedUp
+  m_EditorClassIdentifier: 
+  Path: event:/PC/Use/SpeedUp
+  guid: 7dccc2cb13ed4e4bbad1c1ac252c3d2e
+  Banks:
+  - {fileID: 114995412673769658}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1250
 --- !u!114 &114940324882470236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1466,6 +2113,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114942792588422840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Goblin_bow/Die
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Goblin_bow/Die
+  guid: f4dc677634ef46488bd9df4b9ec8ba23
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 818
 --- !u!114 &114944934065201486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1484,6 +2154,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114948267184389846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Goblin_Melee/Die
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Goblin_Melee/Die
+  guid: 444f8bd15dcf20469e2c1f8956bc3501
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 557
 --- !u!114 &114969384697208894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,7 +2228,7 @@ MonoBehaviour:
   Path: event:/PC/Attack/Sword/BAttack
   guid: 139afaeec0808349a63d6b6a13d979ed
   Banks:
-  - {fileID: 114754490349672554}
+  - {fileID: 114995412673769658}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1543,6 +2236,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 240
+--- !u!114 &114982114943427454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PC/Jump
+  m_EditorClassIdentifier: 
+  Path: event:/PC/Jump
+  guid: 3946b3d5d754ae42aee67453116e629d
+  Banks:
+  - {fileID: 114995412673769658}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 933
 --- !u!114 &114982164974965976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1576,7 +2292,7 @@ MonoBehaviour:
   Path: event:/Enemy/Slime/Die
   guid: 460243176dafea41980da064ae43a747
   Banks:
-  - {fileID: 114894483162821882}
+  - {fileID: 114643448331203250}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1584,6 +2300,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1303
+--- !u!114 &114990749711216716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy/Wasp/Attack
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy/Wasp/Attack
+  guid: 617ce8f8487ec746bcd75290d120dda4
+  Banks:
+  - {fileID: 114643448331203250}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &114992756088622260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1620,6 +2359,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114995412673769658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/PC.bank
+  m_EditorClassIdentifier: 
+  Path: Project_Amnesia_SFX/Build/Desktop/PC.bank
+  SubDir: 
+  lastModified: 637302835321829560
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114996288980668762
 MonoBehaviour:
   m_ObjectHideFlags: 0
