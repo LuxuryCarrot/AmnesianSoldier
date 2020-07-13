@@ -9,7 +9,7 @@ public class BossAttack : BossParent
     public override void BeginState()
     {
         base.BeginState();
-        temp = 5;
+        temp = 3;
         if (manager.attacktQueue.Count != 0)
             manager.attacktQueue.Clear();
         for(int i=0; i<manager.attackAmount; i++)
@@ -24,12 +24,13 @@ public class BossAttack : BossParent
             manager.attacktQueue.Enqueue(newtype);
         }
 
-        
+        manager.CastingBar.SetActive(true);
         PlayerManager.playerSingleton.SetState(PlayerState.BOSSBATTLE);
     }
     private void Update()
     {
         temp -= Time.deltaTime;
+        manager.CastingBar.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = temp / 3;
         if(temp<=0)
         {
             temp = 100;
@@ -41,6 +42,8 @@ public class BossAttack : BossParent
     public override void EndState()
     {
         base.EndState();
+        if (manager != null)
+            manager.CastingBar.SetActive(false);
         for (; transform.GetChild(1).childCount != 0;)
         {
             GameObject thisButton = transform.GetChild(1).GetChild(0).gameObject;

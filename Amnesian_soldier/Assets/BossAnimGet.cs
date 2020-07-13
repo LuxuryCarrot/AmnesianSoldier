@@ -29,6 +29,7 @@ public class BossAnimGet : MonoBehaviour
 
     public void TrapSpawn()
     {
+        CameraManager.camSingleTon.SetState(CamState.SHAKE);
         for (int i = 0; i < 3; i++)
         {
             Ray ray = new Ray(transform.parent.transform.position + new Vector3(i, 0, 0)
@@ -48,5 +49,10 @@ public class BossAnimGet : MonoBehaviour
     public void EndState()
     {
         GetComponentInParent<BossManager>().SetState(BossState.IDLE);
+    }
+    public void BossRangeGet()
+    {
+        GameObject range = Instantiate(Resources.Load("Prefabs/UIPrefab/BlinkingRange") as GameObject, StageManager.stageSingletom.BossCanvas.transform);
+        range.GetComponent<RectTransform>().localPosition = new Vector3(-300, 0, 0);
     }
 }

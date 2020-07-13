@@ -255,9 +255,9 @@ public class StageManager : MonoBehaviour
         Vector3 position = Camera.main.WorldToScreenPoint(pos);
         GameObject newFont;
         if (isHit)
-            newFont= Instantiate(Resources.Load("Prefabs/UIPrefab/HitPrefab") as GameObject, HitKillCanvas.transform);
+            newFont= Instantiate(Resources.Load("Prefabs/UIPrefab/HitPrefabNew") as GameObject, HitKillCanvas.transform);
         else
-            newFont= Instantiate(Resources.Load("Prefabs/UIPrefab/KillPrefab") as GameObject, HitKillCanvas.transform);
+            newFont= Instantiate(Resources.Load("Prefabs/UIPrefab/KillPrefabNew") as GameObject, HitKillCanvas.transform);
 
         newFont.GetComponent<RectTransform>().localPosition = new Vector3(810,0,0);
     }

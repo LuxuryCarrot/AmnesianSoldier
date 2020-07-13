@@ -14,15 +14,20 @@ public class BossDie : BossParent
     }
     private void Update()
     {
-        if(temp==0)
-            Time.timeScale = 0;
-        temp += Time.fixedDeltaTime;
-        if(temp>=1)
+        if (temp == 0)
         {
+            Time.timeScale = 0.2f;
+            
+            StageManager.stageSingletom.WinFlashCanvas.SetActive(true);
+        }
+        temp += Time.fixedDeltaTime;
+        if(temp>=2)
+        {
+            
             Time.timeScale = 1;
         }
 
-        if(temp>=3)
+        if(temp>=7)
            StageManager.stageSingletom.SetState(StageState.GAMECLEAR);
         
     }

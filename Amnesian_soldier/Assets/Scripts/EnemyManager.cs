@@ -127,6 +127,8 @@ public class EnemyManager : MonoBehaviour
     private void Update()
     {
         //땅에 떨어지는 부분.
+        if (transform.position.y > 500)
+            transform.position = new Vector3(transform.position.x, 3, 0);
         if (GetComponent<CharacterController>().enabled)
         {
             if (!GetComponent<CharacterController>().isGrounded)

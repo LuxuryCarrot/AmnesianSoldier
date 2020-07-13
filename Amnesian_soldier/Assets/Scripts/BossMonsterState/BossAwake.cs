@@ -12,6 +12,7 @@ public class BossAwake : BossParent
         base.BeginState();
         transform.position
             = new Vector3(PlayerManager.playerSingleton.transform.position.x + 10, 20.0f, 0);
+        manager.anim.SetTrigger("Summon");
     }
     private void Update()
     {

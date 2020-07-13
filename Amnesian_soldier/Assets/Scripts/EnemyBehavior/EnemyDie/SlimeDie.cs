@@ -11,7 +11,7 @@ public class SlimeDie : EnemyDieParent
 
     private void Awake()
     {
-        FlySpeed = new Vector3(10, 20, 0);
+        FlySpeed = new Vector3(20, 40, 0);
         Gravity = 10;
         manager = GetComponent<EnemyManager>();
         if (Level == 0)

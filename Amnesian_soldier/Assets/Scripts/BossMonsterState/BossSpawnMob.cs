@@ -10,8 +10,9 @@ public class BossSpawnMob : BossParent
     public override void BeginState()
     {
         base.BeginState();
-        temp = 1;
+        temp = 0.5f;
         spawn = spawnAmount;
+        
         manager.anim.SetTrigger("Summon");
     }
     private void Update()
@@ -20,7 +21,7 @@ public class BossSpawnMob : BossParent
         if(temp <=0)
         {
             GameObject newMob = Instantiate(manager.MonsterSpawnPool[Random.Range(0, manager.MonsterSpawnPool.Length)]);
-            newMob.transform.position = transform.position - new Vector3(0.5f, 0, 0);
+            newMob.transform.position = manager.transform.position - new Vector3(0.5f, 0, 0);
             MonsterManager.Monsters.Add(newMob);
             spawn--;
             temp = 2;

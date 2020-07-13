@@ -53,7 +53,7 @@ public class TutorialManager : MonoBehaviour
         skillFlow = 0;
         temp = 3;
         skillTemp = 2;
-        attTemp = 2;
+        attTemp = 6;
         attTuto = 0;
         defTuto = 0;
     }
@@ -82,7 +82,7 @@ public class TutorialManager : MonoBehaviour
             if (temp <= 0)
             {
                 Time.timeScale = 1;
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 Tuto1.SetActive(false);
             }
@@ -95,7 +95,7 @@ public class TutorialManager : MonoBehaviour
             if (temp <= 0)
             {
                 Time.timeScale = 1;
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 Tuto2.SetActive(false);
             }
@@ -109,7 +109,7 @@ public class TutorialManager : MonoBehaviour
             if (temp <= 0)
             {
                 Time.timeScale = 1;
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 Tuto3.SetActive(false);
             }
@@ -123,7 +123,7 @@ public class TutorialManager : MonoBehaviour
             if (temp <= 0)
             {
                 Time.timeScale = 1;
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 Tuto4.SetActive(false);
             }
@@ -141,7 +141,7 @@ public class TutorialManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Time.timeScale = 1;
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 Tuto7.SetActive(false);
             }
@@ -153,7 +153,7 @@ public class TutorialManager : MonoBehaviour
             temp -= Time.fixedDeltaTime;
             if (temp <= 0)
             {
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 Tuto8.SetActive(false);
             }
@@ -164,7 +164,7 @@ public class TutorialManager : MonoBehaviour
             temp -= Time.fixedDeltaTime;
             if (temp <= 0)
             {
-                temp = 3;
+                temp = 6;
                 tutoFlow += 1;
                 Tuto9.SetActive(false);
             }
@@ -178,7 +178,7 @@ public class TutorialManager : MonoBehaviour
             temp -= Time.fixedDeltaTime;
             if (temp <= 0)
             {
-                temp = 3;
+                temp = 6;
                 tutoFlow += 3;
                 Tuto18.SetActive(false);
             }
@@ -192,7 +192,7 @@ public class TutorialManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Time.timeScale = 1;
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 Tuto21.SetActive(false);
             }
@@ -204,13 +204,14 @@ public class TutorialManager : MonoBehaviour
             temp -= Time.fixedDeltaTime;
             if (temp <= 0)
             {
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 Tuto22.SetActive(false);
             }
         }
         else if (tutoFlow == 23
-            && PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <= PlayerManager.playerSingleton.AimStartRange)
+            && ((PlayerManager.playerSingleton.iteratingEnemy!=null && PlayerManager.playerSingleton.iteratingEnemy.transform.position.x - PlayerManager.playerSingleton.transform.position.x <= PlayerManager.playerSingleton.AimStartRange
+            )||Tuto23.activeInHierarchy))
         {
             Tuto23.SetActive(true);
             Time.timeScale = 0f;
@@ -218,7 +219,7 @@ public class TutorialManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Time.timeScale = 1;
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 Tuto23.SetActive(false);
             }
@@ -231,7 +232,7 @@ public class TutorialManager : MonoBehaviour
 
             if (temp<=0)
             {
-                temp = 3;
+                temp = 6;
                 tutoFlow++;
                 StaticManager.staticInfosSingleTon.isTutoEnd = true;
                 Tuto24.SetActive(false);
@@ -286,7 +287,7 @@ public class TutorialManager : MonoBehaviour
                     isAttTutoEnd = true;
                     StaticManager.staticInfosSingleTon.isAttTutoEnd = true;
                     attTuto++;
-                    attTemp = 2;
+                    attTemp = 6;
                 }
             }
 
@@ -310,8 +311,7 @@ public class TutorialManager : MonoBehaviour
             }
             else if (defTuto == 1)
             {
-                if (PlayerManager.playerSingleton.iteratingEnemy == null)
-                    defTuto = 0;
+                
                 tutoTerm -= Time.fixedDeltaTime;
                 if (tutoTerm <= 0)
                 {
@@ -322,7 +322,7 @@ public class TutorialManager : MonoBehaviour
                     {
                         Tuto14.SetActive(false);
                         defTuto++;
-                        attTemp = 2;
+                        attTemp = 6;
                     }
                 }
             }
@@ -337,7 +337,7 @@ public class TutorialManager : MonoBehaviour
                     Time.timeScale = 1;
                     isDefTutoEnd = true;
                     StaticManager.staticInfosSingleTon.isDefTutoEnd = true;
-                    attTemp = 2;
+                    attTemp = 6;
                     defTuto++;
                 }
             }

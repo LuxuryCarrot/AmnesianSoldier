@@ -24,6 +24,7 @@ public class BossManager : MonoBehaviour
     public float hp;
     public float hpMax;
     public int attackAmount;
+    public GameObject CastingBar;
     public Queue<AttackType> attacktQueue = new Queue<AttackType>();
 
     public GameObject[] MonsterSpawnPool;
@@ -31,6 +32,7 @@ public class BossManager : MonoBehaviour
     private void Awake()
     {
         AttackCanvas = transform.GetChild(1).gameObject;
+        CastingBar = transform.GetChild(2).gameObject;
         anim = GetComponentInChildren<Animator>();
         PlayerManager.playerSingleton.boss = this;
         BossFlow.Add(BossState.IDLE, GetComponent<BossIdle>());
@@ -44,6 +46,7 @@ public class BossManager : MonoBehaviour
         BossFlow.Add(BossState.AWAKE, GetComponent<BossAwake>());
         current = BossState.AWAKE;
         SetState(current);
+        CastingBar.SetActive(false);
     }
     private void Update()
     {
@@ -51,7 +54,7 @@ public class BossManager : MonoBehaviour
         transform.position
             = new Vector3(PlayerManager.playerSingleton.transform.position.x+10, 3.5f, 0);
 
-        if(hp<=0)
+        if(hp<=0 && current!=BossState.DIE)
         {
             
             SetState(BossState.DIE);

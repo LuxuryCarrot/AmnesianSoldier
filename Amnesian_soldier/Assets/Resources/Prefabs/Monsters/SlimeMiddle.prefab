@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.01, y: 0.78}
+  m_AnchoredPosition: {x: -0.01, y: 0.61}
   m_SizeDelta: {x: 2.32, y: 0.244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5233119252967399641
@@ -638,6 +638,10 @@ PrefabInstance:
       propertyPath: m_CullingMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 361cb3999200b3543962de61328782f6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d93414de058ca05479741f26c7b0c25d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 361cb3999200b3543962de61328782f6, type: 3}
 --- !u!1 &6090581849991394170 stripped

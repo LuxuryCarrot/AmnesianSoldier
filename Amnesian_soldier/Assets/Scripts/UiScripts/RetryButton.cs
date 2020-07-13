@@ -25,4 +25,8 @@ public class RetryButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         StageManager.stageSingletom = null;
         SceneManager.LoadScene(3);
     }
+    public void MainButton()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
