@@ -31,7 +31,7 @@ public class BulletManager : MonoBehaviour
         if (xSpeed == 0)
             return;
 
-        transform.position +=
+        transform.parent.position +=
             new Vector3(xSpeed, ySpeed, 0) * Time.deltaTime;
 
         ySpeed -= gravity * Time.deltaTime;
@@ -46,11 +46,11 @@ public class BulletManager : MonoBehaviour
                 && PlayerManager.playerSingleton.boss.current==BossState.STUN)
             {
                 if (Vector3.SqrMagnitude(PlayerManager.playerSingleton.boss.transform.position -
-                       transform.position) <= 1.0f)
+                       transform.parent.position) <= 1.0f)
                 {
 
                     PlayerManager.playerSingleton.boss.hp -= damage;
-                    Destroy(this.gameObject);
+                    Destroy(transform.parent.gameObject);
                     
                 }
             }
@@ -59,13 +59,13 @@ public class BulletManager : MonoBehaviour
                 foreach(GameObject mob in MonsterManager.Monsters)
                 {
                     if(Vector3.SqrMagnitude(mob.transform.position -
-                       transform.position) <= 1.0f)
+                       transform.parent.position) <= 1.0f)
                     {
                         EnemyManager manager = mob.GetComponent<EnemyManager>();
                         if(PlayerManager.playerSingleton.current!=PlayerState.PINN)
                            manager.SetState(EnemyState.KNOCKBACK);
                         manager.hp -= damage;
-                        Destroy(this.gameObject);
+                        Destroy(transform.parent.gameObject);
                         break;
                     }
                 }
@@ -76,8 +76,8 @@ public class BulletManager : MonoBehaviour
         }
         else
         {
-            if(Vector3.SqrMagnitude(PlayerManager.playerSingleton.transform.position- 
-                transform.position) <=1.0f )
+            if(Vector3.SqrMagnitude(PlayerManager.playerSingleton.transform.position-
+                transform.parent.position) <=1.0f )
             {
                 if(PlayerManager.playerSingleton.attackType!=AttackType.GUARD)
                 {
@@ -90,13 +90,13 @@ public class BulletManager : MonoBehaviour
                     PlayerManager.playerSingleton.SetState(PlayerState.KNOCKBACK);
                 }
 
-                Destroy(this.gameObject);
+                Destroy(transform.parent.gameObject);
             }
         }
 
         if(temp<=0)
         {
-            Destroy(this.gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 

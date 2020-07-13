@@ -34,6 +34,7 @@ public class PlayerPinning : PlayerParent
                 if (manager.iteratingEnemy.hp > manager.weapon.weaponDamage)
                 {
                     manager.iteratingEnemy.hp-=manager.weapon.weaponDamage;
+                    StageManager.stageSingletom.HitKillSpawn(manager.iteratingEnemy.transform.position, true);
                 }
                 else
                 {

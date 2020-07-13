@@ -70,6 +70,7 @@ public class PlayerBattle : PlayerParent
                 manager.attackType = AttackType.NONE;
                 manager.anim.SetBool("Success", true);
                 manager.iteratingEnemy.SetState(EnemyState.KNOCKBACK);
+                StageManager.stageSingletom.HitKillSpawn(manager.iteratingEnemy.transform.position, true);
                 manager.iteratingEnemy.hp -= manager.weapon.weaponDamage;
                 if (manager.iteratingEnemy.damageBehavior != null)
                     manager.iteratingEnemy.damageBehavior.Execute();

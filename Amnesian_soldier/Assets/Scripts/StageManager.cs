@@ -58,6 +58,7 @@ public class StageManager : MonoBehaviour
     public GameObject MinimapAnchor;
     public GameObject miniMap;
     public GameObject BossCanvas;
+    public GameObject voidCanvas;
     
     public Text MapselectLimitTime;
     public Text MapselectLimitTimeShadow;

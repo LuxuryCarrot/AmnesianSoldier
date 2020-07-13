@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handArrow: {fileID: 149593089186306536, guid: fc65da909f534c44dacb2555d61d549a,
     type: 3}
-  ShootArrow: {fileID: 3274636197167029559, guid: ef79dbbfc76c628449e40a42c40f097c,
+  ShootArrow: {fileID: 1510126537339263832, guid: 1ebbc649a49208e47b5f079ceb352629,
     type: 3}
 --- !u!114 &5067407171371630586
 MonoBehaviour:

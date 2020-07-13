@@ -36,7 +36,7 @@ public class PlayerBossBattle : PlayerParent
             GameObject thisButton = manager.boss.transform.GetChild(1).GetChild(0).gameObject;
             thisButton.transform.SetParent(null);
             Destroy(thisButton);
-            if(manager.boss.attacktQueue.Peek()==AttackType.GUARD)
+            if(manager.boss.attacktQueue.Peek()==AttackType.HORIZON)
             {
                 manager.boss.attacktQueue.Dequeue();
                 answer++;
@@ -49,10 +49,11 @@ public class PlayerBossBattle : PlayerParent
         }
         else if(Input.GetMouseButtonDown(1))
         {
+            //보석 꺠지는 소리 넣는곳
             GameObject thisButton = manager.boss.transform.GetChild(1).GetChild(0).gameObject;
             thisButton.transform.SetParent(null);
             Destroy(thisButton);
-            if (manager.boss.attacktQueue.Peek() == AttackType.HORIZON)
+            if (manager.boss.attacktQueue.Peek() == AttackType.GUARD)
             {
                 manager.boss.attacktQueue.Dequeue();
                 answer++;

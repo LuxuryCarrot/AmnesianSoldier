@@ -38,6 +38,6 @@ public class AnimGetEnemy : MonoBehaviour
         float gravity = 10;
         GameObject arrow = Instantiate(ShootArrow);
         ShootArrow.transform.position = transform.parent.transform.position;
-        arrow.GetComponent<BulletManager>().SetInfomation(-12, shootTime * 5, gravity, BulletType.ENEMY, shootTime * 12 + 10);
+        arrow.GetComponentInChildren<BulletManager>().SetInfomation(-12, shootTime * 5, gravity, BulletType.ENEMY, shootTime * 12 + 10);
     }
 }
