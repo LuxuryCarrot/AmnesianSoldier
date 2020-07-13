@@ -9,14 +9,9 @@ public class FmodController : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/PC/Run/Dirt");
     }
 
-    public void PlayerBAttack()
+    public void PlayerAttack()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/PC/Attack/Sword/BAttack");
-    }
-
-    public void PlayerRAttack()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/PC/Attack/Sword/RAttack");
     }
 
     public void PlayerPotion()
@@ -39,10 +34,23 @@ public class FmodController : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/Slime/Attack");
     }
 
+
     public void SlimeDie()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/Slime/Die");
     }
 
-    
+    //[FMODUnity.EventRef]
+    //public string SlimeDieEvent;
+    //FMOD.Studio.EventInstance SlimeDieT;
+
+    //public void Ddd()
+    //{
+    //    SlimeDieT = FMODUnity.RuntimeManager.CreateInstance(SlimeDieEvent);
+    //    SlimeDieT.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+    //    SlimeDieT.start();
+    //    print("SlimeDIe");
+    //}
+
+
 }

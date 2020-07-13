@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99303e2f60ac78947aab95aaaf7564ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SlimeDieEvent: event:/Enemy/Slime/Die
 --- !u!114 &4137439678558063861
 MonoBehaviour:
   m_ObjectHideFlags: 0

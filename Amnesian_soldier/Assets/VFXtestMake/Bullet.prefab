@@ -9540,9 +9540,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5169544099053047095}
-  - component: {fileID: 8147268417683968583}
   - component: {fileID: 7112699805046652709}
   - component: {fileID: 2446933081647008088}
+  - component: {fileID: 3839005977639531874}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -9567,24 +9567,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8147268417683968583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5169544099053047094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8d4b46cfc710148aa635ee65618318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  fireRate: 4
-  muzzlePrefab: {fileID: 8402783816017222195, guid: 15d15cc3423a61044b3122f1d506b1e5,
-    type: 3}
-  hitPrefab: {fileID: 8174535653686951858, guid: 2fc7f9d215c34d240bf32af9c056320d,
-    type: 3}
 --- !u!65 &7112699805046652709
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9614,3 +9596,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3839005977639531874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5169544099053047094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8d4b46cfc710148aa635ee65618318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 45
+  powerY: 40
+  powerX: 40
+  GP: 20
+  endTime: 5
+  fireRate: 0
+  muzzlePrefab: {fileID: 0}
+  hitPrefab: {fileID: 0}
