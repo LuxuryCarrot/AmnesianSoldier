@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-D:/OneDrive/바탕 화면/최종이다 씨발/AmnesianSoldier.exe
+C:/Users/NOW2_400_233/Desktop/새 폴더 (13)/AmnesianSoldier.exe
 SceneListBegin?
 Assets/Scenes/0_StartSplashScene.unity
 Assets/Scenes/1_MainScene.unity
@@ -313,3 +313,4 @@ d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerBattle
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MerchantOnClick
 89c1e97f7398006d3084ac2263d9c984 Assembly-CSharp.dll:.CardHaist
 0ad9521c81b35ceb31aff1fdf3009207 Assembly-CSharp.dll:.OnionAwake
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ButtonMainScene
