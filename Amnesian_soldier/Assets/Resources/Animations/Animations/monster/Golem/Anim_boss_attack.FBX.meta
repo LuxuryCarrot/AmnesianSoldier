@@ -116,7 +116,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.50230414
+      - time: 0.28033474
+        functionName: BossRangeGet
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.49787235
+        functionName: BossAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5108148
         functionName: Attack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -125,13 +139,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0.8970241
         functionName: EndState
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.28033474
-        functionName: BossRangeGet
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

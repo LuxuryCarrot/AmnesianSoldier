@@ -160,6 +160,7 @@ MonoBehaviour:
   hp: 50
   hpMax: 50
   attackAmount: 5
+  CastingBar: {fileID: 0}
   MonsterSpawnPool:
   - {fileID: 970495092198981321, guid: 486f23b81621db242b0fcb0305438cff, type: 3}
   - {fileID: 1686942569005877315, guid: 1feca822d1eeac448bfe1d7c57e96da8, type: 3}
@@ -610,6 +611,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3755fa5f7a970d54192a8044bfd0e729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6557337344962124639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7804187134682374291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02392bc6bff1147489389d126df5b5ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossAppEvent: event:/Enemy/Boss/Appear
+  BossDeadEvent: event:/Enemy/Boss/Die
+  BossAttEvent: event:/Enemy/Boss/Attack
+  BossPatPEvent: event:/Enemy/Boss/Pat_Punch
+  BossPatSEvent: event:/Enemy/Boss/Pat_Summon
+  BossPatTEvent: event:/Enemy/Boss/Pat_Trap
 --- !u!1001 &7804187134682408499
 PrefabInstance:
   m_ObjectHideFlags: 0

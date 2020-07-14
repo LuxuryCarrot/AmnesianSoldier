@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-D:/OneDrive/바탕 화면/기말시연 테스트 빌드/AmnesianSoldier.exe
+D:/OneDrive/바탕 화면/최종이다 씨발/AmnesianSoldier.exe
 SceneListBegin?
 Assets/Scenes/0_StartSplashScene.unity
 Assets/Scenes/1_MainScene.unity
@@ -29,7 +29,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 5aa618a4fc67c36772d641d1a9261626 Assembly-CSharp.dll:.Shake
 a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossParent
-64a20175390b8c9f705cff55b6f48d2c Assembly-CSharp.dll:.BGMSound
+b321cc24b4ad3f15cc128ffbf7569f18 Assembly-CSharp.dll:.BGMSound
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MonsterManager
 71f7f12b8d0f4fd73590db8bcb6d453c Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.Bloom
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
@@ -74,7 +74,7 @@ f542c1afca5bb4022f91fdda19b8d622 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 d3c76b14a25eebd3a3323dd43297919c Unity.TextMeshPro.dll:TMPro.TMP_InputField
 130b9cd93c79860f94f2eb490cbea677 Assembly-CSharp.dll:.MapSpawnInstance
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.RestStageCanvasManager
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GoblinSound
+e8672541f089ec3af62e94314633edad Assembly-CSharp.dll:.GoblinSound
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 507174d46dacbc5fe45e28485db5dd1e UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -179,6 +179,7 @@ c9dc968f5ee06a853b2a032d6c417551 Assembly-CSharp.dll:.TestSpeed
 9117cd4df0b88de6e36bc4f08d2cefed Assembly-CSharp.dll:.BulletManager
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 a3a51de1131f6bcd7bdae503304b11aa Assembly-CSharp.dll:.BossIdle
+0f8897fbe1990aacdf94dc9736f68d5f Assembly-CSharp.dll:.BossSound
 d941aedea9fdb86c481ea999440f5443 Assembly-CSharp.dll:.PlayerDelay
 23a8326e7ed13707edd91871f839a791 Assembly-CSharp.dll:.CameraManager
 c181cbb5ec0b09544e90b138a7ec12fe Assembly-CSharp.dll:.SlimeDie

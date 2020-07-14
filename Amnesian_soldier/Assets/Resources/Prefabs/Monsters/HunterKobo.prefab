@@ -161,7 +161,7 @@ MonoBehaviour:
     type: 3}
   ShootArrow: {fileID: 1510126537339263832, guid: 1ebbc649a49208e47b5f079ceb352629,
     type: 3}
---- !u!114 &5067407171371630586
+--- !u!114 &1240324690387448111
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,9 +170,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5519229944159144305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99303e2f60ac78947aab95aaaf7564ca, type: 3}
+  m_Script: {fileID: 11500000, guid: b8c1164257012024bab48fcc996f1272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoblinMAttEvent: event:/Enemy/Goblin_Melee/Attack
+  GoblinBAttEvent: event:/Enemy/Goblin_bow/Attack
+  GoblinDeadEvent: event:/Enemy/Goblin_Melee/Die
 --- !u!1 &6085117396134979389
 GameObject:
   m_ObjectHideFlags: 0

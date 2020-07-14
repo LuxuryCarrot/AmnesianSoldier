@@ -705,6 +705,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunBGMIntroEvent: event:/BGM/Intro_Run
   RunBGMLoopEvent: event:/BGM/Loop_Run
+  BossBGMIntroEvent: event:/BGM/Intro_Boss
+  BossBGMLoopEvent: event:/BGM/Loop_Boss
 --- !u!1 &3992378448726777905
 GameObject:
   m_ObjectHideFlags: 0

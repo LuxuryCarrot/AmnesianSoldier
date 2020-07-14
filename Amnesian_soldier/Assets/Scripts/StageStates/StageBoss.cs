@@ -6,7 +6,8 @@ public class StageBoss : StageParent
 {
     public override void BeginState()
     {
-        base.BeginState();
+        BGMSound.instance.isboss = true;
+        base.BeginState(); 
         PlayerManager.playerSingleton.SetState(PlayerState.DELAY);
     }
     private void Update()
